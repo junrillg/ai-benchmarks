@@ -14,7 +14,7 @@ No invented results, task costs, evaluation conditions, release status or access
 | Professional interactive visual design | Verified | Approved research plate; hero checkpoint and responsive inspections complete; independent finish review: ship, no material fixes; DESIGN.md and schema-2 sidecar recorded |
 | Runnable validation | Verified | Production build, data/parser/geometry checks, browser controls and three viewport widths pass; checks in .impeccable/review/checks.md |
 | Public GitHub repository under junrillg | Published | https://github.com/junrillg/ai-benchmarks; main contains the reviewed app and design evidence; Check workflow validates pushes |
-| Cloudflare Pages at requested hostname | Verified | https://ai-benchmarks.pages.dev; production deployment 5a59ac94 from 145a7e2; revised assets, tooltips, public data gates and both feeds verified in Chrome Personal |
+| Cloudflare Pages at requested hostname | Verified | https://ai-benchmarks.pages.dev; production deployment 8d4d9e8a from 14b2a67; consolidated defaults and all three direct menu routes verified in Chrome Personal |
 
 Stop only after the requirements above have direct evidence, or identify the specific input that blocks remaining work. Goal state is managed by conversation tools, not this file.
 
@@ -44,6 +44,6 @@ Outcome: show all published model results for each verified benchmark/version by
 | Canonical benchmark identity | Verified | Three confirmed aliases consolidated; four featured IDs unchanged; uncertain length-adjustment protocol kept separate |
 | Consolidated chart defaults | Verified | Chrome Personal confirms all-source models, exact Grok cost dots, source-resolved tooltip/evidence, score-only shelf and visible mixed-cost/estimated-cost notes |
 | Chart-focused homepage and isolated menu pages | Verified locally | Home chart; /benchmarks, /models, /methodology; desktop/mobile, direct reload, Back and keyboard catalog drilldown pass |
-| Validation and deployment | Ready to publish | Python five checks, data/chart/navigation regressions and build pass; detector zero errors; desktop/mobile review passes; publish and live-route smoke next |
+| Validation and deployment | Verified | All checks pass; app commit 14b2a67 pushed under junrillg; Check run 37009790617 successful; Pages 8d4d9e8a; live all-source defaults and /benchmarks, /models, /methodology direct routes pass |
 
 Stop after the revised live site and required checks pass, with any real publication gaps documented.
