@@ -14,7 +14,7 @@ No invented results, task costs, evaluation conditions, release status or access
 | Professional interactive visual design | Verified | Approved research plate; hero checkpoint and responsive inspections complete; independent finish review: ship, no material fixes; DESIGN.md and schema-2 sidecar recorded |
 | Runnable validation | Verified | Production build, data/parser/geometry checks, browser controls and three viewport widths pass; checks in .impeccable/review/checks.md |
 | Public GitHub repository under junrillg | Published | https://github.com/junrillg/ai-benchmarks; main contains the reviewed app and design evidence; Check workflow validates pushes |
-| Cloudflare Pages at requested hostname | Verified | https://ai-benchmarks.pages.dev; production deployment 10080a5b from ee3251b; HTTPS 200, CSS/JS/font 200, live tabs and both feeds pass in Chrome Personal |
+| Cloudflare Pages at requested hostname | Verified | https://ai-benchmarks.pages.dev; production deployment 5a59ac94 from 145a7e2; revised assets, tooltips, public data gates and both feeds verified in Chrome Personal |
 
 Stop only after the requirements above have direct evidence, or identify the specific input that blocks remaining work. Goal state is managed by conversation tools, not this file.
 
@@ -29,6 +29,6 @@ No invented missing results or task costs; keep distinct benchmark versions and 
 | Latest-model coverage research | Verified | Primary-source coverage report: 493 net additions; all 11 requested models have sourced results; added Anthropic records independently audited |
 | Available models only | Verified | Publication regression checks and Chrome review confirm usable models only, internal-only discovery, and model-to-benchmark catalog navigation |
 | Near-dot tooltip | Verified | Exact values on pointer hover and keyboard focus; pointer leave dismisses; 1920px/390px review confirms bounded position and no document overflow |
-| Publish revised app | Ready to publish | Python/Node regressions, data contract and TypeScript/Vite build pass; Chrome Personal desktop/mobile review passes; push and Pages deployment next |
+| Publish revised app | Verified | App commit 145a7e2 pushed to junrillg/ai-benchmarks; Check run 36986428095 passed; Pages deployment 5a59ac94; Chrome Personal verifies new assets, exact tooltip, both feeds, no placeholders, overflow or console errors |
 
 Stop after these checks pass and the revised live site is verified.
