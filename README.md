@@ -4,7 +4,7 @@ An interactive benchmark explorer for Anthropic, OpenAI, xAI/Grok, Moonshot AI/K
 
 The bundled snapshot contains **119 benchmark records and 558 sourced result points**. Missing results remain missing; token prices never substitute for benchmark task costs.
 
-Public repository: [junrillg/ai-benchmarks](https://github.com/junrillg/ai-benchmarks). Intended deployment: [ai-benchmarks.pages.dev](https://ai-benchmarks.pages.dev); the hostname remains a target until deployment is verified.
+Live app: [ai-benchmarks.pages.dev](https://ai-benchmarks.pages.dev). Public source: [junrillg/ai-benchmarks](https://github.com/junrillg/ai-benchmarks). Production hosting, chart interactions and both public feeds were verified on 2026-10-02.
 
 ## Run and check
 

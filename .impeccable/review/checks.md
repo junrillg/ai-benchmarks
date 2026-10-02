@@ -18,4 +18,6 @@ Verified 2026-10-02 against the production build served at http://127.0.0.1:4173
 
 The floating white speech toolbar and highlighted cursor in screenshots belong to the user's browser extension/computer-control capture, not to the application. They were not disabled or edited out. Full-page images start at the document top; hero crops are named separately. `hero-repro-full.png` is the superseded first font proof, not final evidence.
 
-Cloudflare owner reports local authentication complete. Repository creation, deployment and production-host verification remain pending.
+Independent finish review returned **ship** with no material fixes. DESIGN.md and the schema-2 design sidecar record the shipped artifact.
+
+Published on 2026-10-02 to https://ai-benchmarks.pages.dev using Cloudflare Pages Direct Upload, deployment `10080a5b`, reviewed application commit `ee3251b`. Production HTML, JavaScript, stylesheet and font return HTTP 200; security headers are present. Chrome Personal verified production DeepSWE tab switching, 15 interactive markers, both successful public-feed refresh notices, 165 catalog entries, no horizontal overflow and no warning/error console entries. Temporary viewport overrides were reset. The public source repository is https://github.com/junrillg/ai-benchmarks; its Check workflow runs the build and data checks on pushes.
