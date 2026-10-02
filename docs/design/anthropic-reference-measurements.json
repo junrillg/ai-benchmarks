@@ -1,0 +1,494 @@
+{
+  "caption": [
+    {
+      "background": "rgba(0, 0, 0, 0)",
+      "border": "0px none rgb(20, 20, 19)",
+      "color": "rgb(20, 20, 19)",
+      "fontFamily": "anthropicSans, \"anthropicSans Fallback\", sans-serif",
+      "fontSize": "17px",
+      "fontWeight": "600",
+      "letterSpacing": "-0.16px",
+      "lineHeight": "23.8px",
+      "maxWidth": "none",
+      "padding": "0px",
+      "rect": {
+        "height": 23.796875,
+        "width": 135.046875,
+        "x": 537.5,
+        "y": 143.21875
+      },
+      "role": "SPAN",
+      "text": "CursorBench 4.0"
+    },
+    {
+      "background": "rgba(0, 0, 0, 0)",
+      "border": "0px none rgb(94, 93, 89)",
+      "color": "rgb(94, 93, 89)",
+      "fontFamily": "anthropicSans, \"anthropicSans Fallback\", sans-serif",
+      "fontSize": "15px",
+      "fontWeight": "400",
+      "letterSpacing": "-0.16px",
+      "lineHeight": "21px",
+      "maxWidth": "none",
+      "padding": "0px",
+      "rect": {
+        "height": 21,
+        "width": 119.8828125,
+        "x": 1247.6171875,
+        "y": 145.21875
+      },
+      "role": "SPAN",
+      "text": "Accuracy vs. cost"
+    }
+  ],
+  "footnote": {
+    "background": "rgba(0, 0, 0, 0)",
+    "border": "0px none rgb(94, 93, 89)",
+    "color": "rgb(94, 93, 89)",
+    "fontFamily": "anthropicSans, \"anthropicSans Fallback\", sans-serif",
+    "fontSize": "14px",
+    "fontWeight": "400",
+    "letterSpacing": "-0.16px",
+    "lineHeight": "19.6px",
+    "maxWidth": "none",
+    "padding": "0px",
+    "rect": {
+      "height": 66.8046875,
+      "width": 880,
+      "x": 512.5,
+      "y": 750.015625
+    },
+    "role": "DIV",
+    "text": "CursorBench evaluates coding agents on ambiguous, "
+  },
+  "frame": {
+    "background": "rgba(0, 0, 0, 0)",
+    "border": "0px none rgb(20, 20, 19)",
+    "color": "rgb(20, 20, 19)",
+    "fontFamily": "anthropicSerif, \"anthropicSerif Fallback\", serif",
+    "fontSize": "16px",
+    "fontWeight": "400",
+    "letterSpacing": "-0.16px",
+    "lineHeight": "20px",
+    "maxWidth": "none",
+    "padding": "0px",
+    "rect": {
+      "height": 698.6015625,
+      "width": 880,
+      "x": 512.5,
+      "y": 118.21875
+    },
+    "role": "FIGURE",
+    "text": "CursorBench 4.0Accuracy vs. costSonnet 5.5Opus 5.5"
+  },
+  "legend": {
+    "background": "rgba(0, 0, 0, 0)",
+    "border": "0px none rgb(20, 20, 19)",
+    "color": "rgb(20, 20, 19)",
+    "fontFamily": "anthropicSans, \"anthropicSans Fallback\", sans-serif",
+    "fontSize": "15px",
+    "fontWeight": "400",
+    "letterSpacing": "-0.16px",
+    "lineHeight": "21px",
+    "maxWidth": "none",
+    "padding": "0px",
+    "rect": {
+      "height": 21,
+      "width": 830,
+      "x": 537.5,
+      "y": 191.015625
+    },
+    "role": "UL",
+    "text": "Sonnet 5.5Opus 5.5Sonnet 5GPT-5.6 Sol"
+  },
+  "measuredAt": "2026-10-02",
+  "panel": {
+    "background": "rgb(250, 249, 245)",
+    "border": "1px solid rgb(20, 20, 19)",
+    "color": "rgb(20, 20, 19)",
+    "fontFamily": "anthropicSerif, \"anthropicSerif Fallback\", serif",
+    "fontSize": "16px",
+    "fontWeight": "400",
+    "letterSpacing": "-0.16px",
+    "lineHeight": "20px",
+    "maxWidth": "none",
+    "padding": "24px",
+    "rect": {
+      "height": 615.796875,
+      "width": 880,
+      "x": 512.5,
+      "y": 118.21875
+    },
+    "role": "DIV",
+    "text": "CursorBench 4.0Accuracy vs. costSonnet 5.5Opus 5.5"
+  },
+  "source": "https://www.anthropic.com/claude-sonnet-5-5",
+  "svgTexts": [
+    {
+      "background": "rgba(0, 0, 0, 0)",
+      "border": "0px none rgb(20, 20, 19)",
+      "color": "rgb(20, 20, 19)",
+      "fontFamily": "anthropicSans, \"anthropicSans Fallback\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "letterSpacing": "-0.16px",
+      "lineHeight": "20px",
+      "maxWidth": "none",
+      "padding": "0px",
+      "rect": {
+        "height": 17.5,
+        "width": 16.265625,
+        "x": 586.234375,
+        "y": 604.9156494140625
+      },
+      "role": "text",
+      "text": "20"
+    },
+    {
+      "background": "rgba(0, 0, 0, 0)",
+      "border": "0px none rgb(20, 20, 19)",
+      "color": "rgb(20, 20, 19)",
+      "fontFamily": "anthropicSans, \"anthropicSans Fallback\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "letterSpacing": "-0.16px",
+      "lineHeight": "20px",
+      "maxWidth": "none",
+      "padding": "0px",
+      "rect": {
+        "height": 17.5,
+        "width": 15.9296875,
+        "x": 586.5703125,
+        "y": 519.9156494140625
+      },
+      "role": "text",
+      "text": "30"
+    },
+    {
+      "background": "rgba(0, 0, 0, 0)",
+      "border": "0px none rgb(20, 20, 19)",
+      "color": "rgb(20, 20, 19)",
+      "fontFamily": "anthropicSans, \"anthropicSans Fallback\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "letterSpacing": "-0.16px",
+      "lineHeight": "20px",
+      "maxWidth": "none",
+      "padding": "0px",
+      "rect": {
+        "height": 17.5,
+        "width": 16.7109375,
+        "x": 585.7890625,
+        "y": 434.9156188964844
+      },
+      "role": "text",
+      "text": "40"
+    },
+    {
+      "background": "rgba(0, 0, 0, 0)",
+      "border": "0px none rgb(20, 20, 19)",
+      "color": "rgb(20, 20, 19)",
+      "fontFamily": "anthropicSans, \"anthropicSans Fallback\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "letterSpacing": "-0.16px",
+      "lineHeight": "20px",
+      "maxWidth": "none",
+      "padding": "0px",
+      "rect": {
+        "height": 17.5,
+        "width": 16.015625,
+        "x": 586.484375,
+        "y": 348.9156188964844
+      },
+      "role": "text",
+      "text": "50"
+    },
+    {
+      "background": "rgba(0, 0, 0, 0)",
+      "border": "0px none rgb(20, 20, 19)",
+      "color": "rgb(20, 20, 19)",
+      "fontFamily": "anthropicSans, \"anthropicSans Fallback\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "letterSpacing": "-0.16px",
+      "lineHeight": "20px",
+      "maxWidth": "none",
+      "padding": "0px",
+      "rect": {
+        "height": 17.5,
+        "width": 16.1015625,
+        "x": 586.3984375,
+        "y": 263.9156188964844
+      },
+      "role": "text",
+      "text": "60"
+    },
+    {
+      "background": "rgba(0, 0, 0, 0)",
+      "border": "0px none rgb(20, 20, 19)",
+      "color": "rgb(20, 20, 19)",
+      "fontFamily": "anthropicSans, \"anthropicSans Fallback\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "letterSpacing": "-0.16px",
+      "lineHeight": "20px",
+      "maxWidth": "none",
+      "padding": "0px",
+      "rect": {
+        "height": 17.5,
+        "width": 8.296875,
+        "x": 594.203125,
+        "y": 632.9156494140625
+      },
+      "role": "text",
+      "text": "0"
+    },
+    {
+      "background": "rgba(0, 0, 0, 0)",
+      "border": "0px none rgb(20, 20, 19)",
+      "color": "rgb(20, 20, 19)",
+      "fontFamily": "anthropicSans, \"anthropicSans Fallback\", sans-serif",
+      "fontSize": "15px",
+      "fontWeight": "400",
+      "letterSpacing": "-0.16px",
+      "lineHeight": "20px",
+      "maxWidth": "none",
+      "padding": "0px",
+      "rect": {
+        "height": 69.3203125,
+        "width": 19,
+        "x": 549.5,
+        "y": 414.35546875
+      },
+      "role": "text",
+      "text": "Score (%)"
+    },
+    {
+      "background": "rgba(0, 0, 0, 0)",
+      "border": "0px none rgb(20, 20, 19)",
+      "color": "rgb(20, 20, 19)",
+      "fontFamily": "anthropicSans, \"anthropicSans Fallback\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "letterSpacing": "-0.16px",
+      "lineHeight": "20px",
+      "maxWidth": "none",
+      "padding": "0px",
+      "rect": {
+        "height": 17.5,
+        "width": 27.453125,
+        "x": 632.7734375,
+        "y": 652.015625
+      },
+      "role": "text",
+      "text": "0.50"
+    },
+    {
+      "background": "rgba(0, 0, 0, 0)",
+      "border": "0px none rgb(20, 20, 19)",
+      "color": "rgb(20, 20, 19)",
+      "fontFamily": "anthropicSans, \"anthropicSans Fallback\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "letterSpacing": "-0.16px",
+      "lineHeight": "20px",
+      "maxWidth": "none",
+      "padding": "0px",
+      "rect": {
+        "height": 17.5,
+        "width": 5.0390625,
+        "x": 781.98046875,
+        "y": 652.015625
+      },
+      "role": "text",
+      "text": "1"
+    },
+    {
+      "background": "rgba(0, 0, 0, 0)",
+      "border": "0px none rgb(20, 20, 19)",
+      "color": "rgb(20, 20, 19)",
+      "fontFamily": "anthropicSans, \"anthropicSans Fallback\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "letterSpacing": "-0.16px",
+      "lineHeight": "20px",
+      "maxWidth": "none",
+      "padding": "0px",
+      "rect": {
+        "height": 17.5,
+        "width": 7.96875,
+        "x": 917.515625,
+        "y": 652.015625
+      },
+      "role": "text",
+      "text": "2"
+    },
+    {
+      "background": "rgba(0, 0, 0, 0)",
+      "border": "0px none rgb(20, 20, 19)",
+      "color": "rgb(20, 20, 19)",
+      "fontFamily": "anthropicSans, \"anthropicSans Fallback\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "letterSpacing": "-0.16px",
+      "lineHeight": "20px",
+      "maxWidth": "none",
+      "padding": "0px",
+      "rect": {
+        "height": 17.5,
+        "width": 7.71875,
+        "x": 1098.640625,
+        "y": 652.015625
+      },
+      "role": "text",
+      "text": "5"
+    },
+    {
+      "background": "rgba(0, 0, 0, 0)",
+      "border": "0px none rgb(20, 20, 19)",
+      "color": "rgb(20, 20, 19)",
+      "fontFamily": "anthropicSans, \"anthropicSans Fallback\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "letterSpacing": "-0.16px",
+      "lineHeight": "20px",
+      "maxWidth": "none",
+      "padding": "0px",
+      "rect": {
+        "height": 17.5,
+        "width": 13.3359375,
+        "x": 1232.83203125,
+        "y": 652.015625
+      },
+      "role": "text",
+      "text": "10"
+    },
+    {
+      "background": "rgba(0, 0, 0, 0)",
+      "border": "0px none rgb(20, 20, 19)",
+      "color": "rgb(20, 20, 19)",
+      "fontFamily": "anthropicSans, \"anthropicSans Fallback\", sans-serif",
+      "fontSize": "15px",
+      "fontWeight": "400",
+      "letterSpacing": "-0.16px",
+      "lineHeight": "20px",
+      "maxWidth": "none",
+      "padding": "0px",
+      "rect": {
+        "height": 19,
+        "width": 202.703125,
+        "x": 882.6484375,
+        "y": 682.015625
+      },
+      "role": "text",
+      "text": "Cost per task (USD, log scale)"
+    },
+    {
+      "background": "rgba(0, 0, 0, 0)",
+      "border": "0px none rgb(20, 20, 19)",
+      "color": "rgb(20, 20, 19)",
+      "fontFamily": "anthropicSans, \"anthropicSans Fallback\", sans-serif",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "-0.16px",
+      "lineHeight": "20px",
+      "maxWidth": "none",
+      "padding": "0px",
+      "rect": {
+        "height": 15,
+        "width": 22.84375,
+        "x": 635.078125,
+        "y": 491.015625
+      },
+      "role": "text",
+      "text": "Low"
+    }
+  ],
+  "tabs": [
+    {
+      "background": "rgba(0, 0, 0, 0)",
+      "border": "0px none rgb(135, 134, 127)",
+      "color": "rgb(135, 134, 127)",
+      "fontFamily": "anthropicSans, \"anthropicSans Fallback\", sans-serif",
+      "fontSize": "15px",
+      "fontWeight": "600",
+      "letterSpacing": "normal",
+      "lineHeight": "23.25px",
+      "maxWidth": "none",
+      "padding": "0px",
+      "rect": {
+        "height": 23.25,
+        "width": 172.796875,
+        "x": 512.5,
+        "y": 78.96875
+      },
+      "role": "BUTTON",
+      "text": "Agentic terminal coding"
+    },
+    {
+      "background": "rgba(0, 0, 0, 0)",
+      "border": "0px none rgb(135, 134, 127)",
+      "color": "rgb(135, 134, 127)",
+      "fontFamily": "anthropicSans, \"anthropicSans Fallback\", sans-serif",
+      "fontSize": "15px",
+      "fontWeight": "600",
+      "letterSpacing": "normal",
+      "lineHeight": "23.25px",
+      "maxWidth": "none",
+      "padding": "0px",
+      "rect": {
+        "height": 23.25,
+        "width": 213.3125,
+        "x": 701.296875,
+        "y": 78.96875
+      },
+      "role": "BUTTON",
+      "text": "Agentic coding: FrontierCode"
+    },
+    {
+      "background": "rgba(0, 0, 0, 0)",
+      "border": "0px none rgb(20, 20, 19)",
+      "color": "rgb(20, 20, 19)",
+      "fontFamily": "anthropicSans, \"anthropicSans Fallback\", sans-serif",
+      "fontSize": "15px",
+      "fontWeight": "600",
+      "letterSpacing": "normal",
+      "lineHeight": "23.25px",
+      "maxWidth": "none",
+      "padding": "0px",
+      "rect": {
+        "height": 23.25,
+        "width": 211.6171875,
+        "x": 930.609375,
+        "y": 78.96875
+      },
+      "role": "BUTTON",
+      "text": "Agentic coding: CursorBench"
+    },
+    {
+      "background": "rgba(0, 0, 0, 0)",
+      "border": "0px none rgb(135, 134, 127)",
+      "color": "rgb(135, 134, 127)",
+      "fontFamily": "anthropicSans, \"anthropicSans Fallback\", sans-serif",
+      "fontSize": "15px",
+      "fontWeight": "600",
+      "letterSpacing": "normal",
+      "lineHeight": "23.25px",
+      "maxWidth": "none",
+      "padding": "0px",
+      "rect": {
+        "height": 23.25,
+        "width": 224.0234375,
+        "x": 1158.2265625,
+        "y": 78.96875
+      },
+      "role": "BUTTON",
+      "text": "Knowledge work: AA-Briefcase"
+    }
+  ],
+  "viewport": {
+    "height": 873,
+    "width": 1920
+  }
+}
