@@ -2,7 +2,7 @@
 
 An interactive benchmark explorer for Anthropic, OpenAI, xAI/Grok, Moonshot AI/Kimi and Z.ai/GLM. Compare published scores and reported task costs while keeping benchmark versions, effort, evaluation conditions and citations visible. Built with React, TypeScript and Vite for static Cloudflare Pages hosting.
 
-The bundled snapshot contains **240 benchmark records and 1,051 sourced result points**. Only models with verified results appear in each benchmark view; discovery-only entries stay internal. Exact hover/focus tooltips expose model, effort, score and published cost. Token prices never substitute for benchmark task costs. See the [primary-source coverage review](docs/data-evidence/coverage-review.md) for the latest research.
+The bundled snapshot contains **237 benchmark records and 1,068 sourced result points**. Only models with verified results appear in each benchmark view; discovery-only entries stay internal. Exact hover/focus tooltips expose model, effort, score and published cost. Token prices never substitute for benchmark task costs. See the [primary-source coverage review](docs/data-evidence/coverage-review.md) for the latest research.
 
 Live app: [ai-benchmarks.pages.dev](https://ai-benchmarks.pages.dev). Public source: [junrillg/ai-benchmarks](https://github.com/junrillg/ai-benchmarks). Production hosting, chart interactions and both public feeds were verified on 2026-10-02.
 
@@ -64,3 +64,5 @@ npx wrangler pages project create ai-benchmarks --production-branch main --force
 Then run `npm run deploy`. It builds and uploads `dist/` to project `ai-benchmarks`, branch `main`. Confirm Cloudflare's returned hostname; the requested `pages.dev` name must be available.
 
 This deployment uses Wrangler Direct Upload. Changed curated snapshots need another deployment. No database, Pages Function or API secret is required for the current public feeds. Keep credentials outside the repository. [Cloudflare deployment documentation](https://developers.cloudflare.com/pages/get-started/direct-upload/) explains the distinction between Direct Upload and Git integration.
+
+The homepage combines published sources for each verified benchmark/version. Separate menu pages provide [benchmark browsing](https://ai-benchmarks.pages.dev/benchmarks), [model metadata](https://ai-benchmarks.pages.dev/models) and [methodology](https://ai-benchmarks.pages.dev/methodology). Cost curves preserve source and cost scope; score-only runs remain visible below the figure. [Consolidation evidence and remaining publication gaps](docs/data-evidence/consolidation-review.md).

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-02T08:39:49.238619Z",
+  "updatedAt": "2026-10-02T09:08:05.780331Z",
   "sources": [
     {
       "id": "anthropic-sonnet-5-5",
@@ -74,9 +74,10 @@
       "name": "xAI Grok 4.7",
       "url": "https://x.ai/news/grok-4-7",
       "publishedAt": "2026-09-21",
-      "retrievedAt": "2026-10-02T06:33:22Z",
+      "retrievedAt": "2026-10-02T09:08:05.780331Z",
       "type": "vendor",
-      "curatedAt": "2026-10-02T06:38:54Z"
+      "curatedAt": "2026-10-02T09:08:05.780331Z",
+      "evidencePath": "docs/data-evidence/consolidation-xai-extract.json"
     },
     {
       "id": "moonshot-kimi-k3",
@@ -2134,14 +2135,6 @@
           "sourceId": "anthropic-sonnet-5-5",
           "conditions": "Published effort curve; USD per attempt.",
           "costBasis": "per-attempt"
-        },
-        {
-          "modelId": "claude-fable-5.1",
-          "score": 57.9,
-          "cost": null,
-          "effort": "max",
-          "sourceId": "xai-grok-4-7",
-          "conditions": "xAI September21 comparison table, Fable5.1 max effort; competitor public report. No benchmark task cost supplied."
         }
       ]
     },
@@ -2727,22 +2720,6 @@
       "notes": [],
       "points": [
         {
-          "modelId": "grok-4.7",
-          "score": 46.3,
-          "cost": null,
-          "effort": "xhigh",
-          "sourceId": "xai-grok-4-7",
-          "conditions": "xAI release table; task cost undisclosed."
-        },
-        {
-          "modelId": "claude-fable-5.1",
-          "score": 51.8,
-          "cost": null,
-          "effort": "max",
-          "sourceId": "xai-grok-4-7",
-          "conditions": "Competitor score reported by xAI; production fallbacks and source snapshots differ."
-        },
-        {
           "modelId": "claude-opus-5.5",
           "score": 43.7,
           "cost": 1.18,
@@ -3070,10 +3047,218 @@
         {
           "modelId": "claude-fable-5.1",
           "score": 51.8,
-          "cost": null,
+          "cost": 17.28,
           "effort": "max",
           "sourceId": "xai-grok-4-7",
-          "conditions": "xAI September21 comparison table, Fable5.1 max effort; competitor public report. No benchmark task cost supplied."
+          "costBasis": "mean-per-task",
+          "conditions": "Exact accessible CursorBench 4.0 SVG label from xAI September 21 release. Published average USD cost per task; source-reported harness/snapshot. No task cost inferred from token pricing."
+        },
+        {
+          "modelId": "claude-fable-5.1",
+          "score": 51.6,
+          "cost": 13.01,
+          "effort": "xhigh",
+          "sourceId": "xai-grok-4-7",
+          "costBasis": "mean-per-task",
+          "conditions": "Exact accessible CursorBench 4.0 SVG label from xAI September 21 release. Published average USD cost per task; source-reported harness/snapshot. No task cost inferred from token pricing."
+        },
+        {
+          "modelId": "claude-fable-5.1",
+          "score": 46.8,
+          "cost": 7.05,
+          "effort": "medium",
+          "sourceId": "xai-grok-4-7",
+          "costBasis": "mean-per-task",
+          "conditions": "Exact accessible CursorBench 4.0 SVG label from xAI September 21 release. Published average USD cost per task; source-reported harness/snapshot. No task cost inferred from token pricing."
+        },
+        {
+          "modelId": "claude-opus-5",
+          "score": 46.6,
+          "cost": 11.95,
+          "effort": "max",
+          "sourceId": "xai-grok-4-7",
+          "costBasis": "mean-per-task",
+          "conditions": "Exact accessible CursorBench 4.0 SVG label from xAI September 21 release. Published average USD cost per task; source-reported harness/snapshot. No task cost inferred from token pricing."
+        },
+        {
+          "modelId": "claude-opus-5",
+          "score": 46.1,
+          "cost": 11.43,
+          "effort": "xhigh",
+          "sourceId": "xai-grok-4-7",
+          "costBasis": "mean-per-task",
+          "conditions": "Exact accessible CursorBench 4.0 SVG label from xAI September 21 release. Published average USD cost per task; source-reported harness/snapshot. No task cost inferred from token pricing."
+        },
+        {
+          "modelId": "claude-fable-5.1",
+          "score": 45.1,
+          "cost": 5.44,
+          "effort": "low",
+          "sourceId": "xai-grok-4-7",
+          "costBasis": "mean-per-task",
+          "conditions": "Exact accessible CursorBench 4.0 SVG label from xAI September 21 release. Published average USD cost per task; source-reported harness/snapshot. No task cost inferred from token pricing."
+        },
+        {
+          "modelId": "claude-opus-5",
+          "score": 43.3,
+          "cost": 6.94,
+          "effort": "medium",
+          "sourceId": "xai-grok-4-7",
+          "costBasis": "mean-per-task",
+          "conditions": "Exact accessible CursorBench 4.0 SVG label from xAI September 21 release. Published average USD cost per task; source-reported harness/snapshot. No task cost inferred from token pricing."
+        },
+        {
+          "modelId": "gpt-5.6-sol",
+          "score": 41.7,
+          "cost": 8.23,
+          "effort": "max",
+          "sourceId": "xai-grok-4-7",
+          "costBasis": "mean-per-task",
+          "conditions": "Exact accessible CursorBench 4.0 SVG label from xAI September 21 release. Published average USD cost per task; source-reported harness/snapshot. No task cost inferred from token pricing."
+        },
+        {
+          "modelId": "claude-opus-5",
+          "score": 40.7,
+          "cost": 4.87,
+          "effort": "low",
+          "sourceId": "xai-grok-4-7",
+          "costBasis": "mean-per-task",
+          "conditions": "Exact accessible CursorBench 4.0 SVG label from xAI September 21 release. Published average USD cost per task; source-reported harness/snapshot. No task cost inferred from token pricing."
+        },
+        {
+          "modelId": "gpt-5.6-sol",
+          "score": 37.7,
+          "cost": 4.4,
+          "effort": "xhigh",
+          "sourceId": "xai-grok-4-7",
+          "costBasis": "mean-per-task",
+          "conditions": "Exact accessible CursorBench 4.0 SVG label from xAI September 21 release. Published average USD cost per task; source-reported harness/snapshot. No task cost inferred from token pricing."
+        },
+        {
+          "modelId": "gpt-5.6-sol",
+          "score": 35.7,
+          "cost": 2.85,
+          "effort": "high",
+          "sourceId": "xai-grok-4-7",
+          "costBasis": "mean-per-task",
+          "conditions": "Exact accessible CursorBench 4.0 SVG label from xAI September 21 release. Published average USD cost per task; source-reported harness/snapshot. No task cost inferred from token pricing."
+        },
+        {
+          "modelId": "claude-sonnet-5",
+          "score": 34.1,
+          "cost": 7.17,
+          "effort": "max",
+          "sourceId": "xai-grok-4-7",
+          "costBasis": "mean-per-task",
+          "conditions": "Exact accessible CursorBench 4.0 SVG label from xAI September 21 release. Published average USD cost per task; source-reported harness/snapshot. No task cost inferred from token pricing."
+        },
+        {
+          "modelId": "claude-sonnet-5",
+          "score": 32.0,
+          "cost": 4.55,
+          "effort": "xhigh",
+          "sourceId": "xai-grok-4-7",
+          "costBasis": "mean-per-task",
+          "conditions": "Exact accessible CursorBench 4.0 SVG label from xAI September 21 release. Published average USD cost per task; source-reported harness/snapshot. No task cost inferred from token pricing."
+        },
+        {
+          "modelId": "claude-sonnet-5",
+          "score": 28.0,
+          "cost": 2.31,
+          "effort": "medium",
+          "sourceId": "xai-grok-4-7",
+          "costBasis": "mean-per-task",
+          "conditions": "Exact accessible CursorBench 4.0 SVG label from xAI September 21 release. Published average USD cost per task; source-reported harness/snapshot. No task cost inferred from token pricing."
+        },
+        {
+          "modelId": "gpt-5.6-sol",
+          "score": 24.6,
+          "cost": 0.87,
+          "effort": "low",
+          "sourceId": "xai-grok-4-7",
+          "costBasis": "mean-per-task",
+          "conditions": "Exact accessible CursorBench 4.0 SVG label from xAI September 21 release. Published average USD cost per task; source-reported harness/snapshot. No task cost inferred from token pricing."
+        },
+        {
+          "modelId": "claude-sonnet-5",
+          "score": 24.1,
+          "cost": 1.39,
+          "effort": "low",
+          "sourceId": "xai-grok-4-7",
+          "costBasis": "mean-per-task",
+          "conditions": "Exact accessible CursorBench 4.0 SVG label from xAI September 21 release. Published average USD cost per task; source-reported harness/snapshot. No task cost inferred from token pricing."
+        },
+        {
+          "modelId": "grok-4.7",
+          "score": 46.3,
+          "cost": 6.01,
+          "effort": "xhigh",
+          "sourceId": "xai-grok-4-7",
+          "costBasis": "mean-per-task",
+          "conditions": "Exact accessible CursorBench 4.0 SVG label from xAI September 21 release. Published average USD cost per task; source-reported harness/snapshot. No task cost inferred from token pricing."
+        },
+        {
+          "modelId": "grok-4.7",
+          "score": 41.6,
+          "cost": 3.49,
+          "effort": "medium",
+          "sourceId": "xai-grok-4-7",
+          "costBasis": "mean-per-task",
+          "conditions": "Exact accessible CursorBench 4.0 SVG label from xAI September 21 release. Published average USD cost per task; source-reported harness/snapshot. No task cost inferred from token pricing."
+        },
+        {
+          "modelId": "grok-4.7",
+          "score": 33.1,
+          "cost": 1.58,
+          "effort": "low",
+          "sourceId": "xai-grok-4-7",
+          "costBasis": "mean-per-task",
+          "conditions": "Exact accessible CursorBench 4.0 SVG label from xAI September 21 release. Published average USD cost per task; source-reported harness/snapshot. No task cost inferred from token pricing."
+        },
+        {
+          "modelId": "claude-fable-5.1",
+          "score": 49.2,
+          "cost": 9.08,
+          "effort": "high",
+          "sourceId": "xai-grok-4-7",
+          "costBasis": "mean-per-task",
+          "conditions": "Exact accessible CursorBench 4.0 SVG label from xAI September 21 release. Published average USD cost per task; source-reported harness/snapshot. No task cost inferred from token pricing."
+        },
+        {
+          "modelId": "claude-opus-5",
+          "score": 44.7,
+          "cost": 9.0,
+          "effort": "high",
+          "sourceId": "xai-grok-4-7",
+          "costBasis": "mean-per-task",
+          "conditions": "Exact accessible CursorBench 4.0 SVG label from xAI September 21 release. Published average USD cost per task; source-reported harness/snapshot. No task cost inferred from token pricing."
+        },
+        {
+          "modelId": "gpt-5.6-sol",
+          "score": 31.1,
+          "cost": 1.77,
+          "effort": "medium",
+          "sourceId": "xai-grok-4-7",
+          "costBasis": "mean-per-task",
+          "conditions": "Exact accessible CursorBench 4.0 SVG label from xAI September 21 release. Published average USD cost per task; source-reported harness/snapshot. No task cost inferred from token pricing."
+        },
+        {
+          "modelId": "claude-sonnet-5",
+          "score": 30.8,
+          "cost": 3.48,
+          "effort": "high",
+          "sourceId": "xai-grok-4-7",
+          "costBasis": "mean-per-task",
+          "conditions": "Exact accessible CursorBench 4.0 SVG label from xAI September 21 release. Published average USD cost per task; source-reported harness/snapshot. No task cost inferred from token pricing."
+        },
+        {
+          "modelId": "grok-4.7",
+          "score": 43.9,
+          "cost": 4.69,
+          "effort": "high",
+          "sourceId": "xai-grok-4-7",
+          "costBasis": "mean-per-task",
+          "conditions": "Exact accessible CursorBench 4.0 SVG label from xAI September 21 release. Published average USD cost per task; source-reported harness/snapshot. No task cost inferred from token pricing."
         }
       ]
     },
@@ -3269,12 +3454,12 @@
           "conditions": "Published effort curve; USD per task."
         },
         {
-          "modelId": "claude-fable-5.1",
-          "score": 1678,
+          "modelId": "gpt-6-astra",
+          "score": 1569,
           "cost": null,
           "effort": "max",
           "sourceId": "xai-grok-4-7",
-          "conditions": "xAI September21 comparison table, Fable5.1 max effort; competitor public report. No benchmark task cost supplied."
+          "conditions": "Exact xAI September 21 embedded chart data. Competitor report at max effort; task cost undisclosed. AA-Briefcase 1.1 identity corroborated by the same release capability table."
         }
       ]
     },
@@ -5273,14 +5458,6 @@
           "costBasis": "per-task"
         },
         {
-          "modelId": "claude-fable-5.1",
-          "score": 70.0,
-          "cost": null,
-          "effort": "max",
-          "sourceId": "xai-grok-4-7",
-          "conditions": "xAI September21 comparison table, Fable5.1 max effort; competitor public report. No benchmark task cost supplied."
-        },
-        {
           "modelId": "kimi-k3",
           "score": 67.5,
           "cost": null,
@@ -7182,12 +7359,12 @@
           "conditions": "Competitor score reported by xAI; production fallbacks and source snapshots differ."
         },
         {
-          "modelId": "claude-fable-5.1",
-          "score": 56.4,
+          "modelId": "gpt-6-astra",
+          "score": 69.3,
           "cost": null,
           "effort": "max",
           "sourceId": "xai-grok-4-7",
-          "conditions": "xAI September21 comparison table, Fable5.1 max effort; competitor public report. No benchmark task cost supplied."
+          "conditions": "Exact xAI September 21 embedded EEBench chart data. Competitor report at max effort; task cost undisclosed."
         }
       ]
     },
@@ -7218,14 +7395,6 @@
           "effort": "max",
           "sourceId": "xai-grok-4-7",
           "conditions": "Competitor score reported by xAI; production fallbacks and source snapshots differ."
-        },
-        {
-          "modelId": "claude-fable-5.1",
-          "score": 6.7,
-          "cost": null,
-          "effort": "max",
-          "sourceId": "xai-grok-4-7",
-          "conditions": "xAI September21 comparison table, Fable5.1 max effort; competitor public report. No benchmark task cost supplied."
         }
       ]
     },
@@ -7256,14 +7425,6 @@
           "effort": "max",
           "sourceId": "xai-grok-4-7",
           "conditions": "Competitor score reported by xAI; production fallbacks and source snapshots differ."
-        },
-        {
-          "modelId": "claude-fable-5.1",
-          "score": 62.1,
-          "cost": null,
-          "effort": "max",
-          "sourceId": "xai-grok-4-7",
-          "conditions": "xAI September21 comparison table, Fable5.1 max effort; competitor public report. No benchmark task cost supplied."
         }
       ]
     },
@@ -8118,11 +8279,14 @@
       "category": "Vision",
       "unit": "%",
       "version": "source-reported",
-      "description": "MMVU: numerical capability metric. Consult the primary source for the exact task set, harness, grading and reproduction settings.",
+      "description": "Source-reported results on MMVU. Published evaluation conditions, answer adjustments and source snapshots remain distinct.",
       "sourceIds": [
-        "moonshot-kimi-k3"
+        "moonshot-kimi-k3",
+        "zai-glm-5-3-flash-blog"
       ],
-      "notes": [],
+      "notes": [
+        "Consolidated publisher reports of the same benchmark and score adjustment. Evaluation settings and snapshots remain attached to each point; results are not averaged."
+      ],
       "points": [
         {
           "modelId": "kimi-k3",
@@ -8131,6 +8295,14 @@
           "effort": "max",
           "sourceId": "moonshot-kimi-k3",
           "conditions": "Kimi Code harness where specified; max effort, temperature 1.0. Task-specific footnotes apply. "
+        },
+        {
+          "modelId": "glm-5.3-flash",
+          "score": 80.5,
+          "cost": null,
+          "effort": "max",
+          "sourceId": "zai-glm-5-3-flash-blog",
+          "conditions": "Official Flash blog published August26; max effort benchmark reproduction setting; task cost undisclosed. temperature1,top-p.95,256K context;default1fps video frames with uniform subsampling if needed."
         }
       ]
     },
@@ -9527,28 +9699,6 @@
       ]
     },
     {
-      "id": "glm-flash-mmvu",
-      "name": "MMVU",
-      "category": "Vision",
-      "unit": "%",
-      "version": "GLM Flash August2026",
-      "description": "MMVU. Exact source-reported numerical evaluation; consult conditions for harness and population.",
-      "sourceIds": [
-        "zai-glm-5-3-flash-blog"
-      ],
-      "notes": [],
-      "points": [
-        {
-          "modelId": "glm-5.3-flash",
-          "score": 80.5,
-          "cost": null,
-          "effort": "max",
-          "sourceId": "zai-glm-5-3-flash-blog",
-          "conditions": "Official Flash blog published August26; max effort benchmark reproduction setting; task cost undisclosed. temperature1,top-p.95,256K context;default1fps video frames with uniform subsampling if needed."
-        }
-      ]
-    },
-    {
       "id": "glm-flash-osworld-2-0",
       "name": "OSWorld 2.0",
       "category": "Vision",
@@ -10227,15 +10377,18 @@
     },
     {
       "id": "openai-system-healthbench-professional-unadjusted",
-      "name": "HealthBench Professional unadjusted",
+      "name": "HealthBench Professional · Raw",
       "category": "Science",
       "unit": "%",
-      "version": "September2026 unadjusted",
-      "description": "HealthBench Professional unadjusted. Exact source-reported numerical evaluation; consult conditions for harness and population.",
+      "version": "unadjusted",
+      "description": "Source-reported results on HealthBench Professional · Raw. Published evaluation conditions, answer adjustments and source snapshots remain distinct.",
       "sourceIds": [
-        "openai-6-1-sol-system"
+        "openai-6-1-sol-system",
+        "anthropic-sonnet-5-5-system"
       ],
-      "notes": [],
+      "notes": [
+        "Consolidated publisher reports of the same benchmark and score adjustment. Evaluation settings and snapshots remain attached to each point; results are not averaged."
+      ],
       "points": [
         {
           "modelId": "gpt-6-astra",
@@ -10268,6 +10421,30 @@
           "effort": "reported",
           "sourceId": "openai-6-1-sol-system",
           "conditions": "September29 system-card evaluation. Research/API settings; earlier models may be later versions than original launch. Task costs not published; evaluation settings in referenced Astra system card. Table7 unadjusted; mean answer length 3038 characters."
+        },
+        {
+          "modelId": "claude-sonnet-5.5",
+          "score": 77.1,
+          "cost": null,
+          "effort": "max",
+          "sourceId": "anthropic-sonnet-5-5-system",
+          "conditions": "Raw unadjusted HealthBench Professional result reported in Sonnet system card; max effort, not response-length-adjusted."
+        },
+        {
+          "modelId": "claude-opus-5.5",
+          "score": 77.1,
+          "cost": null,
+          "effort": "max",
+          "sourceId": "anthropic-sonnet-5-5-system",
+          "conditions": "Raw unadjusted HealthBench Professional result reported in Sonnet system card; max effort, not response-length-adjusted."
+        },
+        {
+          "modelId": "claude-fable-5.1",
+          "score": 74.2,
+          "cost": null,
+          "effort": "max",
+          "sourceId": "anthropic-sonnet-5-5-system",
+          "conditions": "Raw unadjusted HealthBench Professional result reported in Sonnet system card; max effort, not response-length-adjusted."
         }
       ]
     },
@@ -10319,15 +10496,18 @@
     },
     {
       "id": "openai-system-healthbench-unadjusted",
-      "name": "HealthBench unadjusted",
+      "name": "HealthBench · Raw",
       "category": "Science",
       "unit": "%",
-      "version": "September2026 unadjusted",
-      "description": "HealthBench unadjusted. Exact source-reported numerical evaluation; consult conditions for harness and population.",
+      "version": "unadjusted",
+      "description": "Source-reported results on HealthBench · Raw. Published evaluation conditions, answer adjustments and source snapshots remain distinct.",
       "sourceIds": [
-        "openai-6-1-sol-system"
+        "openai-6-1-sol-system",
+        "anthropic-fable-5-1-system"
       ],
-      "notes": [],
+      "notes": [
+        "Consolidated publisher reports of the same benchmark and score adjustment. Evaluation settings and snapshots remain attached to each point; results are not averaged."
+      ],
       "points": [
         {
           "modelId": "gpt-6-astra",
@@ -10360,6 +10540,14 @@
           "effort": "reported",
           "sourceId": "openai-6-1-sol-system",
           "conditions": "September29 system-card evaluation. Research/API settings; earlier models may be later versions than original launch. Task costs not published; evaluation settings in referenced Astra system card. Table7 unadjusted; mean answer length 1701 characters."
+        },
+        {
+          "modelId": "claude-fable-5.1",
+          "score": 66.7,
+          "cost": null,
+          "effort": "max",
+          "sourceId": "anthropic-fable-5-1-system",
+          "conditions": "Fable system-card HealthBench overall raw result, maximum adaptive effort, public API safeguards/fallbacks active."
         }
       ]
     },
@@ -13158,88 +13346,6 @@
       ]
     },
     {
-      "id": "anthropic-healthbench-professional-unadjusted",
-      "name": "HealthBench Professional · Anthropic raw",
-      "category": "Science",
-      "unit": "%",
-      "version": "September2026 unadjusted",
-      "description": "Exact published system-card capability score. See the attached source and conditions for its evaluation protocol.",
-      "sourceIds": [
-        "anthropic-sonnet-5-5-system"
-      ],
-      "notes": [],
-      "points": [
-        {
-          "modelId": "claude-sonnet-5.5",
-          "score": 77.1,
-          "cost": null,
-          "effort": "max",
-          "sourceId": "anthropic-sonnet-5-5-system",
-          "conditions": "Raw unadjusted HealthBench Professional result reported in Sonnet system card; max effort, not response-length-adjusted."
-        },
-        {
-          "modelId": "claude-opus-5.5",
-          "score": 77.1,
-          "cost": null,
-          "effort": "max",
-          "sourceId": "anthropic-sonnet-5-5-system",
-          "conditions": "Raw unadjusted HealthBench Professional result reported in Sonnet system card; max effort, not response-length-adjusted."
-        },
-        {
-          "modelId": "claude-fable-5.1",
-          "score": 74.2,
-          "cost": null,
-          "effort": "max",
-          "sourceId": "anthropic-sonnet-5-5-system",
-          "conditions": "Raw unadjusted HealthBench Professional result reported in Sonnet system card; max effort, not response-length-adjusted."
-        }
-      ]
-    },
-    {
-      "id": "anthropic-healthbench-unadjusted",
-      "name": "HealthBench · Anthropic raw",
-      "category": "Science",
-      "unit": "%",
-      "version": "Fable September2026",
-      "description": "Exact published system-card capability score. See the attached source and conditions for its evaluation protocol.",
-      "sourceIds": [
-        "anthropic-fable-5-1-system"
-      ],
-      "notes": [],
-      "points": [
-        {
-          "modelId": "claude-fable-5.1",
-          "score": 66.7,
-          "cost": null,
-          "effort": "max",
-          "sourceId": "anthropic-fable-5-1-system",
-          "conditions": "Fable system-card HealthBench overall raw result, maximum adaptive effort, public API safeguards/fallbacks active."
-        }
-      ]
-    },
-    {
-      "id": "anthropic-healthbench-length-adjusted",
-      "name": "HealthBench · Anthropic length adjusted",
-      "category": "Science",
-      "unit": "%",
-      "version": "Fable September2026 length-adjusted",
-      "description": "Exact published system-card capability score. See the attached source and conditions for its evaluation protocol.",
-      "sourceIds": [
-        "anthropic-fable-5-1-system"
-      ],
-      "notes": [],
-      "points": [
-        {
-          "modelId": "claude-fable-5.1",
-          "score": 60.0,
-          "cost": null,
-          "effort": "max",
-          "sourceId": "anthropic-fable-5-1-system",
-          "conditions": "Fable system-card HealthBench overall length-adjusted result, maximum adaptive effort, public API safeguards/fallbacks active."
-        }
-      ]
-    },
-    {
       "id": "anthropic-arxivmath-august2026-no-tools",
       "name": "ArXiv Math Aug2026 · no-tools",
       "category": "Reasoning",
@@ -13850,6 +13956,30 @@
           "effort": "max",
           "sourceId": "anthropic-sonnet-5-5-system",
           "conditions": "Sonnet system card8.13.3 narrative confirms2.1 despite summary table2.0 typo;108 tasks,1080p,max500actions,max effort,five runs,Opus4.8 grader;strict reward,not partial."
+        }
+      ]
+    },
+    {
+      "id": "anthropic-healthbench-length-adjusted",
+      "name": "HealthBench · Anthropic length adjusted",
+      "category": "Science",
+      "unit": "%",
+      "version": "Fable September2026 length-adjusted",
+      "description": "Exact published system-card capability score. See the attached source and conditions for its evaluation protocol.",
+      "sourceIds": [
+        "anthropic-fable-5-1-system"
+      ],
+      "notes": [
+        "Publisher-specific response-length adjustment; equivalence with OpenAI’s adjustment formula is not verified, so these protocols remain separate."
+      ],
+      "points": [
+        {
+          "modelId": "claude-fable-5.1",
+          "score": 60.0,
+          "cost": null,
+          "effort": "max",
+          "sourceId": "anthropic-fable-5-1-system",
+          "conditions": "Fable system-card HealthBench overall length-adjusted result, maximum adaptive effort, public API safeguards/fallbacks active."
         }
       ]
     }

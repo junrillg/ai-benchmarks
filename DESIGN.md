@@ -138,7 +138,7 @@ components:
 
 The system feels professional, premium and precise. Cool flat paper supports navy typography, fine rules and a near-white reading field. Quality comes from alignment, clear hierarchy and inspectable evidence. There is no physical texture in this world.
 
-Geist keeps interface labels, prose and data in one voice. Compact controls and dense tables coexist with an open chart field. Source conditions, missing data and exact values remain readable parts of the interface. The surface-specific composition and its approved mock belong in [the benchmark explorer brief](.impeccable/surfaces/index-html.md).
+Geist keeps interface labels, prose and data in one voice. Compact controls and dense tables coexist with an open chart field. Source conditions and exact values remain readable parts of the interface; missing cost is represented without an invented value. The surface-specific composition and its approved mock belong in [the benchmark explorer brief](.impeccable/surfaces/index-html.md).
 
 **Key Characteristics:**
 
@@ -237,7 +237,7 @@ Search and filter controls are native inputs and selects with a pale field, thin
 
 ### Navigation
 
-A pale full-width band holds a compact bold brand, plain text section links and an external source link. The current section is blue with a thin lower rule. Links underline on hover. Mobile places section links on their own row. External-link affordances are authored inline SVG.
+A pale full-width band holds a compact bold brand, plain text page links (Charts, Benchmarks, Models, Methodology) and an external source link. The current section is blue with a thin lower rule. Links underline on hover. Mobile places section links on their own row. External-link affordances are authored inline SVG.
 
 ### Benchmark tabs
 
@@ -247,7 +247,7 @@ The rule moves with (220ms) duration and `cubic-bezier(.16,1,.3,1)`. Reduced mot
 
 ### Model choices
 
-Native checkboxes, circular series dots and readable model names form compact rows. Unavailable models retain a visible missing-result label and disabled checkbox. Historical systems can include a second explanatory line. The (18px) desktop checkbox becomes (17px) on mobile; model rows adapt with the panel layout.
+Native checkboxes, circular series dots and readable model names form compact rows. Only models with published scores for the selected benchmark and source scope appear; score-only results remain accessible below cost curves. Historical systems can include a second explanatory line. The (18px) desktop checkbox becomes (17px) on mobile; model rows adapt with the panel layout.
 
 ### Scientific figure and result ledger
 
@@ -255,7 +255,7 @@ SVG curves use straight (2px) strokes and circular (4.2px) markers with white se
 
 On first benchmark/source exposure, lines draw over (700ms) with the same easing as tabs and a (120ms) series stagger. Markers fade over (300ms), beginning at (490ms) plus the series stagger and (40ms) per point. Revisits retain visibility. Reduced motion disables animation and smooth scrolling.
 
-Result tables use collapsed fine borders, a pale heading row, left-aligned text and tabular numbers. Compact result rows are (30px) high; standard result rows are (31px). Longer catalog rows expand for wrapping source notes. Model-color dots accompany text labels and row inspection buttons. Missing cost remains written out.
+Result tables use collapsed fine borders, a pale heading row, left-aligned text and tabular numbers. Compact result rows are (30px) high; standard result rows are (31px). Longer catalog rows expand for wrapping source notes. Model-color dots accompany text labels and row inspection buttons. A mixed result table uses an accessible dash for unpublished cost; score-only figures omit the cost column.
 
 ## Do's and Don'ts
 
@@ -275,3 +275,6 @@ Result tables use collapsed fine borders, a pale heading row, left-aligned text 
 - **Don't** scale the entire desktop figure down to fit a mobile viewport.
 
 Not canonized: capture overlays are review tooling, and generated mock labels or illustrative figures are not reusable interface rules. No craft-floor defects were promoted into this system.
+
+
+The chart route now defaults to all published sources under one verified benchmark identity. Cost curves retain separate source/condition series; mixed cost scopes and publisher estimates have visible notes. Score-only runs form a compact shelf below cost curves. The best-score ledger uses native disclosure. Benchmark browsing (`/benchmarks`), model catalog (`/models`) and methodology (`/methodology`) are isolated pages using the same reading surfaces and navigation.

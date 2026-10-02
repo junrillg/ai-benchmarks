@@ -1,0 +1,474 @@
+{
+  "reviewedAt": "2026-10-02T09:08:05.780331Z",
+  "meaning": "Availability is source-backed benchmark identity, not inferred from the goal. RelatedExcludedIds contain different versions/protocols or an unverified identity, not substitutes.",
+  "featuredBenchmarks": [
+    "terminal-bench-4",
+    "frontiercode-1-1-main",
+    "cursorbench-4",
+    "aa-briefcase-1-1"
+  ],
+  "models": [
+    {
+      "modelId": "claude-sonnet-5.5",
+      "name": "Claude Sonnet 5.5",
+      "terminal-bench-4": {
+        "status": "published",
+        "points": 5,
+        "costPoints": 5,
+        "sourceIds": [
+          "anthropic-sonnet-5-5"
+        ],
+        "relatedExcludedIds": [
+          "terminal-bench-science-0-1"
+        ]
+      },
+      "frontiercode-1-1-main": {
+        "status": "published",
+        "points": 5,
+        "costPoints": 5,
+        "sourceIds": [
+          "anthropic-sonnet-5-5"
+        ],
+        "relatedExcludedIds": [
+          "anthropic-frontierswe-v2"
+        ]
+      },
+      "cursorbench-4": {
+        "status": "published",
+        "points": 5,
+        "costPoints": 5,
+        "sourceIds": [
+          "anthropic-sonnet-5-5"
+        ],
+        "relatedExcludedIds": []
+      },
+      "aa-briefcase-1-1": {
+        "status": "published",
+        "points": 5,
+        "costPoints": 5,
+        "sourceIds": [
+          "anthropic-sonnet-5-5"
+        ],
+        "relatedExcludedIds": [
+          "gdpval-aa-2-1"
+        ]
+      }
+    },
+    {
+      "modelId": "claude-opus-5.5",
+      "name": "Claude Opus 5.5",
+      "terminal-bench-4": {
+        "status": "published",
+        "points": 10,
+        "costPoints": 10,
+        "sourceIds": [
+          "anthropic-opus-5-5",
+          "anthropic-sonnet-5-5"
+        ],
+        "relatedExcludedIds": [
+          "terminal-bench-science-0-1"
+        ]
+      },
+      "frontiercode-1-1-main": {
+        "status": "published",
+        "points": 10,
+        "costPoints": 10,
+        "sourceIds": [
+          "anthropic-opus-5-5",
+          "anthropic-sonnet-5-5"
+        ],
+        "relatedExcludedIds": [
+          "anthropic-frontierswe-v2"
+        ]
+      },
+      "cursorbench-4": {
+        "status": "published",
+        "points": 10,
+        "costPoints": 10,
+        "sourceIds": [
+          "anthropic-opus-5-5",
+          "anthropic-sonnet-5-5"
+        ],
+        "relatedExcludedIds": []
+      },
+      "aa-briefcase-1-1": {
+        "status": "published",
+        "points": 5,
+        "costPoints": 5,
+        "sourceIds": [
+          "anthropic-sonnet-5-5"
+        ],
+        "relatedExcludedIds": [
+          "gdpval-aa-2-1"
+        ]
+      }
+    },
+    {
+      "modelId": "claude-fable-5.1",
+      "name": "Claude Fable 5.1",
+      "terminal-bench-4": {
+        "status": "published",
+        "points": 11,
+        "costPoints": 10,
+        "sourceIds": [
+          "anthropic-fable-5-1",
+          "xai-grok-4-7",
+          "anthropic-opus-5-5"
+        ],
+        "relatedExcludedIds": [
+          "terminal-bench-science-0-1"
+        ]
+      },
+      "frontiercode-1-1-main": {
+        "status": "published",
+        "points": 10,
+        "costPoints": 10,
+        "sourceIds": [
+          "anthropic-opus-5-5",
+          "openai-6-sol-luna"
+        ],
+        "relatedExcludedIds": [
+          "anthropic-frontierswe-v2"
+        ]
+      },
+      "cursorbench-4": {
+        "status": "published",
+        "points": 10,
+        "costPoints": 10,
+        "sourceIds": [
+          "anthropic-opus-5-5",
+          "xai-grok-4-7"
+        ],
+        "relatedExcludedIds": [
+          "cursorbench-3-2"
+        ]
+      },
+      "aa-briefcase-1-1": {
+        "status": "published",
+        "points": 1,
+        "costPoints": 0,
+        "sourceIds": [
+          "xai-grok-4-7"
+        ],
+        "relatedExcludedIds": [
+          "gdpval-aa-2",
+          "gdpval-aa-2-1"
+        ]
+      }
+    },
+    {
+      "modelId": "gpt-6.1-sol",
+      "name": "GPT-6.1 Sol",
+      "terminal-bench-4": {
+        "status": "different-or-unverified-benchmark",
+        "points": 0,
+        "costPoints": 0,
+        "sourceIds": [],
+        "relatedExcludedIds": [
+          "terminal-bench-science-0-1"
+        ]
+      },
+      "frontiercode-1-1-main": {
+        "status": "not-published-in-reviewed-sources",
+        "points": 0,
+        "costPoints": 0,
+        "sourceIds": [],
+        "relatedExcludedIds": []
+      },
+      "cursorbench-4": {
+        "status": "not-published-in-reviewed-sources",
+        "points": 0,
+        "costPoints": 0,
+        "sourceIds": [],
+        "relatedExcludedIds": []
+      },
+      "aa-briefcase-1-1": {
+        "status": "different-or-unverified-benchmark",
+        "points": 0,
+        "costPoints": 0,
+        "sourceIds": [],
+        "relatedExcludedIds": [
+          "gdp-pdf"
+        ]
+      }
+    },
+    {
+      "modelId": "gpt-6-astra",
+      "name": "GPT-6 Astra",
+      "terminal-bench-4": {
+        "status": "published",
+        "points": 6,
+        "costPoints": 5,
+        "sourceIds": [
+          "openai-6-astra",
+          "anthropic-opus-5-5"
+        ],
+        "relatedExcludedIds": [
+          "terminal-bench-science-0-1"
+        ]
+      },
+      "frontiercode-1-1-main": {
+        "status": "published",
+        "points": 11,
+        "costPoints": 10,
+        "sourceIds": [
+          "openai-6-astra",
+          "anthropic-opus-5-5",
+          "openai-6-sol-luna"
+        ],
+        "relatedExcludedIds": [
+          "frontiercode-1-1-extended",
+          "anthropic-frontierswe-v2"
+        ]
+      },
+      "cursorbench-4": {
+        "status": "not-published-in-reviewed-sources",
+        "points": 0,
+        "costPoints": 0,
+        "sourceIds": [],
+        "relatedExcludedIds": []
+      },
+      "aa-briefcase-1-1": {
+        "status": "published",
+        "points": 1,
+        "costPoints": 0,
+        "sourceIds": [
+          "xai-grok-4-7"
+        ],
+        "relatedExcludedIds": [
+          "gdpval-aa-2-1",
+          "gdp-pdf"
+        ]
+      }
+    },
+    {
+      "modelId": "gpt-6-sol",
+      "name": "GPT-6 Sol",
+      "terminal-bench-4": {
+        "status": "different-or-unverified-benchmark",
+        "points": 0,
+        "costPoints": 0,
+        "sourceIds": [],
+        "relatedExcludedIds": [
+          "terminal-bench-science-0-1"
+        ]
+      },
+      "frontiercode-1-1-main": {
+        "status": "published",
+        "points": 10,
+        "costPoints": 10,
+        "sourceIds": [
+          "anthropic-sonnet-5-5",
+          "openai-6-sol-luna"
+        ],
+        "relatedExcludedIds": []
+      },
+      "cursorbench-4": {
+        "status": "not-published-in-reviewed-sources",
+        "points": 0,
+        "costPoints": 0,
+        "sourceIds": [],
+        "relatedExcludedIds": []
+      },
+      "aa-briefcase-1-1": {
+        "status": "published",
+        "points": 5,
+        "costPoints": 5,
+        "sourceIds": [
+          "anthropic-sonnet-5-5"
+        ],
+        "relatedExcludedIds": [
+          "gdpval-aa-2-1",
+          "gdp-pdf"
+        ]
+      }
+    },
+    {
+      "modelId": "gpt-6-luna",
+      "name": "GPT-6 Luna",
+      "terminal-bench-4": {
+        "status": "not-published-in-reviewed-sources",
+        "points": 0,
+        "costPoints": 0,
+        "sourceIds": [],
+        "relatedExcludedIds": []
+      },
+      "frontiercode-1-1-main": {
+        "status": "published",
+        "points": 5,
+        "costPoints": 5,
+        "sourceIds": [
+          "openai-6-sol-luna"
+        ],
+        "relatedExcludedIds": []
+      },
+      "cursorbench-4": {
+        "status": "not-published-in-reviewed-sources",
+        "points": 0,
+        "costPoints": 0,
+        "sourceIds": [],
+        "relatedExcludedIds": []
+      },
+      "aa-briefcase-1-1": {
+        "status": "not-published-in-reviewed-sources",
+        "points": 0,
+        "costPoints": 0,
+        "sourceIds": [],
+        "relatedExcludedIds": []
+      }
+    },
+    {
+      "modelId": "grok-4.7",
+      "name": "Grok 4.7",
+      "terminal-bench-4": {
+        "status": "published",
+        "points": 1,
+        "costPoints": 0,
+        "sourceIds": [
+          "xai-grok-4-7"
+        ],
+        "relatedExcludedIds": []
+      },
+      "frontiercode-1-1-main": {
+        "status": "not-published-in-reviewed-sources",
+        "points": 0,
+        "costPoints": 0,
+        "sourceIds": [],
+        "relatedExcludedIds": []
+      },
+      "cursorbench-4": {
+        "status": "published",
+        "points": 4,
+        "costPoints": 4,
+        "sourceIds": [
+          "xai-grok-4-7"
+        ],
+        "relatedExcludedIds": []
+      },
+      "aa-briefcase-1-1": {
+        "status": "published",
+        "points": 1,
+        "costPoints": 0,
+        "sourceIds": [
+          "xai-grok-4-7"
+        ],
+        "relatedExcludedIds": []
+      }
+    },
+    {
+      "modelId": "kimi-k3",
+      "name": "Kimi K3",
+      "terminal-bench-4": {
+        "status": "different-or-unverified-benchmark",
+        "points": 0,
+        "costPoints": 0,
+        "sourceIds": [],
+        "relatedExcludedIds": [
+          "terminal-bench-2-1",
+          "glm-terminal-bench-3-0"
+        ]
+      },
+      "frontiercode-1-1-main": {
+        "status": "different-or-unverified-benchmark",
+        "points": 0,
+        "costPoints": 0,
+        "sourceIds": [],
+        "relatedExcludedIds": [
+          "kimi-frontierswe"
+        ]
+      },
+      "cursorbench-4": {
+        "status": "not-published-in-reviewed-sources",
+        "points": 0,
+        "costPoints": 0,
+        "sourceIds": [],
+        "relatedExcludedIds": []
+      },
+      "aa-briefcase-1-1": {
+        "status": "different-or-unverified-benchmark",
+        "points": 0,
+        "costPoints": 0,
+        "sourceIds": [],
+        "relatedExcludedIds": [
+          "kimi-aa-briefcase-elo",
+          "gdpval-aa-2"
+        ]
+      }
+    },
+    {
+      "modelId": "glm-5.3",
+      "name": "GLM-5.3",
+      "terminal-bench-4": {
+        "status": "different-or-unverified-benchmark",
+        "points": 0,
+        "costPoints": 0,
+        "sourceIds": [],
+        "relatedExcludedIds": [
+          "terminal-bench-2-1",
+          "glm-terminal-bench-3-0"
+        ]
+      },
+      "frontiercode-1-1-main": {
+        "status": "different-or-unverified-benchmark",
+        "points": 0,
+        "costPoints": 0,
+        "sourceIds": [],
+        "relatedExcludedIds": [
+          "glm-frontierswe"
+        ]
+      },
+      "cursorbench-4": {
+        "status": "not-published-in-reviewed-sources",
+        "points": 0,
+        "costPoints": 0,
+        "sourceIds": [],
+        "relatedExcludedIds": []
+      },
+      "aa-briefcase-1-1": {
+        "status": "different-or-unverified-benchmark",
+        "points": 0,
+        "costPoints": 0,
+        "sourceIds": [],
+        "relatedExcludedIds": [
+          "gdpval-aa-2"
+        ]
+      }
+    },
+    {
+      "modelId": "glm-5.3-flash",
+      "name": "GLM-5.3 Flash",
+      "terminal-bench-4": {
+        "status": "different-or-unverified-benchmark",
+        "points": 0,
+        "costPoints": 0,
+        "sourceIds": [],
+        "relatedExcludedIds": [
+          "terminal-bench-2-1"
+        ]
+      },
+      "frontiercode-1-1-main": {
+        "status": "not-published-in-reviewed-sources",
+        "points": 0,
+        "costPoints": 0,
+        "sourceIds": [],
+        "relatedExcludedIds": []
+      },
+      "cursorbench-4": {
+        "status": "not-published-in-reviewed-sources",
+        "points": 0,
+        "costPoints": 0,
+        "sourceIds": [],
+        "relatedExcludedIds": []
+      },
+      "aa-briefcase-1-1": {
+        "status": "different-or-unverified-benchmark",
+        "points": 0,
+        "costPoints": 0,
+        "sourceIds": [],
+        "relatedExcludedIds": [
+          "gdpval-aa-2"
+        ]
+      }
+    }
+  ]
+}

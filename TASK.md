@@ -6,7 +6,7 @@ No invented results, task costs, evaluation conditions, release status or access
 
 | Requirement | Status | Evidence / next action |
 | --- | --- | --- |
-| Latest model identities and benchmark coverage | Verified | 240 benchmark records and exact source-specific points; 1,051 sourced points; integrity and trust-boundary checks pass |
+| Latest model identities and benchmark coverage | Verified | 237 benchmark records and exact source-specific points; 1,068 sourced points; integrity and trust-boundary checks pass |
 | Exact source score/cost curves | Verified extraction | Exact Anthropic SVG labels and OpenAI browser SVG labels; no screenshot estimates |
 | Public update APIs and new-model discovery | Verified adapters | DeepSWE + OpenRouter CORS verified; validated browser refresh with bundled fallback |
 | Reference tab animation and composition | Measured | Chrome Personal; measured frame/type/chart/motion in docs/design |
@@ -32,3 +32,18 @@ No invented missing results or task costs; keep distinct benchmark versions and 
 | Publish revised app | Verified | App commit 145a7e2 pushed to junrillg/ai-benchmarks; Check run 36986428095 passed; Pages deployment 5a59ac94; Chrome Personal verifies new assets, exact tooltip, both feeds, no placeholders, overflow or console errors |
 
 Stop after these checks pass and the revised live site is verified.
+
+
+## Consolidated comparison and chart-first pages · 2 October 2026
+
+Outcome: show all published model results for each verified benchmark/version by default, research gaps and genuine aliases in the requested primary reports, and isolate the benchmark browser, model catalog and methodology on menu pages. Keep source/harness/cost conditions with every run; a shared general goal alone does not make different benchmarks equivalent. No fabricated scores or costs and no absolute accuracy guarantee.
+
+| Requirement | Status | Evidence / next action |
+| --- | --- | --- |
+| Primary-report review and exact missing results | Verified | 26 exact xAI additions; compact primary extraction, independent integrity review, coverage matrix; actual unpublished results remain excluded |
+| Canonical benchmark identity | Verified | Three confirmed aliases consolidated; four featured IDs unchanged; uncertain length-adjustment protocol kept separate |
+| Consolidated chart defaults | Verified | Chrome Personal confirms all-source models, exact Grok cost dots, source-resolved tooltip/evidence, score-only shelf and visible mixed-cost/estimated-cost notes |
+| Chart-focused homepage and isolated menu pages | Verified locally | Home chart; /benchmarks, /models, /methodology; desktop/mobile, direct reload, Back and keyboard catalog drilldown pass |
+| Validation and deployment | Ready to publish | Python five checks, data/chart/navigation regressions and build pass; detector zero errors; desktop/mobile review passes; publish and live-route smoke next |
+
+Stop after the revised live site and required checks pass, with any real publication gaps documented.

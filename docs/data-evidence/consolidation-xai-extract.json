@@ -1,0 +1,571 @@
+{
+  "reviewedAt": "2026-10-02T09:08:05.780331Z",
+  "source": "https://x.ai/news/grok-4-7",
+  "sha256": "19ac41bee32d97320be9bcd597a38bc71182eb1d29f7ef4bd537dc2333a417d4",
+  "method": "Exact accessible SVG point labels plus JSON-decoded server-rendered Next flight chart props; no screen-coordinate estimates.",
+  "cursorBenchLabels": [
+    "Fable 5.1 Max: 51.8%, $17.28 avg cost per task",
+    "Fable 5.1 Extra High: 51.6%, $13.01 avg cost per task",
+    "Fable 5.1 Medium: 46.8%, $7.05 avg cost per task",
+    "Opus 5 Max: 46.6%, $11.95 avg cost per task",
+    "Opus 5 Extra High: 46.1%, $11.43 avg cost per task",
+    "Fable 5.1 Low: 45.1%, $5.44 avg cost per task",
+    "Opus 5 Medium: 43.3%, $6.94 avg cost per task",
+    "GPT-5.6 Sol Max: 41.7%, $8.23 avg cost per task",
+    "Opus 5 Low: 40.7%, $4.87 avg cost per task",
+    "GPT-5.6 Sol Extra High: 37.7%, $4.40 avg cost per task",
+    "GPT-5.6 Sol High: 35.7%, $2.85 avg cost per task",
+    "Sonnet 5 Max: 34.1%, $7.17 avg cost per task",
+    "Sonnet 5 Extra High: 32.0%, $4.55 avg cost per task",
+    "Sonnet 5 Medium: 28.0%, $2.31 avg cost per task",
+    "GPT-5.6 Sol Low: 24.6%, $0.87 avg cost per task",
+    "Sonnet 5 Low: 24.1%, $1.39 avg cost per task",
+    "Grok 4.7 Extra High: 46.3%, $6.01 avg cost per task",
+    "Grok 4.7 Medium: 41.6%, $3.49 avg cost per task",
+    "Grok 4.7 Low: 33.1%, $1.58 avg cost per task",
+    "Fable 5.1 High: 49.2%, $9.08 avg cost per task",
+    "Opus 5 High: 44.7%, $9.00 avg cost per task",
+    "GPT-5.6 Sol Medium: 31.1%, $1.77 avg cost per task",
+    "Sonnet 5 High: 30.8%, $3.48 avg cost per task",
+    "Grok 4.7 High: 43.9%, $4.69 avg cost per task"
+  ],
+  "professionalChartData": [
+    {
+      "key": "gdpval",
+      "label": "GDPval",
+      "heading": "Professional knowledge work",
+      "yAxisTitle": "Elo score",
+      "format": "number",
+      "bars": [
+        {
+          "label": "Fable 5.1",
+          "effort": "max",
+          "score": 1735
+        },
+        {
+          "label": "Grok 4.7",
+          "effort": "xhigh",
+          "grok": true,
+          "score": 1695
+        },
+        {
+          "label": "Grok 4.6",
+          "effort": "high",
+          "score": 1605
+        },
+        {
+          "label": "GPT-6 Astra",
+          "effort": "max",
+          "score": 1542
+        }
+      ]
+    },
+    {
+      "key": "briefcase",
+      "label": "AA Briefcase",
+      "heading": "Multi-hour office work",
+      "yAxisTitle": "Elo score",
+      "format": "number",
+      "bars": [
+        {
+          "label": "Fable 5.1",
+          "effort": "max",
+          "score": 1678
+        },
+        {
+          "label": "Grok 4.7",
+          "effort": "xhigh",
+          "grok": true,
+          "score": 1657
+        },
+        {
+          "label": "GPT-6 Astra",
+          "effort": "max",
+          "score": 1569
+        },
+        {
+          "label": "Grok 4.6",
+          "effort": "high",
+          "score": 1546
+        }
+      ]
+    },
+    {
+      "key": "eebench",
+      "label": "EEBench",
+      "heading": "Electrical engineering",
+      "yAxisTitle": "Accuracy",
+      "format": "percent",
+      "bars": [
+        {
+          "label": "GPT-6 Astra",
+          "effort": "max",
+          "score": 69.3
+        },
+        {
+          "label": "Grok 4.7",
+          "effort": "xhigh",
+          "grok": true,
+          "score": 64
+        },
+        {
+          "label": "Fable 5.1",
+          "effort": "max",
+          "score": 56.4
+        },
+        {
+          "label": "Grok 4.6",
+          "effort": "high",
+          "score": 53
+        }
+      ]
+    }
+  ],
+  "addedPoints": [
+    {
+      "benchmarkId": "cursorbench-4",
+      "label": "Fable 5.1 Max: 51.8%, $17.28 avg cost per task",
+      "point": {
+        "modelId": "claude-fable-5.1",
+        "score": 51.8,
+        "cost": 17.28,
+        "effort": "max",
+        "sourceId": "xai-grok-4-7",
+        "costBasis": "mean-per-task",
+        "conditions": "Exact accessible CursorBench 4.0 SVG label from xAI September 21 release. Published average USD cost per task; source-reported harness/snapshot. No task cost inferred from token pricing."
+      }
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "label": "Fable 5.1 Extra High: 51.6%, $13.01 avg cost per task",
+      "point": {
+        "modelId": "claude-fable-5.1",
+        "score": 51.6,
+        "cost": 13.01,
+        "effort": "xhigh",
+        "sourceId": "xai-grok-4-7",
+        "costBasis": "mean-per-task",
+        "conditions": "Exact accessible CursorBench 4.0 SVG label from xAI September 21 release. Published average USD cost per task; source-reported harness/snapshot. No task cost inferred from token pricing."
+      }
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "label": "Fable 5.1 Medium: 46.8%, $7.05 avg cost per task",
+      "point": {
+        "modelId": "claude-fable-5.1",
+        "score": 46.8,
+        "cost": 7.05,
+        "effort": "medium",
+        "sourceId": "xai-grok-4-7",
+        "costBasis": "mean-per-task",
+        "conditions": "Exact accessible CursorBench 4.0 SVG label from xAI September 21 release. Published average USD cost per task; source-reported harness/snapshot. No task cost inferred from token pricing."
+      }
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "label": "Opus 5 Max: 46.6%, $11.95 avg cost per task",
+      "point": {
+        "modelId": "claude-opus-5",
+        "score": 46.6,
+        "cost": 11.95,
+        "effort": "max",
+        "sourceId": "xai-grok-4-7",
+        "costBasis": "mean-per-task",
+        "conditions": "Exact accessible CursorBench 4.0 SVG label from xAI September 21 release. Published average USD cost per task; source-reported harness/snapshot. No task cost inferred from token pricing."
+      }
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "label": "Opus 5 Extra High: 46.1%, $11.43 avg cost per task",
+      "point": {
+        "modelId": "claude-opus-5",
+        "score": 46.1,
+        "cost": 11.43,
+        "effort": "xhigh",
+        "sourceId": "xai-grok-4-7",
+        "costBasis": "mean-per-task",
+        "conditions": "Exact accessible CursorBench 4.0 SVG label from xAI September 21 release. Published average USD cost per task; source-reported harness/snapshot. No task cost inferred from token pricing."
+      }
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "label": "Fable 5.1 Low: 45.1%, $5.44 avg cost per task",
+      "point": {
+        "modelId": "claude-fable-5.1",
+        "score": 45.1,
+        "cost": 5.44,
+        "effort": "low",
+        "sourceId": "xai-grok-4-7",
+        "costBasis": "mean-per-task",
+        "conditions": "Exact accessible CursorBench 4.0 SVG label from xAI September 21 release. Published average USD cost per task; source-reported harness/snapshot. No task cost inferred from token pricing."
+      }
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "label": "Opus 5 Medium: 43.3%, $6.94 avg cost per task",
+      "point": {
+        "modelId": "claude-opus-5",
+        "score": 43.3,
+        "cost": 6.94,
+        "effort": "medium",
+        "sourceId": "xai-grok-4-7",
+        "costBasis": "mean-per-task",
+        "conditions": "Exact accessible CursorBench 4.0 SVG label from xAI September 21 release. Published average USD cost per task; source-reported harness/snapshot. No task cost inferred from token pricing."
+      }
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "label": "GPT-5.6 Sol Max: 41.7%, $8.23 avg cost per task",
+      "point": {
+        "modelId": "gpt-5.6-sol",
+        "score": 41.7,
+        "cost": 8.23,
+        "effort": "max",
+        "sourceId": "xai-grok-4-7",
+        "costBasis": "mean-per-task",
+        "conditions": "Exact accessible CursorBench 4.0 SVG label from xAI September 21 release. Published average USD cost per task; source-reported harness/snapshot. No task cost inferred from token pricing."
+      }
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "label": "Opus 5 Low: 40.7%, $4.87 avg cost per task",
+      "point": {
+        "modelId": "claude-opus-5",
+        "score": 40.7,
+        "cost": 4.87,
+        "effort": "low",
+        "sourceId": "xai-grok-4-7",
+        "costBasis": "mean-per-task",
+        "conditions": "Exact accessible CursorBench 4.0 SVG label from xAI September 21 release. Published average USD cost per task; source-reported harness/snapshot. No task cost inferred from token pricing."
+      }
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "label": "GPT-5.6 Sol Extra High: 37.7%, $4.40 avg cost per task",
+      "point": {
+        "modelId": "gpt-5.6-sol",
+        "score": 37.7,
+        "cost": 4.4,
+        "effort": "xhigh",
+        "sourceId": "xai-grok-4-7",
+        "costBasis": "mean-per-task",
+        "conditions": "Exact accessible CursorBench 4.0 SVG label from xAI September 21 release. Published average USD cost per task; source-reported harness/snapshot. No task cost inferred from token pricing."
+      }
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "label": "GPT-5.6 Sol High: 35.7%, $2.85 avg cost per task",
+      "point": {
+        "modelId": "gpt-5.6-sol",
+        "score": 35.7,
+        "cost": 2.85,
+        "effort": "high",
+        "sourceId": "xai-grok-4-7",
+        "costBasis": "mean-per-task",
+        "conditions": "Exact accessible CursorBench 4.0 SVG label from xAI September 21 release. Published average USD cost per task; source-reported harness/snapshot. No task cost inferred from token pricing."
+      }
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "label": "Sonnet 5 Max: 34.1%, $7.17 avg cost per task",
+      "point": {
+        "modelId": "claude-sonnet-5",
+        "score": 34.1,
+        "cost": 7.17,
+        "effort": "max",
+        "sourceId": "xai-grok-4-7",
+        "costBasis": "mean-per-task",
+        "conditions": "Exact accessible CursorBench 4.0 SVG label from xAI September 21 release. Published average USD cost per task; source-reported harness/snapshot. No task cost inferred from token pricing."
+      }
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "label": "Sonnet 5 Extra High: 32.0%, $4.55 avg cost per task",
+      "point": {
+        "modelId": "claude-sonnet-5",
+        "score": 32.0,
+        "cost": 4.55,
+        "effort": "xhigh",
+        "sourceId": "xai-grok-4-7",
+        "costBasis": "mean-per-task",
+        "conditions": "Exact accessible CursorBench 4.0 SVG label from xAI September 21 release. Published average USD cost per task; source-reported harness/snapshot. No task cost inferred from token pricing."
+      }
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "label": "Sonnet 5 Medium: 28.0%, $2.31 avg cost per task",
+      "point": {
+        "modelId": "claude-sonnet-5",
+        "score": 28.0,
+        "cost": 2.31,
+        "effort": "medium",
+        "sourceId": "xai-grok-4-7",
+        "costBasis": "mean-per-task",
+        "conditions": "Exact accessible CursorBench 4.0 SVG label from xAI September 21 release. Published average USD cost per task; source-reported harness/snapshot. No task cost inferred from token pricing."
+      }
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "label": "GPT-5.6 Sol Low: 24.6%, $0.87 avg cost per task",
+      "point": {
+        "modelId": "gpt-5.6-sol",
+        "score": 24.6,
+        "cost": 0.87,
+        "effort": "low",
+        "sourceId": "xai-grok-4-7",
+        "costBasis": "mean-per-task",
+        "conditions": "Exact accessible CursorBench 4.0 SVG label from xAI September 21 release. Published average USD cost per task; source-reported harness/snapshot. No task cost inferred from token pricing."
+      }
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "label": "Sonnet 5 Low: 24.1%, $1.39 avg cost per task",
+      "point": {
+        "modelId": "claude-sonnet-5",
+        "score": 24.1,
+        "cost": 1.39,
+        "effort": "low",
+        "sourceId": "xai-grok-4-7",
+        "costBasis": "mean-per-task",
+        "conditions": "Exact accessible CursorBench 4.0 SVG label from xAI September 21 release. Published average USD cost per task; source-reported harness/snapshot. No task cost inferred from token pricing."
+      }
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "label": "Grok 4.7 Extra High: 46.3%, $6.01 avg cost per task",
+      "point": {
+        "modelId": "grok-4.7",
+        "score": 46.3,
+        "cost": 6.01,
+        "effort": "xhigh",
+        "sourceId": "xai-grok-4-7",
+        "costBasis": "mean-per-task",
+        "conditions": "Exact accessible CursorBench 4.0 SVG label from xAI September 21 release. Published average USD cost per task; source-reported harness/snapshot. No task cost inferred from token pricing."
+      }
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "label": "Grok 4.7 Medium: 41.6%, $3.49 avg cost per task",
+      "point": {
+        "modelId": "grok-4.7",
+        "score": 41.6,
+        "cost": 3.49,
+        "effort": "medium",
+        "sourceId": "xai-grok-4-7",
+        "costBasis": "mean-per-task",
+        "conditions": "Exact accessible CursorBench 4.0 SVG label from xAI September 21 release. Published average USD cost per task; source-reported harness/snapshot. No task cost inferred from token pricing."
+      }
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "label": "Grok 4.7 Low: 33.1%, $1.58 avg cost per task",
+      "point": {
+        "modelId": "grok-4.7",
+        "score": 33.1,
+        "cost": 1.58,
+        "effort": "low",
+        "sourceId": "xai-grok-4-7",
+        "costBasis": "mean-per-task",
+        "conditions": "Exact accessible CursorBench 4.0 SVG label from xAI September 21 release. Published average USD cost per task; source-reported harness/snapshot. No task cost inferred from token pricing."
+      }
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "label": "Fable 5.1 High: 49.2%, $9.08 avg cost per task",
+      "point": {
+        "modelId": "claude-fable-5.1",
+        "score": 49.2,
+        "cost": 9.08,
+        "effort": "high",
+        "sourceId": "xai-grok-4-7",
+        "costBasis": "mean-per-task",
+        "conditions": "Exact accessible CursorBench 4.0 SVG label from xAI September 21 release. Published average USD cost per task; source-reported harness/snapshot. No task cost inferred from token pricing."
+      }
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "label": "Opus 5 High: 44.7%, $9.00 avg cost per task",
+      "point": {
+        "modelId": "claude-opus-5",
+        "score": 44.7,
+        "cost": 9.0,
+        "effort": "high",
+        "sourceId": "xai-grok-4-7",
+        "costBasis": "mean-per-task",
+        "conditions": "Exact accessible CursorBench 4.0 SVG label from xAI September 21 release. Published average USD cost per task; source-reported harness/snapshot. No task cost inferred from token pricing."
+      }
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "label": "GPT-5.6 Sol Medium: 31.1%, $1.77 avg cost per task",
+      "point": {
+        "modelId": "gpt-5.6-sol",
+        "score": 31.1,
+        "cost": 1.77,
+        "effort": "medium",
+        "sourceId": "xai-grok-4-7",
+        "costBasis": "mean-per-task",
+        "conditions": "Exact accessible CursorBench 4.0 SVG label from xAI September 21 release. Published average USD cost per task; source-reported harness/snapshot. No task cost inferred from token pricing."
+      }
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "label": "Sonnet 5 High: 30.8%, $3.48 avg cost per task",
+      "point": {
+        "modelId": "claude-sonnet-5",
+        "score": 30.8,
+        "cost": 3.48,
+        "effort": "high",
+        "sourceId": "xai-grok-4-7",
+        "costBasis": "mean-per-task",
+        "conditions": "Exact accessible CursorBench 4.0 SVG label from xAI September 21 release. Published average USD cost per task; source-reported harness/snapshot. No task cost inferred from token pricing."
+      }
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "label": "Grok 4.7 High: 43.9%, $4.69 avg cost per task",
+      "point": {
+        "modelId": "grok-4.7",
+        "score": 43.9,
+        "cost": 4.69,
+        "effort": "high",
+        "sourceId": "xai-grok-4-7",
+        "costBasis": "mean-per-task",
+        "conditions": "Exact accessible CursorBench 4.0 SVG label from xAI September 21 release. Published average USD cost per task; source-reported harness/snapshot. No task cost inferred from token pricing."
+      }
+    },
+    {
+      "benchmarkId": "aa-briefcase-1-1",
+      "point": {
+        "modelId": "gpt-6-astra",
+        "score": 1569,
+        "cost": null,
+        "effort": "max",
+        "sourceId": "xai-grok-4-7",
+        "conditions": "Exact xAI September 21 embedded chart data. Competitor report at max effort; task cost undisclosed. AA-Briefcase 1.1 identity corroborated by the same release capability table."
+      }
+    },
+    {
+      "benchmarkId": "eebench",
+      "point": {
+        "modelId": "gpt-6-astra",
+        "score": 69.3,
+        "cost": null,
+        "effort": "max",
+        "sourceId": "xai-grok-4-7",
+        "conditions": "Exact xAI September 21 embedded EEBench chart data. Competitor report at max effort; task cost undisclosed."
+      }
+    }
+  ],
+  "removedDuplicatePoints": [
+    {
+      "benchmarkId": "terminal-bench-4",
+      "point": {
+        "modelId": "claude-fable-5.1",
+        "score": 57.9,
+        "cost": null,
+        "effort": "max",
+        "sourceId": "xai-grok-4-7",
+        "conditions": "xAI September 21 comparison table, Fable5.1 max effort; competitor public report. No benchmark task cost supplied."
+      }
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "point": {
+        "modelId": "claude-fable-5.1",
+        "score": 51.8,
+        "cost": null,
+        "effort": "max",
+        "sourceId": "xai-grok-4-7",
+        "conditions": "xAI September 21 comparison table, Fable5.1 max effort; competitor public report. No benchmark task cost supplied."
+      }
+    },
+    {
+      "benchmarkId": "aa-briefcase-1-1",
+      "point": {
+        "modelId": "claude-fable-5.1",
+        "score": 1678,
+        "cost": null,
+        "effort": "max",
+        "sourceId": "xai-grok-4-7",
+        "conditions": "xAI September 21 comparison table, Fable5.1 max effort; competitor public report. No benchmark task cost supplied."
+      }
+    },
+    {
+      "benchmarkId": "deep-swe-1-1",
+      "point": {
+        "modelId": "claude-fable-5.1",
+        "score": 70.0,
+        "cost": null,
+        "effort": "max",
+        "sourceId": "xai-grok-4-7",
+        "conditions": "xAI September 21 comparison table, Fable5.1 max effort; competitor public report. No benchmark task cost supplied."
+      }
+    },
+    {
+      "benchmarkId": "eebench",
+      "point": {
+        "modelId": "claude-fable-5.1",
+        "score": 56.4,
+        "cost": null,
+        "effort": "max",
+        "sourceId": "xai-grok-4-7",
+        "conditions": "xAI September 21 comparison table, Fable5.1 max effort; competitor public report. No benchmark task cost supplied."
+      }
+    },
+    {
+      "benchmarkId": "harvey-legal-agent",
+      "point": {
+        "modelId": "claude-fable-5.1",
+        "score": 6.7,
+        "cost": null,
+        "effort": "max",
+        "sourceId": "xai-grok-4-7",
+        "conditions": "xAI September 21 comparison table, Fable5.1 max effort; competitor public report. No benchmark task cost supplied."
+      }
+    },
+    {
+      "benchmarkId": "healthbench-professional-xai",
+      "point": {
+        "modelId": "claude-fable-5.1",
+        "score": 62.1,
+        "cost": null,
+        "effort": "max",
+        "sourceId": "xai-grok-4-7",
+        "conditions": "xAI September 21 comparison table, Fable5.1 max effort; competitor public report. No benchmark task cost supplied."
+      }
+    }
+  ],
+  "supersededScoreOnlyPoints": [
+    {
+      "benchmarkId": "cursorbench-4",
+      "point": {
+        "modelId": "claude-fable-5.1",
+        "score": 51.8,
+        "cost": null,
+        "effort": "max",
+        "sourceId": "xai-grok-4-7",
+        "conditions": "Competitor score reported by xAI; production fallbacks and source snapshots differ."
+      }
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "point": {
+        "modelId": "grok-4.7",
+        "score": 46.3,
+        "cost": null,
+        "effort": "xhigh",
+        "sourceId": "xai-grok-4-7",
+        "conditions": "xAI release table; task cost undisclosed."
+      }
+    }
+  ],
+  "notImported": [
+    "Unversioned GDPval Elo chart is not substituted for GDPval-AA2 or2.1."
+  ],
+  "briefcaseVersionEvidence": {
+    "capabilityTableMetric": "AA Briefcase v1.1",
+    "capabilityTableCaption": "Token prices and benchmark scores for Grok 4.7, Grok 4.6, GPT-5.6 Sol, and Fable 5.1. Benchmarks are CursorBench 4.0, DeepSWE v1.1, EEBench, AA Briefcase v1.1, Terminal-Bench 4.0, Harvey Legal Agent Benchmark, and HealthBench Professional. An asterisk on Grok 4.7 DeepSWE marks a high-effort score.",
+    "chartIdentityCorroboration": "Same release chart has same Grok 1,657 / Fable 1,678 values as explicitly versioned capability table and also gives Astra 1,569. Chart tab label shortens the metric to AA Briefcase."
+  }
+}

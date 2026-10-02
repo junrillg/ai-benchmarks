@@ -61,3 +61,7 @@ The browser can refresh the two CORS-enabled public feeds without redeploying th
 ## Coverage revision · 2 October 2026
 
 The [primary-source coverage review](data-evidence/coverage-review.md) records 493 net additional results, including exact Sol/Luna effort curves, OpenAI and Anthropic system-card tables, Kimi research results and GLM Flash release data. The snapshot now contains 240 benchmark records and 1,051 sourced points. Superseded same-source summary rows are removed when exact curves provide their missing cost. Publisher-estimated costs retain their estimate basis and evaluation conditions. Unpublished cost remains absent from cost charts; verified score-only evaluations remain available.
+
+## Consolidation revision · 2 October 2026
+
+The [consolidation review](data-evidence/consolidation-review.md) records source-independent benchmark browsing, three verified identity merges, seven removed duplicate Fable rows, and 26 exact additional xAI chart records. The snapshot now has 237 benchmark records and 1,068 sourced points. Grok 4.7 has four published CursorBench 4.0 average-cost points; the earlier table-only review missed its accessible SVG labels. Raw and length-adjusted HealthBench remain separate. Related benchmark goals do not establish version/protocol equivalence; the [featured coverage matrix](data-evidence/consolidation-coverage-matrix.json) records the remaining limits.

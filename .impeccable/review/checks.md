@@ -34,3 +34,13 @@ Published on 2026-10-02 to https://ai-benchmarks.pages.dev using Cloudflare Page
 - Model selection contains only usable runs for the chosen benchmark/source/view. Discovery-only catalog records remain internal. Model coverage buttons open actual data; sources without costs use score bars.
 - Published to https://ai-benchmarks.pages.dev, Pages deployment `5a59ac94`, app commit `145a7e2`. Chrome Personal verified revised script `index-DjCFqhfY.js`, 240 records, fifteen benchmarked API catalog entries, both successful feed refreshes, no pending or “Not reported” UI, no horizontal overflow and no warning/error console entries.
 - Live tooltip visually verified: Sonnet 5.5 · Max, 46.2% · $20.78. The live tab is retained as the deliverable. A separate Python HTTP probe received 403; production browser rendering and asset loading succeeded.
+
+
+## Consolidated comparison and pages · 2026-10-02
+
+- Snapshot: 237 benchmark records / 1,068 sourced points. Added 26 exact xAI records; removed seven duplicate and two superseded points. Three verified aliases consolidated. Uncertain Anthropic/OpenAI length-adjustment equivalence remains separate. Independent integrity audit confirms every retained point keeps its conditions and exact values.
+- Five Python checks, data contract, Node data/chart/navigation checks and TypeScript/Vite build pass. Impeccable detector ran once: zero errors; incumbent warnings and token advisories saved in `consolidation-detector.json`.
+- Chrome Personal desktop/mobile review: default all-source FrontierCode includes six latest models; CursorBench includes four exact Grok cost points, with source-resolved tooltip/evidence; Terminal shows five models and score-only results below cost curves. Mixed cost scopes and publisher estimates carry visible notes.
+- At 390×844, mixed-scope axis title fits, document overflow is absent, and the exact Sonnet Medium28.8%/$0.83 tooltip remains inside the chart. Temporary viewport override reset.
+- `/benchmarks`, `/models` and `/methodology` are isolated from the chart. Model catalog contains eleven verified latest models. Direct model-page reload and native Back restore the selected all-source CursorBench chart. Kimi coverage keyboard activation opens its actual independent DeepSWE run. No warning/error console entries.
+- A temporary Python SPA preview at http://127.0.0.1:4173/ serves the built app and direct menu routes; no additional production runtime was introduced.

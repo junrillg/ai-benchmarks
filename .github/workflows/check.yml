@@ -24,4 +24,5 @@ jobs:
       - run: npm run data:check
       - run: node tests/data-check.ts
       - run: node tests/chart-check.ts
+      - run: node tests/navigation-check.ts
       - run: npm run build

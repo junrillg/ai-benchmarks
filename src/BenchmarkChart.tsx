@@ -1,16 +1,16 @@
 import { useEffect, useId, useLayoutEffect, useRef, useState, type CSSProperties, type KeyboardEvent } from 'react'
-import type { Benchmark, BenchmarkPoint, Model } from './data'
+import type { Benchmark, BenchmarkPoint, Model, Source } from './data'
 import { costAxis, frontierCostAxis, groupSeries, niceAxis, tooltipPosition, type Axis, type CostScale } from './chart'
 
 type Props = {
-  benchmark: Benchmark; points: BenchmarkPoint[]; models: Model[]; colors: Record<string, string>
+  benchmark: Benchmark; points: BenchmarkPoint[]; models: Model[]; sources: Source[]; colors: Record<string, string>
   scale: CostScale; measured: boolean; animate: boolean; onInspect: (point: BenchmarkPoint | null, mode?: 'preview' | 'select') => void
 }
 const number = (value: number) => value.toLocaleString('en-US', { maximumFractionDigits: 6 })
 const dollars = (value: number) => `$${value.toLocaleString('en-US', { maximumSignificantDigits: 3 })}`
 const costName = (point: BenchmarkPoint) => point.costBasis === 'per-attempt' ? 'Cost per attempt' : point.costBasis === 'mean-per-task' ? 'Mean cost per task' : point.costBasis ? 'Published cost' : 'Task cost'
 
-export function BenchmarkChart({ benchmark, points, models, colors, scale, measured, animate, onInspect }: Props) {
+export function BenchmarkChart({ benchmark, points, models, sources, colors, scale, measured, animate, onInspect }: Props) {
   const container = useRef<HTMLDivElement>(null), id = useId()
   type Anchor = { point: BenchmarkPoint; x: number; y: number }
   const [hovered, setHovered] = useState<Anchor | null>(null), [focused, setFocused] = useState<Anchor | null>(null)
@@ -37,6 +37,7 @@ export function BenchmarkChart({ benchmark, points, models, colors, scale, measu
   }, [])
 
   const modelNames = new Map(models.map(model => [model.id, model.name]))
+  const sourceNames = new Map(sources.map(source => [source.id, source.name]))
   const score = (point: BenchmarkPoint) => `${number(point.score)}${benchmark.unit === '%' ? '%' : ` ${benchmark.unit}`}`
   const label = (point: BenchmarkPoint) => `${modelNames.get(point.modelId) ?? point.modelId}; effort ${point.effort}; score ${score(point)}; ${point.cost === null ? 'cost not reported' : `${costName(point)} USD ${number(point.cost)}`}; source ${point.sourceId}; ${point.conditions}${point.costBasis ? `; cost basis ${point.costBasis}` : ''}${point.confidenceInterval ? `; confidence interval ${point.confidenceInterval.map(number).join(' to ')}` : ''}`
   const inspect = (point: BenchmarkPoint, x: number, y: number) => ({
@@ -61,6 +62,7 @@ export function BenchmarkChart({ benchmark, points, models, colors, scale, measu
   const tooltipElement = tooltipVisible && <div ref={tooltipRef} id={`${id}-tooltip`} role="tooltip" className="chart-tooltip" style={tooltipStyle}>
     <span className="chart-tooltip-model">{(modelNames.get(tooltip.point.modelId) ?? tooltip.point.modelId).replace(/^Claude /, '')} · {tooltip.point.effort.charAt(0).toUpperCase() + tooltip.point.effort.slice(1)}</span>
     <strong>{score(tooltip.point)}{tooltip.point.cost !== null && ` · $${number(tooltip.point.cost)}`}</strong>
+    <small>{sourceNames.get(tooltip.point.sourceId) ?? tooltip.point.sourceId}</small>
   </div>
 
   if (empty) return <div ref={container} className={classes} style={{ height }}><p className="chart-empty">{measured && scale === 'log' ? 'No positive task costs to plot. Choose linear scale.' : 'No published results for this selection.'}</p></div>
@@ -72,7 +74,7 @@ export function BenchmarkChart({ benchmark, points, models, colors, scale, measu
     return <div ref={container} className={classes} style={{ height, overflowY: 'auto' }}>
       <svg className="benchmark-svg" width="100%" height={svgHeight} viewBox={`0 0 ${width} ${svgHeight}`} role="group" aria-labelledby={`${id}-title ${id}-description`}>
         <title id={`${id}-title`}>{benchmark.name}: published scores</title>
-        <desc id={`${id}-description`}>Bars start at zero. Costs were not reported. Focus or select a result to inspect its source and evaluation conditions.</desc>
+        <desc id={`${id}-description`}>Bars start at zero. Each bar retains its source and conditions. Focus or select a result to inspect its source and evaluation conditions.</desc>
         {axis.ticks.map(tick => <g key={tick} aria-hidden="true">
           <line className="chart-grid" x1={x(tick)} x2={x(tick)} y1={top} y2={bottom} />
           <text className="chart-tick" x={x(tick)} y={bottom + 19} textAnchor="middle">{number(tick)}{benchmark.unit === '%' ? '%' : ''}</text>
@@ -97,7 +99,8 @@ export function BenchmarkChart({ benchmark, points, models, colors, scale, measu
   const zoom = frontier && Math.min(...values) >= 28 && Math.max(...values) <= 56
   const yAxis: Axis = zoom ? { min: 28, max: 56, ticks: [30, 35, 40, 45, 50, 55], position: value => (value - 28) / 28 } : niceAxis(values)
   const costs = validPoints.map(point => point.cost)
-  const costNames = new Set(validPoints.map(costName)), costTitle = costNames.size === 1 ? [...costNames][0] : 'Published cost'
+  const costBases = new Set(validPoints.map(point => point.costBasis ?? 'per-task'))
+  const costTitle = costBases.size === 1 ? costName(validPoints[0]) : 'Published cost (mixed scopes)'
   const xAxis = frontier ? frontierCostAxis(costs, scale) : costAxis(costs, scale)
   const left = width < 600 ? 54 : 72, right = width < 600 ? 16 : 0, top = 16, bottom = height - (width < 600 && zoom ? 72 : 52)
   const x = (value: number) => left + xAxis.position(value) * (width - left - right)

@@ -1,0 +1,22 @@
+{
+  "reviewedAt": "2026-10-02T09:08:05.780331Z",
+  "canonicalAliases": {
+    "anthropic-healthbench-professional-unadjusted": "openai-system-healthbench-professional-unadjusted",
+    "anthropic-healthbench-unadjusted": "openai-system-healthbench-unadjusted",
+    "glm-flash-mmvu": "kimi-mmvu"
+  },
+  "before": {
+    "benchmarks": 240,
+    "points": 1051
+  },
+  "after": {
+    "benchmarks": 237,
+    "points": 1068
+  },
+  "added": 26,
+  "removedDuplicates": 7,
+  "superseded": 2,
+  "notMerged": {
+    "anthropic-healthbench-length-adjusted": "Adjustment formula not independently verified as identical to OpenAI."
+  }
+}

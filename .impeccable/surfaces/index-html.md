@@ -9,7 +9,7 @@ related_targets: ["src/App.tsx","src/styles.css"]
 
 Mode: Operate. Web route `/`; target `index.html` and `src/App.tsx`.
 
-Job: inspect published performance, cost, effort and evidence for the latest five providers. The benchmark figure is the main reading field. Select a benchmark and source, choose models, then inspect points and result rows. Missing results stay visibly missing.
+Job: inspect published performance, cost, effort and evidence for the latest five providers. The benchmark figure is the main reading field. Select a benchmark, inspect all published sources, choose models, then inspect points and result rows. Scores without published cost remain accessible; unsupported results are omitted.
 
 Direction: scientific research plate, candidate 1 selected by the user over seed f89c6b54's candidate 7. Composition `plate` approved by the user on 2026-10-02 after three visual options. Approved comp: `.impeccable/mocks/decision/model-pick.png`, 1505 × 1045. The JSON sidecar records approval.
 
@@ -30,8 +30,11 @@ Sampled pixels: ground top/bottom #ebf3fa; navigation #f1f7fd; sidebar #f2f8fd; 
 
 Signature motion: source-safe straight lines draw on first benchmark exposure (700ms, 120ms series stagger), markers appear in effort order; selected tab rule slides. Revisits preserve visibility; reduced motion disables drawing. Pointer and keyboard point inspection share one readout.
 
-Generated spelling, illustrative dates/numbers, unsupported catalog specifications and unlabeled efforts are defects to correct from verified sources. Default figure uses the Sonnet launch's FrontierCode snapshot to match the approved view. Other source snapshots remain separate choices. The comp's short model names can be used with full names in the catalog. Mobile retains the plot first, then compacts model controls and evidence; no clipped controls or unreadable scaled desktop text.
+Generated spelling, illustrative dates/numbers, unsupported catalog specifications and unlabeled efforts are defects to correct from verified sources. The approved initial figure used the Sonnet launch’s FrontierCode snapshot. The requested consolidation revision defaults to all published sources under the same verified benchmark/version, retaining source-separated curves and optional single-source inspection. The comp's short model names can be used with full names in the catalog. Mobile retains the plot first, then compacts model controls and evidence; no clipped controls or unreadable scaled desktop text.
 
 Shipping raster inventory: none. The approved comp has flat surfaces and exact geometry, with no image-native region to produce. Independent asset producer must confirm this inventory.
 
-Unresolved: Cloudflare authentication and requested hostname availability. First-viewport reproduction checkpoint precedes catalog/methodology implementation. Initial Source Sans 3 proof was visibly too narrow; official Geist is the corrected obtainable face; finish reviewer and documenter follow the final build.
+Deployed: Cloudflare Pages at ai-benchmarks.pages.dev. First-viewport reproduction checkpoint preceded catalog/methodology implementation. Initial Source Sans 3 proof was visibly too narrow; official Geist is the corrected obtainable face; finish reviewer and documenter follow the final build.
+
+
+Requested simplification, 2 October 2026: the home route keeps the figure, model/evidence panel and optional best-score disclosure. Secondary browsing, catalogs and methodology move to `/benchmarks`, `/models` and `/methodology`; these preserve the incumbent world as reading pages. Native history and query links preserve chart selection. Same general benchmark goal alone never establishes equivalence.
