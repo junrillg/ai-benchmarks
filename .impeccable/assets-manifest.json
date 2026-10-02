@@ -1,0 +1,121 @@
+{
+  "version": 1,
+  "surface": "index-html",
+  "approved_reference": {
+    "path": ".impeccable/mocks/decision/model-pick.png",
+    "dimensions": {
+      "width": 1505,
+      "height": 1045
+    },
+    "prompt_source": ".impeccable/mocks/decision/model-pick.json",
+    "embedded_prompt": true,
+    "prompt_check": "Official embed-prompt.mjs --read returned text exactly matching the approved sidecar prompt.",
+    "contract": ".impeccable/surfaces/index-html.md"
+  },
+  "audit": {
+    "date": "2026-10-02",
+    "scope": "Independent visual inventory of the entire approved comp and exact prompt sidecar; font provenance inspection.",
+    "shipping_raster_count": 0,
+    "finding": "The comp contains flat UI surfaces, typography, native controls, rules, table cells and chart geometry. No photograph, physical texture, illustration or other image-native region requires production.",
+    "qa_status": "accepted",
+    "qa_scope": "Accepted classification and implementation handoff only; finished UI fidelity is the parent build review."
+  },
+  "produce": [],
+  "direct": [],
+  "semantic": [
+    {
+      "id": "navigation-wordmark",
+      "implementation": "Semantic header/nav with text wordmark and anchor links; CSS owns the 54px band, spacing, active rule and lower border. Inline authored SVG supplies the external-link arrow.",
+      "notes": "Keep text selectable. Compact or wrap navigation at small widths without clipping. No raster logo or icon.",
+      "qa_status": "accepted"
+    },
+    {
+      "id": "heading-typography",
+      "implementation": "HTML h1 and supporting paragraph using self-hosted Geist; CSS owns weight, tracking, line height and responsive size.",
+      "notes": "The reference heading is about 42px with a 20px supporting line. Geist follows the approved prompt’s Geist/system-like type direction; exact generated-image font identity is not established. Parent confirmed the actual Geist hero wrapping and width against the approved comp.",
+      "qa_status": "accepted"
+    },
+    {
+      "id": "benchmark-tabs-figure-controls",
+      "implementation": "ARIA tab buttons, native buttons/selects and CSS active underline; preserve keyboard selection and visible focus. Allow narrow-screen tab scrolling.",
+      "notes": "CSS owns control borders, tiny radii, selected blue fill and sliding tab rule. No baked labels, controls or panel chrome.",
+      "qa_status": "accepted"
+    },
+    {
+      "id": "score-cost-figure",
+      "implementation": "Responsive SVG with a viewBox, labelled logarithmic cost axis, score axis, cool 1px grid, source-separated straight 2px polyline segments, circular markers and text legend. HTML figure/title and a shared point readout compose around it.",
+      "notes": "Use verified source values rather than generated geometry or preview numbers. Pointer and keyboard inspection share the readout; CSS owns flat near-white field and 4px clipping. Preserve readable labels on mobile. Reduced motion disables entry drawing. No nearby raster asset.",
+      "qa_status": "accepted"
+    },
+    {
+      "id": "model-panel",
+      "implementation": "HTML aside with labelled native checkbox inputs, text model names, CSS circular series swatches and textual missing-result states. CSS owns approximately 310px desktop width, 24px padding and compact rows.",
+      "notes": "Place after the plot in mobile reading order and compact controls without clipping. Swatches accompany model text; no raster checkmarks or selection rows.",
+      "qa_status": "accepted"
+    },
+    {
+      "id": "published-evidence",
+      "implementation": "Semantic heading, paragraphs and real source anchors beneath a CSS divider; inline SVG external-link arrows reuse the navigation icon.",
+      "notes": "Source-specific evaluation conditions remain attached to their results. CSS supplies spacing and rules; no screenshot of evidence copy.",
+      "qa_status": "accepted"
+    },
+    {
+      "id": "result-ledger-model-catalog",
+      "implementation": "HTML tables with header cells, source values and textual missing-data states. CSS owns pale header ground, 1px cell rules, compact rows and horizontally scrollable narrow-screen table containers.",
+      "notes": "The visible ledger and catalog opening are semantic. Verify all facts independently; generated spelling, unlabeled effort and preview data do not become production evidence.",
+      "qa_status": "accepted"
+    },
+    {
+      "id": "flat-material-system",
+      "implementation": "CSS background-color, border and border-radius on page, nav, figure, aside and table regions. Use the surface contract's sampled sRGB tokens and check text contrast.",
+      "notes": "Minor image variation is generation/compression residue, not a physical texture. Do not add texture bitmaps, shadows, gradients or decorative imagery. No raster composes with these layers.",
+      "qa_status": "accepted"
+    }
+  ],
+  "non_raster_dependencies": [
+    {
+      "id": "geist-upright",
+      "source_record": "public/fonts/Geist-SOURCE.md",
+      "output_path": "public/fonts/geist.woff2",
+      "strategy": "Parent-provisioned self-hosted font; no asset-producer modification.",
+      "source_url_recorded": "https://raw.githubusercontent.com/vercel/geist-font/10dc7658f13c38a474cde201bb09a4617267545b/fonts/Geist/webfonts/Geist%5Bwght%5D.woff2",
+      "source_commit": "10dc7658f13c38a474cde201bb09a4617267545b",
+      "metadata_recorded": {
+        "family": "Geist",
+        "style": "Regular",
+        "version": "1.800",
+        "upright": true,
+        "variable_axis": {
+          "tag": "wght",
+          "minimum": 100,
+          "default": 400,
+          "maximum": 900
+        },
+        "evidence": "Provisioning owner's Geist-SOURCE.md records metadata read from the matching official variable TTF at the same pinned commit."
+      },
+      "license": "SIL Open Font License 1.1",
+      "license_path": "public/fonts/Geist-LICENSE.txt",
+      "format": "woff2",
+      "bytes": 69760,
+      "sha256": "2ffebe993e969069a9789d15164b7715d42491b5835516c5e3b935d5f81b05f1",
+      "checks": [
+        "Local file exists",
+        "WOFF2 magic is wOF2",
+        "Local size and SHA-256 computed and match pinned source record",
+        "Source record and complete OFL license read"
+      ],
+      "deviations": [
+        "Exact generated-reference font is unidentified; Geist is the corrected obtainable face selected after the parent reproduction checkpoint."
+      ],
+      "qa_status": "accepted",
+      "qa_scope": "Pinned provenance/container inspection accepted; parent compared the Geist hero reproduction at 1505×1045 beside the approved comp on 2026-10-02. Heading wrapping, width and type scale confirmed."
+    }
+  ],
+  "execution_order": [],
+  "blockers": [],
+  "assumptions": [
+    "The approved comp is a visual reference and is never a shipping image.",
+    "Produce and direct lists describe shipping rasters; the existing font is recorded separately as a non-raster dependency.",
+    "No raster generation, image cleanup or prompt embedding is needed because no production image is emitted."
+  ]
+}

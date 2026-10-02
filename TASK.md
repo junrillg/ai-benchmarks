@@ -6,14 +6,14 @@ No invented results, task costs, evaluation conditions, release status or access
 
 | Requirement | Status | Evidence / next action |
 | --- | --- | --- |
-| Latest model identities and benchmark coverage | Dataset present | 106 benchmark records and exact source-specific points; integrity review underway |
+| Latest model identities and benchmark coverage | Dataset present | 119 benchmark records and exact source-specific points; 558 sourced points; integrity and trust-boundary checks pass |
 | Exact source score/cost curves | Verified extraction | Exact Anthropic SVG labels and OpenAI browser SVG labels; no screenshot estimates |
-| Public update APIs and new-model discovery | Adapters in progress | DeepSWE + OpenRouter CORS verified; validated browser refresh with bundled fallback |
+| Public update APIs and new-model discovery | Verified adapters | DeepSWE + OpenRouter CORS verified; validated browser refresh with bundled fallback |
 | Reference tab animation and composition | Measured | Chrome Personal; measured frame/type/chart/motion in docs/design |
 | Stack and product context | Confirmed | React + TypeScript; image mockup first; PRODUCT.md recorded |
-| Professional interactive visual design | Composition approval pending | Research plate chosen; three composition options on the decision board |
-| Runnable validation | Pending implementation | Data integrity, chart geometry/filtering, accessible tab/point behavior, responsive screenshots and Cloudflare build |
-| Public GitHub repository under junrillg | Access preflight | Verify active identity immediately before creation and push |
-| Cloudflare Pages at requested hostname | Authentication pending | User will authenticate Wrangler locally when app is ready; hostname availability unverified |
+| Professional interactive visual design | Implemented; independent review pending | Approved research plate; hero checkpoint plus two responsive inspection batches complete |
+| Runnable validation | Verified | Production build, data/parser/geometry checks, browser controls and three viewport widths pass; checks in .impeccable/review/checks.md |
+| Public GitHub repository under junrillg | Created; push pending | https://github.com/junrillg/ai-benchmarks; active junrillg identity verified before creation |
+| Cloudflare Pages at requested hostname | Authenticated; project creation pending | Single owner account verified; investigating supported Pages path after new CLI delegation failed |
 
 Stop only after the requirements above have direct evidence, or identify the specific input that blocks remaining work. Goal state is managed by conversation tools, not this file.

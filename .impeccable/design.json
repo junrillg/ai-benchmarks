@@ -1,0 +1,573 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-02T07:53:33.517761+00:00",
+  "title": "Design System: AI Benchmarks",
+  "extensions": {
+    "colorMeta": {
+      "ink": {
+        "role": "neutral",
+        "displayName": "Deep navy ink",
+        "tonalRamp": [
+          "oklch(15.0% 0.08671 264.05)",
+          "oklch(26.43% 0.08671 264.05)",
+          "oklch(37.86% 0.08671 264.05)",
+          "oklch(49.29% 0.08671 264.05)",
+          "oklch(60.71% 0.08671 264.05)",
+          "oklch(72.14% 0.08671 264.05)",
+          "oklch(83.57% 0.08671 264.05)",
+          "oklch(95.0% 0.08671 264.05)"
+        ]
+      },
+      "secondary": {
+        "role": "neutral",
+        "displayName": "Secondary slate",
+        "tonalRamp": [
+          "oklch(15.0% 0.06903 254.92)",
+          "oklch(26.43% 0.06903 254.92)",
+          "oklch(37.86% 0.06903 254.92)",
+          "oklch(49.29% 0.06903 254.92)",
+          "oklch(60.71% 0.06903 254.92)",
+          "oklch(72.14% 0.06903 254.92)",
+          "oklch(83.57% 0.06903 254.92)",
+          "oklch(95.0% 0.06903 254.92)"
+        ]
+      },
+      "blue": {
+        "role": "primary",
+        "displayName": "Control blue",
+        "tonalRamp": [
+          "oklch(15.0% 0.23352 263.53)",
+          "oklch(26.43% 0.23352 263.53)",
+          "oklch(37.86% 0.23352 263.53)",
+          "oklch(49.29% 0.23352 263.53)",
+          "oklch(60.71% 0.23352 263.53)",
+          "oklch(72.14% 0.23352 263.53)",
+          "oklch(83.57% 0.23352 263.53)",
+          "oklch(95.0% 0.23352 263.53)"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Fine cool rule",
+        "tonalRamp": [
+          "oklch(15.0% 0.02621 248.12)",
+          "oklch(26.43% 0.02621 248.12)",
+          "oklch(37.86% 0.02621 248.12)",
+          "oklch(49.29% 0.02621 248.12)",
+          "oklch(60.71% 0.02621 248.12)",
+          "oklch(72.14% 0.02621 248.12)",
+          "oklch(83.57% 0.02621 248.12)",
+          "oklch(95.0% 0.02621 248.12)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Near-white plate",
+        "tonalRamp": [
+          "oklch(15.0% 0.00000 89.88)",
+          "oklch(26.43% 0.00000 89.88)",
+          "oklch(37.86% 0.00000 89.88)",
+          "oklch(49.29% 0.00000 89.88)",
+          "oklch(60.71% 0.00000 89.88)",
+          "oklch(72.14% 0.00000 89.88)",
+          "oklch(83.57% 0.00000 89.88)",
+          "oklch(95.0% 0.00000 89.88)"
+        ]
+      },
+      "ground": {
+        "role": "neutral",
+        "displayName": "Cool paper ground",
+        "tonalRamp": [
+          "oklch(15.0% 0.01271 244.25)",
+          "oklch(26.43% 0.01271 244.25)",
+          "oklch(37.86% 0.01271 244.25)",
+          "oklch(49.29% 0.01271 244.25)",
+          "oklch(60.71% 0.01271 244.25)",
+          "oklch(72.14% 0.01271 244.25)",
+          "oklch(83.57% 0.01271 244.25)",
+          "oklch(95.0% 0.01271 244.25)"
+        ]
+      },
+      "navigation": {
+        "role": "neutral",
+        "displayName": "Cool navigation",
+        "tonalRamp": [
+          "oklch(15.0% 0.01027 247.93)",
+          "oklch(26.43% 0.01027 247.93)",
+          "oklch(37.86% 0.01027 247.93)",
+          "oklch(49.29% 0.01027 247.93)",
+          "oklch(60.71% 0.01027 247.93)",
+          "oklch(72.14% 0.01027 247.93)",
+          "oklch(83.57% 0.01027 247.93)",
+          "oklch(95.0% 0.01027 247.93)"
+        ]
+      },
+      "panel": {
+        "role": "neutral",
+        "displayName": "Cool evidence panel",
+        "tonalRamp": [
+          "oklch(15.0% 0.00925 242.84)",
+          "oklch(26.43% 0.00925 242.84)",
+          "oklch(37.86% 0.00925 242.84)",
+          "oklch(49.29% 0.00925 242.84)",
+          "oklch(60.71% 0.00925 242.84)",
+          "oklch(72.14% 0.00925 242.84)",
+          "oklch(83.57% 0.00925 242.84)",
+          "oklch(95.0% 0.00925 242.84)"
+        ]
+      },
+      "control": {
+        "role": "neutral",
+        "displayName": "Quiet control wash",
+        "tonalRamp": [
+          "oklch(15.0% 0.00792 253.85)",
+          "oklch(26.43% 0.00792 253.85)",
+          "oklch(37.86% 0.00792 253.85)",
+          "oklch(49.29% 0.00792 253.85)",
+          "oklch(60.71% 0.00792 253.85)",
+          "oklch(72.14% 0.00792 253.85)",
+          "oklch(83.57% 0.00792 253.85)",
+          "oklch(95.0% 0.00792 253.85)"
+        ]
+      },
+      "control-border": {
+        "role": "neutral",
+        "displayName": "Control boundary",
+        "tonalRamp": [
+          "oklch(15.0% 0.04243 251.67)",
+          "oklch(26.43% 0.04243 251.67)",
+          "oklch(37.86% 0.04243 251.67)",
+          "oklch(49.29% 0.04243 251.67)",
+          "oklch(60.71% 0.04243 251.67)",
+          "oklch(72.14% 0.04243 251.67)",
+          "oklch(83.57% 0.04243 251.67)",
+          "oklch(95.0% 0.04243 251.67)"
+        ]
+      },
+      "field": {
+        "role": "neutral",
+        "displayName": "Pale field",
+        "tonalRamp": [
+          "oklch(15.0% 0.00340 247.86)",
+          "oklch(26.43% 0.00340 247.86)",
+          "oklch(37.86% 0.00340 247.86)",
+          "oklch(49.29% 0.00340 247.86)",
+          "oklch(60.71% 0.00340 247.86)",
+          "oklch(72.14% 0.00340 247.86)",
+          "oklch(83.57% 0.00340 247.86)",
+          "oklch(95.0% 0.00340 247.86)"
+        ]
+      },
+      "field-border": {
+        "role": "neutral",
+        "displayName": "Field boundary",
+        "tonalRamp": [
+          "oklch(15.0% 0.03662 249.56)",
+          "oklch(26.43% 0.03662 249.56)",
+          "oklch(37.86% 0.03662 249.56)",
+          "oklch(49.29% 0.03662 249.56)",
+          "oklch(60.71% 0.03662 249.56)",
+          "oklch(72.14% 0.03662 249.56)",
+          "oklch(83.57% 0.03662 249.56)",
+          "oklch(95.0% 0.03662 249.56)"
+        ]
+      },
+      "table-heading": {
+        "role": "neutral",
+        "displayName": "Table heading wash",
+        "tonalRamp": [
+          "oklch(15.0% 0.00855 247.91)",
+          "oklch(26.43% 0.00855 247.91)",
+          "oklch(37.86% 0.00855 247.91)",
+          "oklch(49.29% 0.00855 247.91)",
+          "oklch(60.71% 0.00855 247.91)",
+          "oklch(72.14% 0.00855 247.91)",
+          "oklch(83.57% 0.00855 247.91)",
+          "oklch(95.0% 0.00855 247.91)"
+        ]
+      },
+      "chart-grid": {
+        "role": "neutral",
+        "displayName": "Chart grid",
+        "tonalRamp": [
+          "oklch(15.0% 0.01841 250.60)",
+          "oklch(26.43% 0.01841 250.60)",
+          "oklch(37.86% 0.01841 250.60)",
+          "oklch(49.29% 0.01841 250.60)",
+          "oklch(60.71% 0.01841 250.60)",
+          "oklch(72.14% 0.01841 250.60)",
+          "oklch(83.57% 0.01841 250.60)",
+          "oklch(95.0% 0.01841 250.60)"
+        ]
+      },
+      "chart-axis": {
+        "role": "neutral",
+        "displayName": "Chart axis",
+        "tonalRamp": [
+          "oklch(15.0% 0.04291 260.60)",
+          "oklch(26.43% 0.04291 260.60)",
+          "oklch(37.86% 0.04291 260.60)",
+          "oklch(49.29% 0.04291 260.60)",
+          "oklch(60.71% 0.04291 260.60)",
+          "oklch(72.14% 0.04291 260.60)",
+          "oklch(83.57% 0.04291 260.60)",
+          "oklch(95.0% 0.04291 260.60)"
+        ]
+      },
+      "cost-warning": {
+        "role": "neutral",
+        "displayName": "Warm cost caution",
+        "tonalRamp": [
+          "oklch(15.0% 0.01880 67.60)",
+          "oklch(26.43% 0.01880 67.60)",
+          "oklch(37.86% 0.01880 67.60)",
+          "oklch(49.29% 0.01880 67.60)",
+          "oklch(60.71% 0.01880 67.60)",
+          "oklch(72.14% 0.01880 67.60)",
+          "oklch(83.57% 0.01880 67.60)",
+          "oklch(95.0% 0.01880 67.60)"
+        ]
+      },
+      "series-opus": {
+        "role": "secondary",
+        "displayName": "Series Opus",
+        "tonalRamp": [
+          "oklch(15.0% 0.17032 49.89)",
+          "oklch(26.43% 0.17032 49.89)",
+          "oklch(37.86% 0.17032 49.89)",
+          "oklch(49.29% 0.17032 49.89)",
+          "oklch(60.71% 0.17032 49.89)",
+          "oklch(72.14% 0.17032 49.89)",
+          "oklch(83.57% 0.17032 49.89)",
+          "oklch(95.0% 0.17032 49.89)"
+        ]
+      },
+      "series-sol": {
+        "role": "secondary",
+        "displayName": "Series Sol",
+        "tonalRamp": [
+          "oklch(15.0% 0.13746 151.24)",
+          "oklch(26.43% 0.13746 151.24)",
+          "oklch(37.86% 0.13746 151.24)",
+          "oklch(49.29% 0.13746 151.24)",
+          "oklch(60.71% 0.13746 151.24)",
+          "oklch(72.14% 0.13746 151.24)",
+          "oklch(83.57% 0.13746 151.24)",
+          "oklch(95.0% 0.13746 151.24)"
+        ]
+      },
+      "series-fable": {
+        "role": "secondary",
+        "displayName": "Series Fable",
+        "tonalRamp": [
+          "oklch(15.0% 0.14059 308.06)",
+          "oklch(26.43% 0.14059 308.06)",
+          "oklch(37.86% 0.14059 308.06)",
+          "oklch(49.29% 0.14059 308.06)",
+          "oklch(60.71% 0.14059 308.06)",
+          "oklch(72.14% 0.14059 308.06)",
+          "oklch(83.57% 0.14059 308.06)",
+          "oklch(95.0% 0.14059 308.06)"
+        ]
+      },
+      "series-sol-6-1": {
+        "role": "secondary",
+        "displayName": "Series Sol 6 1",
+        "tonalRamp": [
+          "oklch(15.0% 0.08967 219.70)",
+          "oklch(26.43% 0.08967 219.70)",
+          "oklch(37.86% 0.08967 219.70)",
+          "oklch(49.29% 0.08967 219.70)",
+          "oklch(60.71% 0.08967 219.70)",
+          "oklch(72.14% 0.08967 219.70)",
+          "oklch(83.57% 0.08967 219.70)",
+          "oklch(95.0% 0.08967 219.70)"
+        ]
+      },
+      "series-astra": {
+        "role": "secondary",
+        "displayName": "Series Astra",
+        "tonalRamp": [
+          "oklch(15.0% 0.13487 357.67)",
+          "oklch(26.43% 0.13487 357.67)",
+          "oklch(37.86% 0.13487 357.67)",
+          "oklch(49.29% 0.13487 357.67)",
+          "oklch(60.71% 0.13487 357.67)",
+          "oklch(72.14% 0.13487 357.67)",
+          "oklch(83.57% 0.13487 357.67)",
+          "oklch(95.0% 0.13487 357.67)"
+        ]
+      },
+      "series-luna": {
+        "role": "secondary",
+        "displayName": "Series Luna",
+        "tonalRamp": [
+          "oklch(15.0% 0.10084 89.35)",
+          "oklch(26.43% 0.10084 89.35)",
+          "oklch(37.86% 0.10084 89.35)",
+          "oklch(49.29% 0.10084 89.35)",
+          "oklch(60.71% 0.10084 89.35)",
+          "oklch(72.14% 0.10084 89.35)",
+          "oklch(83.57% 0.10084 89.35)",
+          "oklch(95.0% 0.10084 89.35)"
+        ]
+      },
+      "series-grok": {
+        "role": "secondary",
+        "displayName": "Series Grok",
+        "tonalRamp": [
+          "oklch(15.0% 0.10241 269.34)",
+          "oklch(26.43% 0.10241 269.34)",
+          "oklch(37.86% 0.10241 269.34)",
+          "oklch(49.29% 0.10241 269.34)",
+          "oklch(60.71% 0.10241 269.34)",
+          "oklch(72.14% 0.10241 269.34)",
+          "oklch(83.57% 0.10241 269.34)",
+          "oklch(95.0% 0.10241 269.34)"
+        ]
+      },
+      "series-kimi": {
+        "role": "secondary",
+        "displayName": "Series Kimi",
+        "tonalRamp": [
+          "oklch(15.0% 0.10486 44.76)",
+          "oklch(26.43% 0.10486 44.76)",
+          "oklch(37.86% 0.10486 44.76)",
+          "oklch(49.29% 0.10486 44.76)",
+          "oklch(60.71% 0.10486 44.76)",
+          "oklch(72.14% 0.10486 44.76)",
+          "oklch(83.57% 0.10486 44.76)",
+          "oklch(95.0% 0.10486 44.76)"
+        ]
+      },
+      "series-glm": {
+        "role": "secondary",
+        "displayName": "Series Glm",
+        "tonalRamp": [
+          "oklch(15.0% 0.08163 143.32)",
+          "oklch(26.43% 0.08163 143.32)",
+          "oklch(37.86% 0.08163 143.32)",
+          "oklch(49.29% 0.08163 143.32)",
+          "oklch(60.71% 0.08163 143.32)",
+          "oklch(72.14% 0.08163 143.32)",
+          "oklch(83.57% 0.08163 143.32)",
+          "oklch(95.0% 0.08163 143.32)"
+        ]
+      },
+      "series-glm-flash": {
+        "role": "secondary",
+        "displayName": "Series Glm Flash",
+        "tonalRamp": [
+          "oklch(15.0% 0.03250 7.43)",
+          "oklch(26.43% 0.03250 7.43)",
+          "oklch(37.86% 0.03250 7.43)",
+          "oklch(49.29% 0.03250 7.43)",
+          "oklch(60.71% 0.03250 7.43)",
+          "oklch(72.14% 0.03250 7.43)",
+          "oklch(83.57% 0.03250 7.43)",
+          "oklch(95.0% 0.03250 7.43)"
+        ]
+      },
+      "series-unmapped": {
+        "role": "secondary",
+        "displayName": "Series Unmapped",
+        "tonalRamp": [
+          "oklch(15.0% 0.03695 255.29)",
+          "oklch(26.43% 0.03695 255.29)",
+          "oklch(37.86% 0.03695 255.29)",
+          "oklch(49.29% 0.03695 255.29)",
+          "oklch(60.71% 0.03695 255.29)",
+          "oklch(72.14% 0.03695 255.29)",
+          "oklch(83.57% 0.03695 255.29)",
+          "oklch(95.0% 0.03695 255.29)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Compact page headline."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Scientific figure title."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Repeated content section headings."
+      },
+      "subheading": {
+        "displayName": "Subheading",
+        "purpose": "Methodology topics and catalog subsections."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Long-form methodology and explanatory prose."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Compact control labels."
+      },
+      "annotation": {
+        "displayName": "Annotation",
+        "purpose": "Status, source dates and figure instructions."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "tab-rule",
+        "value": "left 220ms cubic-bezier(.16,1,.3,1), width 220ms cubic-bezier(.16,1,.3,1)",
+        "purpose": "Slide selected benchmark underline."
+      },
+      {
+        "name": "draw-series",
+        "value": "700ms cubic-bezier(.16,1,.3,1); delay: series-index * 120ms",
+        "purpose": "Draw source-separated straight lines on first exposure."
+      },
+      {
+        "name": "show-marker",
+        "value": "300ms ease-out; delay: 490ms + series-index * 120ms + point-index * 40ms",
+        "purpose": "Fade effort markers in sequence."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "animation: none !important; transition: none !important; scroll-behavior: auto",
+        "purpose": "Disable movement when prefers-reduced-motion is reduce."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "medium",
+        "value": "1100px"
+      },
+      {
+        "name": "mobile",
+        "value": "760px"
+      },
+      {
+        "name": "small-mobile",
+        "value": "430px"
+      },
+      {
+        "name": "chart-container",
+        "value": "600px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Selected figure view",
+      "kind": "button",
+      "refersTo": "view-selected",
+      "description": "Blue pressed state of the chart/results view control.",
+      "html": "<button class=\"ds-view ds-view-selected\" type=\"button\" aria-pressed=\"true\">Score vs. cost</button>",
+      "css": ".ds-view{font-family:'Geist',sans-serif;height:35px;border:1px solid #b7cde6;background:#f5f9fe;border-radius:4px;padding:0 19px;font-size:14px;color:var(--ink);cursor:pointer}.ds-view:hover{filter:brightness(.95)}.ds-view:focus-visible{outline:2px solid var(--blue);outline-offset:3px}.ds-view-selected{background:var(--blue);color:white;border-color:var(--blue)}"
+    },
+    {
+      "name": "Unselected figure view",
+      "kind": "button",
+      "refersTo": "view-unselected",
+      "description": "Quiet unpressed state of the same figure view control.",
+      "html": "<button class=\"ds-view\" type=\"button\" aria-pressed=\"false\">Results</button>",
+      "css": ".ds-view{font-family:'Geist',sans-serif;height:35px;border:1px solid #b7cde6;background:#f5f9fe;border-radius:4px;padding:0 19px;font-size:14px;color:var(--ink);cursor:pointer}.ds-view:hover{filter:brightness(.95)}.ds-view:focus-visible{outline:2px solid var(--blue);outline-offset:3px}"
+    },
+    {
+      "name": "Quiet action",
+      "kind": "button",
+      "refersTo": "quiet-button",
+      "description": "Compact refresh, close and pagination actions.",
+      "html": "<button class=\"ds-quiet\" type=\"button\">Refresh public feeds</button>",
+      "css": ".ds-quiet{font-family:'Geist',sans-serif;min-height:34px;padding:6px 13px;border:1px solid #b7cde6;border-radius:4px;background:#f5f9fe;color:var(--ink);font-size:13px;line-height:20px;white-space:nowrap;cursor:pointer}.ds-quiet:hover:not(:disabled){background:#e8f1fd}.ds-quiet:disabled{cursor:default;color:#536b8a;background:#edf2f7;border-color:#d3dfe9}.ds-quiet:focus-visible{outline:2px solid var(--blue);outline-offset:3px}"
+    },
+    {
+      "name": "Search field",
+      "kind": "input",
+      "refersTo": "search-field",
+      "description": "Native labelled benchmark search control.",
+      "html": "<label class=\"ds-field-label\">Search benchmarks<input class=\"ds-field\" type=\"search\" placeholder=\"Name, version or task\"></label>",
+      "css": ".ds-field-label{font-family:'Geist',sans-serif;display:flex;flex-direction:column;gap:5px;font-size:13px;color:var(--secondary);font-weight:550}.ds-field{font-family:'Geist',sans-serif;height:36px;min-width:0;width:100%;padding:6px 10px;border:1px solid #b8cce1;border-radius:4px;background:#fbfdff;color:var(--ink);font-size:14px;font-weight:400;caret-color:var(--blue)}.ds-field::placeholder{color:var(--secondary)}.ds-field:focus-visible{outline:2px solid var(--blue);outline-offset:3px}"
+    },
+    {
+      "name": "Section navigation",
+      "kind": "nav",
+      "refersTo": "navigation",
+      "description": "Pale flat navigation band with blue current-section rule.",
+      "html": "<div class=\"ds-nav\"><span class=\"ds-brand\">AI Benchmarks</span><nav class=\"ds-nav-links\" aria-label=\"Sections\"><a class=\"ds-current\" href=\"#benchmarks\" aria-current=\"page\">Benchmarks</a><a href=\"#models\">Models</a><a href=\"#methodology\">Methodology</a></nav></div>",
+      "css": ".ds-nav{font-family:'Geist',sans-serif;height:54px;background:#f1f7fd;border-bottom:1px solid var(--rule);display:flex;align-items:center;gap:44px;padding:0 16px}.ds-brand{font-size:23px;font-weight:750;letter-spacing:-.02em;color:var(--ink);white-space:nowrap}.ds-nav-links{display:flex;height:100%;gap:40px;align-items:center}.ds-nav-links a{font-size:16px;color:var(--ink);height:100%;display:flex;align-items:center;position:relative;text-decoration:none;text-underline-offset:3px}.ds-nav-links a:hover{text-decoration:underline}.ds-nav-links a:focus-visible{outline:2px solid var(--blue);outline-offset:3px}.ds-nav-links .ds-current{color:var(--blue)}.ds-current:after{content:\"\";position:absolute;bottom:2px;height:2px;left:0;right:0;background:var(--blue)}"
+    },
+    {
+      "name": "Benchmark tabs",
+      "kind": "custom",
+      "refersTo": "benchmark-tabs",
+      "description": "Scrollable tab labels with a thin blue active rule.",
+      "html": "<div class=\"ds-tabs\" role=\"tablist\" aria-label=\"Quick benchmark suites\"><button class=\"ds-tab\" type=\"button\" role=\"tab\" aria-selected=\"false\" tabindex=\"-1\">DeepSWE</button><button class=\"ds-tab\" type=\"button\" role=\"tab\" aria-selected=\"false\" tabindex=\"-1\">Terminal-Bench</button><button class=\"ds-tab ds-tab-selected\" type=\"button\" role=\"tab\" aria-selected=\"true\">FrontierCode</button></div>",
+      "css": ".ds-tabs{font-family:'Geist',sans-serif;display:flex;align-items:stretch;border-bottom:1px solid var(--rule);gap:27px;overflow-x:auto;height:50px;scrollbar-width:none}.ds-tab{font-family:'Geist',sans-serif;flex-shrink:0;border:0;background:transparent;color:var(--ink);padding:0 13px;font-size:17px;white-space:nowrap;border-bottom:2px solid transparent;line-height:48px;cursor:pointer}.ds-tab[aria-selected=true]{color:var(--blue);font-weight:650;border-bottom-color:var(--blue)}.ds-tab:hover{background:#e0edf9}.ds-tab:focus-visible{outline:2px solid var(--blue);outline-offset:3px}"
+    },
+    {
+      "name": "Model choice",
+      "kind": "input",
+      "refersTo": "model-choice",
+      "description": "Native checkbox with paired series marker and model name.",
+      "html": "<label class=\"ds-model\"><input class=\"ds-checkbox\" type=\"checkbox\" checked><span class=\"ds-dot\"></span>Sonnet 5.5</label>",
+      "css": ".ds-model{font-family:'Geist',sans-serif;height:32px;display:flex;align-items:center;gap:10px;cursor:pointer;font-size:16px;white-space:nowrap;color:var(--ink)}.ds-checkbox{appearance:auto;width:18px;height:18px;margin:0 8px 0 1px;accent-color:var(--blue);flex-shrink:0;cursor:pointer}.ds-checkbox:disabled{cursor:default}.ds-checkbox:focus-visible{outline:2px solid var(--blue);outline-offset:3px}.ds-dot{display:inline-block;width:12px;height:12px;border-radius:50%;flex-shrink:0;background:var(--blue)}"
+    },
+    {
+      "name": "Research plate",
+      "kind": "card",
+      "refersTo": "plate",
+      "description": "Recurring flat content container for benchmark browsing and methodology.",
+      "html": "<section class=\"ds-plate\"><h2 class=\"ds-plate-title\">Browse benchmarks</h2><p class=\"ds-plate-copy\">Published evidence retains source-specific conditions.</p></section>",
+      "css": ".ds-plate{font-family:'Geist',sans-serif;background:var(--paper);color:var(--ink);border-radius:4px;padding:19px 18px 20px}.ds-plate-title{margin:0;font-size:23px;line-height:29px;font-weight:750;letter-spacing:-.015em}.ds-plate-copy{margin:16px 0 0;font-size:15px;line-height:23px;max-width:75ch}"
+    },
+    {
+      "name": "Result table",
+      "kind": "custom",
+      "refersTo": "result-table",
+      "description": "Compact ledger with fine borders, model identity and tabular values.",
+      "html": "<div class=\"ds-table-scroll\"><table class=\"ds-table\"><thead><tr><th scope=\"col\">Model</th><th scope=\"col\">Effort</th><th scope=\"col\">Score</th><th scope=\"col\">Task cost</th></tr></thead><tbody><tr><th scope=\"row\"><button class=\"ds-result\" type=\"button\"><span class=\"ds-result-dot\"></span>Sonnet 5.5</button></th><td>xhigh</td><td>52.1%</td><td>$1.59</td></tr></tbody></table></div>",
+      "css": ".ds-table-scroll{overflow-x:auto}.ds-table{font-family:'Geist',sans-serif;border-collapse:collapse;width:100%;text-align:left;font-size:15px;table-layout:fixed;font-variant-numeric:tabular-nums;color:var(--ink)}.ds-table thead{background:#f3f8fd}.ds-table th,.ds-table td{height:30px;padding:2px 16px;border:1px solid var(--rule);line-height:23px}.ds-table thead th{font-weight:650;font-size:14px}.ds-table tbody th{font-weight:500;white-space:nowrap}.ds-table tbody td:nth-child(2){color:var(--secondary)}.ds-result{font-family:'Geist',sans-serif;display:inline-flex;align-items:center;text-align:left;border:0;background:transparent;color:var(--ink);padding:0;font-size:15px;line-height:23px;max-width:100%;white-space:normal;cursor:pointer}.ds-result:hover{text-decoration:underline;text-underline-offset:3px}.ds-result:focus-visible{outline:2px solid var(--blue);outline-offset:3px}.ds-result-dot{display:inline-block;width:12px;height:12px;border-radius:50%;background:var(--blue);margin-right:12px;flex-shrink:0}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Scientific research plate",
+    "overview": "The system feels professional, premium and precise. Cool flat paper supports navy typography, fine rules and a near-white reading field. Quality comes from alignment, clear hierarchy and inspectable evidence. There is no physical texture in this world.\n\nGeist keeps interface labels, prose and data in one voice. Compact controls and dense tables coexist with an open chart field. Source conditions, missing data and exact values remain readable parts of the interface. The surface-specific composition and its approved mock belong in [the benchmark explorer brief](.impeccable/surfaces/index-html.md).",
+    "keyCharacteristics": [
+      "Cool flat paper and near-white figure plates.",
+      "Navy ink, blue interaction states and labelled model colors.",
+      "Compact Geist hierarchy with tabular table numbers.",
+      "Thin rules, small corners and native controls.",
+      "First-exposure chart drawing with reduced-motion support."
+    ],
+    "rules": [
+      {
+        "name": "The Labelled Color Rule",
+        "body": "Model color always accompanies a readable name or an inspectable result; color alone does not identify evidence.",
+        "section": "colors"
+      },
+      {
+        "name": "The Numeric Alignment Rule",
+        "body": "Tables use tabular numerals so score and cost columns stay visually comparable.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Plate Rule",
+        "body": "Use tonal separation and fine rules for hierarchy; retain the flat material of the research plate.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** retain cool flat surfaces, navy reading text and thin table/grid rules.",
+      "**Do** pair model colors with readable labels and inspection states.",
+      "**Do** reuse Geist and tabular numerals in data tables.",
+      "**Do** wrap controls and scroll wide tables while preserving readable mobile text.",
+      "**Do** keep visible keyboard focus, native input affordances and reduced-motion behavior."
+    ],
+    "donts": [
+      "**Don't** introduce physical texture, lifted cards or hard offset shadows into this flat scientific world.",
+      "**Don't** use color alone to communicate model identity or missing evidence.",
+      "**Don't** connect unlike sources or conditions into a single visual data series.",
+      "**Don't** scale the entire desktop figure down to fit a mobile viewport."
+    ]
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "source": "https://openai.com/index/introducing-gpt-6-1-sol/",
+  "retrievedAt": "2026-10-02",
+  "method": "Read-only browser DOM extraction of published SVG accessibility labels",
+  "charts": [
+    {
+      "name": "DeepSWE",
+      "labels": [
+        "cost: $2; score: 67%; modelLabel: GPT-6 Astra; Model: GPT-6 Astra; Effort: Low; Cost per task: $1.60; Score: 67.0%",
+        "cost: $3; score: 73%; modelLabel: GPT-6 Astra; Model: GPT-6 Astra; Effort: Medium; Cost per task: $3.08; Score: 72.8%",
+        "cost: $4; score: 73%; modelLabel: GPT-6 Astra; Model: GPT-6 Astra; Effort: High; Cost per task: $3.92; Score: 73.2%",
+        "cost: $4; score: 74%; modelLabel: GPT-6 Astra; Model: GPT-6 Astra; Effort: Xhigh; Cost per task: $4.43; Score: 74.1%",
+        "cost: $7; score: 73%; modelLabel: GPT-6 Astra; Model: GPT-6 Astra; Effort: Max; Cost per task: $7.50; Score: 73.2%",
+        "cost: $0; score: 37%; modelLabel: GPT-6 Sol; Model: GPT-6 Sol; Effort: Low; Cost per task: $0.16; Score: 37.2%",
+        "cost: $0; score: 57%; modelLabel: GPT-6 Sol; Model: GPT-6 Sol; Effort: Medium; Cost per task: $0.38; Score: 56.6%",
+        "cost: $1; score: 65%; modelLabel: GPT-6 Sol; Model: GPT-6 Sol; Effort: High; Cost per task: $0.64; Score: 65.3%",
+        "cost: $1; score: 67%; modelLabel: GPT-6 Sol; Model: GPT-6 Sol; Effort: Xhigh; Cost per task: $1.00; Score: 66.6%",
+        "cost: $3; score: 69%; modelLabel: GPT-6 Sol; Model: GPT-6 Sol; Effort: Max; Cost per task: $2.74; Score: 68.8%",
+        "cost: $0; score: 64%; modelLabel: GPT-6.1 Sol; Model: GPT-6.1 Sol; Effort: Low; Cost per task: $0.17; Score: 64.4%",
+        "cost: $0; score: 73%; modelLabel: GPT-6.1 Sol; Model: GPT-6.1 Sol; Effort: Medium; Cost per task: $0.42; Score: 73.0%",
+        "cost: $1; score: 75%; modelLabel: GPT-6.1 Sol; Model: GPT-6.1 Sol; Effort: High; Cost per task: $0.65; Score: 75.2%",
+        "cost: $1; score: 72%; modelLabel: GPT-6.1 Sol; Model: GPT-6.1 Sol; Effort: Xhigh; Cost per task: $0.79; Score: 71.9%",
+        "cost: $2; score: 72%; modelLabel: GPT-6.1 Sol; Model: GPT-6.1 Sol; Effort: Max; Cost per task: $1.57; Score: 71.9%"
+      ]
+    },
+    {
+      "name": "GDP.pdf",
+      "labels": [
+        "cost: $0.76; score: 26%; modelLabel: Opus 5.5 w/ fallbacks; Model: Opus 5.5 w/ fallbacks; Effort: Low; Cost per task: $0.76; Score: 25.6%",
+        "cost: $0.80; score: 26%; modelLabel: Opus 5.5 w/ fallbacks; Model: Opus 5.5 w/ fallbacks; Effort: Medium; Cost per task: $0.80; Score: 25.6%",
+        "cost: $0.83; score: 29%; modelLabel: Opus 5.5 w/ fallbacks; Model: Opus 5.5 w/ fallbacks; Effort: High; Cost per task: $0.83; Score: 28.8%",
+        "cost: $0.96; score: 27%; modelLabel: Opus 5.5 w/ fallbacks; Model: Opus 5.5 w/ fallbacks; Effort: Xhigh; Cost per task: $0.96; Score: 26.6%",
+        "cost: $1.55; score: 26%; modelLabel: Opus 5.5 w/ fallbacks; Model: Opus 5.5 w/ fallbacks; Effort: Max; Cost per task: $1.55; Score: 26.2%",
+        "cost: $1.70; score: 30%; modelLabel: GPT-6 Astra; Model: GPT-6 Astra; Effort: Low; Cost per task: $1.70; Score: 30.4%",
+        "cost: $1.72; score: 30%; modelLabel: GPT-6 Astra; Model: GPT-6 Astra; Effort: Medium; Cost per task: $1.72; Score: 30.4%",
+        "cost: $1.79; score: 31%; modelLabel: GPT-6 Astra; Model: GPT-6 Astra; Effort: High; Cost per task: $1.79; Score: 31.0%",
+        "cost: $1.91; score: 32%; modelLabel: GPT-6 Astra; Model: GPT-6 Astra; Effort: Xhigh; Cost per task: $1.91; Score: 32.2%",
+        "cost: $2.08; score: 31%; modelLabel: GPT-6 Astra; Model: GPT-6 Astra; Effort: Max; Cost per task: $2.08; Score: 31.0%",
+        "cost: $0.33; score: 22%; modelLabel: GPT-6 Sol; Model: GPT-6 Sol; Effort: Low; Cost per task: $0.33; Score: 21.8%",
+        "cost: $0.34; score: 25%; modelLabel: GPT-6 Sol; Model: GPT-6 Sol; Effort: Medium; Cost per task: $0.34; Score: 25.4%",
+        "cost: $0.35; score: 28%; modelLabel: GPT-6 Sol; Model: GPT-6 Sol; Effort: High; Cost per task: $0.35; Score: 28.0%",
+        "cost: $0.37; score: 24%; modelLabel: GPT-6 Sol; Model: GPT-6 Sol; Effort: Xhigh; Cost per task: $0.37; Score: 23.8%",
+        "cost: $0.43; score: 25%; modelLabel: GPT-6 Sol; Model: GPT-6 Sol; Effort: Max; Cost per task: $0.43; Score: 24.8%",
+        "cost: $0.33; score: 27%; modelLabel: GPT-6.1 Sol; Model: GPT-6.1 Sol; Effort: Low; Cost per task: $0.33; Score: 27.0%",
+        "cost: $0.34; score: 30%; modelLabel: GPT-6.1 Sol; Model: GPT-6.1 Sol; Effort: Medium; Cost per task: $0.34; Score: 30.0%",
+        "cost: $0.35; score: 32%; modelLabel: GPT-6.1 Sol; Model: GPT-6.1 Sol; Effort: High; Cost per task: $0.35; Score: 32.0%",
+        "cost: $0.37; score: 32%; modelLabel: GPT-6.1 Sol; Model: GPT-6.1 Sol; Effort: Xhigh; Cost per task: $0.37; Score: 31.8%",
+        "cost: $0.42; score: 31%; modelLabel: GPT-6.1 Sol; Model: GPT-6.1 Sol; Effort: Max; Cost per task: $0.42; Score: 31.0%"
+      ]
+    },
+    {
+      "name": "AutomationBench",
+      "labels": [
+        "cost: $2.45; score: 31%; modelLabel: Fable 5.1 w/ Opus 5 fallback; Model: Fable 5.1 w/ Opus 5 fallback; Effort: Max; Cost per task: $2.45; Score: 31.4%",
+        "cost: $0.51; score: 24%; modelLabel: Opus 5.5 w/ fallbacks; Model: Opus 5.5 w/ fallbacks; Effort: Low; Cost per task: $0.51; Score: 24.2%",
+        "cost: $0.65; score: 30%; modelLabel: Opus 5.5 w/ fallbacks; Model: Opus 5.5 w/ fallbacks; Effort: Medium; Cost per task: $0.65; Score: 29.5%",
+        "cost: $0.71; score: 33%; modelLabel: Opus 5.5 w/ fallbacks; Model: Opus 5.5 w/ fallbacks; Effort: High; Cost per task: $0.71; Score: 33.0%",
+        "cost: $0.89; score: 36%; modelLabel: Opus 5.5 w/ fallbacks; Model: Opus 5.5 w/ fallbacks; Effort: Xhigh; Cost per task: $0.89; Score: 35.8%",
+        "cost: $1.44; score: 42%; modelLabel: Opus 5.5 w/ fallbacks; Model: Opus 5.5 w/ fallbacks; Effort: Max; Cost per task: $1.44; Score: 42.5%",
+        "cost: $1.08; score: 30%; modelLabel: GPT-6 Astra; Model: GPT-6 Astra; Effort: Low; Cost per task: $1.08; Score: 30.3%",
+        "cost: $1.27; score: 34%; modelLabel: GPT-6 Astra; Model: GPT-6 Astra; Effort: Medium; Cost per task: $1.27; Score: 34.1%",
+        "cost: $1.44; score: 37%; modelLabel: GPT-6 Astra; Model: GPT-6 Astra; Effort: High; Cost per task: $1.44; Score: 37.1%",
+        "cost: $1.50; score: 39%; modelLabel: GPT-6 Astra; Model: GPT-6 Astra; Effort: Xhigh; Cost per task: $1.50; Score: 39.0%",
+        "cost: $1.73; score: 41%; modelLabel: GPT-6 Astra; Model: GPT-6 Astra; Effort: Max; Cost per task: $1.73; Score: 41.4%",
+        "cost: $0.19; score: 21%; modelLabel: GPT-6 Sol; Model: GPT-6 Sol; Effort: Low; Cost per task: $0.19; Score: 21.2%",
+        "cost: $0.21; score: 27%; modelLabel: GPT-6 Sol; Model: GPT-6 Sol; Effort: Medium; Cost per task: $0.21; Score: 26.9%",
+        "cost: $0.24; score: 31%; modelLabel: GPT-6 Sol; Model: GPT-6 Sol; Effort: High; Cost per task: $0.24; Score: 31.2%",
+        "cost: $0.27; score: 33%; modelLabel: GPT-6 Sol; Model: GPT-6 Sol; Effort: Xhigh; Cost per task: $0.27; Score: 33.2%",
+        "cost: $0.34; score: 32%; modelLabel: GPT-6 Sol; Model: GPT-6 Sol; Effort: Max; Cost per task: $0.34; Score: 32.0%",
+        "cost: $0.16; score: 25%; modelLabel: GPT-6.1 Sol; Model: GPT-6.1 Sol; Effort: Low; Cost per task: $0.16; Score: 24.7%",
+        "cost: $0.19; score: 32%; modelLabel: GPT-6.1 Sol; Model: GPT-6.1 Sol; Effort: Medium; Cost per task: $0.19; Score: 31.7%",
+        "cost: $0.23; score: 33%; modelLabel: GPT-6.1 Sol; Model: GPT-6.1 Sol; Effort: High; Cost per task: $0.23; Score: 33.2%",
+        "cost: $0.25; score: 36%; modelLabel: GPT-6.1 Sol; Model: GPT-6.1 Sol; Effort: Xhigh; Cost per task: $0.25; Score: 35.5%",
+        "cost: $0.30; score: 36%; modelLabel: GPT-6.1 Sol; Model: GPT-6.1 Sol; Effort: Max; Cost per task: $0.30; Score: 36.1%"
+      ]
+    },
+    {
+      "name": "OSWorld 2.0, offline set",
+      "labels": [
+        "cost: $3; score: 62%; modelLabel: GPT-6 Astra; Model: GPT-6 Astra; Effort: Low; Cost per task: $2.72; Score: 62.2%",
+        "cost: $5; score: 69%; modelLabel: GPT-6 Astra; Model: GPT-6 Astra; Effort: Medium; Cost per task: $5.36; Score: 69.3%",
+        "cost: $7; score: 70%; modelLabel: GPT-6 Astra; Model: GPT-6 Astra; Effort: High; Cost per task: $6.91; Score: 70.0%",
+        "cost: $7; score: 71%; modelLabel: GPT-6 Astra; Model: GPT-6 Astra; Effort: Xhigh; Cost per task: $7.49; Score: 71.3%",
+        "cost: $9; score: 73%; modelLabel: GPT-6 Astra; Model: GPT-6 Astra; Effort: Max; Cost per task: $9.44; Score: 73.5%",
+        "cost: $1; score: 44%; modelLabel: GPT-6 Sol; Model: GPT-6 Sol; Effort: Low; Cost per task: $1.01; Score: 43.9%",
+        "cost: $1; score: 54%; modelLabel: GPT-6 Sol; Model: GPT-6 Sol; Effort: Medium; Cost per task: $1.38; Score: 54.0%",
+        "cost: $2; score: 58%; modelLabel: GPT-6 Sol; Model: GPT-6 Sol; Effort: High; Cost per task: $1.71; Score: 58.3%",
+        "cost: $2; score: 61%; modelLabel: GPT-6 Sol; Model: GPT-6 Sol; Effort: Xhigh; Cost per task: $2.30; Score: 60.5%",
+        "cost: $3; score: 64%; modelLabel: GPT-6 Sol; Model: GPT-6 Sol; Effort: Max; Cost per task: $3.37; Score: 64.4%",
+        "cost: $0; score: 59%; modelLabel: GPT-6.1 Sol; Model: GPT-6.1 Sol; Effort: Low; Cost per task: $0.42; Score: 59.0%",
+        "cost: $1; score: 67%; modelLabel: GPT-6.1 Sol; Model: GPT-6.1 Sol; Effort: Medium; Cost per task: $0.77; Score: 66.8%",
+        "cost: $1; score: 70%; modelLabel: GPT-6.1 Sol; Model: GPT-6.1 Sol; Effort: High; Cost per task: $0.96; Score: 69.6%",
+        "cost: $1; score: 69%; modelLabel: GPT-6.1 Sol; Model: GPT-6.1 Sol; Effort: Xhigh; Cost per task: $1.05; Score: 69.4%",
+        "cost: $1; score: 71%; modelLabel: GPT-6.1 Sol; Model: GPT-6.1 Sol; Effort: Max; Cost per task: $1.27; Score: 71.4%"
+      ]
+    }
+  ]
+}

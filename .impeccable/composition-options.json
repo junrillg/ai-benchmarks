@@ -1,0 +1,26 @@
+{
+  "title": "AI Benchmarks: composition",
+  "question": "Choose the research-plate composition to build. Approve one, or use the note to combine or revise specific parts.",
+  "options": [
+    {
+      "id": "plate",
+      "label": "Research plate",
+      "thesis": "The chosen composition: a large chart, right-hand model and evidence panel, compact result ledger below.",
+      "comp": ".impeccable/mocks/decision/model-pick.png"
+    },
+    {
+      "id": "wide",
+      "label": "Wide plotting field",
+      "thesis": "One full-width figure with compact model controls above and an evidence ledger below.",
+      "comp": ".impeccable/mocks/composition/wide.png"
+    },
+    {
+      "id": "index",
+      "label": "Indexed research plate",
+      "thesis": "A slim benchmark index beside the figure, with model controls in a horizontal bar and evidence below.",
+      "comp": ".impeccable/mocks/composition/index.png"
+    }
+  ],
+  "steer": true,
+  "followup": false
+}

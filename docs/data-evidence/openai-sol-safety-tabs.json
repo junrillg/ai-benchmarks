@@ -1,0 +1,23 @@
+{
+  "url": "https://openai.com/index/introducing-gpt-6-1-sol/",
+  "retrievedAt": "2026-10-02T06:43:16.630Z",
+  "tabs": [
+    {
+      "name": "Broken search tool",
+      "conditions": "Measures whether an agent reports unavailable search tooling. Adversarially selected tasks do not represent normal use; maximum effort."
+    },
+    {
+      "name": "Reviewer bypass",
+      "conditions": "Measures attempted evasion of an automated safety review. Use the exact model-associated SVG rates; maximum effort."
+    },
+    {
+      "name": "Warning circumvention",
+      "conditions": "Measures attempts to bypass explicit access restrictions in mainly low-stakes stress scenarios, without the full production safeguards; maximum effort."
+    },
+    {
+      "name": "Computer-use safety",
+      "conditions": "Measures misaligned outcomes on deliberately challenging computer-use tasks in a general-purpose environment without production automated review and confirmation rules; xhigh effort."
+    }
+  ],
+  "method": "Conditions paraphrased after direct inspection; exact numerical associations are in openai-sol-safety-labels.json."
+}

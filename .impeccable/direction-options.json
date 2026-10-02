@@ -1,0 +1,229 @@
+{
+  "title": "AI Benchmarks: design direction",
+  "question": "Choose the design you want to build. Each mockup uses real benchmark names; the finished graphs will use verified source data.",
+  "options": [
+    {
+      "id": "assigned",
+      "label": "The benchmark index",
+      "kicker": "THE DIRECTION",
+      "lineage": "Product teardown indexes",
+      "thesis": "A precise benchmark index around one generous, inspectable plot.",
+      "palette": [
+        "#f3f5f6",
+        "#ffffff",
+        "#16252c",
+        "#16715e"
+      ],
+      "materials": [
+        "silver surfaces",
+        "crisp ink",
+        "color-coded data"
+      ],
+      "viewport": "A 220px benchmark rail, wide score/cost graph, compact result ledger below.",
+      "risk": "The index needs a compact mobile form to leave enough room for the graph.",
+      "raised": [
+        {
+          "from": "Emigre specimen",
+          "raise": "Numeric readings keep a deliberate scale relationship across axes and result rows."
+        },
+        {
+          "from": "Streaming wall",
+          "raise": "The selected benchmark alone owns the central reading field."
+        },
+        {
+          "from": "Botanical folio",
+          "raise": "Chart alignment and source conditions stay stable as benchmarks change."
+        },
+        {
+          "from": "Factory catalog",
+          "raise": "One graph owns the field, with a compact and consistently placed identifier."
+        },
+        {
+          "from": "Transit mural",
+          "raise": "Every provider keeps a stable color and a text label through the whole app."
+        }
+      ],
+      "comp": ".impeccable/mocks/decision/assigned.png"
+    },
+    {
+      "id": "model-pick",
+      "label": "The research plate",
+      "kicker": "IMPECCABLE\u2019S PICK",
+      "lineage": "Scientific figure plates",
+      "thesis": "A luminous research canvas with the comparison chart as the main event.",
+      "palette": [
+        "#edf2f8",
+        "#ffffff",
+        "#172d46",
+        "#3264d4"
+      ],
+      "materials": [
+        "cool paper",
+        "blue ink",
+        "open plotting field"
+      ],
+      "viewport": "A compact headline, horizontal benchmark tabs, large chart, source notes on the right.",
+      "risk": "Familiar research-dashboard structure; precision has to carry the identity.",
+      "comp": ".impeccable/mocks/decision/model-pick.png"
+    },
+    {
+      "id": "challenger-rail",
+      "label": "The measurement desk",
+      "verdict": "competitive",
+      "lineage": "Calibrated emission-line rail",
+      "thesis": "A dark instrument surface with fine luminous data and visible evidence.",
+      "palette": [
+        "#232629",
+        "#deded8",
+        "#7da7e2",
+        "#e9b95f"
+      ],
+      "materials": [
+        "matte graphite",
+        "fine data lines",
+        "flat ash panels"
+      ],
+      "viewport": "A slim benchmark rail opens a very large dark chart with readings in an aligned band.",
+      "case": "Strong product clarity through consistent calibration; audience identification is less immediate.",
+      "risk": "Fine rules and dark axes need extra care for legibility.",
+      "comp": ".impeccable/mocks/decision/challenger-rail.png",
+      "board": "https://impeccable.style/worlds/cards/operate-c-emission-line-rail.webp",
+      "hero": "https://impeccable.style/worlds/cards/operate-c-emission-line-rail-hero.webp"
+    },
+    {
+      "id": "emigre-bitmap-specimen",
+      "label": "Bitmap specimen",
+      "verdict": "declined",
+      "lineage": "Bitmap specimen",
+      "thesis": "A benchmark specimen with repeated large numeric readings.",
+      "palette": [
+        "#fafafa",
+        "#151515",
+        "#4e42d4"
+      ],
+      "materials": [
+        "newsprint",
+        "bitmap type"
+      ],
+      "viewport": "A comparison chart remains the core content.",
+      "case": "Less immediate reading and weaker association with trustworthy comparison.",
+      "kept": "A disciplined numeric type scale.",
+      "risk": "Pixel lettering can hinder precise data reading.",
+      "hero": "https://impeccable.style/worlds/cards/emigre-bitmap-specimen-hero.webp"
+    },
+    {
+      "id": "pop-culture-shelf-streaming-title-card-wall",
+      "label": "Streaming wall",
+      "verdict": "declined",
+      "lineage": "Streaming wall",
+      "thesis": "Benchmarks presented as expandable rows of plots.",
+      "palette": [
+        "#191b1f",
+        "#ffffff",
+        "#437af4"
+      ],
+      "materials": [
+        "deep neutral",
+        "poster rows"
+      ],
+      "viewport": "A comparison chart remains the core content.",
+      "case": "Hides comparison context and suggests browsing entertainment.",
+      "kept": "One active plot receives clear visual priority.",
+      "risk": "Focused expansion shifts comparison geometry.",
+      "hero": "https://impeccable.style/worlds/cards/pop-culture-shelf-streaming-title-card-wall-hero.webp"
+    },
+    {
+      "id": "editorial-sequence-montage-botanical-folio-season",
+      "label": "Registered folio",
+      "verdict": "declined",
+      "lineage": "Registered folio",
+      "thesis": "Repeated fixed-scale benchmark plates.",
+      "palette": [
+        "#f5eedc",
+        "#2e503e",
+        "#ac3133"
+      ],
+      "materials": [
+        "cream plates",
+        "registered diagrams"
+      ],
+      "viewport": "A comparison chart remains the core content.",
+      "case": "Seasonal metaphor adds little clarity for unrelated benchmark units.",
+      "kept": "Stable alignment across plot changes.",
+      "risk": "False continuity between incompatible benchmark scales.",
+      "hero": "https://impeccable.style/worlds/cards/editorial-sequence-montage-botanical-folio-season-hero.webp"
+    },
+    {
+      "id": "brand-identity-canon-saville-catalog-sleeve",
+      "label": "Catalog sleeve",
+      "verdict": "declined",
+      "lineage": "Catalog sleeve",
+      "thesis": "A numbered index with a single plotted field.",
+      "palette": [
+        "#121212",
+        "#ffffff",
+        "#bb643a"
+      ],
+      "materials": [
+        "matte black",
+        "coded strips"
+      ],
+      "viewport": "A comparison chart remains the core content.",
+      "case": "Coded names obstruct model selection and do not help this task.",
+      "kept": "One dominant plotting field and stable identifiers.",
+      "risk": "Catalog numbers are less clear than benchmark names.",
+      "hero": "https://impeccable.style/worlds/cards/brand-identity-canon-saville-catalog-sleeve-hero.webp"
+    },
+    {
+      "id": "wayfinding-cartography-signage-midnight-transit-diagram",
+      "label": "Transit mural",
+      "verdict": "declined",
+      "lineage": "Transit mural",
+      "thesis": "Provider lines and effort stops on a navigation map.",
+      "palette": [
+        "#122c56",
+        "#ffffff",
+        "#d44e45"
+      ],
+      "materials": [
+        "enamel blue",
+        "route inks"
+      ],
+      "viewport": "A comparison chart remains the core content.",
+      "case": "Route angles would distort real chart geometry and weaken precision.",
+      "kept": "Stable provider identity paired with labels.",
+      "risk": "Transit geometry cannot replace true score/cost coordinates.",
+      "hero": "https://impeccable.style/worlds/cards/wayfinding-cartography-signage-midnight-transit-diagram-hero.webp"
+    }
+  ],
+  "reroll": {
+    "registers": [
+      "safer",
+      "bolder"
+    ]
+  },
+  "steer": true,
+  "canon": true,
+  "canonCard": {
+    "label": "The familiar dashboard",
+    "thesis": "A conventional benchmark dashboard executed with precise charts and controls.",
+    "palette": [
+      "#ffffff",
+      "#142235",
+      "#3f6fdb"
+    ],
+    "materials": [
+      "white panels",
+      "subtle borders",
+      "familiar controls"
+    ],
+    "viewport": "Top navigation, horizontal tabs, chart card and a results table.",
+    "risk": "Looks like other analytics apps by design.",
+    "comp": ".impeccable/mocks/decision/canon.png"
+  },
+  "buildPath": {
+    "value": "comp",
+    "toggle": true
+  },
+  "followup": true
+}

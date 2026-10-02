@@ -1,0 +1,66 @@
+{
+  "url": "https://openai.com/index/introducing-gpt-6-1-sol/",
+  "retrievedAt": "2026-10-02T06:43:45.245Z",
+  "tabs": [
+    {
+      "name": "Broken search tool",
+      "labels": [
+        "X-axis for a discrete scale with 4 values: GPT-6 Astra, GPT-6.1 Sol, GPT-6 Sol, GPT-6 Luna",
+        "Y-axis titled 'Non-disclosure rate' for a linear scale with values from 0% to 100%",
+        "modelLabel: GPT-6.1 Sol; Non-disclosure rate: 2%; Model: GPT-6.1 Sol; Effort: Max; Score: 2.1%",
+        "modelLabel: GPT-6 Astra; Non-disclosure rate: 2%; Model: GPT-6 Astra; Effort: Max; Score: 1.5%",
+        "modelLabel: GPT-6 Sol; Non-disclosure rate: 5%; Model: GPT-6 Sol; Effort: Max; Score: 4.9%",
+        "modelLabel: GPT-6 Luna; Non-disclosure rate: 29%; Model: GPT-6 Luna; Effort: Max; Score: 28.7%",
+        "modelLabel: GPT-6.1 Sol; Non-disclosure rate: 2%; score: 2.1%; Model: GPT-6.1 Sol; Effort: Max; Score: 2.1%",
+        "modelLabel: GPT-6 Astra; Non-disclosure rate: 2%; score: 1.5%; Model: GPT-6 Astra; Effort: Max; Score: 1.5%",
+        "modelLabel: GPT-6 Sol; Non-disclosure rate: 5%; score: 4.9%; Model: GPT-6 Sol; Effort: Max; Score: 4.9%",
+        "modelLabel: GPT-6 Luna; Non-disclosure rate: 29%; score: 28.7%; Model: GPT-6 Luna; Effort: Max; Score: 28.7%"
+      ]
+    },
+    {
+      "name": "Reviewer bypass",
+      "labels": [
+        "X-axis for a discrete scale with 4 values: GPT-6 Astra, GPT-6.1 Sol, GPT-6 Sol, GPT-6 Luna",
+        "Y-axis titled 'Bypass attempt rate' for a linear scale with values from 0% to 100%",
+        "modelLabel: GPT-6.1 Sol; Bypass attempt rate: 0%; Model: GPT-6.1 Sol; Effort: Max; Score: 0.0%",
+        "modelLabel: GPT-6 Sol; Bypass attempt rate: 0%; Model: GPT-6 Sol; Effort: Max; Score: 0.0%",
+        "modelLabel: GPT-6 Luna; Bypass attempt rate: 0%; Model: GPT-6 Luna; Effort: Max; Score: 0.3%",
+        "modelLabel: GPT-6 Astra; Bypass attempt rate: 0%; Model: GPT-6 Astra; Effort: Max; Score: 0.0%",
+        "modelLabel: GPT-6.1 Sol; Bypass attempt rate: 0%; score: 0.0%; Model: GPT-6.1 Sol; Effort: Max; Score: 0.0%",
+        "modelLabel: GPT-6 Sol; Bypass attempt rate: 0%; score: 0.0%; Model: GPT-6 Sol; Effort: Max; Score: 0.0%",
+        "modelLabel: GPT-6 Luna; Bypass attempt rate: 0%; score: 0.3%; Model: GPT-6 Luna; Effort: Max; Score: 0.3%",
+        "modelLabel: GPT-6 Astra; Bypass attempt rate: 0%; score: 0.0%; Model: GPT-6 Astra; Effort: Max; Score: 0.0%"
+      ]
+    },
+    {
+      "name": "Warning circumvention",
+      "labels": [
+        "X-axis for a discrete scale with 4 values: GPT-6 Astra, GPT-6.1 Sol, GPT-6 Sol, GPT-6 Luna",
+        "Y-axis titled 'Circumvention attempt rate' for a linear scale with values from 0% to 100%",
+        "modelLabel: GPT-6.1 Sol; Circumvention attempt rate: 23%; Model: GPT-6.1 Sol; Effort: Max; Score: 23.5%",
+        "modelLabel: GPT-6 Sol; Circumvention attempt rate: 64%; Model: GPT-6 Sol; Effort: Max; Score: 64.4%",
+        "modelLabel: GPT-6 Luna; Circumvention attempt rate: 42%; Model: GPT-6 Luna; Effort: Max; Score: 42.4%",
+        "modelLabel: GPT-6 Astra; Circumvention attempt rate: 17%; Model: GPT-6 Astra; Effort: Max; Score: 17.4%",
+        "modelLabel: GPT-6.1 Sol; Circumvention attempt rate: 23%; score: 23.5%; Model: GPT-6.1 Sol; Effort: Max; Score: 23.5%",
+        "modelLabel: GPT-6 Sol; Circumvention attempt rate: 64%; score: 64.4%; Model: GPT-6 Sol; Effort: Max; Score: 64.4%",
+        "modelLabel: GPT-6 Luna; Circumvention attempt rate: 42%; score: 42.4%; Model: GPT-6 Luna; Effort: Max; Score: 42.4%",
+        "modelLabel: GPT-6 Astra; Circumvention attempt rate: 17%; score: 17.4%; Model: GPT-6 Astra; Effort: Max; Score: 17.4%"
+      ]
+    },
+    {
+      "name": "Computer-use safety",
+      "labels": [
+        "X-axis for a discrete scale with 4 values: GPT-6 Astra, GPT-6.1 Sol, GPT-6 Sol, GPT-6 Luna",
+        "Y-axis titled 'Misaligned outcome rate' for a linear scale with values from 0% to 100%",
+        "modelLabel: GPT-6.1 Sol; score: 4%; Model: GPT-6.1 Sol; Effort: Xhigh; Score: 4.3%",
+        "modelLabel: GPT-6 Sol; score: 17%; Model: GPT-6 Sol; Effort: Xhigh; Score: 17.4%",
+        "modelLabel: GPT-6 Luna; score: 14%; Model: GPT-6 Luna; Effort: Xhigh; Score: 13.7%",
+        "modelLabel: GPT-6 Astra; score: 2%; Model: GPT-6 Astra; Effort: Xhigh; Score: 2.4%",
+        "modelLabel: GPT-6.1 Sol; score: 4%; Model: GPT-6.1 Sol; Effort: Xhigh; Score: 4.3%",
+        "modelLabel: GPT-6 Sol; score: 17%; Model: GPT-6 Sol; Effort: Xhigh; Score: 17.4%",
+        "modelLabel: GPT-6 Luna; score: 14%; Model: GPT-6 Luna; Effort: Xhigh; Score: 13.7%",
+        "modelLabel: GPT-6 Astra; score: 2%; Model: GPT-6 Astra; Effort: Xhigh; Score: 2.4%"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "id": "plate",
+  "comp": ".impeccable/mocks/decision/model-pick.png",
+  "width": 1505,
+  "height": 1045,
+  "colors": {
+    "ground-top": "#ebf3fa",
+    "ground-bottom": "#ebf3fa",
+    "plot": "#fbfbfc",
+    "nav": "#f1f7fd",
+    "sidebar": "#f2f8fd",
+    "blue": "#1551e7",
+    "orange": "#e8721c",
+    "green": "#349a57",
+    "ink": "#000028"
+  },
+  "source": "User async composition approval 2026-10-02"
+}
