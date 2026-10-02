@@ -1,0 +1,52 @@
+{
+  "retrievedAt": "2026-10-02T08:36:26.805836Z",
+  "rawSourcesNotVendored": [
+    {
+      "file": "coverage-http-sources.json",
+      "sha256": "8feccd9b6c86556ee325b5706c86ab32ff13723bde820aebfed94a617c4ee4ba",
+      "bytes": 392988
+    },
+    {
+      "file": "openai-6-1-system-source.html",
+      "sha256": "ad04cf6590460c5bd691947252530fb42f1ab9b339b3a0d3ff3db422b668a93b",
+      "bytes": 543894
+    },
+    {
+      "file": "glm-flash-blog-source.html",
+      "sha256": "e8184d493c6eab182659a2fecf0bcd8024309fdbf2db6be8f3aa11a8a9d528a2",
+      "bytes": 604
+    },
+    {
+      "file": "glm-flash-blog-source.txt",
+      "sha256": "1b23fe947245e9e4b8843c726da54c965bde839e6ebe005cec3c3fddcc5620ed",
+      "bytes": 21975
+    },
+    {
+      "file": "kimi-paper-source.txt",
+      "sha256": "e6331562e69a9b6c66c131bbcf2b0f4d261cc3160dcf4f3803a9e87c871c0373",
+      "bytes": 1366070
+    },
+    {
+      "file": "cyber-exploitbench.png",
+      "sha256": "7cf37c7695605c3a83679a279537c5d5a453a4aa220b00aa4978e81144ae52b0",
+      "bytes": 164528
+    },
+    {
+      "file": "research-debugging.png",
+      "sha256": "a455a7f749f3ae4bf05a1a766887d10cef341bed4c9ffdb55299123c887e0156",
+      "bytes": 100619
+    },
+    {
+      "file": "kernelgen.png",
+      "sha256": "12226c5394bb6abb154b9499a004021cf3abd7afeb8c9fdb04d0f1ee6596fd99",
+      "bytes": 88930
+    }
+  ],
+  "kernelGenImage": "https://deploymentsafety.openai.com/data/eval-sets/gpt-6-1-sol/assets/images/image35.png",
+  "kernelGenExactPrintedLabels": {
+    "gpt-6-sol": 38.12,
+    "gpt-6-astra": 66.72,
+    "gpt-6.1-sol": 60.44
+  },
+  "note": "Full source HTML/JS/images removed after exact table/label extraction."
+}

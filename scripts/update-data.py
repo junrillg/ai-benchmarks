@@ -21,7 +21,7 @@ SONNET_CHARTS = {"Terminal-Bench 4.0": "terminal-bench-4", "FrontierCode v1.1, m
 SONNET_MODELS = {"Sonnet 5.5": "claude-sonnet-5.5", "Opus 5.5": "claude-opus-5.5", "Sonnet 5": "claude-sonnet-5", "GPT-5.6 Sol": "gpt-5.6-sol", "GPT-6 Sol": "gpt-6-sol"}
 # Explicit source identifiers, not inferred model-name or version substitutions.
 DEEPSWE_MODELS = {"gpt-6-astra": "gpt-6-astra", "kimi-k3": "kimi-k3", "glm-5-3": "glm-5.3", "glm-5-3-flash": "glm-5.3-flash", "claude-sonnet-5": "claude-sonnet-5", "gpt-5-6-sol": "gpt-5.6-sol", "claude-fable-5": "claude-fable-5", "claude-opus-5": "claude-opus-5"}
-ALLOWED_HOSTS = {"www.anthropic.com", "openai.com", "x.ai", "huggingface.co", "deepswe.datacurve.ai", "openrouter.ai", "artificialanalysis.ai", "z.ai"}
+ALLOWED_HOSTS = {"www.anthropic.com", "openai.com", "deploymentsafety.openai.com", "x.ai", "huggingface.co", "arxiv.org", "deepswe.datacurve.ai", "openrouter.ai", "artificialanalysis.ai", "z.ai"}
 
 
 def now():

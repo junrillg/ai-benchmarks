@@ -1,0 +1,309 @@
+{
+  "source": "https://deploymentsafety.openai.com/gpt-6-1-sol",
+  "tables": [
+    {
+      "heading": " Table 7: HealthBench Evaluations - reported as length-adjusted score (unadjusted, mean response length in characters). Higher is better. ",
+      "rows": [
+        [
+          "Evaluation",
+          "GPT-5.5",
+          "GPT-5.6 Sol",
+          "GPT-5.6 Terra",
+          "GPT-5.6 Luna",
+          "GPT-6 Astra",
+          "GPT-6 Sol",
+          "GPT-6 Luna",
+          "GPT-6.1 Sol"
+        ],
+        [
+          "HealthBench Professional length-adjusted",
+          "51.8 (57.2, 3818)",
+          "60.5 (64.1, 3228)",
+          "57.7 (62.4, 3618)",
+          "55.7 (59.8, 3389)",
+          "64.7 (68.2, 3185)",
+          "60.8 (59.5, 1573)",
+          "60.8 (61.2, 2119)",
+          "64.2 (67.2, 3038)"
+        ],
+        [
+          "HealthBench length-adjusted",
+          "56.5 (58.4, 2313)",
+          "57.0 (55.6, 1764)",
+          "57.0 (58.7, 2285)",
+          "55.8 (55.4, 1930)",
+          "58.3 (56.9, 1760)",
+          "53.2 (47.1, 977)",
+          "54.5 (50.0, 1255)",
+          "58.5 (56.7, 1701)"
+        ],
+        [
+          "HealthBench Hard length-adjusted",
+          "31.5 (33.8, 2289)",
+          "33.1 (31.1, 1751)",
+          "32.7 (34.3, 2199)",
+          "32.0 (31.4, 1923)",
+          "36.6 (34.2, 1697)",
+          "30.1 (22.1, 974)",
+          "31.4 (25.4, 1241)",
+          "36.2 (33.4, 1646)"
+        ],
+        [
+          "HealthBench Consensus length-adjusted",
+          "95.6 (95.7, 2259)",
+          "95.5 (95.3, 1740)",
+          "95.1 (95.2, 2247)",
+          "95.1 (95.1, 1897)",
+          "95.5 (95.4, 1742)",
+          "96.2 (95.8, 967)",
+          "95.9 (95.6, 1235)",
+          "96.0 (95.9, 1686)"
+        ]
+      ]
+    },
+    {
+      "heading": " Table 9: MentalHealthBench ",
+      "rows": [
+        [
+          "Row label",
+          "GPT-5.6 Luna",
+          "GPT-5.6 Sol",
+          "GPT-6 Luna",
+          "GPT-6 Sol",
+          "GPT-6 Astra",
+          "GPT-6.1 Sol"
+        ],
+        [
+          "MentalHealthBench (overall)",
+          "44.4 ± 1.0",
+          "46.7 ± 1.0",
+          "51.7 ± 0.9",
+          "54.2 ± 0.9",
+          "58.7 ± 1.0",
+          "57.9 ± 1.0"
+        ],
+        [
+          "MentalHealthBench (non-acute)",
+          "40.4 ± 1.3",
+          "42.5 ± 1.3",
+          "49.3 ± 1.3",
+          "53.5 ± 1.3",
+          "58.5 ± 1.3",
+          "57.3 ± 1.3"
+        ],
+        [
+          "MentalHealthBench (high acuity)",
+          "48.4 ± 2.3",
+          "51.8 ± 2.2",
+          "54.7 ± 2.2",
+          "55.3 ± 2.2",
+          "59.8 ± 2.2",
+          "59.1 ± 2.2"
+        ],
+        [
+          "MentalHealthBench (emergent)",
+          "49.4 ± 1.9",
+          "51.2 ± 1.9",
+          "54.3 ± 1.8",
+          "54.9 ± 1.8",
+          "58.5 ± 1.8",
+          "58.0 ± 1.9"
+        ]
+      ]
+    },
+    {
+      "heading": " Table 12: Biological capability evaluations: High threshold ",
+      "rows": [
+        [
+          "Evaluation",
+          "Metric",
+          "High threshold",
+          "GPT-6 Luna",
+          "GPT-6 Sol",
+          "GPT-6 Astra",
+          "GPT-6.1 Sol"
+        ],
+        [
+          "Multimodal Troubleshooting Virology",
+          "pass@1",
+          "31%",
+          "49.1%",
+          "50.6%",
+          "63.11%",
+          "55.34%"
+        ],
+        [
+          "ProtocolQA Open-Ended",
+          "pass@1",
+          "54%",
+          "34.9%",
+          "44.4%",
+          "45.37%",
+          "40.74%"
+        ],
+        [
+          "Tacit Knowledge and Troubleshooting",
+          "cons@32",
+          "80%",
+          "69.2%",
+          "79.2%",
+          "92.55%",
+          "88.50%"
+        ],
+        [
+          "TroubleshootingBench",
+          "pass@1",
+          "36.4%",
+          "38.6%",
+          "45.3%",
+          "63.46%",
+          "47.96%"
+        ]
+      ]
+    },
+    {
+      "heading": " Table 13: Biological capability evaluations: Critical threshold ",
+      "rows": [
+        [
+          "Evaluations",
+          "Metric",
+          "Critical threshold",
+          "GPT-5.6 Sol",
+          "GPT-6 Sol",
+          "GPT-6 Astra",
+          "GPT-6.1 Sol"
+        ],
+        [
+          "AAV Capsid Packaging Prediction",
+          "Spearman rank correlation (higher is better)",
+          "0.600",
+          "0.529",
+          "0.534",
+          "0.528",
+          "0.5282"
+        ],
+        [
+          "SHP2 Protein Function Prediction",
+          "Mean R² (higher is better)",
+          "0.60",
+          "0.30",
+          "0.273",
+          "0.40",
+          "0.332"
+        ],
+        [
+          "Coronavirus--ACE2 Cell-Entry Screen",
+          "Composite score (higher is better)",
+          "0.75",
+          "0.43",
+          "0.463",
+          "0.45*",
+          "0.423"
+        ],
+        [
+          "Phage--plasmid Co-evolution",
+          "Negative log-likelihood (lower is better)",
+          "≤ 9.40",
+          "11.35",
+          "12.9",
+          "12.58*",
+          "12.946"
+        ]
+      ]
+    },
+    {
+      "heading": " Table 14: Biology Model Refusal Evaluation (higher is better) ",
+      "rows": [
+        [
+          "Biology Model Refusal Evaluation",
+          "Metrics",
+          "GPT-5.5 Thinking",
+          "GPT-5.6 Sol",
+          "GPT-5.6 Luna",
+          "GPT-6 Astra",
+          "GPT-6 Sol",
+          "GPT-6 Luna",
+          "GPT-6.1 Sol"
+        ],
+        [
+          "Severe",
+          "Safe",
+          "0.958",
+          "0.943",
+          "0.946",
+          "0.998",
+          "0.998",
+          "0.985",
+          "0.998"
+        ],
+        [
+          "Dual Use",
+          "Safe",
+          "0.926",
+          "0.911",
+          "0.926",
+          "0.970",
+          "0.980",
+          "0.962",
+          "0.980"
+        ],
+        [
+          "Benign",
+          "Not overrefuse",
+          "0.917",
+          "0.989",
+          "0.989",
+          "0.978",
+          "0.964",
+          "0.958",
+          "0.982"
+        ]
+      ]
+    },
+    {
+      "heading": " Table 15: Cybersecurity Safety Evaluation (higher is better) ",
+      "rows": [
+        [
+          "Evaluation",
+          "GPT-5.5 Thinking",
+          "GPT-5.6 Sol",
+          "GPT-5.6 Luna",
+          "GPT-6 Astra",
+          "GPT-6 Sol",
+          "GPT-6 Luna",
+          "GPT-6.1 Sol"
+        ],
+        [
+          "Production Chat",
+          "0.928",
+          "0.983",
+          "0.986",
+          "0.970",
+          "0.957",
+          "0.951",
+          "0.987"
+        ],
+        [
+          "Synthetic Agentic Envs",
+          "0.975",
+          "0.998",
+          "1.000",
+          "0.992",
+          "0.998",
+          "0.997",
+          "0.997"
+        ],
+        [
+          "Semi-Synthetic Agentic Envs",
+          "0.963",
+          "0.985",
+          "---",
+          "0.997",
+          "0.984",
+          "0.987",
+          "0.980"
+        ]
+      ]
+    }
+  ]
+}

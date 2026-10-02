@@ -20,7 +20,7 @@ Compare the latest AI models through interactive, source-backed benchmark result
 - Include the user-requested Opus 5.5, Sonnet 5.5, Fable, GPT-6 Astra, GPT-6.1 Sol, GPT-6 Sol, GPT Luna and Grok 4.7 when verified in public primary sources, plus current Kimi and GLM models.
 - Cover the published capability benchmark suites across those releases; distinguish versions, tool settings, partial credit, harness and source-specific runs.
 - Animated benchmark tabs and interactive graphs follow the structure and motion demonstrated by the supplied charts and Anthropic's Sonnet 5.5 page.
-- Show evidence, dates and missing data. Never invent a model, score, task cost, release or ranking. API token prices cannot stand in for measured task costs.
+- Publish models with verified benchmark evidence; hide discovery-only entries and models unavailable for the selected benchmark/source/view. Score-only evaluations remain available without inventing task cost. Never invent a model, score, task cost, release or ranking. API token prices cannot stand in for measured task costs.
 - Investigate public APIs for automatic updates and model discovery. Explain credential requirements and manual review limitations honestly.
 - Chrome Personal is the approved browser for reference inspection and review. The owner authenticated Wrangler locally for the verified Cloudflare Pages deployment.
 
@@ -36,7 +36,7 @@ Official vendor release pages, exact Anthropic chart data in delivered SVG acces
 
 1. Let readers inspect the result and its source together.
 2. Preserve evaluation conditions rather than manufacturing a universal score.
-3. Make unsupported comparisons and missing results clear.
+3. Offer only supported comparisons; retain honest cost limitations with verified score-only results.
 4. Refresh only from validated inputs and preserve the last good snapshot on failures.
 
 ## Open Decisions

@@ -1,8 +1,8 @@
 # AI Benchmarks
 
-An interactive benchmark explorer for Anthropic, OpenAI, xAI/Grok, Moonshot AI/Kimi and Z.ai/GLM. Compare published scores and measured task costs while keeping benchmark versions, effort, evaluation conditions and citations visible. Built with React, TypeScript and Vite for static Cloudflare Pages hosting.
+An interactive benchmark explorer for Anthropic, OpenAI, xAI/Grok, Moonshot AI/Kimi and Z.ai/GLM. Compare published scores and reported task costs while keeping benchmark versions, effort, evaluation conditions and citations visible. Built with React, TypeScript and Vite for static Cloudflare Pages hosting.
 
-The bundled snapshot contains **119 benchmark records and 558 sourced result points**. Missing results remain missing; token prices never substitute for benchmark task costs.
+The bundled snapshot contains **240 benchmark records and 1,051 sourced result points**. Only models with verified results appear in each benchmark view; discovery-only entries stay internal. Exact hover/focus tooltips expose model, effort, score and published cost. Token prices never substitute for benchmark task costs. See the [primary-source coverage review](docs/data-evidence/coverage-review.md) for the latest research.
 
 Live app: [ai-benchmarks.pages.dev](https://ai-benchmarks.pages.dev). Public source: [junrillg/ai-benchmarks](https://github.com/junrillg/ai-benchmarks). Production hosting, chart interactions and both public feeds were verified on 2026-10-02.
 
@@ -31,7 +31,7 @@ node tests/chart-check.ts
 
 The app checks two public feeds on startup and through **Refresh public feeds**, without credentials:
 
-- [OpenRouter model catalog](https://openrouter.ai/api/v1/models): model discovery, context length and token pricing. New base model IDs remain **Benchmark pending**. Catalog listing dates are not verified release dates; the feed supplies no benchmark scores.
+- [OpenRouter model catalog](https://openrouter.ai/api/v1/models): model discovery, context length and token pricing. New base model IDs stay internal until identity and benchmark evidence are reviewed. Catalog listing dates are not verified release dates; the feed supplies no benchmark scores.
 - [Independent DeepSWE 1.1 runs](https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json): the 113-task `mini-swe-agent` evaluation, with effort, confidence intervals and mean scored-attempt cost. Explicit model aliases are required; unknown names enter a mapping review queue. These runs remain separate from publisher-reported DeepSWE results.
 
 Browser requests validate response size, schema, provenance and numeric ranges. Failed feeds retain their last validated data, starting with the bundled snapshot. Fetch time and experiment publication time remain separate.

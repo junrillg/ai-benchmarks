@@ -1,0 +1,734 @@
+{
+  "reviewedAt": "2026-10-02T08:39:49.238619Z",
+  "method": "Exact system-card numerical tables and prose verified by delegated primary-source research; section/page/conditions preserved. No chart-position estimates.",
+  "sources": {
+    "sonnet": {
+      "id": "anthropic-sonnet-5-5-system",
+      "name": "Claude Sonnet5.5 system card",
+      "url": "https://www.anthropic.com/claude-sonnet-5-5-system-card"
+    },
+    "opus": {
+      "id": "anthropic-opus-5-5-system",
+      "name": "Claude Opus5.5 system card",
+      "url": "https://www.anthropic.com/claude-opus-5-5-system-card"
+    },
+    "fable": {
+      "id": "anthropic-fable-5-1-system",
+      "name": "Claude Fable5.1 and Mythos5.1 system card",
+      "url": "https://www.anthropic.com/claude-fable-5-1-mythos-5-1-system-card"
+    }
+  },
+  "addedPoints": [
+    {
+      "benchmarkId": "deep-swe-1-1",
+      "modelId": "claude-sonnet-5.5",
+      "score": 71,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "System card section8.3, five-trial average, default sampling and adaptive maximum effort. Source-specific publisher run, not the independent live leaderboard; cost not supplied."
+    },
+    {
+      "benchmarkId": "deep-swe-1-1",
+      "modelId": "claude-opus-5.5",
+      "score": 74.2,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-opus-5-5-system",
+      "conditions": "System card section8.3, five-trial average, default sampling and adaptive maximum effort. Source-specific publisher run, not the independent live leaderboard; cost not supplied."
+    },
+    {
+      "benchmarkId": "deep-swe-1-1",
+      "modelId": "claude-fable-5.1",
+      "score": 67.4,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-fable-5-1-system",
+      "conditions": "System card section8.3, five-trial average, default sampling and adaptive maximum effort. Source-specific publisher run, not the independent live leaderboard; cost not supplied."
+    },
+    {
+      "benchmarkId": "terminal-bench-science-0-1",
+      "modelId": "claude-sonnet-5.5",
+      "score": 59.9,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "Sonnet system card section8.6; Claude Code --bare, maximum effort, no internet egress; fallback did not fire. Standard error4.7 percentage points; exact trial count not asserted."
+    },
+    {
+      "benchmarkId": "anthropic-swe-pro",
+      "modelId": "claude-sonnet-5.5",
+      "score": 81.3,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "System-card capability summary: SonnetPDF p109 / OpusPDF p174; adaptive maximum effort, default sampling, five-trial average unless task section specifies otherwise. Public Messages API safeguards/fallbacks apply. No benchmark task cost supplied."
+    },
+    {
+      "benchmarkId": "anthropic-swe-pro",
+      "modelId": "claude-opus-5.5",
+      "score": 89.9,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-opus-5-5-system",
+      "conditions": "System-card capability summary: SonnetPDF p109 / OpusPDF p174; adaptive maximum effort, default sampling, five-trial average unless task section specifies otherwise. Public Messages API safeguards/fallbacks apply. No benchmark task cost supplied."
+    },
+    {
+      "benchmarkId": "anthropic-swe-pro",
+      "modelId": "claude-fable-5.1",
+      "score": 81.2,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-opus-5-5-system",
+      "conditions": "System-card capability summary: SonnetPDF p109 / OpusPDF p174; adaptive maximum effort, default sampling, five-trial average unless task section specifies otherwise. Public Messages API safeguards/fallbacks apply. No benchmark task cost supplied."
+    },
+    {
+      "benchmarkId": "anthropic-swe-multilingual",
+      "modelId": "claude-sonnet-5.5",
+      "score": 90.3,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "System-card capability summary: SonnetPDF p109 / OpusPDF p174; adaptive maximum effort, default sampling, five-trial average unless task section specifies otherwise. Public Messages API safeguards/fallbacks apply. No benchmark task cost supplied."
+    },
+    {
+      "benchmarkId": "anthropic-swe-multilingual",
+      "modelId": "claude-opus-5.5",
+      "score": 93.9,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-opus-5-5-system",
+      "conditions": "System-card capability summary: SonnetPDF p109 / OpusPDF p174; adaptive maximum effort, default sampling, five-trial average unless task section specifies otherwise. Public Messages API safeguards/fallbacks apply. No benchmark task cost supplied."
+    },
+    {
+      "benchmarkId": "anthropic-swe-multilingual",
+      "modelId": "claude-fable-5.1",
+      "score": 89.1,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-opus-5-5-system",
+      "conditions": "System-card capability summary: SonnetPDF p109 / OpusPDF p174; adaptive maximum effort, default sampling, five-trial average unless task section specifies otherwise. Public Messages API safeguards/fallbacks apply. No benchmark task cost supplied."
+    },
+    {
+      "benchmarkId": "anthropic-swe-multimodal",
+      "modelId": "claude-sonnet-5.5",
+      "score": 54.3,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "System-card capability summary: SonnetPDF p109 / OpusPDF p174; adaptive maximum effort, default sampling, five-trial average unless task section specifies otherwise. Public Messages API safeguards/fallbacks apply. No benchmark task cost supplied."
+    },
+    {
+      "benchmarkId": "anthropic-swe-multimodal",
+      "modelId": "claude-opus-5.5",
+      "score": 61.4,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-opus-5-5-system",
+      "conditions": "System-card capability summary: SonnetPDF p109 / OpusPDF p174; adaptive maximum effort, default sampling, five-trial average unless task section specifies otherwise. Public Messages API safeguards/fallbacks apply. No benchmark task cost supplied."
+    },
+    {
+      "benchmarkId": "anthropic-swe-multimodal",
+      "modelId": "claude-fable-5.1",
+      "score": 54.7,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-opus-5-5-system",
+      "conditions": "System-card capability summary: SonnetPDF p109 / OpusPDF p174; adaptive maximum effort, default sampling, five-trial average unless task section specifies otherwise. Public Messages API safeguards/fallbacks apply. No benchmark task cost supplied."
+    },
+    {
+      "benchmarkId": "hle-no-tools",
+      "modelId": "claude-sonnet-5.5",
+      "score": 56.9,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "System-card capability summary, maximum adaptive effort; HLE no tools, default sampling; source production safeguards/fallbacks apply."
+    },
+    {
+      "benchmarkId": "hle-no-tools",
+      "modelId": "claude-opus-5.5",
+      "score": 64.4,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-opus-5-5-system",
+      "conditions": "System-card capability summary, maximum adaptive effort; HLE no tools, default sampling; source production safeguards/fallbacks apply."
+    },
+    {
+      "benchmarkId": "hle-tools",
+      "modelId": "claude-fable-5.1",
+      "score": 65.6,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-opus-5-5-system",
+      "conditions": "Fable5.1 comparison value in Opus system-card capability summary; max adaptive effort, tools enabled, publisher snapshot differs from earlier Fable release."
+    },
+    {
+      "benchmarkId": "healthbench-professional-length-adjusted",
+      "modelId": "claude-sonnet-5.5",
+      "score": 69.2,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "HealthBench Professional length-adjusted result from system-card capability summary, adaptive maximum effort, default sampling. Do not substitute raw score."
+    },
+    {
+      "benchmarkId": "healthbench-professional-length-adjusted",
+      "modelId": "claude-opus-5.5",
+      "score": 65.6,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-opus-5-5-system",
+      "conditions": "HealthBench Professional length-adjusted result from system-card capability summary, adaptive maximum effort, default sampling. Do not substitute raw score."
+    },
+    {
+      "benchmarkId": "healthbench-professional-length-adjusted",
+      "modelId": "claude-fable-5.1",
+      "score": 62.1,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-opus-5-5-system",
+      "conditions": "HealthBench Professional length-adjusted result from system-card capability summary, adaptive maximum effort, default sampling. Do not substitute raw score."
+    },
+    {
+      "benchmarkId": "anthropic-healthbench-professional-unadjusted",
+      "modelId": "claude-sonnet-5.5",
+      "score": 77.1,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "Raw unadjusted HealthBench Professional result reported in Sonnet system card; max effort, not response-length-adjusted."
+    },
+    {
+      "benchmarkId": "anthropic-healthbench-professional-unadjusted",
+      "modelId": "claude-opus-5.5",
+      "score": 77.1,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "Raw unadjusted HealthBench Professional result reported in Sonnet system card; max effort, not response-length-adjusted."
+    },
+    {
+      "benchmarkId": "anthropic-healthbench-professional-unadjusted",
+      "modelId": "claude-fable-5.1",
+      "score": 74.2,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "Raw unadjusted HealthBench Professional result reported in Sonnet system card; max effort, not response-length-adjusted."
+    },
+    {
+      "benchmarkId": "anthropic-healthbench-unadjusted",
+      "modelId": "claude-fable-5.1",
+      "score": 66.7,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-fable-5-1-system",
+      "conditions": "Fable system-card HealthBench overall raw result, maximum adaptive effort, public API safeguards/fallbacks active."
+    },
+    {
+      "benchmarkId": "anthropic-healthbench-length-adjusted",
+      "modelId": "claude-fable-5.1",
+      "score": 60.0,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-fable-5-1-system",
+      "conditions": "Fable system-card HealthBench overall length-adjusted result, maximum adaptive effort, public API safeguards/fallbacks active."
+    },
+    {
+      "benchmarkId": "automationbench-1-0-6",
+      "modelId": "claude-sonnet-5.5",
+      "score": 44.7,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "Sonnet system card8.14.6, AutomationBench1.0.6, default fallback configuration enabled, max effort. Private evaluation run; cost not supplied."
+    },
+    {
+      "benchmarkId": "automationbench-1-0-6",
+      "modelId": "claude-opus-5.5",
+      "score": 42.5,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "Sonnet system card8.14.6 competitor Opus result: refused tasks rerun with default fallbacks; distinct from Opus no-rerun40.0% release run; cost not supplied."
+    },
+    {
+      "benchmarkId": "anthropic-arxivmath-august2026-no-tools",
+      "modelId": "claude-sonnet-5.5",
+      "score": 86.8,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "Sonnet system card8.9;57 August2026 problems,four attempts/problem,max effort;internal protocol without safeguard classifiers. No tools. Not the MathArena public leaderboard harness."
+    },
+    {
+      "benchmarkId": "anthropic-arxivmath-august2026-no-tools",
+      "modelId": "claude-opus-5.5",
+      "score": 91.2,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "Sonnet system card8.9;57 August2026 problems,four attempts/problem,max effort;internal protocol without safeguard classifiers. No tools. Not the MathArena public leaderboard harness."
+    },
+    {
+      "benchmarkId": "anthropic-arxivmath-august2026-no-tools",
+      "modelId": "claude-fable-5.1",
+      "score": 82.9,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "Sonnet system card8.9;57 August2026 problems,four attempts/problem,max effort;internal protocol without safeguard classifiers. No tools. Not the MathArena public leaderboard harness."
+    },
+    {
+      "benchmarkId": "anthropic-arxivmath-august2026-code-tools",
+      "modelId": "claude-sonnet-5.5",
+      "score": 95.2,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "Sonnet system card8.9;57 August2026 problems,four attempts/problem,max effort;internal protocol without safeguard classifiers. Code execution sandbox,no internet. Not the MathArena public leaderboard harness."
+    },
+    {
+      "benchmarkId": "anthropic-arxivmath-august2026-code-tools",
+      "modelId": "claude-opus-5.5",
+      "score": 96.9,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "Sonnet system card8.9;57 August2026 problems,four attempts/problem,max effort;internal protocol without safeguard classifiers. Code execution sandbox,no internet. Not the MathArena public leaderboard harness."
+    },
+    {
+      "benchmarkId": "anthropic-arxivmath-august2026-code-tools",
+      "modelId": "claude-fable-5.1",
+      "score": 92.1,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "Sonnet system card8.9;57 August2026 problems,four attempts/problem,max effort;internal protocol without safeguard classifiers. Code execution sandbox,no internet. Not the MathArena public leaderboard harness."
+    },
+    {
+      "benchmarkId": "anthropic-programbench-filtered166",
+      "modelId": "claude-sonnet-5.5",
+      "score": 79.7,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "System-card internal ProgramBench protocol,166 filtered tasks whose reference binary pass rate≥0.9;mini-swe-agent without6h limit. Distinct from public almost-solved and unfiltered scores."
+    },
+    {
+      "benchmarkId": "anthropic-programbench-filtered166",
+      "modelId": "claude-opus-5.5",
+      "score": 91.2,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "System-card internal ProgramBench protocol,166 filtered tasks whose reference binary pass rate≥0.9;mini-swe-agent without6h limit. Distinct from public almost-solved and unfiltered scores."
+    },
+    {
+      "benchmarkId": "anthropic-programbench-filtered166",
+      "modelId": "claude-fable-5.1",
+      "score": 87.6,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-opus-5-5-system",
+      "conditions": "System-card internal ProgramBench protocol,166 filtered tasks whose reference binary pass rate≥0.9;mini-swe-agent without6h limit. Distinct from public almost-solved and unfiltered scores."
+    },
+    {
+      "benchmarkId": "anthropic-frontierswe-v2",
+      "modelId": "claude-sonnet-5.5",
+      "score": 61.9,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "Sonnet system card;Proximal agent harness,max effort,five trials/task on34 tasks. Source-reported v2 score, not Kimi/GLM earlier FrontierSWE dominance version."
+    },
+    {
+      "benchmarkId": "anthropic-frontierswe-v2",
+      "modelId": "claude-opus-5.5",
+      "score": 62.3,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "Sonnet system card;Proximal agent harness,max effort,five trials/task on34 tasks. Source-reported v2 score, not Kimi/GLM earlier FrontierSWE dominance version."
+    },
+    {
+      "benchmarkId": "anthropic-frontierswe-v2",
+      "modelId": "claude-fable-5.1",
+      "score": 56.3,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "Sonnet system card;Proximal agent harness,max effort,five trials/task on34 tasks. Source-reported v2 score, not Kimi/GLM earlier FrontierSWE dominance version."
+    },
+    {
+      "benchmarkId": "anthropic-frontierswe-v2",
+      "modelId": "gpt-6-astra",
+      "score": 65.5,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "Sonnet system card;Proximal agent harness,max effort,five trials/task on34 tasks. Source-reported v2 score, not Kimi/GLM earlier FrontierSWE dominance version."
+    },
+    {
+      "benchmarkId": "chartography-tools",
+      "modelId": "claude-sonnet-5.5",
+      "score": 90.2,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "Sonnet system-card Chartography, tools enabled, max effort,five runs;Surge grading with Gemini3.5Flash."
+    },
+    {
+      "benchmarkId": "chartography",
+      "modelId": "claude-fable-5.1",
+      "score": 44.8,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "Sonnet system-card Chartography, no tools,max effort,five runs;Surge grading with Gemini3.5Flash."
+    },
+    {
+      "benchmarkId": "anthropic-officeqa-extracted-text",
+      "modelId": "claude-sonnet-5.5",
+      "score": 76.9,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "Internal preselected extracted-text OfficeQA protocol;max effort. Fable public Messages API,production safeguards/fallbacks active,code execution,128K output and no concurrent truncation. Not Kimi raw PDF-only benchmark."
+    },
+    {
+      "benchmarkId": "anthropic-officeqa-extracted-text",
+      "modelId": "claude-opus-5.5",
+      "score": 78.9,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "Internal preselected extracted-text OfficeQA protocol;max effort. Fable public Messages API,production safeguards/fallbacks active,code execution,128K output and no concurrent truncation. Not Kimi raw PDF-only benchmark."
+    },
+    {
+      "benchmarkId": "anthropic-officeqa-extracted-text",
+      "modelId": "claude-fable-5.1",
+      "score": 80.2,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-fable-5-1-system",
+      "conditions": "Internal preselected extracted-text OfficeQA protocol;max effort. Fable public Messages API,production safeguards/fallbacks active,code execution,128K output and no concurrent truncation. Not Kimi raw PDF-only benchmark."
+    },
+    {
+      "benchmarkId": "anthropic-officeqa-pro-subset133",
+      "modelId": "claude-sonnet-5.5",
+      "score": 65.6,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "Sonnet system card OfficeQA Pro133-task subset,max effort;source-specific extracted-text setup. No task cost reported."
+    },
+    {
+      "benchmarkId": "anthropic-officeqa-pro-subset133",
+      "modelId": "claude-opus-5.5",
+      "score": 67.7,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "Sonnet system card OfficeQA Pro133-task subset,max effort;source-specific extracted-text setup. No task cost reported."
+    },
+    {
+      "benchmarkId": "anthropic-fable-officeqa-pro",
+      "modelId": "claude-fable-5.1",
+      "score": 69,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-fable-5-1-system",
+      "conditions": "Fable system card8.15.1, public Messages API,production safeguards/fallbacks active,extracted text+code execution,128K output and no concurrent truncation. Exact subset equivalence to Sonnet not asserted."
+    },
+    {
+      "benchmarkId": "anthropic-benchcad-vision2code-no-tools",
+      "modelId": "claude-sonnet-5.5",
+      "score": 0.747,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "Sonnet system card BenchCAD random1000/17900 subset;voxel IoU score on0–1scale,max effort,five runs. No tools. Not a percent-correct metric."
+    },
+    {
+      "benchmarkId": "anthropic-benchcad-vision2code-no-tools",
+      "modelId": "claude-opus-5.5",
+      "score": 0.73,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "Sonnet system card BenchCAD random1000/17900 subset;voxel IoU score on0–1scale,max effort,five runs. No tools. Not a percent-correct metric."
+    },
+    {
+      "benchmarkId": "anthropic-benchcad-vision2code-no-tools",
+      "modelId": "claude-fable-5.1",
+      "score": 0.606,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "Sonnet system card BenchCAD random1000/17900 subset;voxel IoU score on0–1scale,max effort,five runs. No tools. Not a percent-correct metric."
+    },
+    {
+      "benchmarkId": "anthropic-benchcad-vision2code-tools",
+      "modelId": "claude-sonnet-5.5",
+      "score": 0.963,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "Sonnet system card BenchCAD random1000/17900 subset;voxel IoU score on0–1scale,max effort,five runs. Container/code and image crop tools. Not a percent-correct metric."
+    },
+    {
+      "benchmarkId": "anthropic-benchcad-vision2code-tools",
+      "modelId": "claude-opus-5.5",
+      "score": 0.962,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "Sonnet system card BenchCAD random1000/17900 subset;voxel IoU score on0–1scale,max effort,five runs. Container/code and image crop tools. Not a percent-correct metric."
+    },
+    {
+      "benchmarkId": "anthropic-benchcad-vision2code-tools",
+      "modelId": "claude-fable-5.1",
+      "score": 0.926,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "Sonnet system card BenchCAD random1000/17900 subset;voxel IoU score on0–1scale,max effort,five runs. Container/code and image crop tools. Not a percent-correct metric."
+    },
+    {
+      "benchmarkId": "anthropic-toolathlon-verified-pass-at-1",
+      "modelId": "claude-sonnet-5.5",
+      "score": 77.8,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "Sonnet system-card June2026 internal harness on108 tasks,three trials/task;pass-at-1 metric,safety-classifier failures count as failures. Not the official external service protocol."
+    },
+    {
+      "benchmarkId": "anthropic-toolathlon-verified-pass-at-1",
+      "modelId": "claude-opus-5.5",
+      "score": 77.8,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "Sonnet system-card June2026 internal harness on108 tasks,three trials/task;pass-at-1 metric,safety-classifier failures count as failures. Not the official external service protocol."
+    },
+    {
+      "benchmarkId": "anthropic-toolathlon-verified-pass-at-1",
+      "modelId": "claude-fable-5.1",
+      "score": 77.8,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "Sonnet system-card June2026 internal harness on108 tasks,three trials/task;pass-at-1 metric,safety-classifier failures count as failures. Not the official external service protocol."
+    },
+    {
+      "benchmarkId": "anthropic-toolathlon-verified-pass-at-3",
+      "modelId": "claude-sonnet-5.5",
+      "score": 85.2,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "Sonnet system-card June2026 internal harness on108 tasks,three trials/task;pass-at-3 metric,safety-classifier failures count as failures. Not the official external service protocol."
+    },
+    {
+      "benchmarkId": "anthropic-toolathlon-verified-pass-power-3",
+      "modelId": "claude-sonnet-5.5",
+      "score": 68.5,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "Sonnet system-card June2026 internal harness on108 tasks,three trials/task;pass-power-3 metric,safety-classifier failures count as failures. Not the official external service protocol."
+    },
+    {
+      "benchmarkId": "anthropic-physicianbench",
+      "modelId": "claude-sonnet-5.5",
+      "score": 63.2,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "Sonnet system-card100EHR tasks,same agent harness,max effort,Opus5 grader;source snapshot,not HealthBench."
+    },
+    {
+      "benchmarkId": "anthropic-physicianbench",
+      "modelId": "claude-opus-5.5",
+      "score": 68.4,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "Sonnet system-card100EHR tasks,same agent harness,max effort,Opus5 grader;source snapshot,not HealthBench."
+    },
+    {
+      "benchmarkId": "anthropic-physicianbench",
+      "modelId": "claude-fable-5.1",
+      "score": 61,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "Sonnet system-card100EHR tasks,same agent harness,max effort,Opus5 grader;source snapshot,not HealthBench."
+    },
+    {
+      "benchmarkId": "anthropic-gmmlu42languages",
+      "modelId": "claude-sonnet-5.5",
+      "score": 92.1,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "Sonnet system-card language evaluation,max effort,no tools,no custom prompt;single trial across42languages."
+    },
+    {
+      "benchmarkId": "anthropic-gmmlu42languages",
+      "modelId": "claude-opus-5.5",
+      "score": 94.3,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "Sonnet system-card language evaluation,max effort,no tools,no custom prompt;single trial across42languages."
+    },
+    {
+      "benchmarkId": "anthropic-gmmlu42languages",
+      "modelId": "claude-fable-5.1",
+      "score": 94,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "Sonnet system-card language evaluation,max effort,no tools,no custom prompt;single trial across42languages."
+    },
+    {
+      "benchmarkId": "anthropic-milu11languages",
+      "modelId": "claude-sonnet-5.5",
+      "score": 91.6,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "Sonnet system-card language evaluation,max effort,no tools,no custom prompt;five trials across11languages."
+    },
+    {
+      "benchmarkId": "anthropic-milu11languages",
+      "modelId": "claude-opus-5.5",
+      "score": 93.1,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "Sonnet system-card language evaluation,max effort,no tools,no custom prompt;five trials across11languages."
+    },
+    {
+      "benchmarkId": "anthropic-milu11languages",
+      "modelId": "claude-fable-5.1",
+      "score": 93,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "Sonnet system-card language evaluation,max effort,no tools,no custom prompt;five trials across11languages."
+    },
+    {
+      "benchmarkId": "anthropic-lab-aa-heldout120-all-pass",
+      "modelId": "claude-sonnet-5.5",
+      "score": 11.7,
+      "cost": null,
+      "effort": "high",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "Sonnet system-card ArtificialAnalysis held-out120-task legal set,all-pass metric;not Harvey publisher full2010-task set."
+    },
+    {
+      "benchmarkId": "anthropic-lab-aa-heldout120-mean-criteria",
+      "modelId": "claude-sonnet-5.5",
+      "score": 92.1,
+      "cost": null,
+      "effort": "high",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "Sonnet system-card ArtificialAnalysis held-out120-task legal set,mean-criteria metric;not Harvey publisher full2010-task set."
+    },
+    {
+      "benchmarkId": "anthropic-lab-aa-heldout120-all-pass",
+      "modelId": "claude-sonnet-5.5",
+      "score": 10,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "Sonnet system-card ArtificialAnalysis held-out120-task legal set,all-pass metric;not Harvey publisher full2010-task set."
+    },
+    {
+      "benchmarkId": "anthropic-lab-aa-heldout120-mean-criteria",
+      "modelId": "claude-sonnet-5.5",
+      "score": 93.1,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "Sonnet system-card ArtificialAnalysis held-out120-task legal set,mean-criteria metric;not Harvey publisher full2010-task set."
+    },
+    {
+      "benchmarkId": "anthropic-osworld-2-1-strict",
+      "modelId": "claude-sonnet-5.5",
+      "score": 43.5,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "Sonnet system card8.13.3 narrative confirms2.1 despite summary table2.0 typo;108 tasks,1080p,max500actions,max effort,five runs,Opus4.8 grader;strict reward,not partial."
+    },
+    {
+      "benchmarkId": "anthropic-osworld-2-1-strict",
+      "modelId": "claude-opus-5.5",
+      "score": 48.7,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-sonnet-5-5-system",
+      "conditions": "Sonnet system card8.13.3 narrative confirms2.1 despite summary table2.0 typo;108 tasks,1080p,max500actions,max effort,five runs,Opus4.8 grader;strict reward,not partial."
+    },
+    {
+      "benchmarkId": "arc-agi-1",
+      "modelId": "claude-fable-5.1",
+      "score": 97.5,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-fable-5-1-system",
+      "conditions": "Fable system card8.16;ARCPrizeFoundation verified,max effort,semi-private evaluation. Score specifically Fable5.1,not Mythos5.1."
+    },
+    {
+      "benchmarkId": "arc-agi-2",
+      "modelId": "claude-fable-5.1",
+      "score": 90,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "anthropic-fable-5-1-system",
+      "conditions": "Fable system card8.16;ARCPrizeFoundation verified,max effort,semi-private evaluation. Score specifically Fable5.1,not Mythos5.1."
+    }
+  ],
+  "notImported": [
+    "Biological safeguards-off prototype evaluations: require separate reviewed evaluated-system identity.",
+    "AA-Briefcase Fable1694 score has unspecified version; not merged into1.1.",
+    "Unconfirmed trial count on Sonnet science59.9; not invented."
+  ],
+  "printedPageReferences": {
+    "Sonnet": {
+      "summary": 109,
+      "DeepSWE": 110,
+      "FrontierSWE": 114,
+      "ArXivMath": 116,
+      "Chartography": 125,
+      "OfficeQA": 132,
+      "HealthBench": [
+        137,
+        138
+      ]
+    },
+    "Opus": {
+      "summary": 174,
+      "DeepSWE": 175
+    },
+    "Fable": {
+      "summary": 167,
+      "DeepSWE": 168,
+      "OfficeQA": [
+        191,
+        192
+      ],
+      "ARC": [
+        196,
+        197
+      ]
+    }
+  },
+  "provenanceNote": "Printed page numbers confirmed by primary PDF research. Optional original PDF hashes/page-index extraction was not retained; no hashes are invented."
+}

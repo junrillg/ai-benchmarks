@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, type KeyboardEvent } from 'react'
 import { BenchmarkChart } from './BenchmarkChart'
+import { chartPoints, publishedModels } from './chart'
 import { dataset, refreshDataset, type Benchmark, type BenchmarkPoint, type Dataset, type Model } from './data'
 
 const tabs = [
@@ -20,7 +21,7 @@ const shortName = (model: Model) => model.name.replace(/^Claude /, '')
 const numeric = new Intl.NumberFormat('en-US', { maximumFractionDigits: 6 })
 const tokenPrice = new Intl.NumberFormat('en-US', { maximumSignificantDigits: 8 })
 const score = (point: BenchmarkPoint, benchmark: Benchmark) => `${numeric.format(point.score)}${benchmark.unit === '%' ? '%' : ` ${benchmark.unit}`}`
-const cost = (point: BenchmarkPoint) => point.cost === null ? 'Not reported' : `$${numeric.format(point.cost)}`
+const cost = (point: BenchmarkPoint) => point.cost === null ? '—' : `$${numeric.format(point.cost)}`
 const day = (stamp: string) => stamp.slice(0, 10)
 function costHeading(points: BenchmarkPoint[]) {
   const measured = points.filter(point => point.cost !== null)
@@ -32,7 +33,7 @@ function costHeading(points: BenchmarkPoint[]) {
 
 function defaultSelection(data: Dataset, benchmark: Benchmark, sourceId: string) {
   const available = new Set(benchmark.points.filter(point => point.sourceId === sourceId).map(point => point.modelId))
-  const known = data.models.filter(model => model.provider !== 'unknown' && available.has(model.id))
+  const known = publishedModels(data).filter(model => available.has(model.id))
   const latest = known.filter(model => model.latestRelease)
   return (latest.length ? latest : known).map(model => model.id)
 }
@@ -45,15 +46,16 @@ function ResultTable({ points, benchmark, data, colors, onInspect, compact = fal
   points: BenchmarkPoint[]; benchmark: Benchmark; data: Dataset; colors: Record<string, string>
   onInspect: (point: BenchmarkPoint) => void; compact?: boolean
 }) {
+  const showCost = points.some(point => point.cost !== null)
   return <div className={`table-scroll${compact ? ' compact' : ''}`}>
     <table>
-      <thead><tr><th scope="col">Model</th><th scope="col">Effort</th><th scope="col">Score</th><th scope="col">{costHeading(points)}</th></tr></thead>
+      <thead><tr><th scope="col">Model</th><th scope="col">Effort</th><th scope="col">Score</th>{showCost && <th scope="col">{costHeading(points)}</th>}</tr></thead>
       <tbody>{points.map((point, index) => {
         const model = data.models.find(row => row.id === point.modelId)!
         return <tr key={`${point.modelId}:${point.sourceId}:${point.effort}:${index}`}>
           <th scope="row"><button className="inspect-result" type="button" onClick={() => onInspect(point)} onFocus={() => onInspect(point)} aria-label={`Inspect ${model.name}, ${point.effort} effort`}>
             <span className="model-dot" style={{ background: colors[model.id] }} />{shortName(model)}
-          </button></th><td>{point.effort}</td><td title={`Exact score: ${point.score} ${benchmark.unit}`}>{score(point, benchmark)}</td><td title={point.cost === null ? undefined : `Exact cost: ${point.cost} USD`}>{cost(point)}</td>
+          </button></th><td>{point.effort}</td><td title={`Exact score: ${point.score} ${benchmark.unit}`}>{score(point, benchmark)}</td>{showCost && <td aria-label={point.cost === null ? 'Task cost not published' : undefined} title={point.cost === null ? undefined : `Exact cost: ${point.cost} USD`}>{cost(point)}</td>}
         </tr>
       })}</tbody>
     </table>
@@ -86,24 +88,26 @@ export default function App() {
   const benchmark = activeData.benchmarks.find(row => row.id === benchmarkId)!
   const source = activeData.sources.find(row => row.id === sourceId)!
   const colors = Object.fromEntries(activeData.models.map(model => [model.id, baseColors[model.parentModelId ?? model.id] ?? '#77879c']))
-  const latestModels = activeData.models.filter(model => model.latestRelease && model.provider !== 'unknown').sort((a, b) => modelOrder.indexOf(a.id) - modelOrder.indexOf(b.id))
-  const sourcePoints = benchmark.points.filter(point => point.sourceId === sourceId)
-  const availableIds = new Set(sourcePoints.map(point => point.modelId))
-  const pastModels = activeData.models.filter(model => model.provider !== 'unknown' && !model.latestRelease && availableIds.has(model.id))
+  const publicModels = publishedModels(activeData)
+  const publicIds = new Set(publicModels.map(model => model.id))
+  const latestModels = publicModels.filter(model => model.latestRelease).sort((a, b) => modelOrder.indexOf(a.id) - modelOrder.indexOf(b.id))
+  const sourcePoints = benchmark.points.filter(point => point.sourceId === sourceId && publicIds.has(point.modelId))
+  const measured = sourcePoints.some(point => point.cost !== null && Number.isFinite(point.cost) && point.cost >= 0)
+  const visiblePoints = view === 'chart' ? chartPoints(sourcePoints, scale, measured) : sourcePoints
+  const availableIds = new Set(visiblePoints.map(point => point.modelId))
+  const pastModels = publicModels.filter(model => !model.latestRelease && availableIds.has(model.id))
   const hasLatest = latestModels.some(model => availableIds.has(model.id))
-  const points = sourcePoints.filter(point => selectedModelIds.includes(point.modelId))
+  const points = visiblePoints.filter(point => selectedModelIds.includes(point.modelId))
   const displayedModels = activeData.models.filter(model => availableIds.has(model.id) && selectedModelIds.includes(model.id))
   const bestPoints = displayedModels.map(model => points.filter(point => point.modelId === model.id).reduce((best, point) =>
     (benchmark.higherIsBetter === false ? point.score < best.score : point.score > best.score) ? point : best,
   )).sort((a, b) => benchmark.higherIsBetter === false ? a.score - b.score : b.score - a.score)
-  const measured = points.some(point => point.cost !== null)
-  const missingCost = points.filter(point => point.cost === null).length
-  const zeroCost = scale === 'log' ? points.filter(point => point.cost === 0).length : 0
   const excludedFallbackCost = points.some(point => point.costBasis === 'excludes-fallback-cost')
   const categories = [...new Set(activeData.benchmarks.map(row => row.category))].sort()
   const filteredBenchmarks = activeData.benchmarks.filter(row => (category === 'All categories' || row.category === category) && `${row.name} ${row.description} ${row.version}`.toLowerCase().includes(benchmarkSearch.toLowerCase().trim()))
   const matchesModel = (model: { name: string; provider: string; id: string }) => (provider === 'All providers' || model.provider === provider) && `${model.name} ${model.id}`.toLowerCase().includes(modelSearch.toLowerCase().trim())
-  const catalog = activeData.discovery.models.filter(matchesModel)
+  const publicApiIds = new Set(publicModels.map(model => model.apiId).filter(Boolean))
+  const catalog = activeData.discovery.models.filter(row => publicApiIds.has(row.id) && matchesModel(row))
   const lastPage = Math.max(0, Math.ceil(catalog.length / pageSize) - 1), currentPage = Math.min(catalogPage, lastPage)
   const catalogRows = catalog.slice(currentPage * pageSize, (currentPage + 1) * pageSize)
   const inspectModel = inspected ? activeData.models.find(row => row.id === inspected.modelId) : undefined
@@ -159,6 +163,15 @@ export default function App() {
     selectRun(next, next.sourceIds.includes(preferred) ? preferred : next.sourceIds[0])
     setView('chart')
   }
+  function exploreModel(model: Model) {
+    const covered = activeData.benchmarks.filter(row => row.points.some(point => point.modelId === model.id))
+    const next = covered.find(row => row.points.some(point => point.modelId === model.id && point.cost !== null)) ?? covered[0]
+    const run = next.points.find(point => point.modelId === model.id && point.cost !== null) ?? next.points.find(point => point.modelId === model.id)!
+    selectRun(next, run.sourceId); setSelectedModelIds([model.id]); setShowPast(!model.latestRelease)
+    setView(run.cost === null && next.points.some(point => point.sourceId === run.sourceId && point.cost !== null) ? 'results' : 'chart')
+    if (run.cost === 0) setScale('linear')
+    document.getElementById('figure-title')?.scrollIntoView({ block: 'start', behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' })
+  }
   function tabKey(event: KeyboardEvent<HTMLButtonElement>, index: number) {
     let next = index
     if (event.key === 'ArrowRight') next = (index + 1) % tabs.length
@@ -169,12 +182,10 @@ export default function App() {
     event.preventDefault(); chooseBenchmark(tabs[next][1]); document.getElementById(`tab-${tabs[next][1]}`)?.focus()
   }
   function modelChoice(model: Model, historical = false) {
-    const available = availableIds.has(model.id)
-    return <label className={`model-choice${available ? '' : ' unavailable'}${historical ? ' past-model' : ''}`} key={model.id} title={model.notes}>
-      <input type="checkbox" checked={available && selectedModelIds.includes(model.id)} disabled={!available} onChange={event => { setSelectedModelIds(event.target.checked ? [...selectedModelIds, model.id] : selectedModelIds.filter(id => id !== model.id)); inspectPoint(null) }} />
-      <span className="model-dot" style={{ background: available ? colors[model.id] : '#96a6ba' }} />
+    return <label className={`model-choice${historical ? ' past-model' : ''}`} key={model.id} title={model.notes}>
+      <input type="checkbox" checked={selectedModelIds.includes(model.id)} onChange={event => { setSelectedModelIds(event.target.checked ? [...selectedModelIds, model.id] : selectedModelIds.filter(id => id !== model.id)); inspectPoint(null) }} />
+      <span className="model-dot" style={{ background: colors[model.id] }} />
       <span>{shortName(model)}{historical && <small className="model-kind">{model.status === 'evaluated-system' ? 'Evaluated system' : 'Historical'}</small>}</span>
-      {!available && <small>Not reported</small>}
     </label>
   }
 
@@ -201,13 +212,13 @@ export default function App() {
             <button type="button" aria-pressed={view === 'chart'} onClick={() => setView('chart')}>{measured ? 'Score vs. cost' : 'Scores'}</button>
             <button type="button" aria-pressed={view === 'results'} onClick={() => setView('results')}>Results</button>
           </div></figcaption>
-          {view === 'chart' ? <BenchmarkChart key={`${benchmarkId}:${sourceId}`} benchmark={benchmark} points={points} models={activeData.models} colors={colors} scale={scale} animate={animate} onInspect={inspectPoint} /> : <div className="figure-results"><ResultTable points={points} benchmark={benchmark} data={activeData} colors={colors} onInspect={inspectPoint} /></div>}
+          {view === 'chart' ? <BenchmarkChart key={`${benchmarkId}:${sourceId}`} benchmark={benchmark} points={points} measured={measured} models={activeData.models} colors={colors} scale={scale} animate={animate} onInspect={inspectPoint} /> : <div className="figure-results"><ResultTable points={points} benchmark={benchmark} data={activeData} colors={colors} onInspect={inspectPoint} /></div>}
           <div className="figure-legend" aria-label="Displayed models">{displayedModels.map(model => <span key={model.id}><span className="model-dot" style={{ background: colors[model.id] }} />{shortName(model)}</span>)}</div>
-          <p className="figure-instruction" aria-live="polite" title={inspected ? `Exact score: ${inspected.score} ${benchmark.unit}; exact reported cost: ${inspected.cost ?? 'not reported'} USD` : undefined}>{inspected && inspectModel ? `${shortName(inspectModel)} · ${inspected.effort} · ${score(inspected, benchmark)} · ${costHeading([inspected]).toLowerCase()} ${cost(inspected)}` : `${benchmark.higherIsBetter === false ? 'Lower' : 'Higher'} is better. ${missingCost} result${missingCost === 1 ? '' : 's'} lack reported cost.${zeroCost ? ` ${zeroCost} zero-cost results require linear scale.` : ''} Select a point to inspect its evidence.`}</p>
+          <p className="figure-instruction" aria-live="polite" title={inspected ? `Exact score: ${inspected.score} ${benchmark.unit}; exact reported cost: ${inspected.cost ?? 'not reported'} USD` : undefined}>{inspected && inspectModel ? `${shortName(inspectModel)} · ${inspected.effort} · ${score(inspected, benchmark)} · ${inspected.cost === null ? 'Published score' : `${costHeading([inspected]).toLowerCase()} ${cost(inspected)}`}` : `${benchmark.higherIsBetter === false ? 'Lower' : 'Higher'} is better. Select a point to inspect its evidence.`}</p>
         </figure>
         <aside className="model-panel" aria-label="Model selection and published evidence">
           <div className="panel-heading"><h2>Models</h2>{pastModels.length > 0 && <label className="past-toggle" title="Include historical models and evaluated fallback systems from this source"><input type="checkbox" checked={showPast} disabled={!hasLatest} onChange={event => { setShowPast(event.target.checked); if (!event.target.checked) setSelectedModelIds(selectedModelIds.filter(id => latestModels.some(model => model.id === id))); inspectPoint(null) }} />Past / systems</label>}</div>
-          <div className="model-list">{latestModels.map(model => modelChoice(model))}{showPast && pastModels.map(model => modelChoice(model, true))}</div>
+          <div className="model-list">{latestModels.filter(model => availableIds.has(model.id)).map(model => modelChoice(model))}{showPast && pastModels.map(model => modelChoice(model, true))}</div>
           <section className="evidence" id="published-evidence"><h2>Published evidence</h2><h3>Source-specific runs</h3>
             <p className="evidence-conditions">{inspected?.conditions ?? 'Conditions stay with each result.'}</p>
             {excludedFallbackCost && <p className="cost-warning">Reported task cost excludes fallback cost.</p>}
@@ -222,7 +233,7 @@ export default function App() {
       </section>
       {inspected && inspectModel && inspectedSource && <section className="point-details plate-section" aria-labelledby="point-title" aria-live="polite">
         <div className="section-heading"><h2 id="point-title">{inspectModel.name} · {inspected.effort}</h2><button className="quiet-button" type="button" onClick={() => inspectPoint(null)}>Close result</button></div>
-        <p><strong title={`Exact score: ${inspected.score} ${benchmark.unit}`}>{score(inspected, benchmark)}</strong> · {costHeading([inspected])}: <strong title={inspected.cost === null ? undefined : `Exact cost: ${inspected.cost} USD`}>{cost(inspected)}</strong>{inspected.cost !== null && ' USD'}</p>
+        <p><strong title={`Exact score: ${inspected.score} ${benchmark.unit}`}>{score(inspected, benchmark)}</strong>{inspected.cost !== null && <> · {costHeading([inspected])}: <strong title={`Exact cost: ${inspected.cost} USD`}>{cost(inspected)}</strong> USD</>}</p>
         {inspected.costBasis && <p className="cost-warning">Cost basis: {inspected.costBasis === 'excludes-fallback-cost' ? 'Excludes fallback cost. This does not represent the full cost of the evaluated system.' : inspected.costBasis}</p>}
         {inspected.confidenceInterval && <p title={`Exact confidence interval: ${inspected.confidenceInterval.join(' to ')}`}>Reported confidence interval: {inspected.confidenceInterval.map(value => `${numeric.format(value)}${benchmark.unit === '%' ? '%' : ''}`).join(' to ')}.</p>}
         <p>{inspected.conditions}</p><p><a href={inspectedSource.url} target="_blank" rel="noreferrer">{inspectedSource.name} <ExternalArrow /></a> · {inspectedSource.publishedAt ? `Published ${day(inspectedSource.publishedAt)}` : 'Experiment date not reported'} · Retrieved {day(inspectedSource.retrievedAt)}</p>
@@ -241,7 +252,7 @@ export default function App() {
         <p className="benchmark-description">{benchmark.description}</p>{benchmark.notes.map(note => <p className="benchmark-note" key={note}>{note}</p>)}
       </section>
       <section className="catalog-intro plate-section" id="models" aria-labelledby="models-title">
-        <div className="section-heading"><div><h2 id="models-title">Model catalog</h2><p>Explore models and available evidence.</p></div><button type="button" className="quiet-button" disabled={busy} onClick={() => void refresh()}>{busy ? 'Refreshing public feeds…' : 'Refresh public feeds'}</button></div>
+        <div className="section-heading"><div><h2 id="models-title">Model catalog</h2><p>Verified models with published benchmark results.</p></div><button type="button" className="quiet-button" disabled={busy} onClick={() => void refresh()}>{busy ? 'Refreshing public feeds…' : 'Refresh public feeds'}</button></div>
         <div className="refresh-status" aria-live="polite" aria-busy={busy}>
           <p>Snapshot updated {activeData.updatedAt}. Catalog retrieved {activeData.discovery.checkedAt}.</p>
           {busy && <p>Checking the public model catalog and independent DeepSWE feed.</p>}{refreshError && <p className="refresh-error" role="alert">{refreshError}</p>}
@@ -249,26 +260,25 @@ export default function App() {
         </div>
         <div className="filter-row catalog-filters"><label>Search models<input type="search" value={modelSearch} onChange={event => { setModelSearch(event.target.value); setCatalogPage(0) }} placeholder="Model name or API ID" /></label><label>Provider<select value={provider} onChange={event => { setProvider(event.target.value); setCatalogPage(0) }}><option>All providers</option>{providers.map(item => <option key={item}>{item}</option>)}</select></label></div>
         <h3 className="table-heading">Latest releases with primary-source evidence</h3>
-        <div className="table-scroll catalog-table"><table><thead><tr><th scope="col">Model</th><th scope="col">Provider</th><th scope="col">Release date</th><th scope="col">Evidence</th></tr></thead><tbody>{latestModels.filter(matchesModel).map(model => {
+        <div className="table-scroll catalog-table"><table><thead><tr><th scope="col">Model</th><th scope="col">Provider</th><th scope="col">Benchmarks</th><th scope="col">Evidence</th></tr></thead><tbody>{latestModels.filter(matchesModel).map(model => {
           const modelSource = activeData.sources.find(row => row.id === model.sourceId)!
-          return <tr key={model.id}><th scope="row">{model.name}</th><td>{model.provider}</td><td>{model.releaseDate ?? 'Not verified'}</td><td><a href={modelSource.url} target="_blank" rel="noreferrer">{modelSource.name} <ExternalArrow /></a><small>Retrieved {day(modelSource.retrievedAt)}</small>{model.notes && <small>{model.notes}</small>}</td></tr>
+          return <tr key={model.id}><th scope="row">{model.name}</th><td>{model.provider}</td><td><button className="benchmark-link" type="button" onClick={() => exploreModel(model)}>{activeData.benchmarks.filter(row => row.points.some(point => point.modelId === model.id)).length} benchmarks <span aria-hidden="true">→</span></button></td><td><a href={modelSource.url} target="_blank" rel="noreferrer">{modelSource.name} <ExternalArrow /></a><small>Retrieved {day(modelSource.retrievedAt)}</small>{model.notes && <small>{model.notes}</small>}</td></tr>
         })}</tbody></table>{!latestModels.some(matchesModel) && <p className="empty-results">No latest releases match these filters.</p>}</div>
-        <h3 className="table-heading">API model catalog</h3><p className="catalog-note">{activeData.discovery.notes} Context limits and token list prices below are catalog metadata; they are separate from measured task cost.</p>
+        <h3 className="table-heading">API metadata for benchmarked models</h3><p className="catalog-note">Only models with verified identity and published benchmark results appear here. Context limits and token list prices are catalog metadata, separate from measured task cost.</p>
         <div className="table-scroll discovery-table"><table><thead><tr><th scope="col">Model / API ID</th><th scope="col">First listed</th><th scope="col">Context tokens</th><th scope="col">Input ($/M)</th><th scope="col">Output ($/M)</th><th scope="col">Benchmark evidence</th></tr></thead><tbody>{catalogRows.map(row => {
-          const known = activeData.models.find(model => model.apiId === row.id)
+          const known = publicModels.find(model => model.apiId === row.id)!
           const rowSource = activeData.sources.find(item => item.id === row.sourceId)!
-          const reported = known ? activeData.benchmarks.filter(item => item.points.some(point => point.modelId === known.id)).length : 0
-          return <tr key={row.id}><th scope="row">{row.name}<small>{row.id}</small></th><td><a href={rowSource.url} target="_blank" rel="noreferrer">{row.releaseDate} <ExternalArrow /></a><small>Catalog-listed</small></td><td>{row.contextLength.toLocaleString('en-US')}</td><td title={`Source value: ${row.inputPricePerMillion}`}>{tokenPrice.format(row.inputPricePerMillion)}</td><td title={`Source value: ${row.outputPricePerMillion}`}>{tokenPrice.format(row.outputPricePerMillion)}</td><td>{reported ? `${reported} benchmark records` : 'Benchmark pending'}</td></tr>
+          const reported = activeData.benchmarks.filter(item => item.points.some(point => point.modelId === known.id)).length
+          return <tr key={row.id}><th scope="row">{row.name}<small>{row.id}</small></th><td><a href={rowSource.url} target="_blank" rel="noreferrer">{row.releaseDate} <ExternalArrow /></a><small>Catalog-listed</small></td><td>{row.contextLength.toLocaleString('en-US')}</td><td title={`Source value: ${row.inputPricePerMillion}`}>{tokenPrice.format(row.inputPricePerMillion)}</td><td title={`Source value: ${row.outputPricePerMillion}`}>{tokenPrice.format(row.outputPricePerMillion)}</td><td><button className="benchmark-link" type="button" onClick={() => exploreModel(known)}>{reported} benchmarks <span aria-hidden="true">→</span></button></td></tr>
         })}</tbody></table>{!catalogRows.length && <p className="empty-results">No catalog models match these filters. Clear the search or choose another provider.</p>}</div>
         <div className="pagination"><p role="status">{catalog.length ? `${currentPage * pageSize + 1}–${Math.min((currentPage + 1) * pageSize, catalog.length)} of ${catalog.length} catalog entries` : '0 matching catalog entries'}</p><div><button className="quiet-button" type="button" disabled={currentPage === 0} onClick={() => setCatalogPage(currentPage - 1)}>Previous</button><button className="quiet-button" type="button" disabled={currentPage === lastPage} onClick={() => setCatalogPage(currentPage + 1)}>Next</button></div></div>
-        {activeData.discovery.reviewQueue.length > 0 && <details className="review-queue"><summary>{activeData.discovery.reviewQueue.length} independent-feed model IDs await mapping review</summary><p>{activeData.discovery.reviewQueue.join(', ')}. Unmapped IDs are excluded from comparisons.</p></details>}
       </section>
       <section className="methodology plate-section" id="methodology" aria-labelledby="methodology-title">
         <h2 id="methodology-title">Methodology</h2><div className="methodology-copy">
           <h3>Read the run, then the comparison</h3><p>Each result retains its benchmark version, source, effort and evaluation conditions. Publisher snapshots and independent harnesses remain separate. The ledger selects the highest reported score per model within the selected source, or the lowest when the benchmark defines lower as better; it is not an average or a universal model ranking. The Results view contains every selected run.</p>
-          <h3>Task cost has a scope</h3><p>Curves use the source’s reported cost basis: USD per task, mean cost per task or cost per attempt, never API token prices. These units remain distinct in the figure and result headings. Missing task costs are shown as “Not reported”; those runs remain in Results and use score-only bars when no selected run has a measured cost. Log scale omits zero-cost points; linear scale includes them. Fallback systems are labelled separately, and a reported cost that excludes fallback execution is flagged explicitly. Select a point or result row for exact values, source conditions and any reported confidence interval.</p>
-          <h3>Direction and safety</h3><p>The figure labels whether higher or lower is better for that benchmark. Score units (percent, Elo, index, score or solved tasks) are preserved rather than combined. Safety and risk scores describe the source’s evaluation, rather than a general guarantee of safety. Missing results mean not reported, never zero. Historical models and evaluated systems can be included where the source reports them.</p>
-          <h3>What updates automatically</h3><p>The <a href="https://openrouter.ai/api/v1/models" target="_blank" rel="noreferrer">OpenRouter model catalog <ExternalArrow /></a> and <a href="https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json" target="_blank" rel="noreferrer">independent DeepSWE JSON feed <ExternalArrow /></a> are checked on startup and on manual refresh. Validated data replaces only its corresponding snapshot; failed feeds keep their last known data. New catalog entries await identity and benchmark review and are never promoted to latest release automatically.</p><p>Publisher results are curated from public primary sources and retain their publication and retrieval dates. There is no universal public benchmark API. Artificial Analysis’s per-benchmark API requires a suitable keyed tier; no optional credentials are configured here. A catalog listing date is not a verified release date.</p>
+          <h3>Task cost has a scope</h3><p>Curves use the source’s reported cost basis: USD per task, mean cost per task or cost per attempt, never API token prices. These units remain distinct in the figure and result headings. Cost figures include only runs with published task cost. Score-only results remain available in Results; sources with no published costs use score bars. Log scale requires positive costs; linear scale includes zero-cost runs. Fallback systems are labelled separately, and a reported cost that excludes fallback execution is flagged explicitly. Select a point or result row for exact values, source conditions and any reported confidence interval.</p>
+          <h3>Direction and safety</h3><p>The figure labels whether higher or lower is better for that benchmark. Score units (percent, Elo, index, score or solved tasks) are preserved rather than combined. Safety and risk scores describe the source’s evaluation, rather than a general guarantee of safety. Only models with published results appear in the selected figure. Historical models and evaluated systems can be included where the source reports them.</p>
+          <h3>What updates automatically</h3><p>The <a href="https://openrouter.ai/api/v1/models" target="_blank" rel="noreferrer">OpenRouter model catalog <ExternalArrow /></a> and <a href="https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json" target="_blank" rel="noreferrer">independent DeepSWE JSON feed <ExternalArrow /></a> are checked on startup and on manual refresh. Validated data replaces only its corresponding snapshot; failed feeds keep their last known data. Public model lists include only verified models with benchmark evidence; new feed entries stay internal until reviewed.</p><p>Publisher results are curated from public primary sources and retain their publication and retrieval dates. There is no universal public benchmark API. Artificial Analysis’s per-benchmark API requires a suitable keyed tier; no optional credentials are configured here. A catalog listing date is not a verified release date.</p>
           <details><summary>Snapshot limitations</summary><ul>{activeData.limitations.map(item => <li key={item}>{item}</li>)}</ul></details>
         </div>
       </section>

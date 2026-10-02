@@ -38,9 +38,9 @@ class PublicDataChecks(unittest.TestCase):
         self.assertTrue({"claude-opus-5.5", "claude-sonnet-5.5", "claude-fable-5.1", "gpt-6.1-sol", "gpt-6-astra", "gpt-6-sol", "gpt-6-luna", "grok-4.7", "kimi-k3", "glm-5.3"} <= model_ids)
         flash = next(m for m in self.data["models"] if m["id"] == "glm-5.3-flash")
         flash_source = next(s for s in self.data["sources"] if s["id"] == flash["sourceId"])
-        self.assertEqual(flash_source["url"], "https://huggingface.co/zai-org/GLM-5.3-Flash")
-        self.assertIsNone(flash["releaseDate"])
-        self.assertEqual(flash["dateKind"], "unverified")
+        self.assertEqual(flash_source["url"], "https://z.ai/blog/glm-5.3-flash")
+        self.assertEqual(flash["releaseDate"], "2026-08-26")
+        self.assertEqual(flash["dateKind"], "release")
         flash_points = [p for b in self.data["benchmarks"] for p in b["points"] if p["modelId"] == "glm-5.3-flash" and p["sourceId"] == "zai-glm-5-3-flash"]
         self.assertEqual(len(flash_points), 6)
         self.assertEqual(sorted(p["score"] for p in flash_points), [26.3, 48.8, 55.3, 63.4, 84.3, 1773])
@@ -63,10 +63,11 @@ class PublicDataChecks(unittest.TestCase):
         self.assertEqual((sol_factuality["score"], sol_factuality["cost"]), (4.5, 0.08))
         safety = [b for b in self.data["benchmarks"] if b["id"].startswith("openai-sol-")]
         self.assertEqual(len(safety), 4)
-        self.assertEqual(sum(len(b["points"]) for b in safety), 16)
+        self.assertEqual(sum(sum(p["sourceId"] == "openai-6-1-sol" for p in b["points"]) for b in safety), 16)
         for benchmark in safety:
             self.assertFalse(benchmark["higherIsBetter"])
-            self.assertEqual(len({(p["modelId"], p["effort"]) for p in benchmark["points"]}), 4)
+            release_points = [p for p in benchmark["points"] if p["sourceId"] == "openai-6-1-sol"]
+            self.assertEqual(len({(p["modelId"], p["effort"]) for p in release_points}), 4)
             self.assertTrue(all(p["cost"] is None for p in benchmark["points"]))
         for b in self.data["benchmarks"]:
             for point in b["points"]:

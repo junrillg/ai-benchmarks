@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict'
 import { dataset, parseDeepSWE, parseOpenRouter, refreshDataset } from '../src/data.ts'
+import { publishedModels } from '../src/chart.ts'
 
 const deep = { n_tasks_in_set: 113, scope: 'Published independent runs', unit: 'Scored-attempt pass@1', generated_at: '2026-10-01T00:00:00Z', rows: [
   { model: 'gpt-6-astra', harness: 'mini-swe-agent', source: 'deep-swe', reasoning_effort: 'high', pass_at_1: 0.7, mean_cost_usd: 3, ci_lo: 0.6, ci_hi: 0.8 },
@@ -24,6 +25,14 @@ assert.deepEqual(fetched.dataset.benchmarks.find(benchmark => benchmark.id === v
 assert.equal(fetched.dataset.benchmarks.find(benchmark => benchmark.id === 'deep-swe-1-1-independent')?.points[0].score, 70)
 assert.equal(fetched.dataset.models.find(model => model.id === 'unmapped:new-model')?.provider, 'unknown')
 assert.equal(fetched.dataset.models.find(model => model.apiId === 'openai/new-model')?.status, 'benchmark-pending')
+assert.ok(publishedModels(fetched.dataset).every(model => !['benchmark-pending', 'mapping-pending'].includes(model.status)))
+assert.ok(!publishedModels(fetched.dataset).some(model => model.apiId === 'openai/new-model'), 'Feed discovery without benchmark evidence stays internal')
+const publication = structuredClone(dataset)
+const template = publication.models.find(model => model.status === 'available')!
+publication.models.push({ ...template, id: 'empty-evidence' }, { ...template, id: 'unknown-source' }, { ...template, id: 'unreviewed', status: 'benchmark-pending' })
+const run = publication.benchmarks[0].points[0]
+publication.benchmarks[0].points.push({ ...run, modelId: 'empty-evidence', conditions: '' }, { ...run, modelId: 'unknown-source', sourceId: 'unverified' }, { ...run, modelId: 'unreviewed' })
+assert.ok(!publishedModels(publication).some(model => ['empty-evidence', 'unknown-source', 'unreviewed'].includes(model.id)), 'Publication requires verified identity, score, source, effort and conditions')
 const retained = await refreshDataset(async () => { throw new Error('Retry offline') }, fetched.dataset)
 assert.deepEqual(retained.dataset, fetched.dataset, 'Failed retries preserve refreshed runs, catalog, source hashes and timestamps')
 const failed = await refreshDataset(async () => { throw new Error('Offline') })

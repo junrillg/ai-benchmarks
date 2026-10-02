@@ -1,0 +1,88 @@
+{
+  "source": "https://z.ai/blog/glm-5.3-flash",
+  "linkedScript": "https://z.ai/blog/assets/glm-5.3-flash--uSKeP6w.js",
+  "sha256": "1b23fe947245e9e4b8843c726da54c965bde839e6ebe005cec3c3fddcc5620ed",
+  "retrievedAt": "2026-10-02T08:32:07.846221Z",
+  "publishedDate": "2026-08-26",
+  "models": [
+    "GLM-5.3-Flash",
+    "GLM-5.2",
+    "DeepSeek-V4-Vision-Exp",
+    "Opus4.8",
+    "GPT5.6Terra",
+    "Gemini3.7Flash"
+  ],
+  "flashResults": [
+    [
+      "Terminal Bench 2.1",
+      84.3
+    ],
+    [
+      "DeepSWE (v1.1)",
+      63.4
+    ],
+    [
+      "NL2Repo",
+      56.3
+    ],
+    [
+      "Toolathlon Verified",
+      78.4
+    ],
+    [
+      "AutomationBench (v1.0.6)",
+      48.8
+    ],
+    [
+      "Agents' Last Exam",
+      26.3
+    ],
+    [
+      "HLE w/ Tools",
+      55.3
+    ],
+    [
+      "GDPval-AA v2",
+      1773.0
+    ],
+    [
+      "OfficeQA Pro",
+      62.4
+    ],
+    [
+      "CharXiv Reasoning (w/ Tools)",
+      89.4
+    ],
+    [
+      "Chartography (w/ Tools)",
+      78.0
+    ],
+    [
+      "BabyVision",
+      53.4
+    ],
+    [
+      "MVbench",
+      77.8
+    ],
+    [
+      "MMVU",
+      80.5
+    ],
+    [
+      "OSWorld 2.0",
+      59.1
+    ],
+    [
+      "Vision2Web",
+      77.8
+    ]
+  ],
+  "narrativeResults": {
+    "AAIntelligenceIndex4.1.1": {
+      "score": 57,
+      "discountedCostPerTask": 0.045
+    },
+    "ZaiCodeBench1.0max": 29
+  }
+}

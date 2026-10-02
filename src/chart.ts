@@ -1,10 +1,31 @@
-import type { BenchmarkPoint } from './data'
+import type { BenchmarkPoint, Dataset } from './data'
 
 export type Axis = { min: number; max: number; ticks: number[]; position: (value: number) => number }
 export type CostScale = 'log' | 'linear'
 export type CostPoint = BenchmarkPoint & { cost: number }
 export type Series = {
   key: string; modelId: string; sourceId: string; conditions: string; costBasis?: string; points: CostPoint[]
+}
+
+export function publishedModels(data: Dataset) {
+  const sources = new Set(data.sources.map(source => source.id))
+  const reported = new Set(data.benchmarks.flatMap(benchmark => benchmark.points.filter(point =>
+    Number.isFinite(point.score) && point.effort.trim() && point.conditions.trim() && sources.has(point.sourceId),
+  ).map(point => point.modelId)))
+  return data.models.filter(model => model.provider !== 'unknown' && ['available', 'historical', 'evaluated-system'].includes(model.status) && sources.has(model.sourceId) && reported.has(model.id))
+}
+
+// A cost figure cannot acquire score-only rows when its measured models are deselected.
+export function chartPoints(points: readonly BenchmarkPoint[], scale: CostScale, measured = points.some(point => point.cost !== null && Number.isFinite(point.cost) && point.cost >= 0)) {
+  return points.filter(point => Number.isFinite(point.score) && (!measured || (point.cost !== null && Number.isFinite(point.cost) && (scale === 'log' ? point.cost > 0 : point.cost >= 0))))
+}
+
+export function tooltipPosition(x: number, y: number, tooltipWidth: number, tooltipHeight: number, width: number, height: number) {
+  const margin = 8, gap = 12
+  return {
+    left: Math.max(margin, Math.min(x - tooltipWidth / 2, width - tooltipWidth - margin)),
+    top: Math.max(margin, Math.min(y - tooltipHeight - gap >= margin ? y - tooltipHeight - gap : y + gap, height - tooltipHeight - margin)),
+  }
 }
 
 // Positions are normalized; SVG Y coordinates use 1 - position(score).

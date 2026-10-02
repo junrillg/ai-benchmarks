@@ -142,7 +142,7 @@ export async function refreshDataset(fetcher: typeof fetch = fetch, current: Dat
     }
     next.discovery.models = rows; next.discovery.checkedAt = stamp
     Object.assign(source('openrouter-models'), { retrievedAt: stamp, sha256: router.value.sha256 })
-    notices.push('Model catalog refreshed. New catalog entries await benchmark review.')
+    notices.push('API metadata refreshed for models with published benchmark evidence.')
   } else notices.push('Model catalog unavailable; retaining its last known data.')
   const deep = refreshes[1]
   if (deep.status === 'fulfilled') {

@@ -29,6 +29,8 @@ colors:
   series-glm: "#547e52"
   series-glm-flash: "#80676b"
   series-unmapped: "#77879c"
+  tooltip-ground: "#171717"
+  tooltip-label: "#d4d4d4"
 typography:
   display:
     fontFamily: "Geist, sans-serif"
@@ -121,6 +123,11 @@ components:
   result-table:
     textColor: "{colors.ink}"
     padding: "3px 16px"
+  chart-tooltip:
+    backgroundColor: "{colors.tooltip-ground}"
+    textColor: "white"
+    rounded: "5px"
+    padding: "9px 11px"
 ---
 
 # Design System: AI Benchmarks
@@ -140,6 +147,7 @@ Geist keeps interface labels, prose and data in one voice. Compact controls and 
 - Compact Geist hierarchy with tabular table numbers.
 - Thin rules, small corners and native controls.
 - First-exposure chart drawing with reduced-motion support.
+- Near-marker dark tooltips show exact model, effort, score and published cost on pointer hover or keyboard focus; their measured bounds stay inside the responsive chart.
 
 Recorded from `src/styles.css`, `src/App.tsx` and `src/BenchmarkChart.tsx`, with final desktop and mobile captures in `.impeccable/review/`. Frontmatter values are the normative extracted tokens; they do not imply matching CSS custom-property declarations exist for every entry. The five existing CSS variables are ink, secondary, blue, rule and paper. The sidecar's synthesized tonal ramps are panel visualization metadata, not additional shipping palette tokens.
 

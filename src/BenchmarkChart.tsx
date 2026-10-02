@@ -1,18 +1,31 @@
-import { useEffect, useId, useRef, useState, type CSSProperties, type KeyboardEvent } from 'react'
+import { useEffect, useId, useLayoutEffect, useRef, useState, type CSSProperties, type KeyboardEvent } from 'react'
 import type { Benchmark, BenchmarkPoint, Model } from './data'
-import { costAxis, frontierCostAxis, groupSeries, niceAxis, type Axis, type CostScale } from './chart'
+import { costAxis, frontierCostAxis, groupSeries, niceAxis, tooltipPosition, type Axis, type CostScale } from './chart'
 
 type Props = {
   benchmark: Benchmark; points: BenchmarkPoint[]; models: Model[]; colors: Record<string, string>
-  scale: CostScale; animate: boolean; onInspect: (point: BenchmarkPoint | null, mode?: 'preview' | 'select') => void
+  scale: CostScale; measured: boolean; animate: boolean; onInspect: (point: BenchmarkPoint | null, mode?: 'preview' | 'select') => void
 }
 const number = (value: number) => value.toLocaleString('en-US', { maximumFractionDigits: 6 })
 const dollars = (value: number) => `$${value.toLocaleString('en-US', { maximumSignificantDigits: 3 })}`
 const costName = (point: BenchmarkPoint) => point.costBasis === 'per-attempt' ? 'Cost per attempt' : point.costBasis === 'mean-per-task' ? 'Mean cost per task' : point.costBasis ? 'Published cost' : 'Task cost'
 
-export function BenchmarkChart({ benchmark, points, models, colors, scale, animate, onInspect }: Props) {
+export function BenchmarkChart({ benchmark, points, models, colors, scale, measured, animate, onInspect }: Props) {
   const container = useRef<HTMLDivElement>(null), id = useId()
+  type Anchor = { point: BenchmarkPoint; x: number; y: number }
+  const [hovered, setHovered] = useState<Anchor | null>(null), [focused, setFocused] = useState<Anchor | null>(null)
+  const tooltip = hovered ?? focused, tooltipRef = useRef<HTMLDivElement>(null)
+  const [tooltipStyle, setTooltipStyle] = useState({ left: 8, top: 8 })
   const [width, setWidth] = useState(1037)
+  const height = width < 600 ? 340 : 432
+  useLayoutEffect(() => {
+    const element = tooltipRef.current
+    if (tooltip && element) {
+      const scrollTop = container.current?.scrollTop ?? 0
+      const position = tooltipPosition(tooltip.x, tooltip.y - scrollTop, element.offsetWidth, element.offsetHeight, width, height)
+      setTooltipStyle({ ...position, top: position.top + scrollTop })
+    }
+  }, [tooltip, width, height])
   useEffect(() => {
     const element = container.current
     if (!element) return
@@ -23,25 +36,32 @@ export function BenchmarkChart({ benchmark, points, models, colors, scale, anima
     return () => observer.disconnect()
   }, [])
 
-  const height = width < 600 ? 340 : 432
   const modelNames = new Map(models.map(model => [model.id, model.name]))
   const score = (point: BenchmarkPoint) => `${number(point.score)}${benchmark.unit === '%' ? '%' : ` ${benchmark.unit}`}`
   const label = (point: BenchmarkPoint) => `${modelNames.get(point.modelId) ?? point.modelId}; effort ${point.effort}; score ${score(point)}; ${point.cost === null ? 'cost not reported' : `${costName(point)} USD ${number(point.cost)}`}; source ${point.sourceId}; ${point.conditions}${point.costBasis ? `; cost basis ${point.costBasis}` : ''}${point.confidenceInterval ? `; confidence interval ${point.confidenceInterval.map(number).join(' to ')}` : ''}`
-  const inspect = (point: BenchmarkPoint) => ({
+  const inspect = (point: BenchmarkPoint, x: number, y: number) => ({
     tabIndex: 0, role: 'button' as const, 'aria-label': label(point),
-    onPointerEnter: () => onInspect(point, 'preview'), onPointerLeave: () => onInspect(null, 'preview'),
-    onFocus: () => onInspect(point, 'preview'), onBlur: () => onInspect(null, 'preview'), onClick: () => onInspect(point, 'select'),
+    'aria-describedby': tooltip && label(tooltip.point) === label(point) ? `${id}-tooltip` : undefined,
+    onPointerEnter: () => { setHovered({ point, x, y }); onInspect(point, 'preview') },
+    onPointerLeave: () => { setHovered(null); onInspect(focused?.point ?? null, 'preview') },
+    onFocus: () => { setFocused({ point, x, y }); onInspect(point, 'preview') },
+    onBlur: () => { setFocused(null); onInspect(hovered?.point ?? null, 'preview') },
+    onClick: () => onInspect(point, 'select'),
     onKeyDown: (event: KeyboardEvent<SVGElement>) => {
       if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); onInspect(point, 'select') }
-      if (event.key === 'Escape') onInspect(null, 'select')
+      if (event.key === 'Escape') { setHovered(null); setFocused(null); onInspect(null, 'select') }
     },
   })
   const style = (seriesIndex: number, pointIndex = 0): CSSProperties => ({ '--series-index': seriesIndex, '--point-index': pointIndex }) as CSSProperties
-  const measured = points.some(point => point.cost !== null && Number.isFinite(point.cost) && point.cost >= 0)
   const series = groupSeries(points, scale)
   const validPoints = measured ? series.flatMap(run => run.points) : points.filter(point => Number.isFinite(point.score))
   const empty = !validPoints.length
   const classes = `benchmark-chart${animate ? ' is-animated' : ''}`
+  const tooltipVisible = tooltip && validPoints.some(point => point.modelId === tooltip.point.modelId && point.sourceId === tooltip.point.sourceId && point.effort === tooltip.point.effort && point.conditions === tooltip.point.conditions && point.score === tooltip.point.score && point.cost === tooltip.point.cost)
+  const tooltipElement = tooltipVisible && <div ref={tooltipRef} id={`${id}-tooltip`} role="tooltip" className="chart-tooltip" style={tooltipStyle}>
+    <span className="chart-tooltip-model">{(modelNames.get(tooltip.point.modelId) ?? tooltip.point.modelId).replace(/^Claude /, '')} · {tooltip.point.effort.charAt(0).toUpperCase() + tooltip.point.effort.slice(1)}</span>
+    <strong>{score(tooltip.point)}{tooltip.point.cost !== null && ` · $${number(tooltip.point.cost)}`}</strong>
+  </div>
 
   if (empty) return <div ref={container} className={classes} style={{ height }}><p className="chart-empty">{measured && scale === 'log' ? 'No positive task costs to plot. Choose linear scale.' : 'No published results for this selection.'}</p></div>
 
@@ -59,8 +79,7 @@ export function BenchmarkChart({ benchmark, points, models, colors, scale, anima
         </g>)}
         {validPoints.map((point, index) => {
           const y = top + index * rowHeight, name = `${modelNames.get(point.modelId) ?? point.modelId} · ${point.effort}`
-          return <g key={index} className="chart-bar-row" {...inspect(point)} style={style(index)}>
-            <title>{label(point)}</title>
+          return <g key={index} className="chart-bar-row" {...inspect(point, x(point.score), y + 18)} style={style(index)}>
             <rect x={0} y={y - 8} width={width} height={rowHeight} fill="transparent" />
             <text className="chart-bar-label" x={left} y={y + 6}>{name.length > (width < 600 ? 34 : 80) ? `${name.slice(0, width < 600 ? 31 : 77)}…` : name}</text>
             <rect className="chart-bar" x={Math.min(x(0), x(point.score))} y={y + 14} width={Math.abs(x(point.score) - x(0))} height={9} rx={1} fill={colors[point.modelId] ?? '#596f87'} />
@@ -69,6 +88,7 @@ export function BenchmarkChart({ benchmark, points, models, colors, scale, anima
         })}
         <text className="chart-axis-title" x={width / 2} y={svgHeight - 3} textAnchor="middle">Score{benchmark.unit === '%' ? ' (%)' : ` (${benchmark.unit})`}</text>
       </svg>
+      {tooltipElement}
     </div>
   }
 
@@ -113,11 +133,10 @@ export function BenchmarkChart({ benchmark, points, models, colors, scale, anima
         <path className="series-line" pathLength={1} d={run.points.map((point, index) => `${index ? 'L' : 'M'}${x(point.cost)},${y(point.score)}`).join(' ')} fill="none" stroke={colors[run.modelId] ?? '#596f87'} strokeWidth={2} style={style(seriesIndex)} aria-hidden="true" />
         {run.points.map((point, pointIndex) => <g key={pointIndex}>
           {point.confidenceInterval?.length === 2 && <path className="chart-interval" d={`M${x(point.cost)},${y(point.confidenceInterval[0])}V${y(point.confidenceInterval[1])}`} stroke={colors[run.modelId] ?? '#596f87'} strokeWidth={1} opacity={0.4} aria-hidden="true" />}
-          <circle className="chart-point" cx={x(point.cost)} cy={y(point.score)} r={4.2} fill={colors[run.modelId] ?? '#596f87'} stroke="white" strokeWidth={1.5} style={style(seriesIndex, pointIndex)} {...inspect(point)}>
-            <title>{label(point)}</title>
-          </circle>
+          <circle className="chart-point" cx={x(point.cost)} cy={y(point.score)} r={4.2} fill={colors[run.modelId] ?? '#596f87'} stroke="white" strokeWidth={1.5} style={style(seriesIndex, pointIndex)} {...inspect(point, x(point.cost), y(point.score))} />
         </g>)}
       </g>)}
     </svg>
+    {tooltipElement}
   </div>
 }

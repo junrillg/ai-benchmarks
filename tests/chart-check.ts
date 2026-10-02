@@ -1,6 +1,6 @@
 // Run: node tests/chart-check.ts (Node 22.18+ supports TypeScript stripping).
 import assert from 'node:assert/strict'
-import { costAxis, frontierCostAxis, groupSeries, niceAxis } from '../src/chart.ts'
+import { chartPoints, costAxis, frontierCostAxis, groupSeries, niceAxis, tooltipPosition } from '../src/chart.ts'
 import type { BenchmarkPoint } from '../src/data.ts'
 
 const bars = niceAxis([73.5, 82.2, NaN])
@@ -48,4 +48,17 @@ assert.deepEqual(series[0].points.map(point => [point.cost, point.effort]), [[1,
 assert.equal(points[0].cost, 2)
 assert.equal(groupSeries(points, 'linear')[0].points[0].cost, 0)
 assert.deepEqual(groupSeries(points, 'linear')[0].points.map(point => point.cost), [0, 1, 2, 2])
+assert.deepEqual(chartPoints([run, { ...run, modelId: 'score-only', cost: null }], 'log').map(point => point.modelId), ['one'])
+assert.deepEqual(chartPoints([{ ...run, cost: null }], 'log'), [{ ...run, cost: null }], 'A score-only source remains useful')
+assert.deepEqual(chartPoints([{ ...run, cost: null }], 'log', true), [], 'Deselecting cost models does not turn a cost figure into score bars')
+assert.deepEqual(chartPoints([{ ...run, cost: 0 }], 'log'), [])
+assert.equal(chartPoints([{ ...run, cost: 0 }], 'linear').length, 1)
+for (const width of [250, 354, 1037]) {
+  const boxWidth = Math.min(240, width - 16), boxHeight = 58
+  for (const [x, y] of [[0, 0], [width, 340], [width / 2, 170]]) {
+    const position = tooltipPosition(x, y, boxWidth, boxHeight, width, 340)
+    assert.ok(position.left >= 8 && position.left + boxWidth <= width - 8)
+    assert.ok(position.top >= 8 && position.top + boxHeight <= 332)
+  }
+}
 console.log('Chart geometry checks passed')

@@ -1,0 +1,59 @@
+{
+  "reason": "Same benchmark/model/source/effort/score narrative records superseded by exact cost curve; duplicate exact cost experiment summary rows replaced with curve conditions. Distinct sources/experiments retained.",
+  "removed": [
+    {
+      "benchmarkId": "automationbench-1-0-6",
+      "modelId": "gpt-6-astra",
+      "score": 30.3,
+      "cost": null,
+      "effort": "low",
+      "sourceId": "openai-6-sol-luna",
+      "conditions": "Cost only given as rounded ratio 3.9× Sol; not exact USD."
+    },
+    {
+      "benchmarkId": "automationbench-1-0-6",
+      "modelId": "gpt-6-sol",
+      "score": 33.2,
+      "cost": 0.27,
+      "effort": "xhigh",
+      "sourceId": "openai-6-sol-luna",
+      "conditions": "47-tool workflow evaluation."
+    },
+    {
+      "benchmarkId": "deep-swe-1-1",
+      "modelId": "gpt-6-sol",
+      "score": 68.8,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "openai-6-sol-luna",
+      "conditions": "Publisher snapshot."
+    },
+    {
+      "benchmarkId": "deep-swe-1-1",
+      "modelId": "gpt-6-luna",
+      "score": 66.6,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "openai-6-sol-luna",
+      "conditions": "Publisher snapshot."
+    },
+    {
+      "benchmarkId": "agents-last-exam-v1",
+      "modelId": "gpt-6-sol",
+      "score": 56.4,
+      "cost": null,
+      "effort": "max",
+      "sourceId": "openai-6-sol-luna",
+      "conditions": "Professional workflows."
+    },
+    {
+      "benchmarkId": "osworld-2-0-offline-partial",
+      "modelId": "gpt-6-sol",
+      "score": 60.5,
+      "cost": null,
+      "effort": "xhigh",
+      "sourceId": "openai-6-sol-luna",
+      "conditions": "Offline partial reward v2026.08.08."
+    }
+  ]
+}

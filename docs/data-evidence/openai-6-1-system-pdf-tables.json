@@ -1,0 +1,365 @@
+{
+  "source": "https://deploymentsafety.openai.com/gpt-6-1-sol/gpt-6-1-sol.pdf",
+  "publishedAt": "2026-09-29",
+  "method": "Exact printed PDF table values matched by model column headers. No plot-height estimates.",
+  "modelOrder": [
+    "gpt-6-astra",
+    "gpt-6-sol",
+    "gpt-6-luna",
+    "gpt-6.1-sol"
+  ],
+  "rows": [
+    {
+      "table": 1,
+      "group": "Production safe completions",
+      "metric": "Violent illicit behavior",
+      "scores": [
+        0.99,
+        0.988,
+        0.986,
+        0.983
+      ]
+    },
+    {
+      "table": 1,
+      "group": "Production safe completions",
+      "metric": "Non-violent illicit behavior",
+      "scores": [
+        0.997,
+        0.993,
+        0.997,
+        1.0
+      ]
+    },
+    {
+      "table": 1,
+      "group": "Production safe completions",
+      "metric": "Extremism",
+      "scores": [
+        0.981,
+        0.936,
+        0.979,
+        0.979
+      ]
+    },
+    {
+      "table": 1,
+      "group": "Production safe completions",
+      "metric": "Hate",
+      "scores": [
+        1.0,
+        0.982,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "table": 1,
+      "group": "Production safe completions",
+      "metric": "Self-harm standard",
+      "scores": [
+        0.992,
+        0.986,
+        0.984,
+        0.994
+      ]
+    },
+    {
+      "table": 1,
+      "group": "Production safe completions",
+      "metric": "Gore",
+      "scores": [
+        0.898,
+        0.9,
+        0.876,
+        0.889
+      ]
+    },
+    {
+      "table": 1,
+      "group": "Production safe completions",
+      "metric": "Sexual",
+      "scores": [
+        0.98,
+        0.984,
+        0.962,
+        0.987
+      ]
+    },
+    {
+      "table": 1,
+      "group": "Production safe completions",
+      "metric": "Sexual minors",
+      "scores": [
+        0.974,
+        0.991,
+        0.965,
+        0.983
+      ]
+    },
+    {
+      "table": 2,
+      "group": "Under18 safe completions",
+      "metric": "Age-restricted actions",
+      "scores": [
+        0.918,
+        0.861,
+        0.848,
+        0.934
+      ]
+    },
+    {
+      "table": 2,
+      "group": "Under18 safe completions",
+      "metric": "Sexual content",
+      "scores": [
+        0.991,
+        0.975,
+        0.949,
+        0.984
+      ]
+    },
+    {
+      "table": 2,
+      "group": "Under18 safe completions",
+      "metric": "Eating disorders",
+      "scores": [
+        0.921,
+        0.853,
+        0.871,
+        0.962
+      ]
+    },
+    {
+      "table": 2,
+      "group": "Under18 safe completions",
+      "metric": "Emotional reliance",
+      "scores": [
+        0.944,
+        0.948,
+        0.946,
+        0.969
+      ]
+    },
+    {
+      "table": 2,
+      "group": "Under18 safe completions",
+      "metric": "Self harm",
+      "scores": [
+        0.995,
+        0.99,
+        0.982,
+        0.997
+      ]
+    },
+    {
+      "table": 2,
+      "group": "Under18 safe completions",
+      "metric": "Gore",
+      "scores": [
+        0.898,
+        0.898,
+        0.878,
+        0.889
+      ]
+    },
+    {
+      "table": 3,
+      "group": "Agentic safe completions",
+      "metric": "Codex production age-restricted actions",
+      "scores": [
+        0.811,
+        0.755,
+        0.687,
+        0.83
+      ]
+    },
+    {
+      "table": 3,
+      "group": "Agentic safe completions",
+      "metric": "Codex production non-violent wrongdoing",
+      "scores": [
+        0.954,
+        0.99,
+        1.0,
+        0.989
+      ]
+    },
+    {
+      "table": 3,
+      "group": "Agentic safe completions",
+      "metric": "Codex production violent wrongdoing",
+      "scores": [
+        0.907,
+        0.889,
+        0.796,
+        0.926
+      ]
+    },
+    {
+      "table": 3,
+      "group": "Agentic safe completions",
+      "metric": "Codex production sensitive personal data",
+      "scores": [
+        0.763,
+        0.854,
+        0.795,
+        0.744
+      ]
+    },
+    {
+      "table": 3,
+      "group": "Agentic safe completions",
+      "metric": "Codex production self-harm",
+      "scores": [
+        0.92,
+        0.92,
+        0.96,
+        0.92
+      ]
+    },
+    {
+      "table": 3,
+      "group": "Agentic safe completions",
+      "metric": "Chat production plugins",
+      "scores": [
+        1.0,
+        0.923,
+        0.846,
+        1.0
+      ]
+    },
+    {
+      "table": 3,
+      "group": "Agentic safe completions",
+      "metric": "Human red-teaming Codex",
+      "scores": [
+        0.977,
+        0.935,
+        0.957,
+        0.978
+      ]
+    },
+    {
+      "table": 3,
+      "group": "Agentic safe completions",
+      "metric": "Human red-teaming Chat plugins",
+      "scores": [
+        1.0,
+        0.936,
+        0.814,
+        0.955
+      ]
+    },
+    {
+      "table": 4,
+      "group": "Vision safe completions",
+      "metric": "Hate",
+      "scores": [
+        0.997,
+        0.998,
+        0.998,
+        0.998
+      ]
+    },
+    {
+      "table": 4,
+      "group": "Vision safe completions",
+      "metric": "Extremism",
+      "scores": [
+        0.991,
+        0.975,
+        0.982,
+        0.984
+      ]
+    },
+    {
+      "table": 4,
+      "group": "Vision safe completions",
+      "metric": "Self-harm",
+      "scores": [
+        0.997,
+        0.982,
+        0.999,
+        0.994
+      ]
+    },
+    {
+      "table": 4,
+      "group": "Vision safe completions",
+      "metric": "Erotic content",
+      "scores": [
+        1.0,
+        0.998,
+        0.995,
+        1.0
+      ]
+    },
+    {
+      "table": 5,
+      "group": "Static jailbreak defense",
+      "metric": "Biology high risk",
+      "scores": [
+        97.3,
+        85.8,
+        73.8,
+        93.8
+      ]
+    },
+    {
+      "table": 5,
+      "group": "Static jailbreak defense",
+      "metric": "Biology severe",
+      "scores": [
+        98.2,
+        81.3,
+        73.0,
+        94.3
+      ]
+    },
+    {
+      "table": 5,
+      "group": "Static jailbreak defense",
+      "metric": "Violence moderate",
+      "scores": [
+        94.7,
+        89.5,
+        77.0,
+        88.8
+      ]
+    },
+    {
+      "table": 5,
+      "group": "Static jailbreak defense",
+      "metric": "Violence severe",
+      "scores": [
+        98.3,
+        90.5,
+        89.3,
+        95.0
+      ]
+    },
+    {
+      "table": 5,
+      "group": "Static jailbreak defense",
+      "metric": "Cyber",
+      "scores": [
+        91.5,
+        79.8,
+        87.5,
+        85.8
+      ]
+    },
+    {
+      "table": 6,
+      "group": "Instruction hierarchy defense",
+      "metric": "Defender success",
+      "scores": [
+        99.99,
+        99.97,
+        99.97,
+        99.99
+      ]
+    }
+  ]
+}
