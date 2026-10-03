@@ -1,0 +1,1773 @@
+{
+  "verifiedAt": "2026-10-03T14:28:34.451791+00:00",
+  "method": "Read primary HTML and exact accessible SVG labels; compared same-source/model/effort/score/cost against the stored snapshot. No values estimated from pixels or inferred from other models.",
+  "sources": [
+    {
+      "id": "anthropic-sonnet-5-5",
+      "url": "https://www.anthropic.com/claude-sonnet-5-5",
+      "sha256": "1b9eac960430d2884a4a8c7d94ae08fa5d6a4240fa40cbf5dc58dab734c20f82",
+      "charts": [
+        {
+          "title": "Terminal-Bench 4.0",
+          "benchmarkId": "terminal-bench-4",
+          "costAxis": "Cost per attempt (USD, log scale)",
+          "labelCount": 20,
+          "focusedPoints": 10
+        },
+        {
+          "title": "FrontierCode v1.1, main set",
+          "benchmarkId": "frontiercode-1-1-main",
+          "costAxis": "Cost per task",
+          "labelCount": 20,
+          "focusedPoints": 10
+        },
+        {
+          "title": "CursorBench 4.0",
+          "benchmarkId": "cursorbench-4",
+          "costAxis": "Cost per task",
+          "labelCount": 20,
+          "focusedPoints": 10
+        },
+        {
+          "title": "AA-Briefcase v1.1",
+          "benchmarkId": "aa-briefcase-1-1",
+          "costAxis": "Cost per task",
+          "labelCount": 20,
+          "focusedPoints": 10
+        }
+      ]
+    },
+    {
+      "id": "anthropic-opus-5-5",
+      "url": "https://www.anthropic.com/claude-opus-5-5",
+      "sha256": "46fded7526000ba9ea5757a3d51dbb1063981224cd8c5e5e4ad521bb15aadee0",
+      "charts": [
+        {
+          "title": "Terminal-Bench 4.0",
+          "benchmarkId": "terminal-bench-4",
+          "costAxis": "Cost per attempt (USD, log scale)",
+          "labelCount": 25,
+          "focusedPoints": 15
+        },
+        {
+          "title": "FrontierCode v1.1, main set",
+          "benchmarkId": "frontiercode-1-1-main",
+          "costAxis": "Cost per task",
+          "labelCount": 25,
+          "focusedPoints": 15
+        },
+        {
+          "title": "CursorBench 4.0",
+          "benchmarkId": "cursorbench-4",
+          "costAxis": "Cost per task",
+          "labelCount": 20,
+          "focusedPoints": 15
+        },
+        {
+          "title": "GDPval-AA v2.1",
+          "benchmarkId": "gdpval-aa-2-1",
+          "costAxis": "Estimated cost per task",
+          "labelCount": 25,
+          "focusedPoints": 15
+        }
+      ]
+    },
+    {
+      "id": "anthropic-fable-5-1",
+      "url": "https://www.anthropic.com/claude-fable-and-mythos-5-1",
+      "sha256": "2cd767d7c6d8b194134ba29a96aacbfb7c5c18d7651a9ea95dbadf2ca4e48239",
+      "charts": [
+        {
+          "title": "Terminal-Bench 4.0",
+          "benchmarkId": "terminal-bench-4",
+          "costAxis": "Mean cost per task",
+          "labelCount": 15,
+          "focusedPoints": 5
+        },
+        {
+          "title": "CursorBench 3.2.0",
+          "benchmarkId": "cursorbench-3-2",
+          "costAxis": "Cost per task",
+          "labelCount": 10,
+          "focusedPoints": 10
+        }
+      ]
+    },
+    {
+      "id": "xai-grok-4-7",
+      "url": "https://x.ai/news/grok-4-7",
+      "sha256": "34b49edf6c472f74e8bca5a530b81873e5f311f4e38a32adebad50e1d9711d78",
+      "charts": [
+        {
+          "title": "CursorBench 4.0 score by average cost per task",
+          "benchmarkId": "cursorbench-4",
+          "costAxis": "Average cost per task",
+          "labelCount": 24,
+          "focusedPoints": 14
+        }
+      ]
+    }
+  ],
+  "verifiedCurvePoints": [
+    {
+      "benchmarkId": "terminal-bench-4",
+      "modelId": "claude-sonnet-5.5",
+      "effort": "low",
+      "score": 20.0,
+      "cost": 0.76,
+      "sourceId": "anthropic-sonnet-5-5",
+      "rawLabel": "Sonnet 5.5 \u00b7 Low: 20.0% $0.76",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "terminal-bench-4",
+      "modelId": "claude-sonnet-5.5",
+      "effort": "medium",
+      "score": 28.8,
+      "cost": 0.83,
+      "sourceId": "anthropic-sonnet-5-5",
+      "rawLabel": "Sonnet 5.5 \u00b7 Med: 28.8% $0.83",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "terminal-bench-4",
+      "modelId": "claude-sonnet-5.5",
+      "effort": "high",
+      "score": 43.0,
+      "cost": 1.94,
+      "sourceId": "anthropic-sonnet-5-5",
+      "rawLabel": "Sonnet 5.5 \u00b7 High: 43.0% $1.94",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "terminal-bench-4",
+      "modelId": "claude-sonnet-5.5",
+      "effort": "xhigh",
+      "score": 61.5,
+      "cost": 5.3,
+      "sourceId": "anthropic-sonnet-5-5",
+      "rawLabel": "Sonnet 5.5 \u00b7 Xhigh: 61.5% $5.30",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "terminal-bench-4",
+      "modelId": "claude-sonnet-5.5",
+      "effort": "max",
+      "score": 70.6,
+      "cost": 12.54,
+      "sourceId": "anthropic-sonnet-5-5",
+      "rawLabel": "Sonnet 5.5 \u00b7 Max: 70.6% $12.54",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "terminal-bench-4",
+      "modelId": "claude-opus-5.5",
+      "effort": "low",
+      "score": 38.5,
+      "cost": 1.29,
+      "sourceId": "anthropic-sonnet-5-5",
+      "rawLabel": "Opus 5.5 \u00b7 Low: 38.5% $1.29",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "terminal-bench-4",
+      "modelId": "claude-opus-5.5",
+      "effort": "medium",
+      "score": 57.6,
+      "cost": 2.94,
+      "sourceId": "anthropic-sonnet-5-5",
+      "rawLabel": "Opus 5.5 \u00b7 Med: 57.6% $2.94",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "terminal-bench-4",
+      "modelId": "claude-opus-5.5",
+      "effort": "high",
+      "score": 64.2,
+      "cost": 3.88,
+      "sourceId": "anthropic-sonnet-5-5",
+      "rawLabel": "Opus 5.5 \u00b7 High: 64.2% $3.88",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "terminal-bench-4",
+      "modelId": "claude-opus-5.5",
+      "effort": "xhigh",
+      "score": 66.4,
+      "cost": 7.35,
+      "sourceId": "anthropic-sonnet-5-5",
+      "rawLabel": "Opus 5.5 \u00b7 Xhigh: 66.4% $7.35",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "terminal-bench-4",
+      "modelId": "claude-opus-5.5",
+      "effort": "max",
+      "score": 64.8,
+      "cost": 11.24,
+      "sourceId": "anthropic-sonnet-5-5",
+      "rawLabel": "Opus 5.5 \u00b7 Max: 64.8% $11.24",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "frontiercode-1-1-main",
+      "modelId": "claude-sonnet-5.5",
+      "effort": "low",
+      "score": 29.3,
+      "cost": 0.19,
+      "sourceId": "anthropic-sonnet-5-5",
+      "rawLabel": "Sonnet 5.5 \u00b7 Low: 29.3% $0.19",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "frontiercode-1-1-main",
+      "modelId": "claude-sonnet-5.5",
+      "effort": "medium",
+      "score": 36.5,
+      "cost": 0.24,
+      "sourceId": "anthropic-sonnet-5-5",
+      "rawLabel": "Sonnet 5.5 \u00b7 Med: 36.5% $0.24",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "frontiercode-1-1-main",
+      "modelId": "claude-sonnet-5.5",
+      "effort": "high",
+      "score": 49.4,
+      "cost": 0.42,
+      "sourceId": "anthropic-sonnet-5-5",
+      "rawLabel": "Sonnet 5.5 \u00b7 High: 49.4% $0.42",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "frontiercode-1-1-main",
+      "modelId": "claude-sonnet-5.5",
+      "effort": "xhigh",
+      "score": 52.1,
+      "cost": 1.59,
+      "sourceId": "anthropic-sonnet-5-5",
+      "rawLabel": "Sonnet 5.5 \u00b7 Xhigh: 52.1% $1.59",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "frontiercode-1-1-main",
+      "modelId": "claude-sonnet-5.5",
+      "effort": "max",
+      "score": 46.2,
+      "cost": 20.78,
+      "sourceId": "anthropic-sonnet-5-5",
+      "rawLabel": "Sonnet 5.5 \u00b7 Max: 46.2% $20.78",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "frontiercode-1-1-main",
+      "modelId": "claude-opus-5.5",
+      "effort": "low",
+      "score": 47.3,
+      "cost": 0.4,
+      "sourceId": "anthropic-sonnet-5-5",
+      "rawLabel": "Opus 5.5 \u00b7 Low: 47.3% $0.40",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "frontiercode-1-1-main",
+      "modelId": "claude-opus-5.5",
+      "effort": "medium",
+      "score": 54.6,
+      "cost": 0.8,
+      "sourceId": "anthropic-sonnet-5-5",
+      "rawLabel": "Opus 5.5 \u00b7 Med: 54.6% $0.80",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "frontiercode-1-1-main",
+      "modelId": "claude-opus-5.5",
+      "effort": "high",
+      "score": 54.0,
+      "cost": 1.09,
+      "sourceId": "anthropic-sonnet-5-5",
+      "rawLabel": "Opus 5.5 \u00b7 High: 54.0% $1.09",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "frontiercode-1-1-main",
+      "modelId": "claude-opus-5.5",
+      "effort": "xhigh",
+      "score": 51.4,
+      "cost": 2.25,
+      "sourceId": "anthropic-sonnet-5-5",
+      "rawLabel": "Opus 5.5 \u00b7 Xhigh: 51.4% $2.25",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "frontiercode-1-1-main",
+      "modelId": "claude-opus-5.5",
+      "effort": "max",
+      "score": 54.4,
+      "cost": 6.19,
+      "sourceId": "anthropic-sonnet-5-5",
+      "rawLabel": "Opus 5.5 \u00b7 Max: 54.4% $6.19",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "modelId": "claude-sonnet-5.5",
+      "effort": "low",
+      "score": 35.8,
+      "cost": 0.5,
+      "sourceId": "anthropic-sonnet-5-5",
+      "rawLabel": "Sonnet 5.5 \u00b7 Low: 35.8% $0.50",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "modelId": "claude-sonnet-5.5",
+      "effort": "medium",
+      "score": 39.2,
+      "cost": 0.7,
+      "sourceId": "anthropic-sonnet-5-5",
+      "rawLabel": "Sonnet 5.5 \u00b7 Med: 39.2% $0.70",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "modelId": "claude-sonnet-5.5",
+      "effort": "high",
+      "score": 47.8,
+      "cost": 1.67,
+      "sourceId": "anthropic-sonnet-5-5",
+      "rawLabel": "Sonnet 5.5 \u00b7 High: 47.8% $1.67",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "modelId": "claude-sonnet-5.5",
+      "effort": "xhigh",
+      "score": 53.1,
+      "cost": 3.88,
+      "sourceId": "anthropic-sonnet-5-5",
+      "rawLabel": "Sonnet 5.5 \u00b7 Xhigh: 53.1% $3.88",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "modelId": "claude-sonnet-5.5",
+      "effort": "max",
+      "score": 55.5,
+      "cost": 9.67,
+      "sourceId": "anthropic-sonnet-5-5",
+      "rawLabel": "Sonnet 5.5 \u00b7 Max: 55.5% $9.67",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "modelId": "claude-opus-5.5",
+      "effort": "low",
+      "score": 43.7,
+      "cost": 1.17,
+      "sourceId": "anthropic-sonnet-5-5",
+      "rawLabel": "Opus 5.5 \u00b7 Low: 43.7% $1.17",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "modelId": "claude-opus-5.5",
+      "effort": "medium",
+      "score": 52.5,
+      "cost": 2.91,
+      "sourceId": "anthropic-sonnet-5-5",
+      "rawLabel": "Opus 5.5 \u00b7 Med: 52.5% $2.91",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "modelId": "claude-opus-5.5",
+      "effort": "high",
+      "score": 56.0,
+      "cost": 3.97,
+      "sourceId": "anthropic-sonnet-5-5",
+      "rawLabel": "Opus 5.5 \u00b7 High: 56.0% $3.97",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "modelId": "claude-opus-5.5",
+      "effort": "xhigh",
+      "score": 56.0,
+      "cost": 6.98,
+      "sourceId": "anthropic-sonnet-5-5",
+      "rawLabel": "Opus 5.5 \u00b7 Xhigh: 56.0% $6.98",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "modelId": "claude-opus-5.5",
+      "effort": "max",
+      "score": 57.8,
+      "cost": 13.43,
+      "sourceId": "anthropic-sonnet-5-5",
+      "rawLabel": "Opus 5.5 \u00b7 Max: 57.8% $13.43",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "aa-briefcase-1-1",
+      "modelId": "claude-sonnet-5.5",
+      "effort": "low",
+      "score": 1264.0,
+      "cost": 0.87,
+      "sourceId": "anthropic-sonnet-5-5",
+      "rawLabel": "Sonnet 5.5 \u00b7 Low: 1264.0 $0.87",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "aa-briefcase-1-1",
+      "modelId": "claude-sonnet-5.5",
+      "effort": "medium",
+      "score": 1461.0,
+      "cost": 1.64,
+      "sourceId": "anthropic-sonnet-5-5",
+      "rawLabel": "Sonnet 5.5 \u00b7 Med: 1461.0 $1.64",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "aa-briefcase-1-1",
+      "modelId": "claude-sonnet-5.5",
+      "effort": "high",
+      "score": 1634.0,
+      "cost": 3.95,
+      "sourceId": "anthropic-sonnet-5-5",
+      "rawLabel": "Sonnet 5.5 \u00b7 High: 1634.0 $3.95",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "aa-briefcase-1-1",
+      "modelId": "claude-sonnet-5.5",
+      "effort": "xhigh",
+      "score": 1746.0,
+      "cost": 9.63,
+      "sourceId": "anthropic-sonnet-5-5",
+      "rawLabel": "Sonnet 5.5 \u00b7 Xhigh: 1746.0 $9.63",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "aa-briefcase-1-1",
+      "modelId": "claude-sonnet-5.5",
+      "effort": "max",
+      "score": 1811.0,
+      "cost": 29.19,
+      "sourceId": "anthropic-sonnet-5-5",
+      "rawLabel": "Sonnet 5.5 \u00b7 Max: 1811.0 $29.19",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "aa-briefcase-1-1",
+      "modelId": "claude-opus-5.5",
+      "effort": "low",
+      "score": 1285.0,
+      "cost": 1.15,
+      "sourceId": "anthropic-sonnet-5-5",
+      "rawLabel": "Opus 5.5 \u00b7 Low: 1285.0 $1.15",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "aa-briefcase-1-1",
+      "modelId": "claude-opus-5.5",
+      "effort": "medium",
+      "score": 1642.0,
+      "cost": 4.4,
+      "sourceId": "anthropic-sonnet-5-5",
+      "rawLabel": "Opus 5.5 \u00b7 Med: 1642.0 $4.40",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "aa-briefcase-1-1",
+      "modelId": "claude-opus-5.5",
+      "effort": "high",
+      "score": 1705.0,
+      "cost": 6.27,
+      "sourceId": "anthropic-sonnet-5-5",
+      "rawLabel": "Opus 5.5 \u00b7 High: 1705.0 $6.27",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "aa-briefcase-1-1",
+      "modelId": "claude-opus-5.5",
+      "effort": "xhigh",
+      "score": 1780.0,
+      "cost": 12.27,
+      "sourceId": "anthropic-sonnet-5-5",
+      "rawLabel": "Opus 5.5 \u00b7 Xhigh: 1780.0 $12.27",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "aa-briefcase-1-1",
+      "modelId": "claude-opus-5.5",
+      "effort": "max",
+      "score": 1822.0,
+      "cost": 21.05,
+      "sourceId": "anthropic-sonnet-5-5",
+      "rawLabel": "Opus 5.5 \u00b7 Max: 1822.0 $21.05",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "terminal-bench-4",
+      "modelId": "claude-opus-5.5",
+      "effort": "low",
+      "score": 38.5,
+      "cost": 1.29,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Opus 5.5 \u00b7 Low: 38.5% $1.29",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "terminal-bench-4",
+      "modelId": "claude-opus-5.5",
+      "effort": "medium",
+      "score": 57.6,
+      "cost": 2.94,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Opus 5.5 \u00b7 Med: 57.6% $2.94",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "terminal-bench-4",
+      "modelId": "claude-opus-5.5",
+      "effort": "high",
+      "score": 64.2,
+      "cost": 3.88,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Opus 5.5 \u00b7 High: 64.2% $3.88",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "terminal-bench-4",
+      "modelId": "claude-opus-5.5",
+      "effort": "xhigh",
+      "score": 66.4,
+      "cost": 7.35,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Opus 5.5 \u00b7 Xhigh: 66.4% $7.35",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "terminal-bench-4",
+      "modelId": "claude-opus-5.5",
+      "effort": "max",
+      "score": 64.8,
+      "cost": 11.24,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Opus 5.5 \u00b7 Max: 64.8% $11.24",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "terminal-bench-4",
+      "modelId": "claude-fable-5.1",
+      "effort": "low",
+      "score": 40.2,
+      "cost": 5.7,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Fable 5.1 \u00b7 Low: 40.2% $5.70",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "terminal-bench-4",
+      "modelId": "claude-fable-5.1",
+      "effort": "medium",
+      "score": 43.4,
+      "cost": 7.8,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Fable 5.1 \u00b7 Med: 43.4% $7.80",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "terminal-bench-4",
+      "modelId": "claude-fable-5.1",
+      "effort": "high",
+      "score": 49.4,
+      "cost": 10.5,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Fable 5.1 \u00b7 High: 49.4% $10.50",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "terminal-bench-4",
+      "modelId": "claude-fable-5.1",
+      "effort": "xhigh",
+      "score": 51.3,
+      "cost": 15.8,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Fable 5.1 \u00b7 Xhigh: 51.3% $15.80",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "terminal-bench-4",
+      "modelId": "claude-fable-5.1",
+      "effort": "max",
+      "score": 55.8,
+      "cost": 19.5,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Fable 5.1 \u00b7 Max: 55.8% $19.50",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "terminal-bench-4",
+      "modelId": "claude-opus-5",
+      "effort": "low",
+      "score": 28.5,
+      "cost": 4.25,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Opus 5 \u00b7 Low: 28.5% $4.25",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "terminal-bench-4",
+      "modelId": "claude-opus-5",
+      "effort": "medium",
+      "score": 41.2,
+      "cost": 7.0,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Opus 5 \u00b7 Med: 41.2% $7",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "terminal-bench-4",
+      "modelId": "claude-opus-5",
+      "effort": "high",
+      "score": 47.0,
+      "cost": 10.64,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Opus 5 \u00b7 High: 47.0% $10.64",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "terminal-bench-4",
+      "modelId": "claude-opus-5",
+      "effort": "xhigh",
+      "score": 50.6,
+      "cost": 13.48,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Opus 5 \u00b7 Xhigh: 50.6% $13.48",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "terminal-bench-4",
+      "modelId": "claude-opus-5",
+      "effort": "max",
+      "score": 52.3,
+      "cost": 15.83,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Opus 5 \u00b7 Max: 52.3% $15.83",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "frontiercode-1-1-main",
+      "modelId": "claude-opus-5.5",
+      "effort": "low",
+      "score": 47.3,
+      "cost": 0.4,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Opus 5.5 \u00b7 Low: 47.3% $0.40",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "frontiercode-1-1-main",
+      "modelId": "claude-opus-5.5",
+      "effort": "medium",
+      "score": 54.6,
+      "cost": 0.8,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Opus 5.5 \u00b7 Med: 54.6% $0.80",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "frontiercode-1-1-main",
+      "modelId": "claude-opus-5.5",
+      "effort": "high",
+      "score": 54.0,
+      "cost": 1.09,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Opus 5.5 \u00b7 High: 54.0% $1.09",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "frontiercode-1-1-main",
+      "modelId": "claude-opus-5.5",
+      "effort": "xhigh",
+      "score": 51.4,
+      "cost": 2.25,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Opus 5.5 \u00b7 Xhigh: 51.4% $2.25",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "frontiercode-1-1-main",
+      "modelId": "claude-opus-5.5",
+      "effort": "max",
+      "score": 54.4,
+      "cost": 6.19,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Opus 5.5 \u00b7 Max: 54.4% $6.19",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "frontiercode-1-1-main",
+      "modelId": "claude-fable-5.1",
+      "effort": "low",
+      "score": 52.8,
+      "cost": 2.47,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Fable 5.1 \u00b7 Low: 52.8% $2.47",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "frontiercode-1-1-main",
+      "modelId": "claude-fable-5.1",
+      "effort": "medium",
+      "score": 50.9,
+      "cost": 3.28,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Fable 5.1 \u00b7 Med: 50.9% $3.28",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "frontiercode-1-1-main",
+      "modelId": "claude-fable-5.1",
+      "effort": "high",
+      "score": 50.3,
+      "cost": 5.27,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Fable 5.1 \u00b7 High: 50.3% $5.27",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "frontiercode-1-1-main",
+      "modelId": "claude-fable-5.1",
+      "effort": "xhigh",
+      "score": 48.7,
+      "cost": 9.27,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Fable 5.1 \u00b7 Xhigh: 48.7% $9.27",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "frontiercode-1-1-main",
+      "modelId": "claude-fable-5.1",
+      "effort": "max",
+      "score": 50.3,
+      "cost": 12.82,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Fable 5.1 \u00b7 Max: 50.3% $12.82",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "frontiercode-1-1-main",
+      "modelId": "claude-opus-5",
+      "effort": "low",
+      "score": 42.0,
+      "cost": 2.64,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Opus 5 \u00b7 Low: 42.0% $2.64",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "frontiercode-1-1-main",
+      "modelId": "claude-opus-5",
+      "effort": "medium",
+      "score": 53.4,
+      "cost": 4.61,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Opus 5 \u00b7 Med: 53.4% $4.61",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "frontiercode-1-1-main",
+      "modelId": "claude-opus-5",
+      "effort": "high",
+      "score": 48.0,
+      "cost": 7.62,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Opus 5 \u00b7 High: 48.0% $7.62",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "frontiercode-1-1-main",
+      "modelId": "claude-opus-5",
+      "effort": "xhigh",
+      "score": 43.6,
+      "cost": 8.99,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Opus 5 \u00b7 Xhigh: 43.6% $8.99",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "frontiercode-1-1-main",
+      "modelId": "claude-opus-5",
+      "effort": "max",
+      "score": 48.0,
+      "cost": 12.28,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Opus 5 \u00b7 Max: 48.0% $12.28",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "modelId": "claude-opus-5.5",
+      "effort": "low",
+      "score": 43.7,
+      "cost": 1.18,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Opus 5.5 \u00b7 Low: 43.7% $1.18",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "modelId": "claude-opus-5.5",
+      "effort": "medium",
+      "score": 52.5,
+      "cost": 2.9,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Opus 5.5 \u00b7 Med: 52.5% $2.90",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "modelId": "claude-opus-5.5",
+      "effort": "high",
+      "score": 56.0,
+      "cost": 3.97,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Opus 5.5 \u00b7 High: 56.0% $3.97",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "modelId": "claude-opus-5.5",
+      "effort": "xhigh",
+      "score": 56.0,
+      "cost": 6.99,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Opus 5.5 \u00b7 Xhigh: 56.0% $6.99",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "modelId": "claude-opus-5.5",
+      "effort": "max",
+      "score": 57.8,
+      "cost": 13.43,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Opus 5.5 \u00b7 Max: 57.8% $13.43",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "modelId": "claude-fable-5.1",
+      "effort": "low",
+      "score": 45.1,
+      "cost": 5.44,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Fable 5.1 \u00b7 Low: 45.1% $5.44",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "modelId": "claude-fable-5.1",
+      "effort": "medium",
+      "score": 46.8,
+      "cost": 7.05,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Fable 5.1 \u00b7 Med: 46.8% $7.05",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "modelId": "claude-fable-5.1",
+      "effort": "high",
+      "score": 49.2,
+      "cost": 9.08,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Fable 5.1 \u00b7 High: 49.2% $9.08",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "modelId": "claude-fable-5.1",
+      "effort": "xhigh",
+      "score": 51.6,
+      "cost": 13.01,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Fable 5.1 \u00b7 Xhigh: 51.6% $13.01",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "modelId": "claude-fable-5.1",
+      "effort": "max",
+      "score": 51.8,
+      "cost": 17.28,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Fable 5.1 \u00b7 Max: 51.8% $17.28",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "modelId": "claude-opus-5",
+      "effort": "low",
+      "score": 40.7,
+      "cost": 4.87,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Opus 5 \u00b7 Low: 40.7% $4.87",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "modelId": "claude-opus-5",
+      "effort": "medium",
+      "score": 43.3,
+      "cost": 6.94,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Opus 5 \u00b7 Med: 43.3% $6.94",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "modelId": "claude-opus-5",
+      "effort": "high",
+      "score": 44.7,
+      "cost": 9.0,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Opus 5 \u00b7 High: 44.7% $9",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "modelId": "claude-opus-5",
+      "effort": "xhigh",
+      "score": 46.1,
+      "cost": 11.43,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Opus 5 \u00b7 Xhigh: 46.1% $11.43",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "modelId": "claude-opus-5",
+      "effort": "max",
+      "score": 46.6,
+      "cost": 11.95,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Opus 5 \u00b7 Max: 46.6% $11.95",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "gdpval-aa-2-1",
+      "modelId": "claude-opus-5.5",
+      "effort": "low",
+      "score": 1224.0,
+      "cost": 0.21,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Opus 5.5 \u00b7 Low: 1224 $0.21",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "gdpval-aa-2-1",
+      "modelId": "claude-opus-5.5",
+      "effort": "medium",
+      "score": 1576.0,
+      "cost": 0.86,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Opus 5.5 \u00b7 Med: 1576 $0.86",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "gdpval-aa-2-1",
+      "modelId": "claude-opus-5.5",
+      "effort": "high",
+      "score": 1692.0,
+      "cost": 1.54,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Opus 5.5 \u00b7 High: 1692 $1.54",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "gdpval-aa-2-1",
+      "modelId": "claude-opus-5.5",
+      "effort": "xhigh",
+      "score": 1820.0,
+      "cost": 4.21,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Opus 5.5 \u00b7 Xhigh: 1820 $4.21",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "gdpval-aa-2-1",
+      "modelId": "claude-opus-5.5",
+      "effort": "max",
+      "score": 1846.0,
+      "cost": 8.92,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Opus 5.5 \u00b7 Max: 1846 $8.92",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "gdpval-aa-2-1",
+      "modelId": "claude-fable-5.1",
+      "effort": "low",
+      "score": 1450.0,
+      "cost": 1.41,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Fable 5.1 \u00b7 Low: 1450 $1.41",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "gdpval-aa-2-1",
+      "modelId": "claude-fable-5.1",
+      "effort": "medium",
+      "score": 1536.0,
+      "cost": 2.17,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Fable 5.1 \u00b7 Med: 1536 $2.17",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "gdpval-aa-2-1",
+      "modelId": "claude-fable-5.1",
+      "effort": "high",
+      "score": 1617.0,
+      "cost": 3.43,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Fable 5.1 \u00b7 High: 1617 $3.43",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "gdpval-aa-2-1",
+      "modelId": "claude-fable-5.1",
+      "effort": "xhigh",
+      "score": 1721.0,
+      "cost": 7.09,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Fable 5.1 \u00b7 Xhigh: 1721 $7.09",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "gdpval-aa-2-1",
+      "modelId": "claude-fable-5.1",
+      "effort": "max",
+      "score": 1735.0,
+      "cost": 9.59,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Fable 5.1 \u00b7 Max: 1735 $9.59",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "gdpval-aa-2-1",
+      "modelId": "claude-opus-5",
+      "effort": "low",
+      "score": 1294.0,
+      "cost": 0.58,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Opus 5 \u00b7 Low: 1294 $0.58",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "gdpval-aa-2-1",
+      "modelId": "claude-opus-5",
+      "effort": "medium",
+      "score": 1476.0,
+      "cost": 1.36,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Opus 5 \u00b7 Med: 1476 $1.36",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "gdpval-aa-2-1",
+      "modelId": "claude-opus-5",
+      "effort": "high",
+      "score": 1581.0,
+      "cost": 3.03,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Opus 5 \u00b7 High: 1581 $3.03",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "gdpval-aa-2-1",
+      "modelId": "claude-opus-5",
+      "effort": "xhigh",
+      "score": 1676.0,
+      "cost": 4.96,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Opus 5 \u00b7 Xhigh: 1676 $4.96",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "gdpval-aa-2-1",
+      "modelId": "claude-opus-5",
+      "effort": "max",
+      "score": 1708.0,
+      "cost": 6.76,
+      "sourceId": "anthropic-opus-5-5",
+      "rawLabel": "Opus 5 \u00b7 Max: 1708 $6.76",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "terminal-bench-4",
+      "modelId": "claude-fable-5.1",
+      "effort": "low",
+      "score": 40.2,
+      "cost": 5.7,
+      "sourceId": "anthropic-fable-5-1",
+      "rawLabel": "Fable 5.1 \u00b7 low: 40.2% $5.70",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "terminal-bench-4",
+      "modelId": "claude-fable-5.1",
+      "effort": "medium",
+      "score": 43.4,
+      "cost": 7.8,
+      "sourceId": "anthropic-fable-5-1",
+      "rawLabel": "Fable 5.1 \u00b7 med: 43.4% $7.80",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "terminal-bench-4",
+      "modelId": "claude-fable-5.1",
+      "effort": "high",
+      "score": 49.4,
+      "cost": 10.5,
+      "sourceId": "anthropic-fable-5-1",
+      "rawLabel": "Fable 5.1 \u00b7 high: 49.4% $10.50",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "terminal-bench-4",
+      "modelId": "claude-fable-5.1",
+      "effort": "xhigh",
+      "score": 51.3,
+      "cost": 15.8,
+      "sourceId": "anthropic-fable-5-1",
+      "rawLabel": "Fable 5.1 \u00b7 xhigh: 51.3% $15.80",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "terminal-bench-4",
+      "modelId": "claude-fable-5.1",
+      "effort": "max",
+      "score": 55.8,
+      "cost": 19.5,
+      "sourceId": "anthropic-fable-5-1",
+      "rawLabel": "Fable 5.1 \u00b7 max: 55.8% $19.50",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "cursorbench-3-2",
+      "modelId": "claude-fable-5.1",
+      "effort": "low",
+      "score": 66.2,
+      "cost": 2.9,
+      "sourceId": "anthropic-fable-5-1",
+      "rawLabel": "Fable 5.1 \u00b7 low: 66.2% $2.90",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "cursorbench-3-2",
+      "modelId": "claude-fable-5.1",
+      "effort": "medium",
+      "score": 68.0,
+      "cost": 3.53,
+      "sourceId": "anthropic-fable-5-1",
+      "rawLabel": "Fable 5.1 \u00b7 med: 68.0% $3.53",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "cursorbench-3-2",
+      "modelId": "claude-fable-5.1",
+      "effort": "high",
+      "score": 69.4,
+      "cost": 4.8,
+      "sourceId": "anthropic-fable-5-1",
+      "rawLabel": "Fable 5.1 \u00b7 high: 69.4% $4.80",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "cursorbench-3-2",
+      "modelId": "claude-fable-5.1",
+      "effort": "xhigh",
+      "score": 72.8,
+      "cost": 6.96,
+      "sourceId": "anthropic-fable-5-1",
+      "rawLabel": "Fable 5.1 \u00b7 xhigh: 72.8% $6.96",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "cursorbench-3-2",
+      "modelId": "claude-fable-5.1",
+      "effort": "max",
+      "score": 73.4,
+      "cost": 9.64,
+      "sourceId": "anthropic-fable-5-1",
+      "rawLabel": "Fable 5.1 \u00b7 max: 73.4% $9.64",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "cursorbench-3-2",
+      "modelId": "claude-fable-5",
+      "effort": "low",
+      "score": 62.1,
+      "cost": 4.46,
+      "sourceId": "anthropic-fable-5-1",
+      "rawLabel": "Fable 5 \u00b7 low: 62.1% $4.46",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "cursorbench-3-2",
+      "modelId": "claude-fable-5",
+      "effort": "medium",
+      "score": 65.2,
+      "cost": 6.8,
+      "sourceId": "anthropic-fable-5-1",
+      "rawLabel": "Fable 5 \u00b7 med: 65.2% $6.80",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "cursorbench-3-2",
+      "modelId": "claude-fable-5",
+      "effort": "high",
+      "score": 66.5,
+      "cost": 8.77,
+      "sourceId": "anthropic-fable-5-1",
+      "rawLabel": "Fable 5 \u00b7 high: 66.5% $8.77",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "cursorbench-3-2",
+      "modelId": "claude-fable-5",
+      "effort": "xhigh",
+      "score": 68.4,
+      "cost": 11.73,
+      "sourceId": "anthropic-fable-5-1",
+      "rawLabel": "Fable 5 \u00b7 xhigh: 68.4% $11.73",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "cursorbench-3-2",
+      "modelId": "claude-fable-5",
+      "effort": "max",
+      "score": 70.5,
+      "cost": 17.32,
+      "sourceId": "anthropic-fable-5-1",
+      "rawLabel": "Fable 5 \u00b7 max: 70.5% $17.32",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "modelId": "claude-fable-5.1",
+      "effort": "max",
+      "score": 51.8,
+      "cost": 17.28,
+      "sourceId": "xai-grok-4-7",
+      "rawLabel": "Fable 5.1 Max: 51.8%, $17.28 avg cost per task",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "modelId": "claude-fable-5.1",
+      "effort": "xhigh",
+      "score": 51.6,
+      "cost": 13.01,
+      "sourceId": "xai-grok-4-7",
+      "rawLabel": "Fable 5.1 Extra High: 51.6%, $13.01 avg cost per task",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "modelId": "claude-fable-5.1",
+      "effort": "medium",
+      "score": 46.8,
+      "cost": 7.05,
+      "sourceId": "xai-grok-4-7",
+      "rawLabel": "Fable 5.1 Medium: 46.8%, $7.05 avg cost per task",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "modelId": "claude-opus-5",
+      "effort": "max",
+      "score": 46.6,
+      "cost": 11.95,
+      "sourceId": "xai-grok-4-7",
+      "rawLabel": "Opus 5 Max: 46.6%, $11.95 avg cost per task",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "modelId": "claude-opus-5",
+      "effort": "xhigh",
+      "score": 46.1,
+      "cost": 11.43,
+      "sourceId": "xai-grok-4-7",
+      "rawLabel": "Opus 5 Extra High: 46.1%, $11.43 avg cost per task",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "modelId": "claude-fable-5.1",
+      "effort": "low",
+      "score": 45.1,
+      "cost": 5.44,
+      "sourceId": "xai-grok-4-7",
+      "rawLabel": "Fable 5.1 Low: 45.1%, $5.44 avg cost per task",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "modelId": "claude-opus-5",
+      "effort": "medium",
+      "score": 43.3,
+      "cost": 6.94,
+      "sourceId": "xai-grok-4-7",
+      "rawLabel": "Opus 5 Medium: 43.3%, $6.94 avg cost per task",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "modelId": "claude-opus-5",
+      "effort": "low",
+      "score": 40.7,
+      "cost": 4.87,
+      "sourceId": "xai-grok-4-7",
+      "rawLabel": "Opus 5 Low: 40.7%, $4.87 avg cost per task",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "modelId": "grok-4.7",
+      "effort": "xhigh",
+      "score": 46.3,
+      "cost": 6.01,
+      "sourceId": "xai-grok-4-7",
+      "rawLabel": "Grok 4.7 Extra High: 46.3%, $6.01 avg cost per task",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "modelId": "grok-4.7",
+      "effort": "medium",
+      "score": 41.6,
+      "cost": 3.49,
+      "sourceId": "xai-grok-4-7",
+      "rawLabel": "Grok 4.7 Medium: 41.6%, $3.49 avg cost per task",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "modelId": "grok-4.7",
+      "effort": "low",
+      "score": 33.1,
+      "cost": 1.58,
+      "sourceId": "xai-grok-4-7",
+      "rawLabel": "Grok 4.7 Low: 33.1%, $1.58 avg cost per task",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "modelId": "claude-fable-5.1",
+      "effort": "high",
+      "score": 49.2,
+      "cost": 9.08,
+      "sourceId": "xai-grok-4-7",
+      "rawLabel": "Fable 5.1 High: 49.2%, $9.08 avg cost per task",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "modelId": "claude-opus-5",
+      "effort": "high",
+      "score": 44.7,
+      "cost": 9.0,
+      "sourceId": "xai-grok-4-7",
+      "rawLabel": "Opus 5 High: 44.7%, $9.00 avg cost per task",
+      "comparison": "exact-match"
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "modelId": "grok-4.7",
+      "effort": "high",
+      "score": 43.9,
+      "cost": 4.69,
+      "sourceId": "xai-grok-4-7",
+      "rawLabel": "Grok 4.7 High: 43.9%, $4.69 avg cost per task",
+      "comparison": "exact-match"
+    }
+  ],
+  "newPoints": [],
+  "mismatches": [],
+  "summary": {
+    "exactCurvePointsChecked": 129,
+    "exactMatches": 129,
+    "newCurvePoints": 0,
+    "valueMismatches": 0,
+    "systemCardScoresChecked": 3,
+    "independentDeepSWEPointsChecked": 10,
+    "newTablePoints": 4,
+    "independentDeepSWEMismatches": 0
+  },
+  "officialApiPricing": [
+    {
+      "modelId": "claude-sonnet-5.5",
+      "inputPerMillion": 2,
+      "outputPerMillion": 10,
+      "cacheReadPerMillion": 0.2,
+      "cacheWrite5mPerMillion": 2.5,
+      "cacheWrite1hPerMillion": 4,
+      "currency": "USD",
+      "tier": "Standard first-party API, global routing",
+      "sourceUrl": "https://platform.claude.com/docs/en/about-claude/pricing",
+      "verifiedAt": "2026-10-03T14:28:34.451791+00:00"
+    },
+    {
+      "modelId": "claude-opus-5.5",
+      "inputPerMillion": 4,
+      "outputPerMillion": 20,
+      "cacheReadPerMillion": 0.2,
+      "cacheWrite5mPerMillion": 5,
+      "cacheWrite1hPerMillion": 8,
+      "currency": "USD",
+      "tier": "Standard first-party API, global routing",
+      "sourceUrl": "https://platform.claude.com/docs/en/about-claude/pricing",
+      "verifiedAt": "2026-10-03T14:28:34.451791+00:00"
+    },
+    {
+      "modelId": "claude-fable-5.1",
+      "inputPerMillion": 10,
+      "outputPerMillion": 50,
+      "cacheReadPerMillion": 0.25,
+      "cacheWrite5mPerMillion": 12.5,
+      "cacheWrite1hPerMillion": 20,
+      "currency": "USD",
+      "tier": "Standard first-party API, global routing",
+      "sourceUrl": "https://platform.claude.com/docs/en/about-claude/pricing",
+      "verifiedAt": "2026-10-03T14:28:34.451791+00:00"
+    },
+    {
+      "modelId": "claude-fable-5",
+      "inputPerMillion": 10,
+      "outputPerMillion": 50,
+      "cacheReadPerMillion": 1,
+      "cacheWrite5mPerMillion": 12.5,
+      "cacheWrite1hPerMillion": 20,
+      "currency": "USD",
+      "tier": "Standard first-party API, global routing",
+      "sourceUrl": "https://platform.claude.com/docs/en/about-claude/pricing",
+      "verifiedAt": "2026-10-03T14:28:34.451791+00:00"
+    },
+    {
+      "modelId": "claude-opus-5",
+      "inputPerMillion": 5,
+      "outputPerMillion": 25,
+      "cacheReadPerMillion": 0.5,
+      "cacheWrite5mPerMillion": 6.25,
+      "cacheWrite1hPerMillion": 10,
+      "currency": "USD",
+      "tier": "Standard first-party API, global routing",
+      "sourceUrl": "https://platform.claude.com/docs/en/about-claude/pricing",
+      "verifiedAt": "2026-10-03T14:28:34.451791+00:00"
+    },
+    {
+      "modelId": "grok-4.7",
+      "inputPerMillion": 2,
+      "outputPerMillion": 6,
+      "cacheReadPerMillion": null,
+      "currency": "USD",
+      "tier": "Standard API starting rate; fast variant twice input/output price",
+      "sourceUrl": "https://x.ai/news/grok-4-7",
+      "verifiedAt": "2026-10-03T14:28:34.451791+00:00"
+    }
+  ],
+  "identityUpdates": [
+    {
+      "modelId": "claude-fable-5",
+      "releaseDate": "2026-06-09",
+      "status": "available",
+      "lifecycle": "active-legacy",
+      "providerApiId": "claude-fable-5",
+      "sourceUrl": "https://platform.claude.com/docs/en/models/fable-5/overview"
+    },
+    {
+      "modelId": "claude-opus-5",
+      "releaseDate": "2026-07-24",
+      "status": "available",
+      "lifecycle": "active-legacy",
+      "providerApiId": "claude-opus-5",
+      "sourceUrl": "https://platform.claude.com/docs/en/models/opus-5/overview"
+    }
+  ],
+  "independentDeepSWE": {
+    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "generatedAt": "2026-09-22T06:27:15.860279+00:00",
+    "nTasksInSet": 113,
+    "unit": "pass@1 is attempt pass rate over scored rollout attempts. pass@4 is tasks with at least one passing rollout divided by tasks attempted. Context-window failures and agent timeouts are scored failures; provider/verifier/network errors are excluded. Efficiency aggregates are over every scored attempt.",
+    "rows": [
+      {
+        "model": "claude-opus-5",
+        "harness": "mini-swe-agent",
+        "effort": "max",
+        "passAt1Percent": 73.64864864864865,
+        "meanCostUSD": 11.837583271396396,
+        "costBasis": null,
+        "ciLowPercent": 69.77633822227692,
+        "ciHighPercent": 77.52095907502039,
+        "comparison": "exact-match"
+      },
+      {
+        "model": "claude-opus-5",
+        "harness": "mini-swe-agent",
+        "effort": "xhigh",
+        "passAt1Percent": 73.15436241610739,
+        "meanCostUSD": 9.07220232326622,
+        "costBasis": null,
+        "ciLowPercent": 70.09338059446893,
+        "ciHighPercent": 76.21534423774585,
+        "comparison": "exact-match"
+      },
+      {
+        "model": "claude-opus-5",
+        "harness": "mini-swe-agent",
+        "effort": "high",
+        "passAt1Percent": 72.82850779510022,
+        "meanCostUSD": 6.076084489977728,
+        "costBasis": null,
+        "ciLowPercent": 70.88307563794007,
+        "ciHighPercent": 74.77393995226038,
+        "comparison": "exact-match"
+      },
+      {
+        "model": "claude-fable-5",
+        "harness": "mini-swe-agent",
+        "effort": "xhigh",
+        "passAt1Percent": 69.91150442477876,
+        "meanCostUSD": 13.414521495535714,
+        "costBasis": null,
+        "ciLowPercent": 66.66658684930744,
+        "ciHighPercent": 73.15642200025007,
+        "comparison": "exact-match"
+      },
+      {
+        "model": "claude-fable-5",
+        "harness": "mini-swe-agent",
+        "effort": "max",
+        "passAt1Percent": 69.72477064220183,
+        "meanCostUSD": 21.634702092592594,
+        "costBasis": null,
+        "ciLowPercent": 65.6912963913939,
+        "ciHighPercent": 73.75824489300977,
+        "comparison": "exact-match"
+      },
+      {
+        "model": "claude-opus-5",
+        "harness": "mini-swe-agent",
+        "effort": "medium",
+        "passAt1Percent": 68.90380313199105,
+        "meanCostUSD": 3.28978764541387,
+        "costBasis": null,
+        "ciLowPercent": 67.73124446609795,
+        "ciHighPercent": 70.07636179788415,
+        "comparison": "exact-match"
+      },
+      {
+        "model": "claude-fable-5",
+        "harness": "mini-swe-agent",
+        "effort": "high",
+        "passAt1Percent": 68.6046511627907,
+        "meanCostUSD": 9.177638214788733,
+        "costBasis": null,
+        "ciLowPercent": 67.48380844536031,
+        "ciHighPercent": 69.7254938802211,
+        "comparison": "exact-match"
+      },
+      {
+        "model": "claude-fable-5",
+        "harness": "mini-swe-agent",
+        "effort": "medium",
+        "passAt1Percent": 65.36697247706422,
+        "meanCostUSD": 6.088186528935186,
+        "costBasis": null,
+        "ciLowPercent": 60.94504359782606,
+        "ciHighPercent": 69.78890135630239,
+        "comparison": "exact-match"
+      },
+      {
+        "model": "claude-fable-5",
+        "harness": "mini-swe-agent",
+        "effort": "low",
+        "passAt1Percent": 59.58429561200924,
+        "meanCostUSD": 3.757873125874126,
+        "costBasis": null,
+        "ciLowPercent": 56.79029016687951,
+        "ciHighPercent": 62.37830105713898,
+        "comparison": "exact-match"
+      },
+      {
+        "model": "claude-opus-5",
+        "harness": "mini-swe-agent",
+        "effort": "low",
+        "passAt1Percent": 58.12917594654788,
+        "meanCostUSD": 1.6626223919821828,
+        "costBasis": null,
+        "ciLowPercent": 55.79848799986361,
+        "ciHighPercent": 60.45986389323216,
+        "comparison": "exact-match"
+      }
+    ]
+  },
+  "gapsAndConflicts": [
+    {
+      "finding": "Full cross-model benchmark coverage is not published. Missing records must remain unavailable; a missing record is neither zero nor a predecessor score.",
+      "sourceUrl": "https://www.anthropic.com/claude-sonnet-5-5"
+    },
+    {
+      "finding": "Sonnet release explicitly says GPT-6 Sol Terminal-Bench4.0 and CursorBench4.0 results were not publicly reported; it uses GPT-5.6 Sol instead.",
+      "sourceUrl": "https://www.anthropic.com/claude-sonnet-5-5"
+    },
+    {
+      "finding": "Fable5 has CursorBench3.2.0 effort curve, not a verified CursorBench4.0 result in these sources. Fable5.1 has separate curves for both versions. Never merge3.2.0 into4.0.",
+      "sourceUrl": "https://www.anthropic.com/claude-fable-and-mythos-5-1"
+    },
+    {
+      "finding": "Terminal4.0 cost axes differ: Sonnet/Opus release use per-attempt; Fable release uses mean-per-task. Preserve them as separate cost bases.",
+      "sourceUrls": [
+        "https://www.anthropic.com/claude-sonnet-5-5",
+        "https://www.anthropic.com/claude-opus-5-5",
+        "https://www.anthropic.com/claude-fable-and-mythos-5-1"
+      ]
+    },
+    {
+      "finding": "GDPval-AA v2 andv2.1 Elo scores depend on comparison pool/snapshot; preserve version. Publisher GDPval-AA2.1 costs are explicitly estimates.",
+      "sourceUrl": "https://www.anthropic.com/claude-opus-5-5"
+    },
+    {
+      "finding": "xAI table reports Fable5.1 Terminal4.0=57.9%; Anthropic Fable/Opus tables report55.8%. xAI labels it Max; preserve source-specific disagreement, do not average.",
+      "sourceUrls": [
+        "https://x.ai/news/grok-4-7",
+        "https://www.anthropic.com/claude-opus-5-5"
+      ]
+    },
+    {
+      "finding": "Source-date numerical curves can peak below max effort: Opus5.5 Terminal4.0 peaks66.4% atxhigh, Sonnet FrontierCode52.1% atxhigh vs46.2% atmax. Do not identify max as automatically strongest.",
+      "sourceUrls": [
+        "https://www.anthropic.com/claude-sonnet-5-5",
+        "https://www.anthropic.com/claude-opus-5-5"
+      ]
+    },
+    {
+      "finding": "Fable/Mythos share weights but safeguards and fallback routing affect evaluated scores; distinct named systems must remain separate.",
+      "sourceUrl": "https://www.anthropic.com/claude-fable-and-mythos-5-1"
+    }
+  ],
+  "confidence": {
+    "transcriptionAndPricing": "High: all focused accessible curves matched live primary HTML and official pricing docs corroborate rates.",
+    "completeness": "Limited: unpublished values cannot be supplied, and this review does not independently rerun provider benchmarks.",
+    "guarantee": "No100% empirical accuracy guarantee. Confidence applies to faithful transcription and preserved source conditions."
+  },
+  "systemCardDeepSWE": [
+    {
+      "sourceUrl": "https://www.anthropic.com/claude-sonnet-5-5-system-card",
+      "sha256": "89cfd6a6d3aa6148eaf23f4a53006950ee7746009f381237c62920c720725785",
+      "modelId": "claude-sonnet-5.5",
+      "benchmarkId": "deep-swe-1-1",
+      "score": 71.0,
+      "unit": "%",
+      "trials": 5,
+      "cost": null,
+      "section": "8.3",
+      "comparison": "exact-match"
+    },
+    {
+      "sourceUrl": "https://www.anthropic.com/claude-opus-5-5-system-card",
+      "sha256": "7311c9c6bbb16d012f1c12c7418b05949fcf7ae3e30d2c40f22050074b2a7378",
+      "modelId": "claude-opus-5.5",
+      "benchmarkId": "deep-swe-1-1",
+      "score": 74.2,
+      "unit": "%",
+      "trials": 5,
+      "cost": null,
+      "section": "8.3",
+      "comparison": "exact-match"
+    },
+    {
+      "sourceUrl": "https://www.anthropic.com/claude-fable-5-1-mythos-5-1-system-card",
+      "sha256": "b0d59edc7a60eef32a879c13d713cce60c3fefd7e6b5183afdc8b835af3c8c39",
+      "modelId": "claude-fable-5.1",
+      "benchmarkId": "deep-swe-1-1",
+      "score": 67.4,
+      "unit": "%",
+      "trials": 5,
+      "cost": null,
+      "section": "8.3",
+      "comparison": "exact-match"
+    }
+  ],
+  "newTablePoints": [
+    {
+      "benchmarkId": "terminal-bench-4",
+      "modelId": "claude-fable-5",
+      "score": 42.0,
+      "cost": null,
+      "effort": "reported",
+      "sourceId": "anthropic-fable-5-1",
+      "sourceUrl": "https://www.anthropic.com/claude-fable-and-mythos-5-1",
+      "conditions": "Official September1 capability table. Production safeguards enabled; benchmark task cost and effort unspecified in the table."
+    },
+    {
+      "benchmarkId": "gdpval-aa-2",
+      "modelId": "claude-fable-5",
+      "score": 1723,
+      "cost": null,
+      "effort": "reported",
+      "sourceId": "anthropic-fable-5-1",
+      "sourceUrl": "https://www.anthropic.com/claude-fable-and-mythos-5-1",
+      "conditions": "Official September1 capability table; GDPval-AA v2 Elo, distinct from v2.1; task cost and effort unspecified."
+    },
+    {
+      "benchmarkId": "gdpval-aa-2",
+      "modelId": "claude-opus-5",
+      "score": 1824,
+      "cost": null,
+      "effort": "reported",
+      "sourceId": "anthropic-fable-5-1",
+      "sourceUrl": "https://www.anthropic.com/claude-fable-and-mythos-5-1",
+      "conditions": "Official September1 capability table; GDPval-AA v2 Elo, distinct from v2.1; task cost and effort unspecified."
+    },
+    {
+      "benchmarkId": "cursorbench-3-2",
+      "modelId": "claude-opus-5",
+      "score": 70.0,
+      "cost": null,
+      "effort": "reported",
+      "sourceId": "anthropic-fable-5-1",
+      "sourceUrl": "https://www.anthropic.com/claude-fable-and-mythos-5-1",
+      "conditions": "Official September1 capability table; CursorBench3.2.0, distinct from4.0; task cost and effort unspecified."
+    }
+  ],
+  "officialPricingModifiers": {
+    "sourceUrl": "https://platform.claude.com/docs/en/about-claude/pricing",
+    "context": "Full1M context available at standard per-token rates; no long-context premium for these Claude models.",
+    "usOnlyInferenceMultiplier": 1.1,
+    "batchInputOutputMultiplier": 0.5,
+    "fastModelRates": [
+      {
+        "modelId": "claude-opus-5.5",
+        "inputPerMillion": 8,
+        "outputPerMillion": 40
+      },
+      {
+        "modelId": "claude-opus-5",
+        "inputPerMillion": 10,
+        "outputPerMillion": 50
+      }
+    ],
+    "webSearchUSDPer1000": 10,
+    "managedAgentRuntimeUSDPerHour": 0.08,
+    "notes": "Rates vary by requested features and inference geography. Token-only calculator excludes tool/service/runtime fees. Fast mode first-party only, cannot combine with Batch."
+  }
+}

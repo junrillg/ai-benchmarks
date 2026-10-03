@@ -14,16 +14,18 @@ React + TypeScript, selected by the user. Static assets deployed to Cloudflare P
 
 Compare the latest AI models through interactive, source-backed benchmark results and measured score-versus-task-cost curves. Available publicly at [ai-benchmarks.pages.dev](https://ai-benchmarks.pages.dev), with source in [junrillg/ai-benchmarks](https://github.com/junrillg/ai-benchmarks).
 
+The owner prioritizes coding agents. Compare task success and total agent spend first; knowledge-work evidence remains secondary context.
+
 ## Capabilities and Constraints
 
-- Focus on Anthropic, OpenAI, xAI/Grok, Moonshot AI/Kimi, and Z.ai/GLM; leave the data format extensible to more providers.
-- Include the user-requested Opus 5.5, Sonnet 5.5, Fable, GPT-6 Astra, GPT-6.1 Sol, GPT-6 Sol, GPT Luna and Grok 4.7 when verified in public primary sources, plus current Kimi and GLM models.
+- Focus on Anthropic, OpenAI and xAI/Grok; leave the data format extensible to more providers.
+- Include the user-requested Opus 5.5, Sonnet 5.5, Fable, GPT-6 Astra, GPT-6.1 Sol, GPT-6 Sol, GPT Luna and Grok 4.7 when verified in public primary sources, plus exact requested active legacy Fable 5 and Opus 5.
 - Cover the published capability benchmark suites across those releases; distinguish versions, tool settings, partial credit, harness and source-specific runs.
-- Keep the homepage focused on charts. Isolate benchmark browsing, model catalogs and methodology on separate menu pages.
+- Keep the homepage focused on charts. Use only Charts and Models. Keep the full benchmark selector and source conditions within Charts, and official pricing with an editable token calculator on Models.
 - Animated benchmark tabs and interactive graphs follow the structure and motion demonstrated by the supplied charts and Anthropic's Sonnet 5.5 page.
-- Publish models with verified benchmark evidence; show all published sources for the same verified benchmark/version by default, with source-separated curves. Hide discovery-only entries and models without results for that benchmark. Score-only evaluations remain available without inventing task cost. Never invent a model, score, task cost, release or ranking. API token prices cannot stand in for measured task costs.
+- Publish models with verified benchmark evidence; show all published sources for the same verified benchmark/version by default, with source-separated curves. Remove unrelated models; display all ten shortlist identities with explicit missing-evidence states. Score-only evaluations remain available without inventing task cost. Never invent a model, score, task cost, release or ranking. API token prices cannot stand in for measured task costs.
 - Investigate public APIs for automatic updates and model discovery. Explain credential requirements and manual review limitations honestly.
-- Chrome Personal is the approved browser for reference inspection and review. The owner authenticated Wrangler locally for the verified Cloudflare Pages deployment.
+- Chrome Personal was re-confirmed for this session and is the approved browser for reference inspection and review. The owner authenticated Wrangler locally for the verified Cloudflare Pages deployment.
 
 ## Brand Commitments
 

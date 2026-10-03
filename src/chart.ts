@@ -1,4 +1,4 @@
-import type { BenchmarkPoint, Dataset } from './data'
+import { focusedModelIds, type BenchmarkPoint, type Dataset } from './data.ts'
 
 export type Axis = { min: number; max: number; ticks: number[]; position: (value: number) => number }
 export type CostScale = 'log' | 'linear'
@@ -12,7 +12,8 @@ export function publishedModels(data: Dataset) {
   const reported = new Set(data.benchmarks.flatMap(benchmark => benchmark.points.filter(point =>
     Number.isFinite(point.score) && point.effort.trim() && point.conditions.trim() && sources.has(point.sourceId),
   ).map(point => point.modelId)))
-  return data.models.filter(model => model.provider !== 'unknown' && ['available', 'historical', 'evaluated-system'].includes(model.status) && sources.has(model.sourceId) && reported.has(model.id))
+  const focused = new Set<string>(focusedModelIds)
+  return data.models.filter(model => focused.has(model.id) && ['available', 'historical'].includes(model.status) && sources.has(model.sourceId) && reported.has(model.id))
 }
 
 // A cost figure cannot acquire score-only rows when its measured models are deselected.

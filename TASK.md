@@ -47,3 +47,19 @@ Outcome: show all published model results for each verified benchmark/version by
 | Validation and deployment | Verified | All checks pass; app commit 14b2a67 pushed under junrillg; Check run 37009790617 successful; Pages 8d4d9e8a; live all-source defaults and /benchmarks, /models, /methodology direct routes pass |
 
 Stop after the revised live site and required checks pass, with any real publication gaps documented.
+
+
+## Focused coding comparison · 3 October 2026
+
+Outcome: only Charts and Models, the exact ten-model shortlist, researched source-specific benchmark coverage, official API pricing and useful editable cost estimates. No invented scores, costs or100% guarantee. Preserve exact versions and explain genuine gaps.
+
+| Requirement | Status | Evidence / next action |
+| --- | --- | --- |
+| Deep primary-source review | Verified | focused-research-review.md; 129 live SVG matches,180 captured OpenAI matches, official rates checked; four real omissions added |
+| Clean shortlist and coverage | Implemented | 10 models /146 records /845 results; Fable5 and Opus5 active legacy; unrelated models pruned |
+| Charts and Models only | Implemented | old menu routes fall back to Charts; selector retains all focused benchmark records |
+| Useful coding and cost decisions | Implemented | source-qualified guidance; official rates; cache/long-context-aware scenario costs |
+| Validation and visual review | Verified | all build/checks pass; six final captures at three widths; independent full review: ship; DESIGN/sidecar merged |
+| Publish updated site | Pending | commit under junrillg; Pages deployment and live verification after review |
+
+Stop after required checks, finish review and publication verification, with unavailable benchmark cells remaining explicit.

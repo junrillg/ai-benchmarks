@@ -35,16 +35,18 @@ class PublicDataChecks(unittest.TestCase):
     def test_shipped_snapshot_has_requested_models_and_exact_curves(self):
         updater.validate_data(self.data)
         model_ids = {model["id"] for model in self.data["models"]}
-        self.assertTrue({"claude-opus-5.5", "claude-sonnet-5.5", "claude-fable-5.1", "gpt-6.1-sol", "gpt-6-astra", "gpt-6-sol", "gpt-6-luna", "grok-4.7", "kimi-k3", "glm-5.3"} <= model_ids)
-        flash = next(m for m in self.data["models"] if m["id"] == "glm-5.3-flash")
-        flash_source = next(s for s in self.data["sources"] if s["id"] == flash["sourceId"])
-        self.assertEqual(flash_source["url"], "https://z.ai/blog/glm-5.3-flash")
-        self.assertEqual(flash["releaseDate"], "2026-08-26")
-        self.assertEqual(flash["dateKind"], "release")
-        flash_points = [p for b in self.data["benchmarks"] for p in b["points"] if p["modelId"] == "glm-5.3-flash" and p["sourceId"] == "zai-glm-5-3-flash"]
-        self.assertEqual(len(flash_points), 6)
-        self.assertEqual(sorted(p["score"] for p in flash_points), [26.3, 48.8, 55.3, 63.4, 84.3, 1773])
-        self.assertTrue(all(p["cost"] is None for p in flash_points))
+        self.assertEqual(model_ids, updater.FOCUSED_MODELS)
+        self.assertEqual(len(self.data['models']), 10)
+        for model in self.data['models']:
+            self.assertIn('apiPricing', model)
+        opus = next(m for m in self.data['models'] if m['id'] == 'claude-opus-5')
+        self.assertEqual(opus['releaseDate'], '2026-07-24')
+        self.assertEqual(opus['status'], 'available')
+        self.assertEqual(opus['apiPricing']['inputPerMillion'], 5)
+        terminal = next(b for b in self.data['benchmarks'] if b['id'] == 'terminal-bench-4')
+        fable = next(p for p in terminal['points'] if p['modelId'] == 'claude-fable-5' and p['sourceId'] == 'anthropic-fable-5-1')
+        self.assertEqual((fable['score'], fable['cost'], fable['effort']), (42.0, None, 'reported'))
+        self.assertFalse(any(p['modelId'] == 'gpt-6-sol' for p in terminal['points']))
         benchmark = next(b for b in self.data["benchmarks"] if b["id"] == "frontiercode-1-1-main")
         points = [p for p in benchmark["points"] if p["modelId"] == "claude-sonnet-5.5" and p["sourceId"] == "anthropic-sonnet-5-5"]
         self.assertEqual(len(points), 5)
@@ -88,11 +90,11 @@ class PublicDataChecks(unittest.TestCase):
                 updater.parse_sonnet(bad)
 
     def test_deepswe_numeric_and_harness_boundaries(self):
-        row = dict(model="gpt-6-astra", harness="mini-swe-agent", reasoning_effort="high", pass_at_1=0.73, mean_cost_usd=3.92, ci_lo=0.69, ci_hi=0.77)
+        row = dict(model="gpt-6-astra", source="deep-swe", harness="mini-swe-agent", reasoning_effort="high", pass_at_1=0.73, mean_cost_usd=3.92, ci_lo=0.69, ci_hi=0.77)
         feed = dict(n_tasks_in_set=113, generated_at="2026-09-22T00:00:00Z", rows=[row])
         points, unknown, generated = updater.parse_deepswe(feed)
         self.assertEqual((points[0]["score"], unknown), (73.0, []))
-        for key, value in (("harness", "different-harness"), ("pass_at_1", 1.1), ("mean_cost_usd", float("nan")), ("ci_hi", 0.1)):
+        for key, value in (("source", "wrong-source"), ("harness", "different-harness"), ("pass_at_1", 1.1), ("mean_cost_usd", float("nan")), ("ci_hi", 0.1)):
             broken = copy.deepcopy(feed)
             broken["rows"][0][key] = value
             with self.assertRaises(ValueError):

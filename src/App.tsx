@@ -1,25 +1,26 @@
 import { useEffect, useRef, useState, type MouseEvent, type KeyboardEvent } from 'react'
 import { BenchmarkChart } from './BenchmarkChart'
+import { CostComparison } from './CostComparison'
 import { publishedModels } from './chart'
 import { locationHref, readLocation, type Page } from './navigation'
-import { dataset, refreshDataset, type Benchmark, type BenchmarkPoint, type Dataset, type Model } from './data'
+import { dataset, refreshDataset, focusedModelIds, type Benchmark, type BenchmarkPoint, type Dataset, type Model } from './data'
 
 const tabs = [
   ['DeepSWE', 'deep-swe-1-1'], ['Terminal-Bench', 'terminal-bench-4'],
   ['FrontierCode', 'frontiercode-1-1-main'], ['CursorBench', 'cursorbench-4'], ['Knowledge work', 'aa-briefcase-1-1'],
 ] as const
-const modelOrder = ['claude-opus-5.5', 'claude-sonnet-5.5', 'gpt-6-sol', 'claude-fable-5.1', 'gpt-6.1-sol', 'gpt-6-astra', 'gpt-6-luna', 'grok-4.7', 'kimi-k3', 'glm-5.3', 'glm-5.3-flash']
 const baseColors: Record<string, string> = {
   'claude-sonnet-5.5': '#1551e7', 'claude-opus-5.5': '#e8721c', 'gpt-6-sol': '#349a57',
   'claude-fable-5.1': '#8453ab', 'gpt-6.1-sol': '#217d95', 'gpt-6-astra': '#aa486f',
-  'gpt-6-luna': '#8b7020', 'grok-4.7': '#5367a6', 'kimi-k3': '#9e5736',
-  'glm-5.3': '#547e52', 'glm-5.3-flash': '#80676b',
+  'gpt-6-luna': '#8b7020', 'grok-4.7': '#5367a6',
+  'claude-fable-5': '#6d568d', 'claude-opus-5': '#a35a20',
 }
-const providers = ['Anthropic', 'OpenAI', 'xAI', 'Moonshot AI', 'Z.ai']
-const pageSize = 20
+const providers = ['Anthropic', 'OpenAI', 'xAI']
+const featuredIds = tabs.map(tab => tab[1])
+const focusIds = new Set<string>(focusedModelIds)
+const earlierGeneration = (model: Model) => model.id === 'claude-fable-5' || model.id === 'claude-opus-5'
 const shortName = (model: Model) => model.name.replace(/^Claude /, '')
 const numeric = new Intl.NumberFormat('en-US', { maximumFractionDigits: 6 })
-const tokenPrice = new Intl.NumberFormat('en-US', { maximumSignificantDigits: 8 })
 const score = (point: BenchmarkPoint, benchmark: Benchmark) => `${numeric.format(point.score)}${benchmark.unit === '%' ? '%' : ` ${benchmark.unit}`}`
 const cost = (point: BenchmarkPoint) => point.cost === null ? '—' : `$${numeric.format(point.cost)}`
 const day = (stamp: string) => stamp.slice(0, 10)
@@ -34,8 +35,7 @@ function costHeading(points: BenchmarkPoint[]) {
 function defaultSelection(data: Dataset, benchmark: Benchmark, sourceId: string) {
   const available = new Set(benchmark.points.filter(point => (sourceId === 'all' || point.sourceId === sourceId)).map(point => point.modelId))
   const known = publishedModels(data).filter(model => available.has(model.id))
-  const latest = known.filter(model => model.latestRelease)
-  return (latest.length ? latest : known).map(model => model.id)
+  return known.filter(model => focusIds.has(model.id)).map(model => model.id)
 }
 
 function ExternalArrow() {
@@ -67,7 +67,7 @@ function ResultTable({ points, benchmark, data, colors, onInspect, compact = fal
 export default function App() {
   const [activeData, setActiveData] = useState(dataset)
   const activeDataRef = useRef(dataset)
-  const refreshLock = useRef(false), startup = useRef(false)
+  const refreshLock = useRef(false)
   const [busy, setBusy] = useState(false), [refreshError, setRefreshError] = useState('')
   const [notices, setNotices] = useState<string[]>([])
   const [initialLocation] = useState(() => readLocation(window.location, dataset))
@@ -75,7 +75,6 @@ export default function App() {
   const [benchmarkId, setBenchmarkId] = useState(initialLocation.benchmarkId)
   const [sourceId, setSourceId] = useState(initialLocation.sourceId)
   const [selectedModelIds, setSelectedModelIds] = useState(() => initialLocation.modelIds ?? defaultSelection(dataset, dataset.benchmarks.find(row => row.id === initialLocation.benchmarkId)!, initialLocation.sourceId))
-  const [showPast, setShowPast] = useState(() => initialLocation.modelIds?.some(id => !dataset.models.find(model => model.id === id)?.latestRelease) ?? false)
   const [view, setView] = useState<'chart' | 'results'>(initialLocation.view)
   const [scale, setScale] = useState<'log' | 'linear'>('log')
   const [preview, setPreview] = useState<BenchmarkPoint | null>(null)
@@ -85,36 +84,24 @@ export default function App() {
   const exposures = useRef(new Set([`${initialLocation.benchmarkId}:${initialLocation.sourceId}`]))
   const tabList = useRef<HTMLDivElement>(null)
   const [tabRule, setTabRule] = useState({ left: 0, width: 0 })
-  const [benchmarkSearch, setBenchmarkSearch] = useState(''), [category, setCategory] = useState('All categories')
   const [modelSearch, setModelSearch] = useState(''), [provider, setProvider] = useState('All providers')
-  const [catalogPage, setCatalogPage] = useState(0)
   const benchmark = activeData.benchmarks.find(row => row.id === benchmarkId)!
   const source = activeData.sources.find(row => row.id === sourceId)
   const colors = Object.fromEntries(activeData.models.map(model => [model.id, baseColors[model.parentModelId ?? model.id] ?? '#77879c']))
-  const publicModels = publishedModels(activeData)
+  const publicModels = publishedModels(activeData).filter(model => focusIds.has(model.id))
+  const focusModels = focusedModelIds.flatMap(id => { const model = activeData.models.find(row => row.id === id); return model ? [model] : [] })
   const publicIds = new Set(publicModels.map(model => model.id))
-  const latestModels = publicModels.filter(model => model.latestRelease).sort((a, b) => modelOrder.indexOf(a.id) - modelOrder.indexOf(b.id))
   const sourcePoints = benchmark.points.filter(point => (sourceId === 'all' || point.sourceId === sourceId) && publicIds.has(point.modelId))
   const measured = sourcePoints.some(point => point.cost !== null && Number.isFinite(point.cost) && point.cost >= 0)
   const visiblePoints = sourcePoints
   const availableIds = new Set(visiblePoints.map(point => point.modelId))
-  const pastModels = publicModels.filter(model => !model.latestRelease && availableIds.has(model.id))
-  const hasLatest = latestModels.some(model => availableIds.has(model.id))
   const points = visiblePoints.filter(point => selectedModelIds.includes(point.modelId))
   const displayedModels = activeData.models.filter(model => availableIds.has(model.id) && selectedModelIds.includes(model.id))
-  const bestPoints = displayedModels.map(model => points.filter(point => point.modelId === model.id).reduce((best, point) =>
-    (benchmark.higherIsBetter === false ? point.score < best.score : point.score > best.score) ? point : best,
-  )).sort((a, b) => benchmark.higherIsBetter === false ? a.score - b.score : b.score - a.score)
   const estimatedCosts = points.some(point => point.costBasis === 'estimated-per-task')
   const mixedCostScopes = new Set(sourcePoints.filter(point => point.cost !== null).map(point => point.costBasis ?? 'per-task')).size > 1
   const excludedFallbackCost = points.some(point => point.costBasis === 'excludes-fallback-cost')
   const categories = [...new Set(activeData.benchmarks.map(row => row.category))].sort()
-  const filteredBenchmarks = activeData.benchmarks.filter(row => (category === 'All categories' || row.category === category) && `${row.name} ${row.description} ${row.version}`.toLowerCase().includes(benchmarkSearch.toLowerCase().trim()))
-  const matchesModel = (model: { name: string; provider: string; id: string }) => (provider === 'All providers' || model.provider === provider) && `${model.name} ${model.id}`.toLowerCase().includes(modelSearch.toLowerCase().trim())
-  const publicApiIds = new Set(publicModels.map(model => model.apiId).filter(Boolean))
-  const catalog = activeData.discovery.models.filter(row => publicApiIds.has(row.id) && matchesModel(row))
-  const lastPage = Math.max(0, Math.ceil(catalog.length / pageSize) - 1), currentPage = Math.min(catalogPage, lastPage)
-  const catalogRows = catalog.slice(currentPage * pageSize, (currentPage + 1) * pageSize)
+  const matchesModel = (model: Model) => (provider === 'All providers' || model.provider === provider) && `${model.name} ${model.apiId ?? model.id}`.toLowerCase().includes(modelSearch.toLowerCase().trim())
   const inspectModel = inspected ? activeData.models.find(row => row.id === inspected.modelId) : undefined
   const inspectedSource = inspected ? activeData.sources.find(row => row.id === inspected.sourceId) : undefined
   const evidenceSource = inspectedSource ?? source
@@ -135,23 +122,18 @@ export default function App() {
     } finally { refreshLock.current = false; setBusy(false) }
   }
   useEffect(() => {
-    if (startup.current) return
-    startup.current = true
-    void refresh()
-  }, [])
-  useEffect(() => {
     const restore = () => {
       const next = readLocation(window.location, activeDataRef.current)
       const nextBenchmark = activeDataRef.current.benchmarks.find(row => row.id === next.benchmarkId)!
       const ids = next.modelIds ?? defaultSelection(activeDataRef.current, nextBenchmark, next.sourceId)
       setPage(next.page); setBenchmarkId(next.benchmarkId); setSourceId(next.sourceId); setSelectedModelIds(ids); setView(next.view)
-      setShowPast(ids.some(id => !activeDataRef.current.models.find(model => model.id === id)?.latestRelease)); inspectPoint(null)
+      inspectPoint(null)
     }
     window.addEventListener('popstate', restore)
     return () => window.removeEventListener('popstate', restore)
   }, [])
   useEffect(() => {
-    document.title = `${page === '/' ? benchmark.name : page === '/benchmarks' ? 'Browse benchmarks' : page === '/models' ? 'Model catalog' : 'Methodology'} · AI Benchmarks`
+    document.title = `${page === '/' ? benchmark.name : 'Models and cost'} · AI Benchmarks`
   }, [page, benchmark.name])
   useEffect(() => {
     if (!animate) return
@@ -183,7 +165,6 @@ export default function App() {
     const ids = defaultSelection(activeData, next, nextSource)
     setBenchmarkId(next.id); setSourceId(nextSource); setSelectedModelIds(ids); setView('chart'); inspectPoint(null)
     if (updateUrl) updateLocation(next.id, nextSource, ids, 'chart')
-    setShowPast(!ids.some(id => latestModels.some(model => model.id === id)))
     const key = `${next.id}:${nextSource}`
     setAnimate(!exposures.current.has(key)); exposures.current.add(key)
   }
@@ -196,7 +177,7 @@ export default function App() {
     const covered = activeData.benchmarks.filter(row => row.points.some(point => point.modelId === model.id))
     const next = covered.find(row => row.points.some(point => point.modelId === model.id && point.cost !== null)) ?? covered[0]
     const run = next.points.find(point => point.modelId === model.id && point.cost !== null) ?? next.points.find(point => point.modelId === model.id)!
-    selectRun(next, 'all', false); setSelectedModelIds([model.id]); setShowPast(!model.latestRelease); setView('chart'); setPage('/')
+    selectRun(next, 'all', false); setSelectedModelIds([model.id]); setView('chart'); setPage('/')
     history.pushState(null, '', locationHref('/', next.id, 'all', [model.id])); window.scrollTo(0, 0)
     if (run.cost === 0) setScale('linear')
   }
@@ -209,24 +190,34 @@ export default function App() {
     else return
     event.preventDefault(); chooseBenchmark(tabs[next][1]); document.getElementById(`tab-${tabs[next][1]}`)?.focus()
   }
-  function modelChoice(model: Model, historical = false) {
-    return <label className={`model-choice${historical ? ' past-model' : ''}`} key={model.id} title={model.notes}>
-      <input type="checkbox" checked={selectedModelIds.includes(model.id)} onChange={event => { const ids = event.target.checked ? [...selectedModelIds, model.id] : selectedModelIds.filter(id => id !== model.id); setSelectedModelIds(ids); updateLocation(benchmarkId, sourceId, ids); inspectPoint(null) }} />
+  function modelChoice(model: Model) {
+    const available = availableIds.has(model.id)
+    const elsewhere = benchmark.points.some(point => point.modelId === model.id)
+    const reason = available ? undefined : elsewhere ? 'No result in this source' : 'No published result in this suite'
+    return <label className={`model-choice${available ? '' : ' unavailable-model'}`} key={model.id} title={reason ?? model.notes}>
+      <input type="checkbox" disabled={!available} checked={available && selectedModelIds.includes(model.id)} onChange={event => { const ids = event.target.checked ? [...selectedModelIds, model.id] : selectedModelIds.filter(id => id !== model.id); setSelectedModelIds(ids); updateLocation(benchmarkId, sourceId, ids); inspectPoint(null) }} />
       <span className="model-dot" style={{ background: colors[model.id] }} />
-      <span>{shortName(model)}{historical && <small className="model-kind">{model.status === 'evaluated-system' ? 'Evaluated system' : 'Historical'}</small>}</span>
+      <span>{shortName(model)}<small className="model-kind">{reason ?? (earlierGeneration(model) ? 'Earlier generation' : '')}</small></span>
     </label>
+  }
+  function inspectCoverage(model: Model, id: string) {
+    const next = activeData.benchmarks.find(row => row.id === id)!
+    selectRun(next, 'all', false); setSelectedModelIds([model.id]); setView('results')
+    updateLocation(id, 'all', [model.id], 'results', '/')
+    document.getElementById('benchmark-figure')?.scrollIntoView({ block: 'start' })
   }
 
   return <>
     <a className="skip-link" href="#main-content">Skip to content</a>
     <header className="site-nav"><div className="nav-inner">
       <a className="brand" href={locationHref('/', benchmarkId, sourceId, selectedModelIds, view)} onClick={event => navigate('/', event)}>AI Benchmarks</a>
-      <nav aria-label="Main navigation">{([['Charts', '/'], ['Benchmarks', '/benchmarks'], ['Models', '/models'], ['Methodology', '/methodology']] as const).map(([label, path]) => <a key={path} className={page === path ? 'current' : undefined} aria-current={page === path ? 'page' : undefined} href={locationHref(path, benchmarkId, sourceId, selectedModelIds, view)} onClick={event => navigate(path, event)}>{label}</a>)}</nav>
+      <nav aria-label="Main navigation">{([['Charts', '/'], ['Models', '/models']] as const).map(([label, path]) => <a key={path} className={page === path ? 'current' : undefined} aria-current={page === path ? 'page' : undefined} href={locationHref(path, benchmarkId, sourceId, selectedModelIds, view)} onClick={event => navigate(path, event)}>{label}</a>)}</nav>
       <a className="github" href="https://github.com/junrillg/ai-benchmarks" target="_blank" rel="noreferrer">GitHub <ExternalArrow /></a>
     </div></header>
     <main className="page-frame" id="main-content">
       {page === '/' && <>
-      <div className="intro"><h1>Intelligence, measured.</h1><p>All published sources. Exact results, preserved conditions.</p></div>
+      <div className="intro"><h1>Choose your coding model.</h1><p>Published results, real cost scopes, and the gaps that matter.</p></div>
+      <div className="chart-controls"><label>Benchmark<select value={benchmarkId} onChange={event => chooseBenchmark(event.target.value)}>{categories.map(item => <optgroup label={item} key={item}>{activeData.benchmarks.filter(row => row.category === item).map(row => <option value={row.id} key={row.id}>{row.name}</option>)}</optgroup>)}</select></label><a href={locationHref('/models', benchmarkId, sourceId, selectedModelIds)} onClick={event => navigate('/models', event)}>Compare API costs <ExternalArrow /></a></div>
       <section className="explorer" id="benchmarks" aria-label="Benchmark explorer">
         <div className="benchmark-tabs" ref={tabList} role="tablist" aria-label="Quick benchmark suites">{tabs.map(([label, id], index) =>
           <button type="button" role="tab" id={`tab-${id}`} key={id} aria-controls="benchmark-figure" aria-selected={benchmarkId === id} tabIndex={benchmarkId === id || (!tabs.some(tab => tab[1] === benchmarkId) && index === 0) ? 0 : -1} onClick={() => chooseBenchmark(id)} onKeyDown={event => tabKey(event, index)}>{label}</button>,
@@ -248,8 +239,9 @@ export default function App() {
           <p className="figure-instruction" aria-live="polite" title={inspected ? `Exact score: ${inspected.score} ${benchmark.unit}; exact reported cost: ${inspected.cost ?? 'not reported'} USD` : undefined}>{inspected && inspectModel ? `${shortName(inspectModel)} · ${inspected.effort} · ${score(inspected, benchmark)} · ${inspected.cost === null ? 'Published score' : `${costHeading([inspected]).toLowerCase()} ${cost(inspected)}`}` : `${benchmark.higherIsBetter === false ? 'Lower' : 'Higher'} is better. Select a point to inspect its evidence.`}</p>
         </figure>
         <aside className="model-panel" aria-label="Model selection and published evidence">
-          <div className="panel-heading"><h2>Models</h2>{pastModels.length > 0 && <label className="past-toggle" title="Include historical models and evaluated fallback systems from this source"><input type="checkbox" checked={showPast} disabled={!hasLatest} onChange={event => { setShowPast(event.target.checked); if (!event.target.checked) { const ids = selectedModelIds.filter(id => latestModels.some(model => model.id === id)); setSelectedModelIds(ids); updateLocation(benchmarkId, sourceId, ids) }; inspectPoint(null) }} />Past / systems</label>}</div>
-          <div className="model-list">{latestModels.filter(model => availableIds.has(model.id)).map(model => modelChoice(model))}{showPast && pastModels.map(model => modelChoice(model, true))}</div>
+          <div className="panel-heading"><h2>Model shortlist</h2></div>
+          <p className="panel-note">Available results selected by default. Missing evidence stays visible.</p>
+          <div className="model-list">{focusModels.map(model => modelChoice(model))}</div>
           <section className="evidence" id="published-evidence"><h2>Published evidence</h2><h3>Source-specific runs</h3>
             <p className="evidence-conditions">{inspected?.conditions ?? 'Conditions stay with each result.'}</p>
             {excludedFallbackCost && <p className="cost-warning">Reported task cost excludes fallback cost.</p>}
@@ -257,9 +249,9 @@ export default function App() {
           </section>
         </aside>
       </section>
-      <details className="result-ledger"><summary>Best published scores · {bestPoints.length} models</summary>
-        <div className="ledger-caption"><p>Scores retain their source conditions; they are not normalized across harnesses.</p><p>{benchmark.higherIsBetter === false ? 'Lowest' : 'Highest'} reported score per model</p></div>
-        <ResultTable points={bestPoints} benchmark={benchmark} data={activeData} colors={colors} onInspect={inspectPoint} compact />
+      <details className="result-ledger"><summary>All selected runs · {points.length} results</summary>
+        <div className="ledger-caption"><p>Scores retain their source conditions; they are not normalized across harnesses.</p><p>Every selected source and effort</p></div>
+        <ResultTable points={points} benchmark={benchmark} data={activeData} colors={colors} onInspect={inspectPoint} compact />
       </details>
       {inspected && inspectModel && inspectedSource && <section className="point-details plate-section" aria-labelledby="point-title" aria-live="polite">
         <div className="section-heading"><h2 id="point-title">{inspectModel.name} · {inspected.effort}</h2><button className="quiet-button" type="button" onClick={() => inspectPoint(null)}>Close result</button></div>
@@ -268,51 +260,27 @@ export default function App() {
         {inspected.confidenceInterval && <p title={`Exact confidence interval: ${inspected.confidenceInterval.join(' to ')}`}>Reported confidence interval: {inspected.confidenceInterval.map(value => `${numeric.format(value)}${benchmark.unit === '%' ? '%' : ''}`).join(' to ')}.</p>}
         <p>{inspected.conditions}</p><p><a href={inspectedSource.url} target="_blank" rel="noreferrer">{inspectedSource.name} <ExternalArrow /></a> · {inspectedSource.publishedAt ? `Published ${day(inspectedSource.publishedAt)}` : 'Experiment date not reported'} · Retrieved {day(inspectedSource.retrievedAt)}</p>
       </section>}
+      <section className="coverage-section plate-section" aria-labelledby="coverage-title">
+        <div className="section-heading"><div><h2 id="coverage-title">Where is the evidence?</h2><p>Coverage for the exact featured suite versions. Select a published cell for its source-specific runs.</p></div></div>
+        <div className="table-scroll coverage-table"><table><caption className="visually-hidden">Published benchmark coverage for ten focused models</caption><thead><tr><th scope="col">Model</th>{tabs.map(([label, id]) => <th scope="col" key={id}>{label}<small>{activeData.benchmarks.find(row => row.id === id)?.version}</small></th>)}</tr></thead><tbody>{focusModels.map(model => <tr key={model.id}><th scope="row">{model.name}{earlierGeneration(model) && <small>Earlier generation</small>}</th>{tabs.map(([, id]) => {
+          const runs = activeData.benchmarks.find(row => row.id === id)?.points.filter(point => point.modelId === model.id) ?? []
+          const costs = runs.some(point => point.cost !== null)
+          return <td key={id}>{runs.length ? <button className="coverage-result" type="button" onClick={() => inspectCoverage(model, id)}>Published<small>{costs ? 'Score + reported cost' : 'Score only'}</small></button> : <span className="coverage-gap">Not published<small>No verified result found</small></span>}</td>
+        })}</tr>)}</tbody></table></div>
+        <p className="coverage-note">Missing results are never zero. Different benchmark versions cannot fill a gap. Independent DeepSWE is a separate evaluation in the benchmark selector.</p>
+      </section>
+      <section className="confidence-disclosure" aria-label="Data confidence"><h2>Source-backed, with limits.</h2><p>Confidence is high in verified transcription, and limited for choosing a universal winner. Scores retain publisher conditions and dates; coverage gaps and different cost scopes remain explicit. A source-backed result is not a guarantee of performance on your code.</p><details><summary>Evaluation conditions &amp; snapshot limitations</summary><p>{benchmark.description}</p>{benchmark.notes.map(note => <p key={note}>{note}</p>)}<ul>{activeData.limitations.map(item => <li key={item}>{item}</li>)}</ul></details></section>
       </>}
-      {page === '/benchmarks' && <section className="benchmark-browser plate-section" aria-labelledby="browse-title">
-        <div className="section-heading"><h1 id="browse-title">Browse benchmarks</h1><p>{activeData.benchmarks.length} published benchmark records</p></div>
-        <div className="filter-row">
-          <label>Search benchmarks<input type="search" value={benchmarkSearch} onChange={event => setBenchmarkSearch(event.target.value)} placeholder="Name, version or task" /></label>
-          <label>Category<select value={category} onChange={event => setCategory(event.target.value)}><option>All categories</option>{categories.map(item => <option key={item}>{item}</option>)}</select></label>
-          <label className="benchmark-picker">Benchmark<select value={benchmarkId} onChange={event => { const next = activeData.benchmarks.find(row => row.id === event.target.value)!; const ids = defaultSelection(activeData, next, 'all'); chooseBenchmark(next.id, false); setPage('/'); history.pushState(null, '', locationHref('/', next.id, 'all', ids)); window.scrollTo(0, 0) }}>
-            {!filteredBenchmarks.some(row => row.id === benchmarkId) && <option value={benchmarkId}>{benchmark.name} (current)</option>}
-            {categories.map(item => <optgroup label={item} key={item}>{filteredBenchmarks.filter(row => row.category === item).map(row => <option value={row.id} key={row.id}>{row.name}</option>)}</optgroup>)}
-          </select></label>
-        </div>
-        <p className="filter-status" role="status">{filteredBenchmarks.length ? `${filteredBenchmarks.length} matching records. Each benchmark retains its version and evaluation conditions.` : 'No matching benchmarks. Clear the search or choose another category.'}</p>
-        <a className="open-chart-link" href={locationHref('/', benchmarkId, sourceId, selectedModelIds)} onClick={event => navigate('/', event)}>Open chart <ExternalArrow /></a>
-        <p className="benchmark-description">{benchmark.description}</p>{benchmark.notes.map(note => <p className="benchmark-note" key={note}>{note}</p>)}
-      </section>}
       {page === '/models' && <section className="catalog-intro plate-section" id="models" aria-labelledby="models-title">
-        <div className="section-heading"><div><h1 id="models-title">Model catalog</h1><p>Verified models with published benchmark results.</p></div><button type="button" className="quiet-button" disabled={busy} onClick={() => void refresh()}>{busy ? 'Refreshing public feeds…' : 'Refresh public feeds'}</button></div>
+        <div className="section-heading"><div><h1 id="models-title">Models &amp; cost</h1><p>Ten focused models. Official rates and evidence you can inspect.</p></div><button type="button" className="quiet-button" disabled={busy} onClick={() => void refresh()}>{busy ? 'Refreshing public feeds…' : 'Refresh catalog & independent runs'}</button></div>
         <div className="refresh-status" aria-live="polite" aria-busy={busy}>
-          <p>Snapshot updated {activeData.updatedAt}. Catalog retrieved {activeData.discovery.checkedAt}.</p>
+          <p>Curated snapshot: {day(activeData.updatedAt)}. Manual refresh checks catalog metadata and independent DeepSWE; publisher results and official pricing keep their reviewed snapshots.</p>
           {busy && <p>Checking the public model catalog and independent DeepSWE feed.</p>}{refreshError && <p className="refresh-error" role="alert">{refreshError}</p>}
           {notices.map(notice => <p key={notice}>{notice}</p>)}
         </div>
-        <div className="filter-row catalog-filters"><label>Search models<input type="search" value={modelSearch} onChange={event => { setModelSearch(event.target.value); setCatalogPage(0) }} placeholder="Model name or API ID" /></label><label>Provider<select value={provider} onChange={event => { setProvider(event.target.value); setCatalogPage(0) }}><option>All providers</option>{providers.map(item => <option key={item}>{item}</option>)}</select></label></div>
-        <h3 className="table-heading">Latest releases with primary-source evidence</h3>
-        <div className="table-scroll catalog-table"><table><thead><tr><th scope="col">Model</th><th scope="col">Provider</th><th scope="col">Benchmarks</th><th scope="col">Evidence</th></tr></thead><tbody>{latestModels.filter(matchesModel).map(model => {
-          const modelSource = activeData.sources.find(row => row.id === model.sourceId)!
-          return <tr key={model.id}><th scope="row">{model.name}</th><td>{model.provider}</td><td><button className="benchmark-link" type="button" onClick={() => exploreModel(model)}>{activeData.benchmarks.filter(row => row.points.some(point => point.modelId === model.id)).length} benchmarks <span aria-hidden="true">→</span></button></td><td><a href={modelSource.url} target="_blank" rel="noreferrer">{modelSource.name} <ExternalArrow /></a><small>Retrieved {day(modelSource.retrievedAt)}</small>{model.notes && <small>{model.notes}</small>}</td></tr>
-        })}</tbody></table>{!latestModels.some(matchesModel) && <p className="empty-results">No latest releases match these filters.</p>}</div>
-        <h3 className="table-heading">API metadata for benchmarked models</h3><p className="catalog-note">Only models with verified identity and published benchmark results appear here. Context limits and token list prices are catalog metadata, separate from measured task cost.</p>
-        <div className="table-scroll discovery-table"><table><thead><tr><th scope="col">Model / API ID</th><th scope="col">First listed</th><th scope="col">Context tokens</th><th scope="col">Input ($/M)</th><th scope="col">Output ($/M)</th><th scope="col">Benchmark evidence</th></tr></thead><tbody>{catalogRows.map(row => {
-          const known = publicModels.find(model => model.apiId === row.id)!
-          const rowSource = activeData.sources.find(item => item.id === row.sourceId)!
-          const reported = activeData.benchmarks.filter(item => item.points.some(point => point.modelId === known.id)).length
-          return <tr key={row.id}><th scope="row">{row.name}<small>{row.id}</small></th><td><a href={rowSource.url} target="_blank" rel="noreferrer">{row.releaseDate} <ExternalArrow /></a><small>Catalog-listed</small></td><td>{row.contextLength.toLocaleString('en-US')}</td><td title={`Source value: ${row.inputPricePerMillion}`}>{tokenPrice.format(row.inputPricePerMillion)}</td><td title={`Source value: ${row.outputPricePerMillion}`}>{tokenPrice.format(row.outputPricePerMillion)}</td><td><button className="benchmark-link" type="button" onClick={() => exploreModel(known)}>{reported} benchmarks <span aria-hidden="true">→</span></button></td></tr>
-        })}</tbody></table>{!catalogRows.length && <p className="empty-results">No catalog models match these filters. Clear the search or choose another provider.</p>}</div>
-        <div className="pagination"><p role="status">{catalog.length ? `${currentPage * pageSize + 1}–${Math.min((currentPage + 1) * pageSize, catalog.length)} of ${catalog.length} catalog entries` : '0 matching catalog entries'}</p><div><button className="quiet-button" type="button" disabled={currentPage === 0} onClick={() => setCatalogPage(currentPage - 1)}>Previous</button><button className="quiet-button" type="button" disabled={currentPage === lastPage} onClick={() => setCatalogPage(currentPage + 1)}>Next</button></div></div>
-      </section>}
-      {page === '/methodology' && <section className="methodology plate-section" id="methodology" aria-labelledby="methodology-title">
-        <h1 id="methodology-title">Methodology</h1><div className="methodology-copy">
-          <h3>Read the run, then the comparison</h3><p>Each result retains its benchmark version, source, effort and evaluation conditions. Publisher snapshots and independent harnesses remain separate. The ledger selects the highest reported score per model across the displayed sources, or the lowest when the benchmark defines lower as better; it is not an average or a universal model ranking. The Results view contains every selected run.</p><p>Confirmed aliases share one benchmark record. Benchmarks with similar goals, different task sets or different versions remain separate; a model’s result is never imported from another benchmark to fill a gap. <a href="https://github.com/junrillg/ai-benchmarks/blob/main/docs/data-evidence/consolidation-review.md" target="_blank" rel="noreferrer">Source review and coverage <ExternalArrow /></a>.</p>
-          <h3>Task cost has a scope</h3><p>Curves use the source’s reported cost basis: USD per task, mean cost per task or cost per attempt, never API token prices. These units remain distinct in the figure and result headings. Cost curves include only runs with published cost. Other scores appear below the cost chart and in Results; benchmarks with no published costs use score bars. Log scale requires positive costs; linear scale includes zero-cost runs. Fallback systems are labelled separately, and a reported cost that excludes fallback execution is flagged explicitly. Select a point or result row for exact values, source conditions and any reported confidence interval.</p>
-          <h3>Direction and safety</h3><p>The figure labels whether higher or lower is better for that benchmark. Score units (percent, Elo, index, score or solved tasks) are preserved rather than combined. Safety and risk scores describe the source’s evaluation, rather than a general guarantee of safety. Only models with published results appear in the selected figure. Historical models and evaluated systems can be included where the source reports them.</p>
-          <h3>What updates automatically</h3><p>The <a href="https://openrouter.ai/api/v1/models" target="_blank" rel="noreferrer">OpenRouter model catalog <ExternalArrow /></a> and <a href="https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json" target="_blank" rel="noreferrer">independent DeepSWE JSON feed <ExternalArrow /></a> are checked on startup and on manual refresh. Validated data replaces only its corresponding snapshot; failed feeds keep their last known data. Public model lists include only verified models with benchmark evidence; new feed entries stay internal until reviewed.</p><p>Publisher results are curated from public primary sources and retain their publication and retrieval dates. There is no universal public benchmark API. Artificial Analysis’s per-benchmark API requires a suitable keyed tier; no optional credentials are configured here. A catalog listing date is not a verified release date.</p>
-          <details><summary>Snapshot limitations</summary><ul>{activeData.limitations.map(item => <li key={item}>{item}</li>)}</ul></details>
-        </div>
+        <div className="filter-row catalog-filters"><label>Search models<input type="search" value={modelSearch} onChange={event => setModelSearch(event.target.value)} placeholder="Model name or API ID" /></label><label>Provider<select value={provider} onChange={event => setProvider(event.target.value)}><option>All providers</option>{providers.map(item => <option key={item}>{item}</option>)}</select></label></div>
+        <CostComparison data={activeData} models={focusModels.filter(matchesModel)} featuredIds={featuredIds} onExplore={exploreModel} />
+        {!focusModels.some(matchesModel) && <p className="empty-results">No models match. Clear the search or choose another provider.</p>}
       </section>}
       <footer className="site-footer"><p>AI Benchmarks · Published evidence, preserved conditions.</p><a href="https://github.com/junrillg/ai-benchmarks" target="_blank" rel="noreferrer">Source on GitHub <ExternalArrow /></a></footer>
     </main>

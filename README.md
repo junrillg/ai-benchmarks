@@ -1,10 +1,10 @@
 # AI Benchmarks
 
-An interactive benchmark explorer for Anthropic, OpenAI, xAI/Grok, Moonshot AI/Kimi and Z.ai/GLM. Compare published scores and reported task costs while keeping benchmark versions, effort, evaluation conditions and citations visible. Built with React, TypeScript and Vite for static Cloudflare Pages hosting.
+An interactive benchmark explorer for the ten reviewed Anthropic, OpenAI and xAI/Grok models. Compare published scores and reported task costs while keeping benchmark versions, effort, evaluation conditions and citations visible. Built with React, TypeScript and Vite for static Cloudflare Pages hosting.
 
-The bundled snapshot contains **237 benchmark records and 1,068 sourced result points**. Only models with verified results appear in each benchmark view; discovery-only entries stay internal. Exact hover/focus tooltips expose model, effort, score and published cost. Token prices never substitute for benchmark task costs. See the [primary-source coverage review](docs/data-evidence/coverage-review.md) for the latest research.
+The bundled snapshot contains **146 benchmark records and 845 sourced result points**. All ten models appear in the shortlist; missing results are explicitly labelled. Exact hover/focus tooltips expose model, effort, score and published cost. Token prices never substitute for benchmark task costs. See the [focused research review](docs/data-evidence/focused-research-review.md) for the latest research.
 
-Live app: [ai-benchmarks.pages.dev](https://ai-benchmarks.pages.dev). Public source: [junrillg/ai-benchmarks](https://github.com/junrillg/ai-benchmarks). Production hosting, chart interactions and both public feeds were verified on 2026-10-02.
+Live app: [ai-benchmarks.pages.dev](https://ai-benchmarks.pages.dev). Public source: [junrillg/ai-benchmarks](https://github.com/junrillg/ai-benchmarks). The October3 focused revision and its verification are recorded in [.impeccable/review/focused/checks.md](.impeccable/review/focused/checks.md).
 
 ## Run and check
 
@@ -23,15 +23,17 @@ npm run data:check
 python3 -m unittest discover -s tests
 node tests/data-check.ts
 node tests/chart-check.ts
+node tests/navigation-check.ts
+node tests/decision-check.ts
 ```
 
 `build` checks TypeScript and writes `dist/`; `npm run preview` serves that production build. `data:check` is offline and read-only.
 
 ## Data and freshness
 
-The app checks two public feeds on startup and through **Refresh public feeds**, without credentials:
+The app starts from the reviewed snapshot. **Refresh catalog & independent runs** checks two public feeds manually, without credentials; it does not change official API pricing or curated publisher results:
 
-- [OpenRouter model catalog](https://openrouter.ai/api/v1/models): model discovery, context length and token pricing. New base model IDs stay internal until identity and benchmark evidence are reviewed. Catalog listing dates are not verified release dates; the feed supplies no benchmark scores.
+- [OpenRouter model catalog](https://openrouter.ai/api/v1/models): catalog metadata for known shortlist IDs, context length and token pricing. New base model IDs are excluded from this focused comparison until the shortlist is explicitly reviewed. Catalog listing dates are not verified release dates; the feed supplies no benchmark scores.
 - [Independent DeepSWE 1.1 runs](https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json): the 113-task `mini-swe-agent` evaluation, with effort, confidence intervals and mean scored-attempt cost. Explicit model aliases are required; unknown names enter a mapping review queue. These runs remain separate from publisher-reported DeepSWE results.
 
 Browser requests validate response size, schema, provenance and numeric ranges. Failed feeds retain their last validated data, starting with the bundled snapshot. Fetch time and experiment publication time remain separate.
@@ -65,4 +67,8 @@ Then run `npm run deploy`. It builds and uploads `dist/` to project `ai-benchmar
 
 This deployment uses Wrangler Direct Upload. Changed curated snapshots need another deployment. No database, Pages Function or API secret is required for the current public feeds. Keep credentials outside the repository. [Cloudflare deployment documentation](https://developers.cloudflare.com/pages/get-started/direct-upload/) explains the distinction between Direct Upload and Git integration.
 
-The homepage combines published sources for each verified benchmark/version. Separate menu pages provide [benchmark browsing](https://ai-benchmarks.pages.dev/benchmarks), [model metadata](https://ai-benchmarks.pages.dev/models) and [methodology](https://ai-benchmarks.pages.dev/methodology). Cost curves preserve source and cost scope; score-only runs remain visible below the figure. [Consolidation evidence and remaining publication gaps](docs/data-evidence/consolidation-review.md).
+The app has two pages: Charts and [Models & cost](https://ai-benchmarks.pages.dev/models). Charts includes all benchmark records, a coverage matrix for the five featured suites, and individual source runs. Removed `/benchmarks` and `/methodology` links fall back to Charts. Different versions, harnesses, safeguard systems and cost scopes are never treated as interchangeable.
+
+The cost calculator uses official standard API rates checked 2026-10-03. It calculates an editable billed-token scenario, including verified cache reads and OpenAI long-context premiums. It excludes cache writes, tools, service-tier changes, subscriptions and taxes. Count every agent API call and all billed reasoning output. Grok estimates with cached input remain unavailable until its cache rate is verified. A benchmark task cost is never inferred from these prices.
+
+Confidence is high in checked transcription and rates, limited in completeness and practical model recommendations. Provider evaluations were not independently rerun. Missing results remain missing.

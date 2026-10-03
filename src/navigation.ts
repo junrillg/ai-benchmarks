@@ -1,9 +1,9 @@
 import type { Dataset } from './data'
 
-export type Page = '/' | '/benchmarks' | '/models' | '/methodology'
+export type Page = '/' | '/models'
 export type ChartLocation = { page: Page; benchmarkId: string; sourceId: string; modelIds: string[] | null; view: 'chart' | 'results' }
 export function readLocation(location: Pick<Location, 'pathname' | 'search'>, data: Dataset): ChartLocation {
-  const page: Page = ['/benchmarks', '/models', '/methodology'].includes(location.pathname.replace(/\/$/, '')) ? location.pathname.replace(/\/$/, '') as Page : '/'
+  const page: Page = location.pathname.replace(/\/$/, '') === '/models' ? '/models' : '/'
   const params = new URLSearchParams(location.search)
   const benchmark = data.benchmarks.find(row => row.id === params.get('benchmark')) ?? data.benchmarks.find(row => row.id === 'frontiercode-1-1-main') ?? data.benchmarks[0]
   const requestedSource = params.get('source'), sourceId = requestedSource && benchmark.sourceIds.includes(requestedSource) ? requestedSource : 'all'

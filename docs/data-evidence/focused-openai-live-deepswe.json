@@ -1,0 +1,21 @@
+{
+  "url": "https://openai.com/index/introducing-gpt-6-1-sol/",
+  "checkedAt": "2026-10-03T14:38:49.520Z",
+  "labels": [
+    "cost: $2; score: 67%; modelLabel: GPT-6 Astra; Model: GPT-6 Astra; Effort: Low; Cost per task: $1.60; Score: 67.0%",
+    "cost: $3; score: 73%; modelLabel: GPT-6 Astra; Model: GPT-6 Astra; Effort: Medium; Cost per task: $3.08; Score: 72.8%",
+    "cost: $4; score: 73%; modelLabel: GPT-6 Astra; Model: GPT-6 Astra; Effort: High; Cost per task: $3.92; Score: 73.2%",
+    "cost: $4; score: 74%; modelLabel: GPT-6 Astra; Model: GPT-6 Astra; Effort: Xhigh; Cost per task: $4.43; Score: 74.1%",
+    "cost: $7; score: 73%; modelLabel: GPT-6 Astra; Model: GPT-6 Astra; Effort: Max; Cost per task: $7.50; Score: 73.2%",
+    "cost: $0; score: 37%; modelLabel: GPT-6 Sol; Model: GPT-6 Sol; Effort: Low; Cost per task: $0.16; Score: 37.2%",
+    "cost: $0; score: 57%; modelLabel: GPT-6 Sol; Model: GPT-6 Sol; Effort: Medium; Cost per task: $0.38; Score: 56.6%",
+    "cost: $1; score: 65%; modelLabel: GPT-6 Sol; Model: GPT-6 Sol; Effort: High; Cost per task: $0.64; Score: 65.3%",
+    "cost: $1; score: 67%; modelLabel: GPT-6 Sol; Model: GPT-6 Sol; Effort: Xhigh; Cost per task: $1.00; Score: 66.6%",
+    "cost: $3; score: 69%; modelLabel: GPT-6 Sol; Model: GPT-6 Sol; Effort: Max; Cost per task: $2.74; Score: 68.8%",
+    "cost: $0; score: 64%; modelLabel: GPT-6.1 Sol; Model: GPT-6.1 Sol; Effort: Low; Cost per task: $0.17; Score: 64.4%",
+    "cost: $0; score: 73%; modelLabel: GPT-6.1 Sol; Model: GPT-6.1 Sol; Effort: Medium; Cost per task: $0.42; Score: 73.0%",
+    "cost: $1; score: 75%; modelLabel: GPT-6.1 Sol; Model: GPT-6.1 Sol; Effort: High; Cost per task: $0.65; Score: 75.2%",
+    "cost: $1; score: 72%; modelLabel: GPT-6.1 Sol; Model: GPT-6.1 Sol; Effort: Xhigh; Cost per task: $0.79; Score: 71.9%",
+    "cost: $2; score: 72%; modelLabel: GPT-6.1 Sol; Model: GPT-6.1 Sol; Effort: Max; Cost per task: $1.57; Score: 71.9%"
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-02T07:53:33.517761+00:00",
+  "generatedAt": "2026-10-03T14:54:35.153410+00:00",
   "title": "Design System: AI Benchmarks",
   "extensions": {
     "colorMeta": {
@@ -326,60 +326,60 @@
           "oklch(95.0% 0.10241 269.34)"
         ]
       },
-      "series-kimi": {
+      "series-fable-5": {
         "role": "secondary",
-        "displayName": "Series Kimi",
+        "displayName": "Earlier-generation Fable",
         "tonalRamp": [
-          "oklch(15.0% 0.10486 44.76)",
-          "oklch(26.43% 0.10486 44.76)",
-          "oklch(37.86% 0.10486 44.76)",
-          "oklch(49.29% 0.10486 44.76)",
-          "oklch(60.71% 0.10486 44.76)",
-          "oklch(72.14% 0.10486 44.76)",
-          "oklch(83.57% 0.10486 44.76)",
-          "oklch(95.0% 0.10486 44.76)"
+          "oklch(15.00% 0.08903 302.55)",
+          "oklch(26.43% 0.08903 302.55)",
+          "oklch(37.86% 0.08903 302.55)",
+          "oklch(49.29% 0.08903 302.55)",
+          "oklch(60.71% 0.08903 302.55)",
+          "oklch(72.14% 0.08903 302.55)",
+          "oklch(83.57% 0.08903 302.55)",
+          "oklch(95.00% 0.08903 302.55)"
         ]
       },
-      "series-glm": {
+      "series-opus-5": {
         "role": "secondary",
-        "displayName": "Series Glm",
+        "displayName": "Earlier-generation Opus",
         "tonalRamp": [
-          "oklch(15.0% 0.08163 143.32)",
-          "oklch(26.43% 0.08163 143.32)",
-          "oklch(37.86% 0.08163 143.32)",
-          "oklch(49.29% 0.08163 143.32)",
-          "oklch(60.71% 0.08163 143.32)",
-          "oklch(72.14% 0.08163 143.32)",
-          "oklch(83.57% 0.08163 143.32)",
-          "oklch(95.0% 0.08163 143.32)"
+          "oklch(15.00% 0.11818 54.66)",
+          "oklch(26.43% 0.11818 54.66)",
+          "oklch(37.86% 0.11818 54.66)",
+          "oklch(49.29% 0.11818 54.66)",
+          "oklch(60.71% 0.11818 54.66)",
+          "oklch(72.14% 0.11818 54.66)",
+          "oklch(83.57% 0.11818 54.66)",
+          "oklch(95.00% 0.11818 54.66)"
         ]
       },
-      "series-glm-flash": {
-        "role": "secondary",
-        "displayName": "Series Glm Flash",
+      "tooltip-ground": {
+        "role": "neutral",
+        "displayName": "Transient tooltip ground",
         "tonalRamp": [
-          "oklch(15.0% 0.03250 7.43)",
-          "oklch(26.43% 0.03250 7.43)",
-          "oklch(37.86% 0.03250 7.43)",
-          "oklch(49.29% 0.03250 7.43)",
-          "oklch(60.71% 0.03250 7.43)",
-          "oklch(72.14% 0.03250 7.43)",
-          "oklch(83.57% 0.03250 7.43)",
-          "oklch(95.0% 0.03250 7.43)"
+          "oklch(15.00% 0.00000 89.88)",
+          "oklch(26.43% 0.00000 89.88)",
+          "oklch(37.86% 0.00000 89.88)",
+          "oklch(49.29% 0.00000 89.88)",
+          "oklch(60.71% 0.00000 89.88)",
+          "oklch(72.14% 0.00000 89.88)",
+          "oklch(83.57% 0.00000 89.88)",
+          "oklch(95.00% 0.00000 89.88)"
         ]
       },
-      "series-unmapped": {
-        "role": "secondary",
-        "displayName": "Series Unmapped",
+      "tooltip-label": {
+        "role": "neutral",
+        "displayName": "Tooltip secondary label",
         "tonalRamp": [
-          "oklch(15.0% 0.03695 255.29)",
-          "oklch(26.43% 0.03695 255.29)",
-          "oklch(37.86% 0.03695 255.29)",
-          "oklch(49.29% 0.03695 255.29)",
-          "oklch(60.71% 0.03695 255.29)",
-          "oklch(72.14% 0.03695 255.29)",
-          "oklch(83.57% 0.03695 255.29)",
-          "oklch(95.0% 0.03695 255.29)"
+          "oklch(15.00% 0.00000 89.88)",
+          "oklch(26.43% 0.00000 89.88)",
+          "oklch(37.86% 0.00000 89.88)",
+          "oklch(49.29% 0.00000 89.88)",
+          "oklch(60.71% 0.00000 89.88)",
+          "oklch(72.14% 0.00000 89.88)",
+          "oklch(83.57% 0.00000 89.88)",
+          "oklch(95.00% 0.00000 89.88)"
         ]
       }
     },
@@ -398,11 +398,11 @@
       },
       "subheading": {
         "displayName": "Subheading",
-        "purpose": "Methodology topics and catalog subsections."
+        "purpose": "Table subsections and mobile estimate heading."
       },
       "body": {
         "displayName": "Body",
-        "purpose": "Long-form methodology and explanatory prose."
+        "purpose": "Explanatory reading text and pricing context."
       },
       "label": {
         "displayName": "Label",
@@ -413,7 +413,13 @@
         "purpose": "Status, source dates and figure instructions."
       }
     },
-    "shadows": [],
+    "shadows": [
+      {
+        "name": "tooltip",
+        "value": "0 3px 10px #0002",
+        "purpose": "Separate the transient exact-value tooltip from the flat plot."
+      }
+    ],
     "motion": [
       {
         "name": "tab-rule",
@@ -434,6 +440,11 @@
         "name": "reduced-motion",
         "value": "animation: none !important; transition: none !important; scroll-behavior: auto",
         "purpose": "Disable movement when prefers-reduced-motion is reduce."
+      },
+      {
+        "name": "tooltip-enter",
+        "value": "100ms ease-out",
+        "purpose": "Fade the transient inspected-point readout into view."
       }
     ],
     "breakpoints": [
@@ -476,25 +487,25 @@
       "name": "Quiet action",
       "kind": "button",
       "refersTo": "quiet-button",
-      "description": "Compact refresh, close and pagination actions.",
-      "html": "<button class=\"ds-quiet\" type=\"button\">Refresh public feeds</button>",
+      "description": "Compact refresh and close actions with explicit busy/disabled states.",
+      "html": "<button class=\"ds-quiet\" type=\"button\">Refresh catalog &amp; independent runs</button>",
       "css": ".ds-quiet{font-family:'Geist',sans-serif;min-height:34px;padding:6px 13px;border:1px solid #b7cde6;border-radius:4px;background:#f5f9fe;color:var(--ink);font-size:13px;line-height:20px;white-space:nowrap;cursor:pointer}.ds-quiet:hover:not(:disabled){background:#e8f1fd}.ds-quiet:disabled{cursor:default;color:#536b8a;background:#edf2f7;border-color:#d3dfe9}.ds-quiet:focus-visible{outline:2px solid var(--blue);outline-offset:3px}"
     },
     {
-      "name": "Search field",
+      "name": "Scenario number field",
       "kind": "input",
-      "refersTo": "search-field",
-      "description": "Native labelled benchmark search control.",
-      "html": "<label class=\"ds-field-label\">Search benchmarks<input class=\"ds-field\" type=\"search\" placeholder=\"Name, version or task\"></label>",
-      "css": ".ds-field-label{font-family:'Geist',sans-serif;display:flex;flex-direction:column;gap:5px;font-size:13px;color:var(--secondary);font-weight:550}.ds-field{font-family:'Geist',sans-serif;height:36px;min-width:0;width:100%;padding:6px 10px;border:1px solid #b8cce1;border-radius:4px;background:#fbfdff;color:var(--ink);font-size:14px;font-weight:400;caret-color:var(--blue)}.ds-field::placeholder{color:var(--secondary)}.ds-field:focus-visible{outline:2px solid var(--blue);outline-offset:3px}"
+      "refersTo": "scenario-field",
+      "description": "Labelled billed-token input with tabular values and a visible invalid state.",
+      "html": "<label class=\"ds-scenario-label\">Total input tokens / API call<input class=\"ds-scenario-field\" type=\"number\" min=\"0\" step=\"1\" value=\"10000\"></label>",
+      "css": ".ds-scenario-label{font-family:'Geist',sans-serif;display:flex;flex-direction:column;gap:7px;font-size:12px;line-height:18px;font-weight:550;color:var(--secondary)}.ds-scenario-field{font-family:'Geist',sans-serif;width:100%;min-width:0;height:42px;border:1px solid #b7cde6;border-radius:4px;background:#fbfdff;color:var(--ink);padding:8px 11px;font-size:17px;font-variant-numeric:tabular-nums}.ds-scenario-field:focus-visible{outline:2px solid var(--blue);outline-offset:3px}.ds-scenario-field[aria-invalid=true]{border-color:#9a3145}"
     },
     {
       "name": "Section navigation",
       "kind": "nav",
       "refersTo": "navigation",
       "description": "Pale flat navigation band with blue current-section rule.",
-      "html": "<div class=\"ds-nav\"><span class=\"ds-brand\">AI Benchmarks</span><nav class=\"ds-nav-links\" aria-label=\"Sections\"><a class=\"ds-current\" href=\"#benchmarks\" aria-current=\"page\">Benchmarks</a><a href=\"#models\">Models</a><a href=\"#methodology\">Methodology</a></nav></div>",
-      "css": ".ds-nav{font-family:'Geist',sans-serif;height:54px;background:#f1f7fd;border-bottom:1px solid var(--rule);display:flex;align-items:center;gap:44px;padding:0 16px}.ds-brand{font-size:23px;font-weight:750;letter-spacing:-.02em;color:var(--ink);white-space:nowrap}.ds-nav-links{display:flex;height:100%;gap:40px;align-items:center}.ds-nav-links a{font-size:16px;color:var(--ink);height:100%;display:flex;align-items:center;position:relative;text-decoration:none;text-underline-offset:3px}.ds-nav-links a:hover{text-decoration:underline}.ds-nav-links a:focus-visible{outline:2px solid var(--blue);outline-offset:3px}.ds-nav-links .ds-current{color:var(--blue)}.ds-current:after{content:\"\";position:absolute;bottom:2px;height:2px;left:0;right:0;background:var(--blue)}"
+      "html": "<div class=\"ds-nav\"><span class=\"ds-brand\">AI Benchmarks</span><nav class=\"ds-nav-links\" aria-label=\"Main navigation\"><a class=\"ds-current\" href=\"/\" aria-current=\"page\">Charts</a><a href=\"/models\">Models</a></nav></div>",
+      "css": ".ds-nav{font-family:'Geist',sans-serif;height:54px;background:#f1f7fd;border-bottom:1px solid var(--rule);display:flex;align-items:center;gap:44px;padding:0 16px}.ds-brand{font-size:23px;font-weight:750;letter-spacing:-.02em;color:var(--ink);white-space:nowrap}.ds-nav-links{display:flex;height:100%;gap:28px;align-items:center}.ds-nav-links a{font-size:16px;color:var(--ink);height:100%;display:flex;align-items:center;position:relative;text-decoration:none;text-underline-offset:3px}.ds-nav-links a:hover{text-decoration:underline}.ds-nav-links a:focus-visible{outline:2px solid var(--blue);outline-offset:3px}.ds-nav-links .ds-current{color:var(--blue)}.ds-current:after{content:\"\";position:absolute;bottom:2px;height:2px;left:0;right:0;background:var(--blue)}@media(max-width:760px){.ds-nav{height:auto;min-height:54px;flex-wrap:wrap;gap:14px;padding:10px 16px}.ds-nav-links{order:3;width:100%;gap:22px;height:34px}.ds-nav-links a{font-size:15px}}"
     },
     {
       "name": "Benchmark tabs",
@@ -508,54 +519,46 @@
       "name": "Model choice",
       "kind": "input",
       "refersTo": "model-choice",
-      "description": "Native checkbox with paired series marker and model name.",
-      "html": "<label class=\"ds-model\"><input class=\"ds-checkbox\" type=\"checkbox\" checked><span class=\"ds-dot\"></span>Sonnet 5.5</label>",
-      "css": ".ds-model{font-family:'Geist',sans-serif;height:32px;display:flex;align-items:center;gap:10px;cursor:pointer;font-size:16px;white-space:nowrap;color:var(--ink)}.ds-checkbox{appearance:auto;width:18px;height:18px;margin:0 8px 0 1px;accent-color:var(--blue);flex-shrink:0;cursor:pointer}.ds-checkbox:disabled{cursor:default}.ds-checkbox:focus-visible{outline:2px solid var(--blue);outline-offset:3px}.ds-dot{display:inline-block;width:12px;height:12px;border-radius:50%;flex-shrink:0;background:var(--blue)}"
+      "description": "Persistent shortlist checkbox with model identity and an explicit missing-evidence reason.",
+      "html": "<label class=\"ds-model\"><input class=\"ds-checkbox\" type=\"checkbox\" checked><span class=\"ds-dot\"></span><span>Sonnet 5.5</span></label><label class=\"ds-model ds-unavailable\"><input class=\"ds-checkbox\" type=\"checkbox\" disabled><span class=\"ds-dot ds-legacy\"></span><span>Fable 5<small>No published result in this suite</small></span></label>",
+      "css": ".ds-model{font-family:'Geist',sans-serif;min-height:39px;height:auto;padding:3px 0;line-height:20px;display:flex;align-items:center;gap:10px;cursor:pointer;font-size:15px;white-space:normal;color:var(--ink)}.ds-checkbox{appearance:auto;width:18px;height:18px;margin:0 8px 0 1px;accent-color:var(--blue);flex-shrink:0;cursor:pointer}.ds-checkbox:disabled{cursor:default}.ds-checkbox:focus-visible{outline:2px solid var(--blue);outline-offset:3px}.ds-dot{display:inline-block;width:12px;height:12px;border-radius:50%;flex-shrink:0;background:var(--blue)}.ds-model small{display:block;font-size:11px;line-height:15px;color:var(--secondary)}.ds-unavailable{cursor:default;color:var(--secondary)}.ds-unavailable .ds-dot{opacity:.45}.ds-legacy{background:#6d568d}"
     },
     {
       "name": "Research plate",
       "kind": "card",
       "refersTo": "plate",
-      "description": "Recurring flat content container for benchmark browsing and methodology.",
-      "html": "<section class=\"ds-plate\"><h2 class=\"ds-plate-title\">Browse benchmarks</h2><p class=\"ds-plate-copy\">Published evidence retains source-specific conditions.</p></section>",
+      "description": "Recurring flat research container for coverage and inspected evidence.",
+      "html": "<section class=\"ds-plate\"><h2 class=\"ds-plate-title\">Published evidence</h2><p class=\"ds-plate-copy\">Published evidence retains source-specific conditions.</p></section>",
       "css": ".ds-plate{font-family:'Geist',sans-serif;background:var(--paper);color:var(--ink);border-radius:4px;padding:19px 18px 20px}.ds-plate-title{margin:0;font-size:23px;line-height:29px;font-weight:750;letter-spacing:-.015em}.ds-plate-copy{margin:16px 0 0;font-size:15px;line-height:23px;max-width:75ch}"
     },
     {
       "name": "Result table",
       "kind": "custom",
       "refersTo": "result-table",
-      "description": "Compact ledger with fine borders, model identity and tabular values.",
-      "html": "<div class=\"ds-table-scroll\"><table class=\"ds-table\"><thead><tr><th scope=\"col\">Model</th><th scope=\"col\">Effort</th><th scope=\"col\">Score</th><th scope=\"col\">Task cost</th></tr></thead><tbody><tr><th scope=\"row\"><button class=\"ds-result\" type=\"button\"><span class=\"ds-result-dot\"></span>Sonnet 5.5</button></th><td>xhigh</td><td>52.1%</td><td>$1.59</td></tr></tbody></table></div>",
+      "description": "Source-aware ledger of every selected effort, with row inspection and tabular values.",
+      "html": "<div class=\"ds-table-scroll\"><table class=\"ds-table\"><thead><tr><th scope=\"col\">Model</th><th scope=\"col\">Effort</th><th scope=\"col\">Score</th><th scope=\"col\">Published cost</th><th scope=\"col\">Source</th></tr></thead><tbody><tr><th scope=\"row\"><button class=\"ds-result\" type=\"button\"><span class=\"ds-result-dot\"></span>Sonnet 5.5</button></th><td>xhigh</td><td>52.1%</td><td>$1.59</td><td>Anthropic</td></tr></tbody></table></div>",
       "css": ".ds-table-scroll{overflow-x:auto}.ds-table{font-family:'Geist',sans-serif;border-collapse:collapse;width:100%;text-align:left;font-size:15px;table-layout:fixed;font-variant-numeric:tabular-nums;color:var(--ink)}.ds-table thead{background:#f3f8fd}.ds-table th,.ds-table td{height:30px;padding:2px 16px;border:1px solid var(--rule);line-height:23px}.ds-table thead th{font-weight:650;font-size:14px}.ds-table tbody th{font-weight:500;white-space:nowrap}.ds-table tbody td:nth-child(2){color:var(--secondary)}.ds-result{font-family:'Geist',sans-serif;display:inline-flex;align-items:center;text-align:left;border:0;background:transparent;color:var(--ink);padding:0;font-size:15px;line-height:23px;max-width:100%;white-space:normal;cursor:pointer}.ds-result:hover{text-decoration:underline;text-underline-offset:3px}.ds-result:focus-visible{outline:2px solid var(--blue);outline-offset:3px}.ds-result-dot{display:inline-block;width:12px;height:12px;border-radius:50%;background:var(--blue);margin-right:12px;flex-shrink:0}"
+    },
+    {
+      "name": "Mobile estimate ledger",
+      "kind": "custom",
+      "description": "Readable model, per-call and monthly estimates above the horizontally scrollable rate table on mobile.",
+      "html": "<section class=\"ds-estimates\"><h3>Your scenario estimates</h3><div class=\"ds-estimate-row\"><h4>Claude Sonnet 5.5</h4><dl><div><dt>Per API call</dt><dd>$0.04</dd></div><div><dt>Per month</dt><dd>$4</dd></div></dl></div></section>",
+      "css": ".ds-estimates{font-family:'Geist',sans-serif;color:var(--ink)}.ds-estimates>h3{font-size:17px;line-height:24px;font-weight:650;margin:0;padding:0 0 10px;border-bottom:1px solid var(--rule)}.ds-estimate-row{padding:13px 0 14px;border-bottom:1px solid var(--rule)}.ds-estimate-row h4{font-size:14px;line-height:21px;font-weight:600;margin:0 0 8px;overflow-wrap:anywhere}.ds-estimate-row dl{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px;margin:0}.ds-estimate-row dt{color:var(--secondary);font-size:11px;line-height:17px}.ds-estimate-row dd{font-size:17px;line-height:25px;font-weight:650;font-variant-numeric:tabular-nums;margin:2px 0 0;overflow-wrap:anywhere}"
     }
   ],
   "narrative": {
     "northStar": "Scientific research plate",
-    "overview": "The system feels professional, premium and precise. Cool flat paper supports navy typography, fine rules and a near-white reading field. Quality comes from alignment, clear hierarchy and inspectable evidence. There is no physical texture in this world.\n\nGeist keeps interface labels, prose and data in one voice. Compact controls and dense tables coexist with an open chart field. Source conditions, missing data and exact values remain readable parts of the interface. The surface-specific composition and its approved mock belong in [the benchmark explorer brief](.impeccable/surfaces/index-html.md).",
+    "overview": "The system feels professional, premium and precise. Cool flat paper supports navy typography, fine rules and a near-white reading field. Quality comes from alignment, clear hierarchy and inspectable evidence. There is no physical texture in this world.\n\nGeist keeps interface labels, prose and data in one voice. Compact controls and dense tables coexist with an open chart field. Source conditions and exact values remain readable parts of the interface; missing cost is represented without an invented value. The surface-specific composition and its approved mock belong in [the benchmark explorer brief](.impeccable/surfaces/index-html.md).",
     "keyCharacteristics": [
       "Cool flat paper and near-white figure plates.",
       "Navy ink, blue interaction states and labelled model colors.",
       "Compact Geist hierarchy with tabular table numbers.",
       "Thin rules, small corners and native controls.",
-      "First-exposure chart drawing with reduced-motion support."
+      "First-exposure chart drawing with reduced-motion support.",
+      "Near-marker dark tooltips show exact model, effort, score and published cost on pointer hover or keyboard focus; their measured bounds stay inside the responsive chart."
     ],
-    "rules": [
-      {
-        "name": "The Labelled Color Rule",
-        "body": "Model color always accompanies a readable name or an inspectable result; color alone does not identify evidence.",
-        "section": "colors"
-      },
-      {
-        "name": "The Numeric Alignment Rule",
-        "body": "Tables use tabular numerals so score and cost columns stay visually comparable.",
-        "section": "typography"
-      },
-      {
-        "name": "The Flat Plate Rule",
-        "body": "Use tonal separation and fine rules for hierarchy; retain the flat material of the research plate.",
-        "section": "elevation"
-      }
-    ],
+    "rules": [],
     "dos": [
       "**Do** retain cool flat surfaces, navy reading text and thin table/grid rules.",
       "**Do** pair model colors with readable labels and inspection states.",

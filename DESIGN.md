@@ -25,10 +25,8 @@ colors:
   series-astra: "#aa486f"
   series-luna: "#8b7020"
   series-grok: "#5367a6"
-  series-kimi: "#9e5736"
-  series-glm: "#547e52"
-  series-glm-flash: "#80676b"
-  series-unmapped: "#77879c"
+  series-fable-5: "#6d568d"
+  series-opus-5: "#a35a20"
   tooltip-ground: "#171717"
   tooltip-label: "#d4d4d4"
 typography:
@@ -54,12 +52,12 @@ typography:
     fontFamily: "Geist, sans-serif"
     fontSize: "17px"
     fontWeight: 650
-    lineHeight: "25px"
+    lineHeight: "24px"
   body:
     fontFamily: "Geist, sans-serif"
     fontSize: "15px"
     fontWeight: 400
-    lineHeight: "24px"
+    lineHeight: "22px"
   label:
     fontFamily: "Geist, sans-serif"
     fontSize: "13px"
@@ -114,7 +112,7 @@ components:
     height: "50px"
   model-choice:
     textColor: "{colors.ink}"
-    height: "32px"
+    padding: "3px 0"
   plate:
     backgroundColor: "{colors.paper}"
     textColor: "{colors.ink}"
@@ -123,6 +121,12 @@ components:
   result-table:
     textColor: "{colors.ink}"
     padding: "3px 16px"
+  scenario-field:
+    backgroundColor: "{colors.field}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.plate}"
+    padding: "8px 11px"
+    height: "42px"
   chart-tooltip:
     backgroundColor: "{colors.tooltip-ground}"
     textColor: "white"
@@ -149,7 +153,7 @@ Geist keeps interface labels, prose and data in one voice. Compact controls and 
 - First-exposure chart drawing with reduced-motion support.
 - Near-marker dark tooltips show exact model, effort, score and published cost on pointer hover or keyboard focus; their measured bounds stay inside the responsive chart.
 
-Recorded from `src/styles.css`, `src/App.tsx` and `src/BenchmarkChart.tsx`, with final desktop and mobile captures in `.impeccable/review/`. Frontmatter values are the normative extracted tokens; they do not imply matching CSS custom-property declarations exist for every entry. The five existing CSS variables are ink, secondary, blue, rule and paper. The sidecar's synthesized tonal ramps are panel visualization metadata, not additional shipping palette tokens.
+Recorded from `src/styles.css`, `src/App.tsx`, `src/BenchmarkChart.tsx` and `src/CostComparison.tsx`, with final desktop, mobile and user-width captures in `.impeccable/review/focused/*-fixed.png`. Frontmatter values are the normative extracted tokens; they do not imply matching CSS custom-property declarations exist for every entry. The five existing CSS variables are ink, secondary, blue, rule and paper. The sidecar's synthesized tonal ramps are panel visualization metadata, not additional shipping palette tokens.
 
 ## Colors
 
@@ -161,7 +165,7 @@ Cool low-chroma surfaces recede behind deep navy text and a clear blue interacti
 
 ### Secondary
 
-- **Model series colors** (`series-*`): stable identity across chart strokes, markers, legends and table labels. Orange and green accompany blue in the initial figure; the remaining colors identify additional selectable models and systems.
+- **Model series colors** (`series-*`): stable identity across chart strokes, markers, legends and table labels. Orange and green accompany blue in the initial figure; the remaining colors identify the focused shortlist, including the distinct earlier-generation Fable 5 and Opus 5 identities.
 
 ### Neutral
 
@@ -191,8 +195,8 @@ Cool low-chroma surfaces recede behind deep navy text and a clear blue interacti
 - **Display:** the frontmatter display role is used for the page headline. It becomes (34px / 40px) below the mobile breakpoint and (32px) at the smallest breakpoint.
 - **Headline:** the figure heading uses the headline role on desktop, (25px) below the medium breakpoint, and (23px / 30px) at the smallest breakpoint.
 - **Title:** repeated section headings use the title role. Mobile section headings use (22px / 28px); model/evidence headings use (24px / 31px) on wide screens.
-- **Subheading:** the subheading role introduces methodology topics; table subsection headings use the same size and weight with (24px) leading.
-- **Body:** the body role describes long-form methodology. Other (15px) explanatory text uses (22–23px) leading; mobile methodology is (14px / 23px). Introductory support text is (20px / 28px), becoming (18px / 24px) on mobile.
+- **Subheading:** the subheading role introduces table subsections and the mobile estimate ledger with (24px) leading.
+- **Body:** the body role carries explanatory reading text. Workload guidance uses (14px / 23px), becoming (13px / 22px) on mobile. Introductory support text is (18px / 27px), becoming (16px / 25px) on mobile. The Models page heading uses (32px / 40px), becoming (28px / 35px) on mobile.
 - **Label / annotation:** compact labels, notices and source dates use the smaller roles. Chart tick and axis text use (14px); minor axis notes use (11px).
 
 **The Numeric Alignment Rule.** Tables use tabular numerals so score and cost columns stay visually comparable.
@@ -201,17 +205,17 @@ Cool low-chroma surfaces recede behind deep navy text and a clear blue interacti
 
 The page and navigation are centered within a (1440px) maximum width. Wide page gutters total (94px), with navigation gutters totaling (120px). At (1100px) and below both total (48px); at (760px) and below they total (32px).
 
-Repeated plates are separated by the band spacing token. Internal spacing favors tight label gaps, small state groups, and regular-to-roomy content padding. This is an observed rhythm, not a universal multiple-only grid: the build also uses component-specific geometry.
+The figure and result ledger retain the band spacing token; secondary research plates use (28px) top separation, becoming (20px) on mobile. Internal spacing favors tight label gaps, small state groups, and regular-to-roomy content padding. This is an observed rhythm, not a universal multiple-only grid: the build also uses component-specific geometry.
 
 The benchmark explorer uses an open main column and a (310px) model/evidence column; the latter becomes (280px) below (1100px). Below (760px), it stacks in reading order: tabs, figure, model controls, evidence. Navigation wraps to a second link row, figure controls wrap, tables scroll horizontally, and content stays at readable font sizes.
 
 Model controls use two columns on mobile, becoming one column below (430px). Filter controls wrap into two columns below (760px) and single columns below (430px). Explanatory prose is generally constrained to (75ch); secondary notes reach (95ch).
 
-Chart geometry responds to its measured container width rather than scaling desktop text. Its SVG height is (432px), becoming (340px) when the chart width is below (600px). The mobile stylesheet uses the same smaller figure height. Long score-only result lists scroll within the figure. Wide-screen model panels scroll within their fixed height; mobile panels expand with their content.
+Chart geometry responds to its measured container width rather than scaling desktop text. Its SVG height is (432px), becoming (340px) when the chart width is below (600px). The mobile stylesheet uses the same smaller figure height. Long score-only result lists scroll within the figure. Model panels and their evidence conditions expand with content; the wide-screen panel retains a (574px) minimum height, removed on mobile.
 
 ## Elevation & Depth
 
-The shipped interface has no box shadows. Near-white plates, pale adjacent surfaces, thin boundaries and open spacing establish depth. Hover treatments change color or brightness; they do not lift the component. Focus uses a blue (2px) outline with a (3px) offset, while chart focus uses a navy stroke.
+Reading surfaces have no box shadows. Near-white plates, pale adjacent surfaces, thin boundaries and open spacing establish depth. The transient dark chart tooltip alone uses a soft shadow (`0 3px 10px #0002`) to separate its exact-value readout from the plot. Hover treatments change color or brightness; they do not lift the component. Focus uses a blue (2px) outline with a (3px) offset, while chart focus uses a navy stroke.
 
 **The Flat Plate Rule.** Use tonal separation and fine rules for hierarchy; retain the flat material of the research plate.
 
@@ -229,15 +233,15 @@ Quiet actions use the quiet-button token with a (34px) minimum height and a thin
 
 ### Cards / Containers
 
-Figure plates, ledgers and content sections share the near-white plate and small radius. They have no shadow. Figure padding is more compact than prose section padding; mobile content plates use (16px 14px 18px). The evidence area separates itself with a fine upper rule.
+Figure plates, ledgers and content sections share the near-white plate and small radius. They have no shadow. Figure padding is more compact than prose section padding. Coverage and cost plates use their own roomy reading geometry; their mobile padding becomes (18px 14px) and (20px 14px 23px) respectively. Result-detail plates retain (16px 14px 18px) on mobile. The evidence area separates itself with a fine upper rule.
 
 ### Inputs / Fields
 
-Search and filter controls are native inputs and selects with a pale field, thin field border and small radius. Wide-screen fields use the search-field geometry; mobile fields are (38px) high. Source and axis-scale selects remain transparent compact inline controls. All retain the global visible focus outline; checkbox accents use blue.
+Search and filter controls are native inputs and selects with a pale field, thin field border and small radius. Wide-screen fields use the search-field geometry; mobile fields are (38px) high. The grouped benchmark selector uses a near-white field with a control border and (40px) height, becoming (42px) on mobile. Source and axis-scale selects remain transparent compact inline controls. Scenario number fields use the scenario-field token, larger (17px) tabular numbers and visible labels; they become (40px) high at the smallest breakpoint. Invalid cached-input fields carry a burgundy boundary and an explicit corrective message. All retain the global visible focus outline; checkbox accents use blue.
 
 ### Navigation
 
-A pale full-width band holds a compact bold brand, plain text page links (Charts, Benchmarks, Models, Methodology) and an external source link. The current section is blue with a thin lower rule. Links underline on hover. Mobile places section links on their own row. External-link affordances are authored inline SVG.
+A pale full-width band holds a compact bold brand, plain text page links (Charts and Models) and an external source link. The current section is blue with a thin lower rule. Links underline on hover. Mobile places section links on their own row. External-link affordances are authored inline SVG.
 
 ### Benchmark tabs
 
@@ -247,15 +251,25 @@ The rule moves with (220ms) duration and `cubic-bezier(.16,1,.3,1)`. Reduced mot
 
 ### Model choices
 
-Native checkboxes, circular series dots and readable model names form compact rows. Only models with published scores for the selected benchmark and source scope appear; score-only results remain accessible below cost curves. Historical systems can include a second explanatory line. The (18px) desktop checkbox becomes (17px) on mobile; model rows adapt with the panel layout.
+Native checkboxes, circular series dots and readable model names form compact rows. All ten shortlist identities remain visible. Native checkboxes are disabled where the selected suite or source has no verified result, with a readable reason and a subdued dot; missing evidence is never displayed as a zero score. Available results are selected by default. Earlier-generation Fable 5 and Opus 5 retain an explanatory line. Rows expand to fit labels, with a (39px) desktop minimum, (46px) mobile minimum, and (42px) minimum at the smallest breakpoint. Score-only results remain accessible below cost curves. The (18px) desktop checkbox becomes (17px) on mobile; model rows adapt with the panel layout.
 
 ### Scientific figure and result ledger
 
-SVG curves use straight (2px) strokes and circular (4.2px) markers with white separation. Pointer hover and keyboard focus enlarge markers to (6px) with a navy (2px) stroke. The text readout and result details share inspection state. Confidence intervals remain thin and subdued. Axis breaks are visibly labelled when a score range is zoomed; score-only bars begin at zero when cost is not reported.
+The source selector defaults to all published sources for the verified benchmark/version. Curves keep model, source and evaluation conditions separate; mixed cost scopes and publisher estimates carry visible notes. SVG curves use straight (2px) strokes and circular (4.2px) markers with white separation. Pointer hover and keyboard focus enlarge markers to (6px) with a navy (2px) stroke. The text readout and result details share inspection state. Confidence intervals remain thin and subdued. Axis breaks are visibly labelled when a score range is zoomed; score-only bars begin at zero when cost is not reported.
 
 On first benchmark/source exposure, lines draw over (700ms) with the same easing as tabs and a (120ms) series stagger. Markers fade over (300ms), beginning at (490ms) plus the series stagger and (40ms) per point. Revisits retain visibility. Reduced motion disables animation and smooth scrolling.
 
-Result tables use collapsed fine borders, a pale heading row, left-aligned text and tabular numbers. Compact result rows are (30px) high; standard result rows are (31px). Longer catalog rows expand for wrapping source notes. Model-color dots accompany text labels and row inspection buttons. A mixed result table uses an accessible dash for unpublished cost; score-only figures omit the cost column.
+Result tables use collapsed fine borders, a pale heading row, left-aligned text and tabular numbers. Compact result rows are (30px) high; standard result rows are (31px). Coverage and pricing rows expand for wrapping source notes. Model-color dots accompany text labels and row inspection buttons. A mixed result table uses an accessible dash for unpublished cost; score-only figures omit the cost column. The native disclosure ledger retains every selected source and effort, with a source column when multiple sources are present. It does not reduce a model to its best score. The grouped benchmark selector exposes the complete snapshot rather than only the five quick tabs.
+
+### Coverage matrix
+
+The flat table places the ten labelled shortlist models against exact featured suite versions. Published cells are blue text buttons that open the chosen model's source-specific results; missing cells say “Not published” with a verification note. The (980px) minimum table width scrolls inside its container. Version labels, score-only status and cost availability remain readable secondary lines.
+
+### Cost comparison and mobile estimates
+
+The Models surface combines labelled scenario fields with a flat official-rate table. Four equal fields become two columns below (760px) and one below (430px). Input, output, cached-input and monthly call values update per-call and monthly estimates together. Cached input is a subset of total input; invalid scenarios or unverified cache rates produce an explicit unavailable state. Published long-context adjustments are labelled. Pricing sources and checked dates stay beside the rates, and benchmark task costs remain separate from token estimates.
+
+The rate table retains a (1120px) minimum width and horizontal scrolling. At (760px) and below, a visible estimate ledger precedes it: each model name sits above two equal definition-list columns for per-call and monthly cost. Estimate values use (17px / 25px), weight (650), and tabular numerals. Fine horizontal rules separate rows; unavailable reasons and applied long-context rates remain visible. Desktop uses the table without the additional ledger.
 
 ## Do's and Don'ts
 
@@ -274,7 +288,4 @@ Result tables use collapsed fine borders, a pale heading row, left-aligned text 
 - **Don't** connect unlike sources or conditions into a single visual data series.
 - **Don't** scale the entire desktop figure down to fit a mobile viewport.
 
-Not canonized: capture overlays are review tooling, and generated mock labels or illustrative figures are not reusable interface rules. No craft-floor defects were promoted into this system.
-
-
-The chart route now defaults to all published sources under one verified benchmark identity. Cost curves retain separate source/condition series; mixed cost scopes and publisher estimates have visible notes. Score-only runs form a compact shelf below cost curves. The best-score ledger uses native disclosure. Benchmark browsing (`/benchmarks`), model catalog (`/models`) and methodology (`/methodology`) are isolated pages using the same reading surfaces and navigation.
+Not canonized: capture overlays are review tooling, generated mock labels or illustrative figures are not reusable interface rules, and unused legacy stylesheet selectors do not define shipped pages. Editorial model recommendations and snapshot record counts are content, not durable visual rules. No craft-floor defects were promoted into this system.

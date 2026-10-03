@@ -16,12 +16,14 @@ from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data/benchmarks.json"
-PROVIDERS = {"anthropic": "Anthropic", "openai": "OpenAI", "x-ai": "xAI", "moonshotai": "Moonshot AI", "z-ai": "Z.ai"}
+PROVIDERS = {"anthropic": "Anthropic", "openai": "OpenAI", "x-ai": "xAI"}
 SONNET_CHARTS = {"Terminal-Bench 4.0": "terminal-bench-4", "FrontierCode v1.1, main set": "frontiercode-1-1-main", "CursorBench 4.0": "cursorbench-4", "AA-Briefcase v1.1": "aa-briefcase-1-1"}
 SONNET_MODELS = {"Sonnet 5.5": "claude-sonnet-5.5", "Opus 5.5": "claude-opus-5.5", "Sonnet 5": "claude-sonnet-5", "GPT-5.6 Sol": "gpt-5.6-sol", "GPT-6 Sol": "gpt-6-sol"}
 # Explicit source identifiers, not inferred model-name or version substitutions.
 DEEPSWE_MODELS = {"gpt-6-astra": "gpt-6-astra", "kimi-k3": "kimi-k3", "glm-5-3": "glm-5.3", "glm-5-3-flash": "glm-5.3-flash", "claude-sonnet-5": "claude-sonnet-5", "gpt-5-6-sol": "gpt-5.6-sol", "claude-fable-5": "claude-fable-5", "claude-opus-5": "claude-opus-5"}
-ALLOWED_HOSTS = {"www.anthropic.com", "openai.com", "deploymentsafety.openai.com", "x.ai", "huggingface.co", "arxiv.org", "deepswe.datacurve.ai", "openrouter.ai", "artificialanalysis.ai", "z.ai"}
+FOCUSED_MODELS = {"claude-opus-5.5", "claude-sonnet-5.5", "claude-fable-5.1", "claude-fable-5", "claude-opus-5", "gpt-6.1-sol", "gpt-6-sol", "gpt-6-luna", "gpt-6-astra", "grok-4.7"}
+DEEPSWE_MODELS = {name: model for name, model in DEEPSWE_MODELS.items() if model in FOCUSED_MODELS}
+ALLOWED_HOSTS = {"platform.claude.com", "developers.openai.com", "docs.x.ai", "www.anthropic.com", "openai.com", "deploymentsafety.openai.com", "x.ai", "huggingface.co", "arxiv.org", "deepswe.datacurve.ai", "openrouter.ai", "artificialanalysis.ai", "z.ai"}
 
 
 def now():
@@ -150,7 +152,7 @@ def parse_deepswe(payload):
         if not model_id:
             unknown.add(row["model"])
             continue
-        if row.get("harness") != "mini-swe-agent":
+        if row.get("harness") != "mini-swe-agent" or row.get("source") != "deep-swe":
             raise ValueError("DeepSWE harness changed")
         effort = row.get("reasoning_effort")
         if effort not in ("none", "low", "medium", "high", "xhigh", "max"):
@@ -164,7 +166,12 @@ def parse_deepswe(payload):
         lo, hi = number(row.get("ci_lo"), 0, 1) * 100, number(row.get("ci_hi"), 0, 1) * 100
         if not lo <= score <= hi:
             raise ValueError("DeepSWE confidence interval invalid")
-        points.append({"modelId": model_id, "score": score, "cost": cost, "effort": effort, "sourceId": "deepswe-public", "conditions": "mini-swe-agent; attempt pass@1; mean scored-attempt cost; source snapshot " + generated, "confidenceInterval": [lo, hi]})
+        point = {"modelId": model_id, "score": score, "cost": cost, "effort": effort, "sourceId": "deepswe-public", "conditions": "mini-swe-agent; attempt pass@1; mean scored-attempt cost; source snapshot " + generated, "confidenceInterval": [lo, hi]}
+        if "cost_basis" in row:
+            if not isinstance(row["cost_basis"], str) or not row["cost_basis"].strip() or len(row["cost_basis"]) > 5000:
+                raise ValueError("Invalid DeepSWE cost basis")
+            point["costBasis"] = row["cost_basis"]
+        points.append(point)
     if not points:
         raise ValueError("DeepSWE contains no mapped models")
     return points, sorted(unknown), generated
@@ -175,8 +182,24 @@ def validate_data(data):
     models = {m["id"]: m for m in data["models"]}
     if len(sources) != len(data["sources"]) or len(models) != len(data["models"]):
         raise ValueError("Duplicate source/model IDs")
+    if set(models) != FOCUSED_MODELS:
+        raise ValueError("Snapshot must contain exactly the reviewed model shortlist")
     for source in sources.values():
         link(source["url"])
+    for model in models.values():
+        if model["sourceId"] not in sources:
+            raise ValueError("Model source missing")
+        pricing = model.get("apiPricing")
+        if pricing:
+            if pricing["sourceId"] not in sources or not pricing.get("checkedAt"):
+                raise ValueError("API pricing provenance missing")
+            for field in ("inputPerMillion", "outputPerMillion", "cachedInputPerMillion"):
+                if field in pricing:
+                    number(pricing[field], 0, 1_000_000)
+            if "longContext" in pricing:
+                number(pricing["longContext"]["threshold"], 1, 100_000_000)
+                number(pricing["longContext"]["inputMultiplier"], 1, 100)
+                number(pricing["longContext"]["outputMultiplier"], 1, 100)
     seen = set()
     for benchmark in data["benchmarks"]:
         if benchmark["id"] in seen or not benchmark["points"]:
@@ -203,25 +226,14 @@ def refresh(data, reader=fetch):
     deepswe, review_queue, generated = parse_deepswe(json.loads(raw_deepswe))
     for benchmark in result["benchmarks"]:
         if benchmark["id"] in curves:
-            benchmark["points"] = [p for p in benchmark["points"] if p["sourceId"] != "anthropic-sonnet-5-5"] + curves[benchmark["id"]]
+            benchmark["points"] = [p for p in benchmark["points"] if p["sourceId"] != "anthropic-sonnet-5-5"] + [p for p in curves[benchmark["id"]] if p["modelId"] in FOCUSED_MODELS]
         elif benchmark["id"] == "deep-swe-1-1-independent":
             benchmark["points"] = deepswe
             if "deepswe-public" not in benchmark["sourceIds"]:
                 benchmark["sourceIds"].append("deepswe-public")
     models = {m["id"]: m for m in result["models"]}
     known_api_ids = {m.get("apiId") for m in models.values()}
-    for row in discovery:
-        # A routing/batch variant isn't a newly released base model.
-        if row["id"] not in known_api_ids and ":" not in row["id"]:
-            model_id = "discovered:" + row["id"]
-            if model_id not in models:
-                model = {"id": model_id, "name": row["name"].split(": ", 1)[-1], "provider": row["provider"], "releaseDate": row["releaseDate"], "status": "benchmark-pending", "apiId": row["id"], "sourceId": "openrouter-models", "latestRelease": False, "dateKind": "catalog-listed"}
-                result["models"].append(model)
-                models[model_id] = model
-    for source_name in review_queue:
-        model_id = "unmapped:" + source_name
-        if model_id not in models:
-            result["models"].append({"id": model_id, "name": source_name, "provider": "unknown", "releaseDate": None, "status": "mapping-pending", "sourceId": "deepswe-public", "latestRelease": False})
+    discovery = [row for row in discovery if row["id"] in known_api_ids]
     for source_id, raw in [("anthropic-sonnet-5-5", raw_sonnet), ("openrouter-models", raw_router), ("deepswe-public", raw_deepswe)]:
         source_map[source_id].update(retrievedAt=stamp, sha256=hashlib.sha256(raw).hexdigest())
     source_map["deepswe-public"]["publishedAt"] = generated

@@ -6,6 +6,7 @@ export type Model = {
   id: string; name: string; provider: Provider; releaseDate: string | null
   status: 'available' | 'historical' | 'benchmark-pending' | 'mapping-pending' | 'evaluated-system'
   sourceId: string; latestRelease: boolean; apiId?: string; dateKind?: string; notes?: string; parentModelId?: string
+  apiPricing?: { inputPerMillion: number; outputPerMillion: number; cachedInputPerMillion?: number; sourceId: string; checkedAt: string; notes?: string; longContext?: { threshold: number; inputMultiplier: number; outputMultiplier: number } }
 }
 export type BenchmarkPoint = { modelId: string; score: number; cost: number | null; effort: string; sourceId: string; conditions: string; confidenceInterval?: number[]; costBasis?: string }
 export type Benchmark = { id: string; name: string; category: string; unit: '%' | 'Elo' | 'index' | 'score' | 'tasks'; version: string; description: string; sourceIds: string[]; notes: string[]; points: BenchmarkPoint[]; higherIsBetter?: boolean }
@@ -16,10 +17,14 @@ export type Dataset = {
 }
 
 export const dataset = snapshot as Dataset
-const providers: Record<string, Provider> = { anthropic: 'Anthropic', openai: 'OpenAI', 'x-ai': 'xAI', moonshotai: 'Moonshot AI', 'z-ai': 'Z.ai' }
+// Exact reviewed identities; version numbers and evaluated fallback systems are not aliases.
+export const focusedModelIds = [
+  'claude-opus-5.5', 'claude-sonnet-5.5', 'claude-fable-5.1', 'claude-fable-5', 'claude-opus-5',
+  'gpt-6.1-sol', 'gpt-6-sol', 'gpt-6-luna', 'gpt-6-astra', 'grok-4.7',
+] as const
+const providers: Record<string, Provider> = { anthropic: 'Anthropic', openai: 'OpenAI', 'x-ai': 'xAI' }
 const deepModels: Record<string, string> = {
-  'gpt-6-astra': 'gpt-6-astra', 'kimi-k3': 'kimi-k3', 'glm-5-3': 'glm-5.3', 'glm-5-3-flash': 'glm-5.3-flash',
-  'claude-sonnet-5': 'claude-sonnet-5', 'gpt-5-6-sol': 'gpt-5.6-sol', 'claude-fable-5': 'claude-fable-5', 'claude-opus-5': 'claude-opus-5',
+  'gpt-6-astra': 'gpt-6-astra', 'claude-fable-5': 'claude-fable-5', 'claude-opus-5': 'claude-opus-5',
 }
 const feeds = {
   'openrouter-models': 'https://openrouter.ai/api/v1/models',
@@ -132,15 +137,8 @@ export async function refreshDataset(fetcher: typeof fetch = fetch, current: Dat
   }
   const router = refreshes[0]
   if (router.status === 'fulfilled') {
-    const rows = router.value.rows, known = new Set(next.models.map(model => model.apiId)), modelIds = new Set(next.models.map(model => model.id))
-    for (const row of rows) {
-      const id = `discovered:${row.id}`
-      if (!known.has(row.id) && !row.id.includes(':') && !modelIds.has(id)) {
-        next.models.push({ id, name: row.name.split(': ').slice(-1)[0], provider: row.provider, releaseDate: row.releaseDate, status: 'benchmark-pending', apiId: row.id, sourceId: 'openrouter-models', latestRelease: false, dateKind: 'catalog-listed' })
-        modelIds.add(id)
-      }
-    }
-    next.discovery.models = rows; next.discovery.checkedAt = stamp
+    const rows = router.value.rows, known = new Set(next.models.map(model => model.apiId))
+    next.discovery.models = rows.filter(row => known.has(row.id)); next.discovery.checkedAt = stamp
     Object.assign(source('openrouter-models'), { retrievedAt: stamp, sha256: router.value.sha256 })
     notices.push('API metadata refreshed for models with published benchmark evidence.')
   } else notices.push('Model catalog unavailable; retaining its last known data.')
@@ -153,10 +151,6 @@ export async function refreshDataset(fetcher: typeof fetch = fetch, current: Dat
       benchmark.points = benchmark.points.filter(point => point.sourceId !== 'deepswe-public').concat(deep.value.points)
       if (!benchmark.sourceIds.includes('deepswe-public')) benchmark.sourceIds.push('deepswe-public')
       next.discovery.reviewQueue = deep.value.reviewQueue
-      for (const name of deep.value.reviewQueue) {
-        const id = `unmapped:${name}`
-        if (!modelIds.has(id)) next.models.push({ id, name, provider: 'unknown', releaseDate: null, status: 'mapping-pending', sourceId: 'deepswe-public', latestRelease: false })
-      }
       Object.assign(src, { retrievedAt: stamp, publishedAt: deep.value.generatedAt, sha256: deep.value.sha256 })
       notices.push('Independent DeepSWE runs refreshed. Published vendor results retain their source snapshots.')
     }

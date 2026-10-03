@@ -1,0 +1,252 @@
+{
+  "reviewedAt": "2026-10-03T14:28:30.059981+00:00",
+  "scope": "Official OpenAI GPT-6 Astra, GPT-6.1 Sol, GPT-6 Sol, GPT-6 Luna evidence and API pricing",
+  "pricing": [
+    {
+      "modelId": "gpt-6-astra",
+      "sourceUrl": "https://developers.openai.com/api/docs/models/gpt-6-astra",
+      "retrievedAt": "2026-10-03T14:28:28.630301+00:00",
+      "sourceMarkdownSha256": "290905c5491e594376583ae22c7d21b3b6f5469074c9a7de0189bd3ae54b290a",
+      "currency": "USD",
+      "unit": "per-million-tokens",
+      "serviceTier": "standard",
+      "maximumInputTokensForBaseRates": 272000,
+      "input": 10.0,
+      "cachedInput": 1.0,
+      "cacheWrite": 12.5,
+      "output": 50.0,
+      "longContext": {
+        "inputAndCacheMultiplier": 2,
+        "outputMultiplier": 1.5,
+        "appliesTo": "full request when input exceeds 272000 tokens"
+      },
+      "batchAndFlexMultiplier": 0.5,
+      "fastMultiplier": 2,
+      "toolChargesIncluded": false
+    },
+    {
+      "modelId": "gpt-6.1-sol",
+      "sourceUrl": "https://developers.openai.com/api/docs/models/gpt-6.1-sol",
+      "retrievedAt": "2026-10-03T14:28:29.064660+00:00",
+      "sourceMarkdownSha256": "972f4265295eea723d5332016dc22cde03f46173fafcbcba5c23b24c8cee90c6",
+      "currency": "USD",
+      "unit": "per-million-tokens",
+      "serviceTier": "standard",
+      "maximumInputTokensForBaseRates": 272000,
+      "input": 2.0,
+      "cachedInput": 0.1,
+      "cacheWrite": 2.5,
+      "output": 10.0,
+      "longContext": {
+        "inputAndCacheMultiplier": 2,
+        "outputMultiplier": 1.5,
+        "appliesTo": "full request when input exceeds 272000 tokens"
+      },
+      "batchAndFlexMultiplier": 0.5,
+      "fastMultiplier": 2,
+      "toolChargesIncluded": false
+    },
+    {
+      "modelId": "gpt-6-sol",
+      "sourceUrl": "https://developers.openai.com/api/docs/models/gpt-6-sol",
+      "retrievedAt": "2026-10-03T14:28:29.606129+00:00",
+      "sourceMarkdownSha256": "8250fec500df31d551bf994b7314208a56fe736d4253a817d136ef826fd0d709",
+      "currency": "USD",
+      "unit": "per-million-tokens",
+      "serviceTier": "standard",
+      "maximumInputTokensForBaseRates": 272000,
+      "input": 2.0,
+      "cachedInput": 0.2,
+      "cacheWrite": 2.5,
+      "output": 10.0,
+      "longContext": {
+        "inputAndCacheMultiplier": 2,
+        "outputMultiplier": 1.5,
+        "appliesTo": "full request when input exceeds 272000 tokens"
+      },
+      "batchAndFlexMultiplier": 0.5,
+      "fastMultiplier": 2,
+      "toolChargesIncluded": false
+    },
+    {
+      "modelId": "gpt-6-luna",
+      "sourceUrl": "https://developers.openai.com/api/docs/models/gpt-6-luna",
+      "retrievedAt": "2026-10-03T14:28:30.059959+00:00",
+      "sourceMarkdownSha256": "9bde4b64e369ace4696d98a7dd6ec8b8e0c6a8de090a116970d55dcd4cadfc7b",
+      "currency": "USD",
+      "unit": "per-million-tokens",
+      "serviceTier": "standard",
+      "maximumInputTokensForBaseRates": 272000,
+      "input": 0.1,
+      "cachedInput": 0.01,
+      "cacheWrite": 0.125,
+      "output": 0.5,
+      "longContext": {
+        "inputAndCacheMultiplier": 2,
+        "outputMultiplier": 1.5,
+        "appliesTo": "full request when input exceeds 272000 tokens"
+      },
+      "batchAndFlexMultiplier": 0.5,
+      "fastMultiplier": 2,
+      "toolChargesIncluded": false
+    }
+  ],
+  "pointValidation": {
+    "method": "Compare existing curated points against exact SVG accessibility labels captured on October 2. Live web text rechecked October 3; fresh release HTML fetch returned HTTP403, so these are not represented as fresh DOM extracts.",
+    "matched": 180,
+    "checked": 180,
+    "charts": [
+      {
+        "benchmarkId": "deep-swe-1-1",
+        "sourceId": "openai-6-1-sol",
+        "evidencePath": "docs/data-evidence/openai-sol-curves.json",
+        "evidenceSha256": "29bc0a6a45f839efc45fca84c8d301194b9abb479ec415caa5fd28b696016232",
+        "labelsChecked": 15,
+        "matched": 15,
+        "mismatches": []
+      },
+      {
+        "benchmarkId": "gdp-pdf",
+        "sourceId": "openai-6-1-sol",
+        "evidencePath": "docs/data-evidence/openai-sol-curves.json",
+        "evidenceSha256": "29bc0a6a45f839efc45fca84c8d301194b9abb479ec415caa5fd28b696016232",
+        "labelsChecked": 15,
+        "matched": 15,
+        "mismatches": []
+      },
+      {
+        "benchmarkId": "automationbench-1-0-6",
+        "sourceId": "openai-6-1-sol",
+        "evidencePath": "docs/data-evidence/openai-sol-curves.json",
+        "evidenceSha256": "29bc0a6a45f839efc45fca84c8d301194b9abb479ec415caa5fd28b696016232",
+        "labelsChecked": 15,
+        "matched": 15,
+        "mismatches": []
+      },
+      {
+        "benchmarkId": "osworld-2-0-offline-partial",
+        "sourceId": "openai-6-1-sol",
+        "evidencePath": "docs/data-evidence/openai-sol-curves.json",
+        "evidenceSha256": "29bc0a6a45f839efc45fca84c8d301194b9abb479ec415caa5fd28b696016232",
+        "labelsChecked": 15,
+        "matched": 15,
+        "mismatches": []
+      },
+      {
+        "benchmarkId": "automationbench-1-0-6",
+        "sourceId": "openai-6-sol-luna",
+        "evidencePath": "docs/data-evidence/openai-sol-luna-curves.json",
+        "evidenceSha256": "14ad4695446da41609ce46112160687a79f5f5f2f0906e2e44e15356d5f9e0b2",
+        "labelsChecked": 15,
+        "matched": 15,
+        "mismatches": []
+      },
+      {
+        "benchmarkId": "agents-last-exam-v1",
+        "sourceId": "openai-6-sol-luna",
+        "evidencePath": "docs/data-evidence/openai-sol-luna-curves.json",
+        "evidenceSha256": "14ad4695446da41609ce46112160687a79f5f5f2f0906e2e44e15356d5f9e0b2",
+        "labelsChecked": 15,
+        "matched": 15,
+        "mismatches": []
+      },
+      {
+        "benchmarkId": "factuality-flagged-errors",
+        "sourceId": "openai-6-sol-luna",
+        "evidencePath": "docs/data-evidence/openai-sol-luna-curves.json",
+        "evidenceSha256": "14ad4695446da41609ce46112160687a79f5f5f2f0906e2e44e15356d5f9e0b2",
+        "labelsChecked": 15,
+        "matched": 15,
+        "mismatches": []
+      },
+      {
+        "benchmarkId": "frontiercode-1-1-main",
+        "sourceId": "openai-6-sol-luna",
+        "evidencePath": "docs/data-evidence/openai-sol-luna-curves.json",
+        "evidenceSha256": "14ad4695446da41609ce46112160687a79f5f5f2f0906e2e44e15356d5f9e0b2",
+        "labelsChecked": 15,
+        "matched": 15,
+        "mismatches": []
+      },
+      {
+        "benchmarkId": "deep-swe-1-1",
+        "sourceId": "openai-6-sol-luna",
+        "evidencePath": "docs/data-evidence/openai-sol-luna-curves.json",
+        "evidenceSha256": "14ad4695446da41609ce46112160687a79f5f5f2f0906e2e44e15356d5f9e0b2",
+        "labelsChecked": 15,
+        "matched": 15,
+        "mismatches": []
+      },
+      {
+        "benchmarkId": "osworld-2-0-offline-partial",
+        "sourceId": "openai-6-sol-luna",
+        "evidencePath": "docs/data-evidence/openai-sol-luna-curves.json",
+        "evidenceSha256": "14ad4695446da41609ce46112160687a79f5f5f2f0906e2e44e15356d5f9e0b2",
+        "labelsChecked": 15,
+        "matched": 15,
+        "mismatches": []
+      },
+      {
+        "benchmarkId": "terminal-bench-science-0-1",
+        "sourceId": "openai-6-1-sol",
+        "evidencePath": "docs/data-evidence/openai-sol-remaining-curves.json",
+        "evidenceSha256": "6c0f08d1c11e37e1186d4e6023752f12e36c59d09c7f02f66ab29fc6b97e4fea",
+        "labelsChecked": 15,
+        "matched": 15,
+        "mismatches": []
+      },
+      {
+        "benchmarkId": "factuality-flagged-errors",
+        "sourceId": "openai-6-1-sol",
+        "evidencePath": "docs/data-evidence/openai-sol-remaining-curves.json",
+        "evidenceSha256": "6c0f08d1c11e37e1186d4e6023752f12e36c59d09c7f02f66ab29fc6b97e4fea",
+        "labelsChecked": 15,
+        "matched": 15,
+        "mismatches": []
+      }
+    ]
+  },
+  "primaryUrls": [
+    "https://openai.com/index/introducing-gpt-6-1-sol/",
+    "https://openai.com/index/introducing-gpt-6-sol-and-luna/",
+    "https://openai.com/index/gpt-6-astra/",
+    "https://deploymentsafety.openai.com/gpt-6-1-sol",
+    "https://deploymentsafety.openai.com/gpt-6-astra",
+    "https://developers.openai.com/api/docs/guides/model-selection",
+    "https://developers.openai.com/api/docs/guides/latest-model"
+  ],
+  "coverageGaps": [
+    {
+      "benchmarkId": "terminal-bench-4",
+      "modelIds": [
+        "gpt-6.1-sol",
+        "gpt-6-sol",
+        "gpt-6-luna"
+      ],
+      "status": "not-published-in-reviewed-official-sources",
+      "note": "Terminal-Bench Science 0.1 is a different benchmark and cannot fill these cells."
+    },
+    {
+      "benchmarkId": "frontiercode-1-1-main",
+      "modelIds": [
+        "gpt-6.1-sol"
+      ],
+      "status": "not-published-in-reviewed-official-sources"
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "modelIds": [
+        "gpt-6.1-sol",
+        "gpt-6-sol",
+        "gpt-6-luna",
+        "gpt-6-astra"
+      ],
+      "status": "not-published-in-reviewed-official-openai-sources",
+      "note": "Other publishers may report competitor scores; verify separately."
+    }
+  ],
+  "identifiedAdditions": [
+    "Official standard API input/cached input/cache-write/output rates with long-context and processing-tier conditions. No new requested-benchmark score was found beyond the curated snapshot."
+  ],
+  "recommendationBasis": "Official guidance positions Astra for highest capability, GPT-6.1 Sol for complex work with cost constraints, and Luna for scoped high-volume tasks. This is publisher guidance, not an independent all-task ranking. Pro mode is documented as reasoning.mode=pro; do not invent standalone Pro benchmark values or treat catalog IDs as official model IDs."
+}

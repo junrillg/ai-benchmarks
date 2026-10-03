@@ -38,3 +38,6 @@ Deployed: Cloudflare Pages at ai-benchmarks.pages.dev. First-viewport reproducti
 
 
 Requested simplification, 2 October 2026: the home route keeps the figure, model/evidence panel and optional best-score disclosure. Secondary browsing, catalogs and methodology move to `/benchmarks`, `/models` and `/methodology`; these preserve the incumbent world as reading pages. Native history and query links preserve chart selection. Same general benchmark goal alone never establishes equivalence.
+
+
+3 October 2026 extension: Operate; coding agents first. Preserve the scientific plate identity. Only Charts and Models routes; legacy menu URLs resolve to Charts. Full benchmark selector retains exact versions and independent DeepSWE. Show ten exact model identities, including Fable5/5.1 and active legacy Opus5; disabled rows explain missing evidence. Coverage matrix reveals five-suite gaps with source-run drilldown. The result ledger shows all runs, never a cross-source winner. Models uses official standard API rates, editable billed-token costs, verified cache pricing and OpenAI long-context modifiers. Recommendations are qualified editorial starting points. No new raster assets. Finish with desktop/mobile Charts and Models captures, reviewer verdict, and recorded changes to the existing system.
