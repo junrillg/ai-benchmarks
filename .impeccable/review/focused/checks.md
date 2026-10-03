@@ -35,3 +35,9 @@ First captures and one correction batch. Six final full-page captures: Charts an
 Initial shipped reviewer disposition: **fix**. Material findings: mobile costs require horizontal scrolling away from identity, and DESIGN/sidecar contain stale route/control descriptions. One correction batch adds the mobile estimate ledger and merges documentation from the finished implementation. Final verdict recorded below after reviewer scoring.
 
 Final independent **full review disposition: ship**. All six captures valid; original mobile cost and design-record findings resolved. Design records merged from shipped source and final mobile capture. No new visual world or QUALITY BAR card selected.
+
+## Production publication
+
+App commit `c58fb86016a957b589c24299387dfc7254551c37` pushed to `junrillg/ai-benchmarks`. [Check run37131643155](https://github.com/junrillg/ai-benchmarks/actions/runs/37131643155) completed successfully. Existing Cloudflare account/project verified; direct upload deployment `813fd285` publishes at [ai-benchmarks.pages.dev](https://ai-benchmarks.pages.dev).
+
+Chrome Personal verifies production script/CSS names equal the reviewed build, only Charts/Models, ten shortlist and ten pricing rows, default scenario estimates, no document overflow or console errors. Direct Models reload works; removed Benchmarks/Methodology paths render Charts. Temporary viewport overrides reset to user's1920×852; Models marked deliverable and left open. A shell HTTP probe received403; live verification used the browser and does not claim an independent downloaded-asset hash match.

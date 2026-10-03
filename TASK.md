@@ -60,6 +60,6 @@ Outcome: only Charts and Models, the exact ten-model shortlist, researched sourc
 | Charts and Models only | Implemented | old menu routes fall back to Charts; selector retains all focused benchmark records |
 | Useful coding and cost decisions | Implemented | source-qualified guidance; official rates; cache/long-context-aware scenario costs |
 | Validation and visual review | Verified | all build/checks pass; six final captures at three widths; independent full review: ship; DESIGN/sidecar merged |
-| Publish updated site | Pending | commit under junrillg; Pages deployment and live verification after review |
+| Publish updated site | Verified | app commit c58fb86 pushed under junrillg; Check run37131643155 success; Pages813fd285; Chrome Personal verifies production asset names, two routes, ten prices, scenario costs and removed-route fallback |
 
 Stop after required checks, finish review and publication verification, with unavailable benchmark cells remaining explicit.
